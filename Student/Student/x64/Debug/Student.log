@@ -1,0 +1,31 @@
+﻿  Adress.cpp
+\Adress.cpp(1,1): error C1083: Cannot open source file: 'Adress.cpp': No such file or directory
+  (compiling source file '/Adress.cpp')
+  
+  File.cpp
+\File.cpp(1,1): error C1083: Cannot open source file: 'File.cpp': No such file or directory
+  (compiling source file '/File.cpp')
+  
+  Main.cpp
+C:\Users\alesh\source\repos\lab_2_sem\Student\Student\Main.cpp(1,10): error C1083: Cannot open include file: 'Student.h': No such file or directory
+  Menu.cpp
+\Menu.cpp(1,1): error C1083: Cannot open source file: 'Menu.cpp': No such file or directory
+  (compiling source file '/Menu.cpp')
+  
+  Search.cpp
+\Search.cpp(1,1): error C1083: Cannot open source file: 'Search.cpp': No such file or directory
+  (compiling source file '/Search.cpp')
+  
+  Student.cpp
+\Student.cpp(1,1): error C1083: Cannot open source file: 'Student.cpp': No such file or directory
+  (compiling source file '/Student.cpp')
+  
+  Subject.cpp
+\Subject.cpp(1,1): error C1083: Cannot open source file: 'Subject.cpp': No such file or directory
+  (compiling source file '/Subject.cpp')
+  
+  Zalik.cpp
+\Zalik.cpp(1,1): error C1083: Cannot open source file: 'Zalik.cpp': No such file or directory
+  (compiling source file '/Zalik.cpp')
+  
+  Generating Code...
