@@ -3,7 +3,7 @@
 #include "Menu.h"
 #include "File.h"
 #include <iostream>
-#include <fstream> // Ensure this is included
+#include <fstream>
 #include <Windows.h>
 using namespace std;
 
@@ -15,42 +15,42 @@ void writeStudentsToFile(const string& filename) {
     }
 
     file << "3\n";
-    file << "Іван Петров\n";
-    file << "79000\n";
-    file << "Львів\n";
-    file << "Головна 10\n";
-    file << "ІП-12\n";
-    file << "12345 3\n";
-    file << "Math\n";
-    file << "1 90.0\n";
-    file << "Physics\n";
-    file << "2 85.0\n";
-    file << "Chemistry\n";
-    file << "1 88.0\n";
-    file << "Марія Коваленко\n";
-    file << "2000\n";
-    file << "Київ\n";
-    file << "Шевченка 5\n";
-    file << "ІТ-22\n";
-    file << "54321 2\n";
-    file << "Biology\n";
-    file << "1 92.0\n";
-    file << "History\n";
-    file << "2 80.0\n";
-    file << "Олег Іванов\n";
-    file << "3000\n";
-    file << "Одеса\n";
-    file << "Дерибасівська 7\n";
-    file << "ПМ-31\n";
-    file << "67890 4\n";
-    file << "Math\n";
-    file << "1 75.0\n";
-    file << "Physics\n";
-    file << "2 82.0\n";
-    file << "Chemistry\n";
-    file << "1 78.0\n";
-    file << "English\n";
-    file << "2 85.0\n";
+    file << "Іван Малина\n";
+    file << "28310\n";
+    file << "Кремень\n";
+    file << "Цибулева 23\n";
+    file << "ПМк-12\n";
+    file << "32553 3\n";
+    file << "Географія\n";
+    file << "3 32.0\n";
+    file << "Філософія\n";
+    file << "3 67.0\n";
+    file << "Геополітика\n";
+    file << "6 23.0\n";
+    file << "Олена Свавілко\n";
+    file << "12454\n";
+    file << "Миколаїв\n";
+    file << "Староєврейська 10\n";
+    file << "ГАр-24\n";
+    file << "43218 2\n";
+    file << "Хірургічні основи\n";
+    file << "2 21.0\n";
+    file << "Історія медецини\n";
+    file << "6 23.0\n";
+    file << "Лава Гарнір\n";
+    file << "30232\n";
+    file << "Житомир\n";
+    file << "Сан-Тропеська 90\n";
+    file << "ІН-23\n";
+    file << "32421 4\n";
+    file << "Інтелектуальні системи\n";
+    file << "4 46.0\n";
+    file << "Програмування\n";
+    file << "1 23.0\n";
+    file << "Біохімія\n";
+    file << "5 12.0\n";
+    file << "Англіська\n";
+    file << "4 81.0\n";
 
     file.close();
     cout << "Дані успішно записані у файл " << filename << endl;
