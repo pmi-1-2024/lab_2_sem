@@ -12,6 +12,7 @@ void get(string field, string quiry, Student * list) {
     else if (field == "Predmet") { for (int i = 0; i < 10; i++) if (list[i].get_z_id() == quiry) cout << list[i]; }
     else cout << "WRONG CRITERIA";
 }
+
 void search(Student * list) {
     string f, q;
     while (true) {
@@ -32,6 +33,7 @@ void search(Student * list) {
         _getch();
     }
 }
+
 int main()
 {
     
