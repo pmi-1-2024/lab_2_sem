@@ -1,0 +1,12 @@
+Arsen 47445 Lviv GnataHotkevicha PMI-11 4324
+MathAnalys 1 86
+Programing 2 87
+END
+Anna 24793 Lviv Medova PMI-11 3689
+Diskra 2 100
+Programing 2 99
+END
+Daryna 79352 Kyiv Shevchenka PMI-13 9532
+English 1 100
+Histiry 2 87
+END
