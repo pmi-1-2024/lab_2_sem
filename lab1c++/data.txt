@@ -1,0 +1,3 @@
+Svyatoslav PMI11  25366  Lviv Kopernika   Z100001 3  algebra  1 96  history 2 100 english 1 100
+Olya       PMI11  10056  Odesa Varsavska  Z100002 3  algebra  1 66  history 2 94  english 1 73
+Roman      PMI12  12345  Lviv  Sadova     Z100003 3  algebra  1 53  history 2 72  english 1 100
