@@ -3,7 +3,7 @@
 #include <ext/pb_ds/tree_policy.hpp>
 /** contains everything I need in std **/
 #include <bits/stdc++.h>
-#include "../head/stud.h"
+#include "../sours/stud.cpp"
 
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
