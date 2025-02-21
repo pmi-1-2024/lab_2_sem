@@ -34,3 +34,7 @@
 
 .idea/
 .vscode/
+*.vcxproj
+*.vcxproj.*
+/.vs
+/lab1c++/.vs/lab1c++
