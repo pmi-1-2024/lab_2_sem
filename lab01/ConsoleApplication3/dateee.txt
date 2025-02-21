@@ -1,0 +1,10 @@
+John 10001 NewYork Broadway 1 45712 3 Math 1 85 History 2 78 English 1 92
+Emily 90012 LosAngeles Sunset 3 89234 5 Biology 3 88 Chemistry 2 76 Physics 3 90 Math 1 84 English 1 79
+Michael 60601 Chicago Michigan 2 67345 4 Geography 2 80 History 3 85 Math 1 91 English 1 87
+Sarah 77002 Houston Main 4 12987 6 Physics 4 89 Chemistry 3 78 Biology 2 92 English 1 84 History 2 90 Math 1 88
+David 85001 Phoenix Central 1 34829 2 Math 1 83 English 1 80
+Jessica 19102 Philadelphia Market 2 56290 5 History 2 88 English 1 79 Physics 3 92 Chemistry 3 85 Math 1 87
+Daniel 98101 Seattle Pike 3 73485 3 Biology 2 91 Chemistry 3 84 English 1 86
+Laura 30303 Atlanta Peachtree 4 91523 6 Geography 2 77 History 3 85 English 1 89 Math 1 91 Chemistry 3 80 Physics 4 86
+James 33101 Miami Ocean 2 60417 4 Biology 2 88 Math 1 90 English 1 85 History 2 82
+Olivia 94102 SanFrancisco Lombard 1 28156 5 Math 1 92 English 1 87 Physics 3 80 Geography 2 85 History 2 78
