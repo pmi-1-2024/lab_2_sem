@@ -11,7 +11,7 @@ void findByName(Student* students, int count, string name) {
             found = true;
         }
     }
-    if (!found) cout << "Студента з ім'ям " << name << " не знайдено!" << endl;
+    if (!found) cout << "Жодного студента не знайдено!" << endl;
 }
 
 void findByGroup(Student* students, int count, string group) {
@@ -24,7 +24,7 @@ void findByGroup(Student* students, int count, string group) {
             found = true;
         }
     }
-    if (!found) cout << "Студентів з групи " << group << " не знайдено!" << endl;
+    if (!found) cout << "Жодного студента не знайдено!" << endl;
 }
 
 void findByZalik(Student* students, int count, int zalikNumber) {
@@ -35,7 +35,7 @@ void findByZalik(Student* students, int count, int zalikNumber) {
             found = true;
         }
     }
-    if (!found) cout << "Студента з номером заліковки " << zalikNumber << " не знайдено!" << endl;
+    if (!found) cout << "Жодного студента не знайдено!" << endl;
 }
 
 void findByAdress(Student* students, int count, string addressPart) {
@@ -48,7 +48,7 @@ void findByAdress(Student* students, int count, string addressPart) {
             found = true;
         }
     }
-    if (!found) cout << "Студентів за адресою \"" << addressPart << "\" не знайдено!" << endl;
+    if (!found) cout << "Жодного студента не знайдено!" << endl;
 }
 
 void findBySubject(Student* students, int count, string subjectName) {
@@ -59,7 +59,7 @@ void findBySubject(Student* students, int count, string subjectName) {
             found = true;
         }
     }
-    if (!found) cout << "Студентів, які вивчають предмет \"" << subjectName << "\", не знайдено!" << endl;
+    if (!found) cout << "Жодного студента не знайдено!" << endl;
 }
 
 void findBySem(Student* students, int count, int semester) {
@@ -70,7 +70,7 @@ void findBySem(Student* students, int count, int semester) {
             found = true;
         }
     }
-    if (!found) cout << "Студентів, які мають предмети у " << semester << "-му семестрі, не знайдено!" << endl;
+    if (!found) cout << "Жодного студента не знайдено!" << endl;
 }
 
 
