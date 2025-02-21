@@ -1,0 +1,13 @@
+Daryna 79015 Lviv Slastiona PMI-11 1322
+Math 1 90
+English 2 85
+END
+Uliana 79099 Kyiv HeroivUPA PMI-12 1265
+German 1 85
+History 2 90
+END
+Zakhar 79013 Lviv Naukova PMI-13 1823
+Physics 1 75
+Geography 2 80
+END
+
