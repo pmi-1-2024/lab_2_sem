@@ -1,0 +1,8 @@
+Daryna 12345 Kyiv Shevchenko-10 Group1 123456
+Math Semestr-1 90 Physics Semestr-2 95 END
+Uliana 67890 Lviv Franka-5 Group2 654321
+Chemistry Semestr-1 75 Math Semestr-2 88 END
+Uliana 54321 Odesa Deribasivska-15 Group3 987654
+History Semestr-1 90 Geography Semestr-2 85 END
+Nazar 79052 Lviv Slastiona-5 Group2 856217
+Chemistry Semestr-1 75 Math Semestr-2 80 END
