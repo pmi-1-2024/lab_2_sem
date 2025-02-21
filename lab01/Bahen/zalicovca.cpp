@@ -30,3 +30,7 @@ istream& operator >> (istream& in, Zalicovca& z)
 string Zalicovca::get_id() {
     return id;
 }
+bool Zalicovca::is_subject(string sub) {
+    for (int i = 0; i < size; i++) if (sub == array[i].get_name()) return true;
+    return false;
+}

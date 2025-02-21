@@ -16,3 +16,7 @@ istream& operator >> (istream& in, Predmet& p)
 	cout << "__________" << endl;
 	return in;
 }
+
+string Predmet::get_name() {
+	return name;
+}

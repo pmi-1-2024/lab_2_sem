@@ -24,7 +24,7 @@ public:
     string get_zip();
     string get_group();
     string get_z_id();
-    string get_subject();
+    bool is_in_subjects(string sub);
     friend ostream& operator << (ostream& out, const Student& c);
     friend istream& operator >> (istream& in, Student& c);
    

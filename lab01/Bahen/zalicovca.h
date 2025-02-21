@@ -16,6 +16,7 @@ public:
 		this->array = 0;
     }
 	string get_id();
+	bool is_subject(string sub);
 	friend ostream& operator << (ostream& out, const Zalicovca& z);
 	friend istream& operator >> (istream& in, Zalicovca& z);
 };

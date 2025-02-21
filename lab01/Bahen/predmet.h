@@ -14,6 +14,7 @@ public:
 		this->term = 1;
 		this->mark = 0;
 	}
+	string get_name();
 	friend ostream& operator << (ostream& out, const Predmet& p);
 	friend istream& operator >> (istream& in, Predmet& p);
 };

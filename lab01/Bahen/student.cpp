@@ -32,3 +32,6 @@ string Student::get_zip() {
 string Student::get_z_id() {
     return zalicovca.get_id();
 }
+bool Student::is_in_subjects(string sub) {
+    return zalicovca.is_subject(sub);
+}
