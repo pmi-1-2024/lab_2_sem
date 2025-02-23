@@ -19,7 +19,7 @@ public:
     Student() {
         name = "";
         group = "";
-    }
+    };
     string get_name();
     string get_zip();
     string get_group();

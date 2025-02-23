@@ -10,11 +10,11 @@ private:
 	int size;
 	Predmet * array;
 public:
-    Zalicovca() {
-		this->id = "0";
-        this->size = 0;
-		this->array = 0;
-    }
+	Zalicovca() {
+		id = "0";
+		size = 0;
+		array = 0;
+	};
 	string get_id();
 	bool is_subject(string sub);
 	friend ostream& operator << (ostream& out, const Zalicovca& z);

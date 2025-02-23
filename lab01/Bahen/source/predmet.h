@@ -10,10 +10,10 @@ private:
 	int mark;
 public:
 	Predmet() {
-		this->name = "";
-		this->term = 1;
-		this->mark = 0;
-	}
+		name = "";
+		term = 1;
+		mark = 0;
+	};
 	string get_name();
 	friend ostream& operator << (ostream& out, const Predmet& p);
 	friend istream& operator >> (istream& in, Predmet& p);

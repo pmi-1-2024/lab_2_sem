@@ -20,18 +20,23 @@ istream& operator >> (istream& in, Student& s)
     in >> s.zalicovca;
     return in;
 }
+
 string Student::get_name() {
     return name;
 }
+
 string Student::get_group() {
     return group;
 }
+
 string Student::get_zip() {
     return adr.get_zip();
 }
+
 string Student::get_z_id() {
     return zalicovca.get_id();
 }
+
 bool Student::is_in_subjects(string sub) {
     return zalicovca.is_subject(sub);
 }
