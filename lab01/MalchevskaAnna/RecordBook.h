@@ -1,16 +1,21 @@
 #pragma once
-#include <string>
 #include "Subject.h"
-
+#include <iostream>
 using namespace std;
 
 class RecordBook {
-public:
-    string number;
+private:
+    int number;
     Subject* subjects;
     int subjectCount;
-    RecordBook(string number = "", int subjectCount = 0);
+
+public:
+    RecordBook();
+    RecordBook(int number, Subject* subjects, int subjectCount);
     ~RecordBook();
-    void input();
-    void output() const;
+
+    int getNumber() const;
+    void addSubject(const Subject& subject);
+    friend ostream& operator<<(ostream& os, const RecordBook& recordBook);
+    friend istream& operator>>(istream& is, RecordBook& recordBook);
 };

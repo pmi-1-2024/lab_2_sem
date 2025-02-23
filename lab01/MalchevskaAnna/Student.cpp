@@ -1,19 +1,30 @@
 #include "Student.h"
-#include <iostream>
+#include <string>  
 
-Student::Student(string name, string groupName, Address address, RecordBook recordBook)
-    : name(name), groupName(groupName), address(address), recordBook(recordBook) {}
+Student::Student() : name(""), address(Address()), groupName(""), recordBook(RecordBook()) {}
 
-void Student::input() {
-    cout << "Enter student name: ";
-    cin >> name;
-    cout << "Enter group name: ";
-    cin >> groupName;
-    address.input();
-    recordBook.input();
+Student::Student(string name, Address address, string groupName, RecordBook recordBook)
+    : name(name), address(address), groupName(groupName), recordBook(recordBook) {}
+
+string Student::getName() const { return name; }
+string Student::getGroupName() const { return groupName; }
+string Student::getRecordNumber() const {
+    return to_string(recordBook.getNumber());
 }
-void Student::output() const {
-    cout << "Student: " << name << ", Group: " << groupName << endl;
-    address.output();
-    recordBook.output();
+Address Student::getAddress() const { return address; }
+
+ostream& operator<<(ostream& os, const Student& student) {
+    os << "Name: " << student.name << "\nGroup: " << student.groupName << "\n" << student.address
+        << "\n" << student.recordBook;
+    return os;
+}
+
+istream& operator>>(istream& is, Student& student) {
+    cout << "Enter student name: ";
+    is >> student.name;
+    cout << "Enter group name: ";
+    is >> student.groupName;
+    is >> student.address;
+    is >> student.recordBook;
+    return is;
 }

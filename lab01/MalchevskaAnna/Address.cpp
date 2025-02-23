@@ -1,17 +1,29 @@
 #include "Address.h"
-#include <iostream>
 
-Address::Address(string city, string street, int houseNumber)
-    : city(city), street(street), houseNumber(houseNumber) {}
+Address::Address() : city(""), street(""), houseNumber(0), zipCode(0) {}
 
-void Address::input() {
-    cout << "Enter city: ";
-    cin >> city;
-    cout << "Enter street: ";
-    cin >> street;
-    cout << "Enter house number: ";
-    cin >> houseNumber;
+Address::Address(string city, string street, int houseNumber, int zipCode)
+    : city(city), street(street), houseNumber(houseNumber), zipCode(zipCode) {}
+
+string Address::getCity() const { return city; }
+string Address::getStreet() const { return street; }
+int Address::getHouseNumber() const { return houseNumber; }
+int Address::getZipCode() const { return zipCode; }
+
+ostream& operator<<(ostream& os, const Address& address) {
+    os << "City: " << address.city << ", Street: " << address.street
+        << ", House Number: " << address.houseNumber << ", Zip Code: " << address.zipCode;
+    return os;
 }
-void Address::output() const {
-    cout << "City: " << city << ", Street: " << street << ", House number: " << houseNumber << endl;
+
+istream& operator>>(istream& is, Address& address) {
+    cout << "Enter city: ";
+    is >> address.city;
+    cout << "Enter street: ";
+    is >> address.street;
+    cout << "Enter house number: ";
+    is >> address.houseNumber;
+    cout << "Enter zip code: ";
+    is >> address.zipCode;
+    return is;
 }

@@ -1,15 +1,17 @@
 #pragma once
-#include <string>
-
+#include <iostream>
 using namespace std;
 
 class Subject {
-public:
+private:
     string name;
     int semester;
     int grade;
 
-    Subject(string name = "", int semester = 0, int grade = 0);
-    void input();
-    void output() const;
+public:
+    Subject();
+    Subject(string name, int semester, int grade);
+
+    friend ostream& operator<<(ostream& os, const Subject& subject);
+    friend istream& operator>>(istream& is, Subject& subject);
 };

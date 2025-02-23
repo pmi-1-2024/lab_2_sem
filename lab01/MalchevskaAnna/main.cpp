@@ -1,154 +1,136 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+#include "Group.h"
 #include "Student.h"
+#include "Address.h"
+#include "RecordBook.h"
+#include "Subject.h"
 
 using namespace std;
 
-void saveToFile(Student* students, int count) {
-    ofstream outFile("students.txt");
-    for (int i = 0; i < count; ++i) {
-        outFile << students[i].name << endl;
-        outFile << students[i].groupName << endl;
-        outFile << students[i].address.city << endl;
-        outFile << students[i].address.street << endl;
-        outFile << students[i].address.houseNumber << endl;
-        outFile << students[i].recordBook.number << endl;
-        outFile << students[i].recordBook.subjectCount << endl;
-        for (int j = 0; j < students[i].recordBook.subjectCount; ++j) {
-            outFile << students[i].recordBook.subjects[j].name << endl;
-            outFile << students[i].recordBook.subjects[j].semester << endl;
-            outFile << students[i].recordBook.subjects[j].grade << endl;
-        }
-    }
-    outFile.close();
-}
-
-int loadFromFile(Student*& students) {
-    ifstream inFile("students.txt");
-    int count = 0;
-    while (!inFile.eof()) {
-        string name, groupName, city, street, recordNumber, subjectName;
-        int houseNumber, subjectCount, semester, grade;
-
-        inFile >> name;
-        if (name.empty()) break;
-        inFile >> groupName >> city >> street >> houseNumber >> recordNumber >> subjectCount;
-
-        Address address(city, street, houseNumber);
-        RecordBook recordBook(recordNumber, subjectCount);
-        recordBook.subjects = new Subject[subjectCount];
-
-        for (int i = 0; i < subjectCount; ++i) {
-            inFile >> subjectName >> semester >> grade;
-            recordBook.subjects[i] = Subject(subjectName, semester, grade);
-        }
-
-        Student* tempStudents = new Student[count + 1];
-        for (int i = 0; i < count; ++i) {
-            tempStudents[i] = students[i];
-        }
-        tempStudents[count] = Student(name, groupName, address, recordBook);
-
-        delete[] students;
-        students = tempStudents;
-
-        ++count;
-    }
-    inFile.close();
-    return count;
-}
-
-
-void searchByName(Student* students, int count, const string& name) {
-    bool found = false;
-    for (int i = 0; i < count; ++i) {
-        if (students[i].name == name) {
-            students[i].output();
-            found = true;
-        }
-    }
-    if (!found) {
-        cout << "Student with name '" << name << "' not found!" << endl;
-    }
-}
-
-
-void searchByGroup(Student* students, int count, const string& groupName) {
-    bool found = false;
-    for (int i = 0; i < count; ++i) {
-        if (students[i].groupName == groupName) {
-            students[i].output();
-            found = true;
-        }
-    }
-    if (!found) {
-        cout << "No students found in group '" << groupName << "'!" << endl;
-    }
-}
-
-
 int main() {
-    Student* students = nullptr;
-    int studentCount;
-
-
-    int loadedCount = loadFromFile(students);
-
-    cout << "\nLoaded student data from file:\n";
-    for (int i = 0; i < loadedCount; ++i) {
-        students[i].output();
-    }
-
+    Group* group = nullptr;
     int choice;
+
     while (true) {
         cout << "\nMenu:\n";
-        cout << "1. Add new student\n";
-        cout << "2. Search by student name\n";
-        cout << "3. Search by group name\n";
-        cout << "4. Exit\n";
+        cout << "1. Enter Group Name\n";
+        cout << "2. Add Student\n";
+        cout << "3. Search by Name\n";
+        cout << "4. Search by Group Name\n";
+        cout << "5. Search by Record Book Number\n";
+        cout << "6. Search by Address\n";
+        cout << "7. Print all students in group\n";
+        cout << "8. Remove Student\n";
+        cout << "9. Save to File\n";
+        cout << "10. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
         if (choice == 1) {
+            string groupName;
+            cout << "Enter the group name: ";
+            cin >> groupName;
 
-            Student* tempStudents = new Student[loadedCount + 1];
-            for (int i = 0; i < loadedCount; ++i) {
-                tempStudents[i] = students[i];
+            if (group != nullptr) {
+                delete group;
             }
-            cout << "Enter data for new student:\n";
-            tempStudents[loadedCount].input();
 
-            delete[] students;
-            students = tempStudents;
-
-            ++loadedCount;
-
-            saveToFile(students, loadedCount);
-
+            group = new Group(groupName, nullptr, 0);
+            cout << "Group " << groupName << " has been created.\n";
         }
         else if (choice == 2) {
-            string name;
-            cout << "Enter student name to search: ";
-            cin >> name;
-            searchByName(students, loadedCount, name);
-
+            if (group == nullptr) {
+                cout << "Please create a group first (Option 1).\n";
+                continue;
+            }
+            Student student;
+            cin >> student;
+            group->addStudent(student);
         }
         else if (choice == 3) {
-            string groupName;
-            cout << "Enter group name to search: ";
-            cin >> groupName;
-            searchByGroup(students, loadedCount, groupName);
-
+            if (group == nullptr) {
+                cout << "Please create a group first (Option 1).\n";
+                continue;
+            }
+            string name;
+            cout << "Enter name: ";
+            cin >> name;
+            group->searchByName(name);
         }
         else if (choice == 4) {
+            if (group == nullptr) {
+                cout << "Please create a group first (Option 1).\n";
+                continue;
+            }
+            string groupName;
+            cout << "Enter group name: ";
+            cin >> groupName;
+            group->searchByGroupName(groupName);
+        }
+        else if (choice == 5) {
+            if (group == nullptr) {
+                cout << "Please create a group first (Option 1).\n";
+                continue;
+            }
+            string recordNumber;
+            cout << "Enter record number: ";
+            cin >> recordNumber;
+            group->searchByRecordNumber(recordNumber);
+        }
+        else if (choice == 6) {
+            if (group == nullptr) {
+                cout << "Please create a group first (Option 1).\n";
+                continue;
+            }
+            Address address;
+            cin >> address;
+            group->searchByAddress(address);
+        }
+        else if (choice == 7) {
+            if (group == nullptr) {
+                cout << "Please create a group first (Option 1).\n";
+                continue;
+            }
+            group->printStudents();
+        }
+        else if (choice == 8) {
+            if (group == nullptr) {
+                cout << "Please create a group first (Option 1).\n";
+                continue;
+            }
+            string name;
+            cout << "Enter name to remove: ";
+            cin >> name;
+            group->removeStudent(name);
+        }
+        else if (choice == 9) {
+            if (group == nullptr) {
+                cout << "Please create a group first (Option 1).\n";
+                continue;
+            }
+
+            ofstream outFile("students.txt");
+            if (outFile.is_open()) {
+                outFile << *group;
+                outFile.close();
+                cout << "Data saved to file.\n";
+            }
+            else {
+                cout << "Error opening file for saving.\n";
+            }
+        }
+        else if (choice == 10) {
+
+            if (group != nullptr) {
+                delete group;
+            }
             break;
         }
         else {
-            cout << "Invalid choice" << endl;
+            cout << "Invalid choice. Try again.\n";
         }
     }
 
-    delete[] students;
     return 0;
 }
