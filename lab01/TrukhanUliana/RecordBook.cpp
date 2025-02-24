@@ -1,19 +1,31 @@
 #include "RecordBook.h"
-
-RecordBook::RecordBook(string recordNumber)
-    : recordNumber(recordNumber), subjectCount(0) {
+//Constructor
+RecordBook::RecordBook() : recordNumber(""), subjects(nullptr), subjectCount(0) {
 }
 
+RecordBook::RecordBook(string recordNumber, Subject* subjects, int subjectCount)
+    : recordNumber(recordNumber), subjects(subjects), subjectCount(0) {
+}
+
+RecordBook::~RecordBook() {
+	delete[] subjects;
+}
+
+//Adding subject
 void RecordBook::addSubject(Subject subject) {
-    if (subjectCount < 10) subjects[subjectCount++] = subject;
-}
-
-void RecordBook::display() const {
-    cout << "Record Book: " << recordNumber << endl;
-    for (int i = 0; i < subjectCount; i++) subjects[i].display();
+    Subject* newSubjects = new Subject[subjectCount + 1];
+    for (int i = 0; i < subjectCount; i++) {
+        newSubjects[i] = subjects[i];
+    }
+    newSubjects[subjectCount] = subject;
+    delete[] subjects;
+    subjects = newSubjects;
+    subjectCount++;
 }
 
 string RecordBook::getRecordNumber() const { return recordNumber; }
+int RecordBook::getSubjectCount() const { return subjectCount; }
+Subject* RecordBook::getSubjects() const { return subjects; }
 
 bool RecordBook::hasSubject(string subjectName) const {
     for (int i = 0; i < subjectCount; i++)
@@ -25,4 +37,25 @@ bool RecordBook::hasSemester(string semester) const {
     for (int i = 0; i < subjectCount; i++)
         if (subjects[i].getSemester() == semester) return true;
     return false;
+}
+
+istream& operator>>(istream& is, RecordBook& recordBook) {
+	is >> recordBook.recordNumber;
+	string subjectName, semester;
+	int grade;
+	while (is >> subjectName) {
+		if (subjectName == "END") break;
+		is >> semester >> grade;
+		recordBook.addSubject(Subject(subjectName, semester, grade));
+	}
+	return is;
+}
+
+ostream& operator<<(ostream& os, const RecordBook& recordBook) {
+	os << recordBook.recordNumber << endl;
+	for (int i = 0; i < recordBook.subjectCount; i++) {
+		os << recordBook.subjects[i] << endl;
+	}
+	os << "END" << endl;
+	return os;
 }

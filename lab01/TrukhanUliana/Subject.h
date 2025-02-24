@@ -10,9 +10,12 @@ private:
 public:
     Subject();
     Subject(string name, string semester, int grade);
-    void display() const;
+
     string getName() const;
     string getSemester() const;
     int getGrade() const;
+
+    friend istream& operator>>(istream& is, Subject& subject);
+    friend ostream& operator<<(ostream& os, const Subject& subject);
 };
 #endif 

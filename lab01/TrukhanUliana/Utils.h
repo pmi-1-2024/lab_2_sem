@@ -1,12 +1,13 @@
 #ifndef UTILS_H
 #define UTILS_H
 #include <string>
-#include <iostream>
 #include <fstream>
-#include "Student.h"
+#include "Group.h"
 using namespace std;
 
-void readFromFile(ifstream& file, int& studentCount, Student students[]);
-void menu();
+void readFromFile(ifstream& file, int& studentCount, Student*& students);
+void menu1();
+void menu2();
+
 
 #endif

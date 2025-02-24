@@ -6,14 +6,23 @@ using namespace std;
 class RecordBook {
 private:
     string recordNumber;
-    Subject subjects[10];
+    Subject* subjects;
     int subjectCount;
 public:
-    RecordBook(string recordNumber);
+	RecordBook();
+    RecordBook(string recordNumber, Subject* subject, int subjectCount);
+	~RecordBook();
+
     void addSubject(Subject subject);
-    void display() const;
+
     string getRecordNumber() const;
+	int getSubjectCount() const;
+	Subject* getSubjects() const;
+
     bool hasSubject(string subjectName) const;
     bool hasSemester(string semester) const;
+
+	friend istream& operator>>(istream& is, RecordBook& recordBook);
+	friend ostream& operator<<(ostream& os, const RecordBook& recordBook);
 };
 #endif
