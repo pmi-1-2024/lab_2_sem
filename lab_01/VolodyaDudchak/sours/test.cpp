@@ -3,7 +3,7 @@
 #include <ext/pb_ds/tree_policy.hpp>
 /** contains everything I need in std **/
 #include <bits/stdc++.h>
-#include "../sours/stud.cpp"
+#include "../sours/group.cpp"
 
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
@@ -35,7 +35,7 @@ void studFindName(student* ar, string t, int n)
 {
     FOR(i,0,n)
     {
-        if(ar[i].name == t)
+        if(ar[i].getName() == t)
         {
             ar[i].out();
             return;
@@ -49,7 +49,7 @@ void studFindAdd(student* ar, string t1, int n)
     int t = stoi(t1);
     FOR(i,0,n)
     {
-        if(ar[i].ad.zip == t)
+        if(ar[i].getAd().getZip() == t)
         {
             ar[i].out();
             return;
@@ -63,7 +63,7 @@ void studFindNumbZali(student* ar, string t1, int n)
     int t = stoi(t1);
     FOR(i,0,n)
     {
-        if(ar[i].zali.name == t)
+        if(ar[i].getZali().getZali() == t)
         {
             ar[i].out();
             return;
@@ -77,7 +77,7 @@ void studFindNumbGroup(student* ar, string t1, int n)
     int t = stoi(t1);
     FOR(i,0,n)
     {
-        if(ar[i].group == t)
+        if(ar[i].getGroup() == t)
         {
             ar[i].out();
             return;
@@ -90,8 +90,8 @@ void studFindPredm(student* ar, string t, int n)
 {
     FOR(i,0,n)
     {
-        FOR(j,0,ar[i].zali.sz)
-        if(ar[i].zali.preds[j].name == t)
+        FOR(j,0,ar[i].getZali().getZaliSz())
+        if(ar[i].getZali().getPred(j).getName() == t)
         {
             ar[i].out();
             return;
@@ -105,8 +105,8 @@ void studFindSem(student* ar, string t1, int n)
     int t = stoi(t1);
     FOR(i,0,n)
     {
-        FOR(j,0,ar[i].zali.sz)
-        if(ar[i].zali.preds[j].sem == t)
+        FOR(j,0,ar[i].getZali().getZaliSz())
+        if(ar[i].getZali().getPred(j).getSem() == t)
         {
             ar[i].out();
             return;

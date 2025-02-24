@@ -23,3 +23,19 @@ void predmet::out()
         cout << marks[i] << ' ';
     cout << endl;
 }
+
+string predmet::getName(){
+    return name;
+}
+
+int predmet::getSem(){
+    return sem;
+}
+
+int* predmet::getMarks(){
+    return marks;
+}
+
+int predmet::getSz(){
+    return n;
+}

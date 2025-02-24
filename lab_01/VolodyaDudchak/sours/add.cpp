@@ -21,4 +21,15 @@ adres::adres(int zp, string ct, string st)
     zip = zip, city = ct, str = st;
 }
 
+int adres::getZip(){
+    return zip;
+}
+
+string adres::getStr(){
+    return str;
+}
+
+string adres::getCity(){
+    return city;
+}
 

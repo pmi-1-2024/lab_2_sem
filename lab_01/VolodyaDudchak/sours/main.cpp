@@ -3,11 +3,11 @@
 
 int32_t main()
 {
-    int n;
+    int n,m;
     string tr;
-    getline(in,tr);
-    n = stoi(tr);
+    in >> n >> m;
     student * students = new student[n];
+    group* groups = new group[m];
     FOR(i,0,n)
     {
         students[i].inp();
@@ -15,6 +15,21 @@ int32_t main()
     {
         FOR(i,0,n)
         students[i].out();
+    }
+    FOR(i,0,m)
+    {
+        groups[i].change_Numb(i);
+    }
+    FOR(i,0,n)
+    {
+        groups[students[i].getGroup()].add(students[i]);
+    }
+    FOR(i,0,m)
+    {
+        if(groups[i].getSz() != 0)
+            groups[i].out();
+        else
+            cout << "group " << i+1 << " has no students" << endl;
     }
     while(true)
     {

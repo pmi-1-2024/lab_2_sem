@@ -23,3 +23,19 @@ void student::out()
     zali.out();
     ad.out();
 }
+
+
+zalikov student::getZali(){
+    return zali;
+}
+string student:: getName(){
+    return name;
+}
+
+adres student::getAd(){
+    return ad;
+}
+
+int student:: getGroup(){
+    return group;
+}
