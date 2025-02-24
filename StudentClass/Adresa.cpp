@@ -2,22 +2,8 @@
 #include <iostream>
 using namespace std;
 
-Adresa::Adresa() : index(""), city(""), street("") {}
+Adresa::Adresa(){}
 Adresa::Adresa(string ind, string cit, string str): index(ind) , city(cit), street(str){}
-
-void Adresa::input() {
-    cout << "Ââåä³òü ³íäåêñ: ";
-    cin >> index;
-    cout << "Ââåä³òü ì³ñòî: ";
-    cin >> city;
-    cout << "Ââåä³òü âóëèöş: ";
-    cin >> street;
- 
-}
-
-void Adresa::display()const {
-    cout << "Àäğåñà: " << index << ", " << city << ", " << street << " " << endl;
-}
 
 string Adresa::GetCity() const {
     return city;
@@ -29,3 +15,19 @@ string Adresa::GetStreet()const {
     return street;
 }
 
+istream& operator>>(istream& is, Adresa& adr)
+{
+    cout << "\nEnter index: ";
+    is >> adr.index;
+    cout << "\nEnter city: ";
+    is >> adr.city;
+    cout << "Enter street: ";
+    is >> adr.street;
+    return is;
+}
+ostream& operator<<(ostream& os, const Adresa& adr) {
+    os << "\nCity: " << adr.city;
+    os << "\nIndex: " << adr.index;
+    os << "\nStreet: " << adr.street;
+    return os;
+}

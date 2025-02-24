@@ -10,16 +10,13 @@ int main() {
         cout << "Error opening file!" << endl;
         return 1;
     }
-
     Student students[100];
     int studentCount = 0;
-
     readFile(file, studentCount, students);
-
     menu();
 
     int searchType;
-    cin >> searchType;
+   cin >> searchType;
 
     cout << "Enter search term: ";
     string searchValue;
@@ -28,13 +25,13 @@ int main() {
     bool found = false; 
     for (int i = 0; i < studentCount; i++) {
         if (students[i].ToFCriter(searchValue, searchType)) {
-            students[i].display();
+            cout<<students[i];
             found = true;
         }
     }
 
     if (!found) {
-        cout << "No students found with the given criteria." << endl;
+        cout << "No students found with this criteria." << endl;
     }
 
     return 0;

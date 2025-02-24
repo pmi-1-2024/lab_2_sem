@@ -9,20 +9,21 @@ using namespace std;
 
 
 class Student {
-public:
+private:
     string name;
     Adresa address;
     string group;
     Zalikovka zalik;
+public:
     Student();
     Student(string n, Adresa adr, string gr, Zalikovka zal);
-    void input();
-    void display();
     string GetName()const;
     Adresa GetAdr()const;
     string GetGroup()const;
     Zalikovka GetZal()const;
-    bool ToFCriter(string search,int searchnum);
+    bool ToFCriter(string search,int searchnum)const;
+    friend istream& operator>>(istream& is, Student& stud);
+    friend ostream& operator<<(ostream& os, const Student& stud);
 };
 
 #endif

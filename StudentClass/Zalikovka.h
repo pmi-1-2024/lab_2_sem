@@ -13,13 +13,12 @@ private:
 public:
     Zalikovka();
     Zalikovka(string zalnum);
-    void input();
-    void display();
     string GetNumber()const;
     void addSub(Predmet subject);
     bool hasSub(string subname)const;
     bool hasSem(string sem)const;
-
+    friend istream& operator>>(istream& is, Zalikovka& zal);
+    friend ostream& operator<<(ostream& os, const Zalikovka& zal);
 
 };
 

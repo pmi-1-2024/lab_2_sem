@@ -5,17 +5,18 @@
 using namespace std;
 
 class Predmet {
-public:
+private:
     string name;
     string semester;
     int grade;
+public:
     Predmet();
     Predmet(string n, string sem,int grade);
-    void input();
-    void display();
     string GetName() const;
     string GetSem() const;
     int GetGrade() const;
+    friend istream& operator>>(istream& is, Predmet& pred);
+    friend ostream& operator<<(ostream& os, const Predmet& pred);
 };
 
 #endif

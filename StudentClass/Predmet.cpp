@@ -2,22 +2,9 @@
 #include <iostream>
 using namespace std;
 
-Predmet::Predmet() : name(""), semester(0), grade(0) {}
+Predmet::Predmet(){}
 Predmet::Predmet(string n,string s,int g): name(n), semester(s), grade(g){}
 
-
-void Predmet::input() {
-    cout << "Введіть назву предмета: ";
-    cin >> name;
-    cout << "Введіть номер семестру: ";
-    cin >> semester;
-    cout << "Введіть оцінку: ";
-    cin >> grade;
-}
-
-void Predmet::display() {
-    cout << "Предмет: " << name << ", Семестр: " << semester << ", Оцінка: " << grade << endl;
-}
 string Predmet::GetName() const {
     return name;
 }
@@ -26,4 +13,21 @@ string Predmet::GetSem() const {
 }
 int Predmet::GetGrade()const {
     return grade;
+}
+
+istream& operator>>(istream& is, Predmet& pred)
+{
+    cout << "\nEnter subject: ";
+    is >> pred.name;
+    cout << "\nEnter Semestr: ";
+    is >> pred.semester;
+    cout << "\nEnter Grade: ";
+    is >> pred.grade;
+    return is;
+}
+ostream& operator<<(ostream& os, const Predmet& pred) {
+    os << "\nSubject: " << pred.name;
+    os << "\nSemester: " << pred.semester;
+    os << "\nGrade: " << pred.grade;
+    return os;
 }
