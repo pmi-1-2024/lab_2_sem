@@ -1,21 +1,27 @@
 #include "Subject.h"
-#include <iostream>
 
-Subject::Subject() : name(""), semester(0), grade(0) {}
+Subject::Subject() : name(""), semester(0), grade(0.0) {}
 
-Subject::Subject(string name, int semester, int grade)
-    : name(name), semester(semester), grade(grade) {
-}
-
-void Subject::input() {
+istream& operator>>(istream& in, Subject& subject) {
     cout << "Enter subject name: ";
-    cin >> name;
+    in.ignore(); 
+    getline(in, subject.name); 
     cout << "Enter semester: ";
-    cin >> semester;
+    in >> subject.semester;
     cout << "Enter grade: ";
-    cin >> grade;
+    in >> subject.grade;
+    return in;
 }
 
-void Subject::output() const {
-    cout << "Subject: " << name << ", Semester: " << semester << ", Grade: " << grade << endl;
+ostream& operator<<(ostream& out, const Subject& subject) {
+    out << "Subject: " << subject.name << ", Semester: " << subject.semester << ", Grade: " << subject.grade;
+    return out;
+}
+
+const string& Subject::getName() const {
+    return name;
+}
+
+int Subject::getSemester() const {
+    return semester;
 }

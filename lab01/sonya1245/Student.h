@@ -1,20 +1,26 @@
 #pragma once
-
-#include "Address.h"
-#include "Zalikovka.h"
+#include <iostream>
 #include <string>
+#include "Address.h"
+#include "RecordBook.h"
+
 using namespace std;
 
 class Student {
-public:
+private:
     string name;
-    string group;
     Address address;
-    Zalikovka zalikovka;
+    string group;
+    RecordBook recordBook;
 
+public:
     Student();
-
-    void input();
-    void output() const;
+    friend istream& operator>>(istream& in, Student& student);
+    friend ostream& operator<<(ostream& out, const Student& student);
+    const string& getName() const;
+    const string& getGroup() const;
+    const string& getRecordNumber() const;
+    const Address& getAddress() const;
+    const RecordBook& getRecordBook() const;
 };
 

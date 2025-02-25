@@ -1,23 +1,31 @@
 #include "Address.h"
-#include <iostream>
 
-Address::Address() : city(""), street(""), houseNumber(0), index(0) {}
+Address::Address() : index(0), city(""), street("") {}
 
-Address::Address(string city, string street, int houseNumber, int index)
-    : city(city), street(street), houseNumber(houseNumber), index(index) {
-}
-
-void Address::input() {
+istream& operator>>(istream& in, Address& address) {
+    cout << "Enter address index: ";
+    in >> address.index;
+    in.ignore();
     cout << "Enter city: ";
-    cin >> city;
+    getline(in, address.city);
     cout << "Enter street: ";
-    cin >> street;
-    cout << "Enter house number: ";
-    cin >> houseNumber;
-    cout << "Enter index: ";
-    cin >> index;
+    getline(in, address.street);
+    return in;
 }
 
-void Address::output() const {
-    cout << "City: " << city << ", Street: " << street << ", House number: " << houseNumber << ", Index: " << index << endl;
+ostream& operator<<(ostream& out, const Address& address) {
+    out << "Address: " << address.index << ", " << address.city << ", " << address.street;
+    return out;
+}
+
+bool Address::operator==(const Address& other) const {
+    return index == other.index && city == other.city && street == other.street;
+}
+
+bool Address::operator!=(const Address& other) const {
+    return !(*this == other);
+}
+
+const string& Address::getCity() const {
+    return city;
 }
