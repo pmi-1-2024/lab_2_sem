@@ -13,27 +13,45 @@ int main() {
     Student students[100];
     int studentCount = 0;
     readFile(file, studentCount, students);
-    menu();
+    Startmenu();
+    int startchoice;
+    cin >> startchoice;
+    if (startchoice == 1) {
+        Searchmenu();
+        int searchType;
+        cin >> searchType;
 
-    int searchType;
-   cin >> searchType;
+        cout << "Enter search term: ";
+        string searchValue;
+        cin >> searchValue;
 
-    cout << "Enter search term: ";
-    string searchValue;
-    cin >> searchValue;
-
-    bool found = false; 
-    for (int i = 0; i < studentCount; i++) {
-        if (students[i].ToFCriter(searchValue, searchType)) {
-            cout<<students[i];
-            found = true;
+        bool found = false;
+        for (int i = 0; i < studentCount; i++) {
+            if (students[i].ToFCriter(searchValue, searchType)) {
+                cout << students[i];
+                found = true;
+            }
         }
+
+        if (!found) {
+            cout << "No students found with this criteria." << endl;
+        }
+
+        return 0;
+
+    }
+    else if (startchoice == 2) {
+        Groupmenu();
+        int groupchoice;
+        cin >> groupchoice;
+        GroupStudCout(groupchoice);
+    }
+    else {
+        cout << "Enter your choice please:";
+        Startmenu();
     }
 
-    if (!found) {
-        cout << "No students found with this criteria." << endl;
-    }
 
-    return 0;
+
 }
 

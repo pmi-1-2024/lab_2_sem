@@ -1,6 +1,5 @@
 #ifndef ADRESA_H
 #define ADRESA_H
-
 #include <string>
 using namespace std;
 

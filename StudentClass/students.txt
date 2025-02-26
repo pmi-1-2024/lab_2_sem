@@ -10,3 +10,12 @@ Daryna 79352 Kyiv Shevchenka PMI-13 9532
 English 1 100
 Histiry 2 87
 END
+Oksana 95625 Rivne Franka PMI-12 9145
+History 1 80
+English 2 90
+Diskra 1 70
+END
+Zakhar 64723 Lviv Naukova PMI-11 6452
+MathAnalys 1 95
+Programing 2 90
+END
