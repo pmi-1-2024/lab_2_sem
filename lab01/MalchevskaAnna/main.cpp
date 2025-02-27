@@ -8,6 +8,14 @@
 
 using namespace std;
 
+bool checkGroupExists(Group* group) {
+    if (group == nullptr) {
+        cout << "Please create a group first (Option 1).\n";
+        return false;
+    }
+    return true;
+}
+
 int main() {
     Group* group = nullptr;
     int choice;
@@ -40,75 +48,51 @@ int main() {
             cout << "Group " << groupName << " has been created.\n";
         }
         else if (choice == 2) {
-            if (group == nullptr) {
-                cout << "Please create a group first (Option 1).\n";
-                continue;
-            }
+            if (!checkGroupExists(group)) continue;
             Student student;
             cin >> student;
             group->addStudent(student);
         }
         else if (choice == 3) {
-            if (group == nullptr) {
-                cout << "Please create a group first (Option 1).\n";
-                continue;
-            }
+            if (!checkGroupExists(group)) continue;
             string name;
             cout << "Enter name: ";
             cin >> name;
             group->searchByName(name);
         }
         else if (choice == 4) {
-            if (group == nullptr) {
-                cout << "Please create a group first (Option 1).\n";
-                continue;
-            }
+            if (!checkGroupExists(group)) continue;
             string groupName;
             cout << "Enter group name: ";
             cin >> groupName;
             group->searchByGroupName(groupName);
         }
         else if (choice == 5) {
-            if (group == nullptr) {
-                cout << "Please create a group first (Option 1).\n";
-                continue;
-            }
+            if (!checkGroupExists(group)) continue;
             string recordNumber;
             cout << "Enter record number: ";
             cin >> recordNumber;
             group->searchByRecordNumber(recordNumber);
         }
         else if (choice == 6) {
-            if (group == nullptr) {
-                cout << "Please create a group first (Option 1).\n";
-                continue;
-            }
+            if (!checkGroupExists(group)) continue;
             Address address;
             cin >> address;
             group->searchByAddress(address);
         }
         else if (choice == 7) {
-            if (group == nullptr) {
-                cout << "Please create a group first (Option 1).\n";
-                continue;
-            }
+            if (!checkGroupExists(group)) continue;
             group->printStudents();
         }
         else if (choice == 8) {
-            if (group == nullptr) {
-                cout << "Please create a group first (Option 1).\n";
-                continue;
-            }
+            if (!checkGroupExists(group)) continue;
             string name;
             cout << "Enter name to remove: ";
             cin >> name;
             group->removeStudent(name);
         }
         else if (choice == 9) {
-            if (group == nullptr) {
-                cout << "Please create a group first (Option 1).\n";
-                continue;
-            }
+            if (!checkGroupExists(group)) continue;
 
             ofstream outFile("students.txt");
             if (outFile.is_open()) {
@@ -121,7 +105,6 @@ int main() {
             }
         }
         else if (choice == 10) {
-
             if (group != nullptr) {
                 delete group;
             }
