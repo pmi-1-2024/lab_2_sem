@@ -2,21 +2,29 @@
 #include "student.h"
 void Group::add(Student st) {
 	
-	list[size] = st;
-	size++;
+	list[index] = st;
+	index++;
 }
 
 int Group::get_size() {
-	return size;
+	return index;
 };
 
 ostream& operator << (ostream& out, const Group& g)
 {
-	for(int i =0;i < g.size; i++)
+	for(int i =0;i < g.index; i++)
 	out << g.list[i];
 	return out;
 }
 
 Student* Group::get_list() {
 	return list;
+}
+
+Student& Group::operator[](int id) {
+	if (id >= index) {
+		cout << "Array index out of bound, exiting";
+		exit(0);
+	}
+	return list[id];
 }

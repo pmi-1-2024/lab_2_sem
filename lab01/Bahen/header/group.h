@@ -10,23 +10,27 @@ using namespace std;
 class Group {
 private:
 	string name;
-	int size;
+	int index;
 	Student* list;
 public:
 	Group() {
 		name = "";
-		size = 0;
-		list = new Student[n];
+		index = 0;
+		list = new Student[students_n];
 	};
 	Group(string n, int s) {
 		name = n;
-		size = 0;
+		index = 0;
 		list = new Student[s];
 	};
 	void add(Student st);
 	Student* get_list();
 	int get_size();
 	friend ostream& operator << (ostream& out, const Group& p);
+	Student& operator[](int);
 
+	~Group() {
+		delete[] list;
+	}
 };
 #endif

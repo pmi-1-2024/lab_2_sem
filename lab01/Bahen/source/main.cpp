@@ -11,8 +11,8 @@ using namespace std;
 int main()
 {
     ifstream inp("dateee.txt");
-    Group * groups = new Group[k];
-    for (int i = 0; i < n; i++) {
+    Group * groups = new Group[groups_n];
+    for (int i = 0; i < students_n; i++) {
         Student s;
         inp >> s;
         groups[stoi(s.get_group())-1].add(s);

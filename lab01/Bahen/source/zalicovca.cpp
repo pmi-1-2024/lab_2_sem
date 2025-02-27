@@ -29,6 +29,14 @@ istream& operator >> (istream& in, Zalicovca& z)
     return in;
 }
 
+Predmet& Zalicovca::operator[](int id) {
+    if (id >= size) {
+        cout << "Array index out of bound, exiting";
+        exit(0);
+    }
+    return array[id];
+}
+
 string Zalicovca::get_id() {
     return id;
 }

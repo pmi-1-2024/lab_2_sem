@@ -13,12 +13,16 @@ public:
 	Zalicovca() {
 		id = "0";
 		size = 0;
-		array = 0;
 	};
 	string get_id();
 	bool is_subject(string sub);
 	friend ostream& operator << (ostream& out, const Zalicovca& z);
 	friend istream& operator >> (istream& in, Zalicovca& z);
+	Predmet& operator[](int);
+
+	~Zalicovca() {
+		delete[] array;
+	}
 };
 
 #endif
