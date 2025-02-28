@@ -1,5 +1,23 @@
 #include "group.h" 
-#include "student.h"
+
+Group::Group() {
+	name = "";
+	index = 0;
+	capacity = 8;
+	list = new Student[capacity];
+};
+
+Group::Group(const Group& other_g) {
+	capacity = other_g.capacity;
+	index = other_g.index;
+	list = new Student[capacity];
+	for (int i = 0; i < index; i++) list[i] = other_g.list[i];
+}
+
+Group::~Group() {
+	delete[] list;
+}
+
 void Group::add(Student st) {
 	if (index == capacity) {
 		Student* sub_list = new Student[capacity * 2];
@@ -35,4 +53,18 @@ Student& Group::operator[](int id) {
 		exit(0);
 	}
 	return list[id];
+}
+
+Group& Group::operator=(const Group& other_g) {
+	if (this == &other_g) {
+		return *this;
+	}
+
+	delete[] list;
+	capacity = other_g.capacity;
+	index = other_g.index;
+	list = new Student[capacity];
+	for (int i = 0; i < index; i++) list[i] = other_g.list[i];
+
+	return *this;
 }

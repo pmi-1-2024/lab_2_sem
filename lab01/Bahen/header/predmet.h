@@ -9,11 +9,7 @@ private:
 	int term;
 	int mark;
 public:
-	Predmet() {
-		name = "";
-		term = 1;
-		mark = 0;
-	};
+	Predmet();
 	string get_name();
 	friend ostream& operator << (ostream& out, const Predmet& p);
 	friend istream& operator >> (istream& in, Predmet& p);

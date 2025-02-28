@@ -16,10 +16,7 @@ private:
 	string group;
 	Zalicovca zalicovca;
 public:
-    Student() {
-        name = "";
-        group = "";
-    };
+    Student();
     string get_name();
     string get_zip();
     string get_group();

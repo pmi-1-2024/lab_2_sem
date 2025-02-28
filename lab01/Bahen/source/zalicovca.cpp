@@ -1,5 +1,17 @@
 #include "zalicovca.h"
 
+Zalicovca::Zalicovca() {
+    id = "0";
+    size = 0;
+    array = 0;
+}
+
+Zalicovca::Zalicovca(const Zalicovca& other_z) {
+    size = other_z.size;
+    array = new Predmet[size];
+    for (int i = 0; i < size; i++) array[i] = other_z.array[i];
+
+}
 
 
 ostream& operator << (ostream& out, const Zalicovca& z)

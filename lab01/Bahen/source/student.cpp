@@ -1,5 +1,10 @@
 #include "student.h"
 
+Student::Student() {
+    name = "";
+    group = "";
+}
+
 ostream& operator << (ostream& out, const Student& s)
 {
     out << "Name:" << s.name << endl<<"Adress(" << s.adr <<")"<<endl << "Group:" << s.group <<endl<< "Zalicovca(" << s.zalicovca<<")"<<endl<<endl;

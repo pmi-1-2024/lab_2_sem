@@ -1,5 +1,11 @@
 #include "predmet.h"
 
+Predmet::Predmet() {
+	name = "";
+	term = 1;
+	mark = 0;
+}
+
 ostream& operator << (ostream& out, const Predmet& p)
 {
 	out << "Name:" << p.name << " Term:" << p.term << " Mark:" << p.mark << endl;
