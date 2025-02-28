@@ -3,8 +3,8 @@
 Group::Group() {
 	name = "";
 	index = 0;
-	capacity = 8;
-	list = new Student[capacity];
+	capacity = 0;
+	list = 0;
 };
 
 Group::Group(const Group& other_g) {
@@ -20,13 +20,13 @@ Group::~Group() {
 
 void Group::add(Student st) {
 	if (index == capacity) {
-		Student* sub_list = new Student[capacity * 2];
+		Student* sub_list = new Student[capacity * 2 + 1];
 		for (int i = 0; i < capacity; i++) {
 			sub_list[i] = list[i];
 		}
-		delete[] list;
+		if(list != 0) delete[] list;
 		list = sub_list;
-		capacity *= 2;
+		capacity = capacity*2 + 1;
 	}
 	list[index] = st;
 	index++;
