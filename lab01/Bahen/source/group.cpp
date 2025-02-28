@@ -1,7 +1,15 @@
 #include "group.h" 
 #include "student.h"
 void Group::add(Student st) {
-	
+	if (index == capacity) {
+		Student* sub_list = new Student[capacity * 2];
+		for (int i = 0; i < capacity; i++) {
+			sub_list[i] = list[i];
+		}
+		delete[] list;
+		list = sub_list;
+		capacity *= 2;
+	}
 	list[index] = st;
 	index++;
 }

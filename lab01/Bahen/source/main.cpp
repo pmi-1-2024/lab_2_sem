@@ -12,11 +12,13 @@ int main()
 {
     ifstream inp("dateee.txt");
     Group * groups = new Group[groups_n];
-    for (int i = 0; i < students_n; i++) {
+    while(!inp.eof()) {
         Student s;
         inp >> s;
         groups[stoi(s.get_group())-1].add(s);
+        
     }
+    
     search(groups);
     return 0;
 }

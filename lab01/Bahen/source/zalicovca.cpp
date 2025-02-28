@@ -37,6 +37,18 @@ Predmet& Zalicovca::operator[](int id) {
     return array[id];
 }
 
+Zalicovca& Zalicovca::operator=(const Zalicovca& other_z) {
+    if (this == &other_z) { 
+        return *this;
+    }
+
+    delete[] array;
+    size = other_z.size;
+    array = new Predmet[size];
+    for (int i = 0; i < size; i++) array[i] = other_z.array[i];
+
+    return *this;
+}
 string Zalicovca::get_id() {
     return id;
 }

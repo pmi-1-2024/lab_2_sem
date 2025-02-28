@@ -25,7 +25,7 @@ void search(Group* list) {
         if (f == "End") break;
         if (f == "All") {
             system("cls");
-            for (int i = 0; i < students_n; i++) cout << list[i];
+            for (int i = 0; i < groups_n; i++) cout << list[i];
             _getch();
             continue;
         }

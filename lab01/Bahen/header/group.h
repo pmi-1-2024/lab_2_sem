@@ -11,16 +11,19 @@ class Group {
 private:
 	string name;
 	int index;
+	int capacity;
 	Student* list;
 public:
 	Group() {
 		name = "";
 		index = 0;
-		list = new Student[students_n];
+		capacity = 8;
+		list = new Student[capacity];
 	};
 	Group(string n, int s) {
 		name = n;
 		index = 0;
+		capacity = s;
 		list = new Student[s];
 	};
 	void add(Student st);
