@@ -11,7 +11,10 @@ private:
 public:
 	RecordBook();
     RecordBook(string recordNumber, Subject* subject, int subjectCount);
-	~RecordBook();
+    RecordBook(const RecordBook& recordBook);
+    RecordBook& operator=(const RecordBook& recordBook);
+    Subject& operator[](int index);
+    ~RecordBook();
 
     void addSubject(Subject subject);
 

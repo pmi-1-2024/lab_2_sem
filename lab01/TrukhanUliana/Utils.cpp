@@ -14,13 +14,13 @@ void menu1() {
 
 void menu2() {
     cout << "Group menu:" << endl;
-    cout << "1. Enter group name" << endl;
-    cout << "2. Add student" << endl;
-    cout << "3. Remove student" << endl;
-    cout << "4. Display group" << endl;
-    cout << "5. Search by address" << endl;
-    cout << "6. Search by record number" << endl;
-    cout << "7. Search by subject name" << endl;
+    cout << "1. Add student" << endl;
+    cout << "2. Remove student" << endl;
+    cout << "3. Display group" << endl;
+    cout << "4. Search by address" << endl;
+    cout << "5. Search by record number" << endl;
+    cout << "6. Search by subject name" << endl;
+    cout << "0. Exit" << endl;
     cout << "Enter your choice: ";
 }
 
@@ -32,14 +32,14 @@ void readFromFile(ifstream& file, int& studentCount, Student*& students) {
 
     file >> studentCount;
 
-    // Звільняємо пам'ять перед новим виділенням, якщо потрібно
     if (students != nullptr) {
         delete[] students;
     }
 
-    students = new Student[studentCount];  // Виділяємо пам’ять
+    students = new Student[studentCount];
 
     for (int i = 0; i < studentCount; i++) {
         file >> students[i];
     }
 }
+

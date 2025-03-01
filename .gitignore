@@ -35,4 +35,5 @@
 .idea/
 .vscode/
 .vs/
-.json
+.json/
+*.json

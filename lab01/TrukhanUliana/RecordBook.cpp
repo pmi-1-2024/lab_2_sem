@@ -7,6 +7,36 @@ RecordBook::RecordBook(string recordNumber, Subject* subjects, int subjectCount)
     : recordNumber(recordNumber), subjects(subjects), subjectCount(0) {
 }
 
+RecordBook::RecordBook(const RecordBook& recordBook) {
+	recordNumber = recordBook.recordNumber;
+	subjectCount = recordBook.subjectCount;
+	subjects = new Subject[subjectCount];
+	for (int i = 0; i < subjectCount; i++) {
+		subjects[i] = recordBook.subjects[i];
+	}
+}
+
+RecordBook& RecordBook::operator=(const RecordBook& recordBook) {
+	if (this == &recordBook) {
+		return *this;
+	}
+	recordNumber = recordBook.recordNumber;
+	subjectCount = recordBook.subjectCount;
+	delete[] subjects;
+	subjects = new Subject[subjectCount];
+	for (int i = 0; i < subjectCount; i++) {
+		subjects[i] = recordBook.subjects[i];
+	}
+	return *this;
+}
+
+Subject& RecordBook::operator[](int index) {
+	if (index < 0 || index >= subjectCount) {
+		throw out_of_range("Invalid index");
+	}
+	return subjects[index];
+}
+
 RecordBook::~RecordBook() {
 	delete[] subjects;
 }

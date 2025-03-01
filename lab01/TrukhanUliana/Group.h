@@ -2,6 +2,7 @@
 #define GROUP_H
 #include <fstream> 
 #include "Student.h"
+#include "Utils.h"
 
 class Group
 {
@@ -12,13 +13,17 @@ private:
 public:
 	Group();
 	Group(string name, Student* student, int studentCount);
+	Group(const Group& group);
+	Group& operator=(const Group& group);
+	Student& operator[](int index);
 	~Group();
 
-	void addStudent(const Student& student);
 	void addStudents(const Student* students, int count);
+	void addStudent(const Student& student);
 	void removeStudent(string studentName);
 	void display() const;
 
+	string getName() const;
 	int getStudentCount() const;
 	Student* getStudents() const;
 
@@ -26,6 +31,7 @@ public:
 	void searchByAddress(const Address& address) const;
 	void searchByRecordNumber(const string& recordNumber) const;
 	void searchBySubjectName(const string& subjectName) const;
+	void saveToFile(const string& filename);
 
 	friend istream& operator>>(istream& is, Group& group);
 	friend ostream& operator<<(ostream& os, const Group& group);
