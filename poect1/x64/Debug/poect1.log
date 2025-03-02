@@ -1,1 +1,7 @@
-﻿LINK : fatal error LNK1168: cannot open C:\Users\Alex\Desktop\poect1\x64\Debug\poect1.exe for writing
+﻿  Main.cpp
+C:\Users\Alex\Desktop\poect1\poect1\Main.cpp(96,38): error C2039: 'getRecordBookNumber': is not a member of 'Student'
+      C:\Users\Alex\Desktop\poect1\poect1\Student.h(7,7):
+      see declaration of 'Student'
+  
+  Group.cpp
+  Generating Code...

@@ -1,19 +1,18 @@
 #ifndef ZALIKOVKA_H
 #define ZALIKOVKA_H
-
+#include <iostream>
 #include "Subject.h"
-
+using namespace std;
 class Zalikovka {
 private:
-    Subject* subjects;
+    int number;
     int subjectCount;
-
+    Subject* subjects;
 public:
-    Zalikovka(int subjectCount = 0);
+    Zalikovka(int number = 0, int subjectCount = 0);
     ~Zalikovka();
-    void addSubject(const Subject& subject);
-    Subject* getSubjects() const;
-    int getSubjectCount() const;
+    friend ostream& operator<<(ostream& os, const Zalikovka& zal);
+    friend istream& operator>>(istream& is, Zalikovka& zal);
 };
 
 #endif

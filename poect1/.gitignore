@@ -1,0 +1,14 @@
+# Ігнорування службових файлів Visual Studio
+.vs/
+*.obj
+*.ilk
+*.pdb
+*.exe
+*.log
+*.tlog
+*.ipch
+*.suo
+*.user
+*.sdf
+*.VC.db
+x64/

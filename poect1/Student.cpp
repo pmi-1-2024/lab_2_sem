@@ -1,23 +1,16 @@
 #include "Student.h"
-#include <iostream>
+using namespace std;
+Student::Student(string name, Adress adress, string group, Zalikovka zalik)
+    : name(name), adress(adress), group(group), zalik(zalik) {}
 
-Student::Student(string name, Address address, string group, Zalikovka zalikovka)
-    : name(name), address(address), group(group), zalikovka(zalikovka) {}
+ostream& operator<<(ostream& os, const Student& student) {
+    os << "Student: " << student.name << "\n" << student.adress << "\nGroup: " << student.group << "\n" << student.zalik;
+    return os;
+}
 
-string Student::getName() const { return name; }
-Address Student::getAddress() const { return address; }
-string Student::getGroup() const { return group; }
-Zalikovka Student::getZalikovka() const { return zalikovka; }
-
-void Student::display() const {
-    cout << "Name: " << name << endl;
-    cout << "Group: " << group << endl;
-    cout << "Address: " << address.getCity() << ", " << address.getStreet() << " (" << address.getPostIndex() << ")" << endl;
-    for (int i = 0; i < zalikovka.getSubjectCount(); i++) {
-        cout << "Subject: " << zalikovka.getSubjects()[i].getName()
-            << ", Semester: " << zalikovka.getSubjects()[i].getSemester()
-            << ", Grade: " << zalikovka.getSubjects()[i].getGrade() << endl;
-    }
+istream& operator>>(istream& is, Student& student) {
+    is >> student.name >> student.adress >> student.group >> student.zalik;
+    return is;
 }
 
 

@@ -1,20 +1,19 @@
-#ifndef ADDRESS_H
-#define ADDRESS_H
-
+#ifndef ADRESS_H
+#define ADRESS_H
+#include <iostream>
 #include <string>
+
 using namespace std;
 
-class Address {
+class Adress {
 private:
-    int postIndex;
-    string city;
-    string street;
-
+    string postIndex, city, street;
 public:
-    Address(int postIndex = 0, string city = "", string street = "");
-    int getPostIndex() const;
-    string getCity() const;
-    string getStreet() const;
+    Adress(string postIndex = "", string city = "", string street = "")
+        : postIndex(postIndex), city(city), street(street) {}
+
+    friend ostream& operator<<(ostream& os, const Adress& adr);
+    friend istream& operator>>(istream& is, Adress& adr);
 };
 
 #endif

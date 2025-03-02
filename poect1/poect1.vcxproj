@@ -127,20 +127,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Adress.cpp" />
+    <ClCompile Include="Address.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Group.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="Zalikovka.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Address.h" />
+    <ClInclude Include="Group.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="Zalikovka.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\information.txt" />
+    <Text Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,11 +1,14 @@
 #include "Subject.h"
+using namespace std;
+ostream& operator<<(ostream& os, const Subject& subj) {
+    os << subj.name << " (Semester " << subj.semester << "): " << subj.grade;
+    return os;
+}
 
-Subject::Subject(string name, int semester, int grade)
-    : name(name), semester(semester), grade(grade) {}
-
-string Subject::getName() const { return name; }
-int Subject::getSemester() const { return semester; }
-int Subject::getGrade() const { return grade; }
+istream& operator>>(istream& is, Subject& subj) {
+    is >> subj.name >> subj.semester >> subj.grade;
+    return is;
+}
 
 
 

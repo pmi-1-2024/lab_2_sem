@@ -24,10 +24,13 @@
     <ClCompile Include="Zalikovka.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Adress.cpp">
+    <ClCompile Include="Address.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Subject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Group.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,8 +47,12 @@
     <ClInclude Include="Subject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Group.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\information.txt" />
+    <Text Include=".gitignore" />
   </ItemGroup>
 </Project>

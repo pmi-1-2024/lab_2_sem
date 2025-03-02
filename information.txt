@@ -1,2 +1,6 @@
-John Group1 12345 Kyiv Shevchenka 2 Math 1 5 Physics 2 4
-Alice Group2 54321 Lviv Franka 3 Chemistry 1 5 Biology 2 4 History 3 3
+JohnDoe
+12345 Kyiv Khreshchatyk-1
+IT-01
+1001 2
+Math 1 95
+Physics 2 88
