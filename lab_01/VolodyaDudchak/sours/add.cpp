@@ -2,16 +2,6 @@
 #include "../head/add.h"
 using namespace std;
 
-void adres::inp()
-{
-    in >> zip >> city >> str;
-}
-void adres::out()
-{
-    cout << "addres: ";
-    cout << zip << " " << city << ' ' << str << endl;
-}
-
 adres::adres(){
     zip = 0, city = "", str = "";
 }
@@ -33,3 +23,12 @@ string adres::getCity(){
     return city;
 }
 
+istream& operator >> (istream& in, adres& a){
+    in >> a.zip >> a.city >> a.str;
+    return in;
+}
+ostream& operator << (ostream& out, adres& a){
+    out << "addres: ";
+    out << a.zip << " " << a.city << ' ' << a.str << endl;
+    return out;
+}

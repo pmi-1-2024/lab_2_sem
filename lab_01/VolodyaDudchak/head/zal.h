@@ -10,9 +10,9 @@ class zalikov{
     public:
     zalikov();
     zalikov(int zp, int ct, predmet* pd);
-    void inp();
-    void out();
     int getZali();
     int getZaliSz();
     predmet getPred(int i);
+    friend ostream& operator <<(ostream& out, zalikov& a);
+    friend istream& operator >>(istream& in, zalikov& a);
 };

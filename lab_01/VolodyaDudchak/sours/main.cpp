@@ -5,16 +5,17 @@ int32_t main()
 {
     int n,m;
     string tr;
+    ifstream in("in.txt");
     in >> n >> m;
     student * students = new student[n];
     group* groups = new group[m];
     FOR(i,0,n)
     {
-        students[i].inp();
+        in >> students[i];
     }
     {
         FOR(i,0,n)
-        students[i].out();
+        cout << students[i];
     }
     FOR(i,0,m)
     {
@@ -27,7 +28,7 @@ int32_t main()
     FOR(i,0,m)
     {
         if(groups[i].getSz() != 0)
-            groups[i].out();
+            cout << groups[i];
         else
             cout << "group " << i+1 << " has no students" << endl;
     }

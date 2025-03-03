@@ -12,10 +12,10 @@ class predmet{
     public:
     predmet();
     predmet(int zp, string nm, int* maks);
-    void inp();
-    void out();
     int getSem();
     string getName();
     int* getMarks();
     int getSz();
+    friend ostream& operator <<(ostream& out, predmet& a);
+    friend istream& operator >>(istream& in, predmet& a);
 };

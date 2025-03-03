@@ -13,10 +13,10 @@ class student{
     public:
     student();
     student(string ne, int gp, adres add, zalikov zi);
-    void inp();
-    void out();
     zalikov getZali();
     string getName();
     adres getAd();
     int getGroup();
+    friend ostream& operator <<(ostream& out, student& a);
+    friend istream& operator >>(istream& in, student& a);
 };

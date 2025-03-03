@@ -20,15 +20,21 @@ void group::add(student st)
     students = cur;
     sz++;
 }
-void group::out()
-{
-    cout << "group - " << numb  << " has " << sz << " students"<< endl;
-    FOR(i,0,sz)
-        students[i].out();
-}
 void group::change_Numb(int i){
     numb = i;
 }
 int group::getSz(){
     return sz;
+}
+istream& operator >> (istream& in, group& a){
+    in >> a.numb >> a.sz;
+    for(int i = 0; i < a.sz; i++)
+        in >> a.students[i];
+    return in;
+}
+ostream& operator << (ostream& out, group& a){
+    out << "group - " << a.numb  << " has " << a.sz << " students"<< endl;
+    FOR(i,0,a.sz)
+        out << a.students[i];
+    return out;
 }

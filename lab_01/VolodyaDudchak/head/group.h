@@ -12,6 +12,7 @@ class group{
     group(int nu, int s, student* stud);
     void change_Numb(int i);
     void add(student);
-    void out();
     int getSz();
+    friend ostream& operator <<(ostream& out, group& a);
+    friend istream& operator >>(istream& in, group& a);
 };

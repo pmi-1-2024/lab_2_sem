@@ -9,20 +9,7 @@ student::student(string ne, int gp, adres add, zalikov zi)
 {
     name = ne, ad = add, group = gp, zali = zi;
 }
-void student::inp()
-{
-    in >> name >> group;
-    zali.inp();
-    ad.inp();
-}
-void student::out()
-{
-    cout << "student: ";
-    cout << name << ' ' << group;
-    cout << endl;
-    zali.out();
-    ad.out();
-}
+
 
 
 zalikov student::getZali(){
@@ -38,4 +25,16 @@ adres student::getAd(){
 
 int student:: getGroup(){
     return group;
+}
+
+istream& operator >> (istream& in, student& a){
+    in >> a.name >> a.group >> a.zali >> a.ad;
+    return in;
+}
+ostream& operator << (ostream& out, student& a){
+    cout << "student: ";
+    cout << a.name << ' ' << a.group;
+    cout << endl;
+    cout << a.zali << a.ad;
+    return out;
 }

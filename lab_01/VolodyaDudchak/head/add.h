@@ -10,9 +10,9 @@ class adres{
     public:
     adres();
     adres(int zp, string ct, string st);
-    void inp();
-    void out();
     int getZip();
     string getCity();
     string getStr();
+    friend ostream& operator <<(ostream& out, adres& a);
+    friend istream& operator >>(istream& out, adres& a);
 };

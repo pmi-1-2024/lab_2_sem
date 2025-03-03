@@ -9,20 +9,7 @@ predmet::predmet(int zp, string nm, int* maks)
 {
     sem = zp, marks = maks, name = nm;
 }
-void predmet::inp()
-{
-    in >> name >> sem >> n;
-    marks = new int(n);
-    for(int i = 0; i < n; i++)
-        in >> marks[i];
-}
-void predmet::out()
-{
-    cout << "Predmet - "<<name << " semester - " << sem << " marks  - ";
-    for(int i = 0; i < n; i++)
-        cout << marks[i] << ' ';
-    cout << endl;
-}
+
 
 string predmet::getName(){
     return name;
@@ -38,4 +25,19 @@ int* predmet::getMarks(){
 
 int predmet::getSz(){
     return n;
+}
+
+istream& operator >> (istream& in, predmet& a){
+    in >> a.name >> a.sem >> a.n;
+    a.marks = new int(a.n);
+    for(int i = 0; i < a.n; i++)
+        in >> a.marks[i];
+    return in;
+}
+ostream& operator << (ostream& out, predmet& a){
+    out << "Predmet - "<<a.name << " semester - " << a.sem << " marks  - ";
+    for(int i = 0; i < a.n; i++)
+        out << a.marks[i] << ' ';
+    out << endl;
+    return out;
 }

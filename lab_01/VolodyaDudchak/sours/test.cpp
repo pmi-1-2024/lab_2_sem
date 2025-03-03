@@ -37,7 +37,7 @@ void studFindName(student* ar, string t, int n)
     {
         if(ar[i].getName() == t)
         {
-            ar[i].out();
+            cout << ar[i];
             return;
         }
     }
@@ -51,7 +51,7 @@ void studFindAdd(student* ar, string t1, int n)
     {
         if(ar[i].getAd().getZip() == t)
         {
-            ar[i].out();
+            cout << ar[i];
             return;
         }
     }
@@ -65,7 +65,7 @@ void studFindNumbZali(student* ar, string t1, int n)
     {
         if(ar[i].getZali().getZali() == t)
         {
-            ar[i].out();
+            cout << ar[i];
             return;
         }
     }
@@ -79,7 +79,7 @@ void studFindNumbGroup(student* ar, string t1, int n)
     {
         if(ar[i].getGroup() == t)
         {
-            ar[i].out();
+            cout << ar[i];
             return;
         }
     }
@@ -93,7 +93,7 @@ void studFindPredm(student* ar, string t, int n)
         FOR(j,0,ar[i].getZali().getZaliSz())
         if(ar[i].getZali().getPred(j).getName() == t)
         {
-            ar[i].out();
+            cout << ar[i];
             return;
         }
     }
@@ -108,7 +108,7 @@ void studFindSem(student* ar, string t1, int n)
         FOR(j,0,ar[i].getZali().getZaliSz())
         if(ar[i].getZali().getPred(j).getSem() == t)
         {
-            ar[i].out();
+            cout << ar[i];
             return;
         }
     }
