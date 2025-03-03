@@ -38,3 +38,32 @@ ostream& operator << (ostream& out, group& a){
         out << a.students[i];
     return out;
 }
+
+group& group::operator=(group& a){
+    if (this == &a) { 
+        return *this;
+    }
+    sz = a.sz;
+    numb = a.numb;
+    students = new student[sz];
+    for(int i = 0; i < sz; i++)
+        students[i] = a.students[i];
+    return *this;
+}
+
+student& group::operator[](int a){
+    if(a >= sz)
+    {
+        cout << "out of range";
+        exit(0);
+    }
+    return students[a];
+}
+
+group::group(group& a){
+    numb = a.numb;
+    sz = a.sz;
+    students = new student[sz];
+    for(int i = 0; i < sz; i++)
+        students[i] = a.students[i];
+}

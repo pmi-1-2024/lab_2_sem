@@ -41,3 +41,31 @@ ostream& operator << (ostream& out, predmet& a){
     out << endl;
     return out;
 }
+
+predmet& predmet::operator=(predmet& a){
+    if (this == &a) { 
+        return *this;
+    }
+    sem = a.sem;
+    n = a.n;
+    name = a.name;
+    marks = a.marks;
+    return *this;
+}
+
+int& predmet::operator[](int a){
+    if(a >= n)
+    {
+        cout << "out of range";
+        exit(0);
+    }
+    return marks[a];
+}
+
+predmet::predmet(predmet& a){
+    sem = a.sem;
+    n = a.n;
+    name = a.name;
+    marks = a.marks;
+}
+

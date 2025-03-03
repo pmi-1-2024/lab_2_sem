@@ -15,4 +15,10 @@ class group{
     int getSz();
     friend ostream& operator <<(ostream& out, group& a);
     friend istream& operator >>(istream& in, group& a);
+    group(group& a);
+	student& operator[](int);
+    group& operator=(group& a);
+    ~group(){
+        delete[]students;
+    }
 };

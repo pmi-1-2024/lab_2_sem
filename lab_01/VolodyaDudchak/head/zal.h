@@ -15,4 +15,11 @@ class zalikov{
     predmet getPred(int i);
     friend ostream& operator <<(ostream& out, zalikov& a);
     friend istream& operator >>(istream& in, zalikov& a);
+    zalikov(zalikov& a);
+	predmet& operator[](int);
+    zalikov& operator=(zalikov& a);
+    ~zalikov(){
+        delete[]preds;
+    }
+
 };

@@ -3,7 +3,7 @@
 using namespace std;
 
 student::student(){
-    name = "", ad = adres(), group = 0, zali = zalikov();
+    name = "", ad = adres(), group = 0;
 }
 student::student(string ne, int gp, adres add, zalikov zi)
 {
@@ -32,9 +32,9 @@ istream& operator >> (istream& in, student& a){
     return in;
 }
 ostream& operator << (ostream& out, student& a){
-    cout << "student: ";
-    cout << a.name << ' ' << a.group;
-    cout << endl;
-    cout << a.zali << a.ad;
+    out << "student: ";
+    out << a.name << ' ' << a.group;
+    out << endl;
+    out << a.zali << a.ad;
     return out;
 }

@@ -11,6 +11,8 @@ class predmet{
     int n;
     public:
     predmet();
+    predmet(predmet& a);
+	int& operator[](int);
     predmet(int zp, string nm, int* maks);
     int getSem();
     string getName();
@@ -18,4 +20,8 @@ class predmet{
     int getSz();
     friend ostream& operator <<(ostream& out, predmet& a);
     friend istream& operator >>(istream& in, predmet& a);
+    predmet& operator=(predmet& a);
+    ~predmet(){
+        delete[]marks;
+    }
 };
