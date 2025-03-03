@@ -34,7 +34,7 @@ Zalik::~Zalik() {
 }
 
 void Zalik::print() {
-    cout << "\tЗаліковка: Номер заліковки = " << id << ", К-сть предметів = " << subjCount << ". | Предмети: " << endl;
+    cout << "\t\tЗаліковка: Номер заліковки = " << id << ", К-сть предметів = " << subjCount << ". | Предмети: " << endl;
     for (unsigned i = 0; i < subjCount; i++) subjects[i].print();
 }
 
@@ -62,4 +62,30 @@ void Zalik::setSubject(unsigned index, const Subject& subject) {
     if (index < subjCount) {
         subjects[index] = subject;
     }
+}
+
+istream& operator>>(istream& is, Zalik& zalik) {
+    is >> zalik.id >> zalik.subjCount;
+    zalik.subjects = new Subject[zalik.subjCount];
+    for (unsigned i = 0; i < zalik.subjCount; ++i) {
+        is >> ws;
+        string name;
+        getline(is, name);
+        zalik.subjects[i].setName(name);
+        unsigned sem;
+        float grade;
+        is >> sem >> grade;
+        zalik.subjects[i].setSem(sem);
+        zalik.subjects[i].setGrade(grade);
+    }
+    return is;
+}
+
+ostream& operator<<(ostream& os, const Zalik& zalik) {
+    os << zalik.id << " " << zalik.subjCount << endl;
+    for (unsigned i = 0; i < zalik.subjCount; ++i) {
+        os << zalik.subjects[i].getName() << endl;
+        os << zalik.subjects[i].getSem() << " " << zalik.subjects[i].getGrade() << endl;
+    }
+    return os;
 }

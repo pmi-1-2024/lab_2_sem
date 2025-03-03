@@ -16,10 +16,13 @@ public:
     Student() : name(""), adress(0, "", ""), group(""), zalik(0, 0) {}
     Student(string name, Adress adress, string group, Zalik zalik);
     void print();
-    string getName();
-    string getGroup();
-    Adress getAdress();
-    Zalik getZalik();
+    string getName() const;
+    string getGroup() const;
+    Adress getAdress() const;
+    Zalik getZalik() const;
+
+    friend istream& operator>>(istream& is, Student& student);
+    friend ostream& operator<<(ostream& os, const Student& student);
 };
 
 #endif

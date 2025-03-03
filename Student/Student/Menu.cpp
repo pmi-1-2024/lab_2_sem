@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "Search.h"
+#include "Group.h"
 #include <iostream>
 using namespace std;
 
@@ -11,10 +12,11 @@ void displayMenu() {
     cout << "4. Пошук за адресою" << endl;
     cout << "5. Пошук за предметом" << endl;
     cout << "6. Пошук за семестром" << endl;
+    cout << "7. Пошук за групою (клас)" << endl;
     cout << "0. Вихід" << endl;
 }
 
-void handleMenu(Student* students, int studentCount) {
+void handleMenu(Student* students, int studentCount, Group* groups, int groupCount) {
     int choice;
     do {
         displayMenu();
@@ -65,6 +67,18 @@ void handleMenu(Student* students, int studentCount) {
             cout << "Введений семестр: " << inputInt << endl;
             findBySem(students, studentCount, inputInt);
             break;
+        case 7:
+            cout << "Введіть групу: ";
+            cin >> ws;
+            getline(cin, inputStr);
+            cout << "Введена група: " << inputStr << endl;
+            for (int i = 0; i < groupCount; ++i) {
+                if (groups[i].getName() == inputStr) {
+                    groups[i].print();
+                    break;
+                }
+            }
+            break;
         case 0:
             cout << "Вихід" << endl;
             break;
@@ -73,5 +87,3 @@ void handleMenu(Student* students, int studentCount) {
         }
     } while (choice != 0);
 }
-
-

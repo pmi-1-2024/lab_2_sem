@@ -7,8 +7,12 @@ Subject::Subject(string name, unsigned sem, float grade) :
 }
 
 void Subject::print() {
-    cout << "\t\t" << name << ": Семестр = " << sem << ", Оцінка = " << grade << "." << endl;
+    cout << "\t\t\t" << name << ": Семестр = " << sem << ", Оцінка = " << grade << "." << endl;
 }
 
 string Subject::getName() { return name; }
 unsigned Subject::getSem() { return sem; }
+float Subject::getGrade() { return grade; }
+void Subject::setName(const string& name) { this->name = name; }
+void Subject::setSem(unsigned sem) { this->sem = sem; }
+void Subject::setGrade(float grade) { this->grade = grade; }

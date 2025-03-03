@@ -15,6 +15,10 @@ public:
     void print();
     string getName();
     unsigned getSem();
+    float getGrade();
+    void setName(const string& name);
+    void setSem(unsigned sem);
+    void setGrade(float grade);
 };
 
 #endif

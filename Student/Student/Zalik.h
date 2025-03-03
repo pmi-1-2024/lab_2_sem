@@ -20,6 +20,9 @@ public:
     Subject findSubjectByName(string name);
     Subject findSubjectBySemester(int semester);
     void setSubject(unsigned index, const Subject& subject);
+
+    friend istream& operator>>(istream& is, Zalik& zalik);
+    friend ostream& operator<<(ostream& os, const Zalik& zalik);
 };
 
 #endif
