@@ -6,8 +6,8 @@ string Address::getCity() const { return city; }
 
 string Address::getFullAddress() const { return index + ", " + city + ", " + street; }
 
-void Address::display() const {
-    cout << "Address: " << getFullAddress() << endl;
+void Address::display(ostream& os) const {
+    os << "Address: " << getFullAddress() << endl;
 }
 
 void Address::read(istream& is)
@@ -19,4 +19,10 @@ istream& operator>>(istream& is, Address& a)
 {
     a.read(is);
     return is;
+}
+
+ostream& operator<<(ostream& os, Address& a)
+{
+    a.display(os);
+    return os;
 }

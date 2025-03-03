@@ -13,7 +13,8 @@ public:
     string getGroup() const;
     string getId() const;
     string getAddress() const;
-    void display() const;
+    void display(ostream& os) const;
     void read(istream& is);
     friend istream& operator>>(istream& is, Student& s);
+    friend ostream& operator<<(ostream& os, const Student& s);
 };

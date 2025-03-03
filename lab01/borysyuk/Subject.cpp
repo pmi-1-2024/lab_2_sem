@@ -13,7 +13,7 @@ void Subject::setAll(string _name, int _semester, double _grade)
     this->grade = _grade;
 }
 
-void Subject::display() const {
+void Subject::display(ostream& os) const {
     cout << "Subject: " << name << ", Semester: " << semester << ", Grade: " << grade << endl;
 }
 
@@ -28,8 +28,8 @@ istream& operator>>(istream& is, Subject& s)
     return is;
 }
 
-//ostream& operator<<(ostream& os, Subject& s)
-//{
-//    s.display(os);
-//    return os;
-//}
+ostream& operator<<(ostream& os, Subject& s)
+{
+    s.display(os);
+    return os;
+}

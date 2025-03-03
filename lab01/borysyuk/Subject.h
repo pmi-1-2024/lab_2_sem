@@ -17,9 +17,9 @@ public:
 
     void setAll(string _name, int _semester, double _grade);
 
-    void display() const;
+    void display(ostream& os) const;
     void read(istream& is);
     friend istream& operator>>(istream& is, Subject& s);
-    /*friend ostream& operator<<(ostream& os, Subject& s);*/
+    friend ostream& operator<<(ostream& os, Subject& s);
 };
 

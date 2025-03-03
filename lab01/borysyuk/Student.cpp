@@ -18,10 +18,10 @@ string Student::getAddress() const {
     return address.getFullAddress();
 }
 
-void Student::display() const {
+void Student::display(ostream& os) const {
     cout << "Student: " << name << ", Group: " << group << endl;
-    address.display();
-    zalik.display();
+    address.display(os);
+    zalik.display(os);
 }
 
 void Student::read(istream& is)
@@ -33,4 +33,8 @@ istream& operator>>(istream& is, Student& s)
 {
     s.read(is);
     return is;
+}
+ostream& operator<<(ostream& os, const Student& s) { // Виправлено const
+    s.display(os);
+    return os;
 }

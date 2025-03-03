@@ -12,7 +12,8 @@ public:
     Address(string i, string c, string s);
     string getCity() const;
     string getFullAddress() const;
-    void display() const;
+    void display(ostream& os) const;
     void read(istream& is);
     friend istream& operator>>(istream& is, Address& a);
+    friend ostream& operator<<(ostream& os, Address& a);
 };

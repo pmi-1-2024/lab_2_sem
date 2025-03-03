@@ -8,8 +8,22 @@ private:
 public:
 	Group();
 	Group(string namegroup,int size, Student* groupa);
-	void display() const;
+	
+	Group(const Group& other);
+
+	
+	Group& operator=(const Group& other);
+
+	
+	Student& operator[](int index);
+	const Student& operator[](int index) const;
+
+	
+	~Group();
+
+	void display(ostream& os) const;
 	void read(istream& is);
 	string getnamegroup() const;
 	friend istream& operator>>(istream& is,Group& g);
+	friend ostream& operator<<(ostream& os, const Group& g);
 };
