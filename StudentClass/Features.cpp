@@ -2,12 +2,9 @@
 #include "Group.h"
 #include "Student.h"
 using namespace std;
-Student* studentspmi11 = new Student[100];
-Student* studentspmi12 = new Student[100];
-Student* studentspmi13 = new Student[100];
-Group PMI11 = Group(0, studentspmi11, "PMI-11");
-Group PMI12 = Group(0, studentspmi12, "PMI-12");
-Group PMI13 = Group(0, studentspmi13, "PMI-13");
+Group PMI11 = Group(0, "PMI-11");
+Group PMI12 = Group(0, "PMI-12");
+Group PMI13 = Group(0, "PMI-13");
 
 void Startmenu()
 {
@@ -51,10 +48,9 @@ void GroupStudCout(int choise)
             cout << "\nEnter name student`s name:";
             cin >> answername;
             for (int i = 0; i < PMI11.GetSCount(); i++) {
-                if (answername == studentspmi11[i].GetName()) {
-                    cout << studentspmi11[i];
-                }else
-                cout << "\nNo students found with this name.";
+                if (answername == PMI11.GetSud()[i].GetName()) {
+                    cout << PMI11.GetSud()[i];
+                }
             }
         }
             break;
@@ -69,10 +65,9 @@ void GroupStudCout(int choise)
             cout << "\nEnter name student`s name:";
             cin >> answername;
             for (int i = 0; i < PMI12.GetSCount(); i++) {
-                if (answername == studentspmi12[i].GetName()) {
-                    cout << studentspmi12[i];
-                }else
-                cout << "\nNo students found with this name.";
+                if (answername == PMI12.GetSud()[i].GetName()) {
+                    cout << PMI12.GetSud()[i];
+                }
             }
         }
         break;
@@ -87,10 +82,9 @@ void GroupStudCout(int choise)
             cout << "\nEnter name student`s name:";
             cin >> answername;
             for (int i = 0; i < PMI13.GetSCount(); i++) {
-                if (answername == studentspmi13[i].GetName()) {
-                    cout << studentspmi13[i];
-                }else
-               cout << "\nNo students found with this name.";
+                if (answername == PMI13.GetSud()[i].GetName()) {
+                    cout << PMI13.GetSud()[i];
+                }
             }
         }
         break;
@@ -99,35 +93,29 @@ void GroupStudCout(int choise)
 }
 void AddtoGroup(Group& gr, Student* studs)
 {
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 5; i++) {
         if (studs[i].GetGroup() == gr.GetName()) {
             gr.AddStudent(studs[i]);
         }
     }
 }
 
-void readFile(ifstream& file, int& studentCount, Student students[]) {
-    while (file.is_open() && studentCount < 100) {
+void readFile(ifstream& file, int& studentCount, Student*& students) {
+    while (!file.is_open()) {
+        cout << "File is not open! ";
+        return;
+    }
 
-        string name, index, city, street, group, recnumber;
-        file >> name >> index >> city >> street >> group >> recnumber;
+    file >> studentCount;
 
-        Adresa address(index, city, street);
-        Zalikovka recordBook(recnumber);
-
-        string subjectName, semester;
-        int grade;
-        while (file >> subjectName) {
-            if (subjectName == "END") break;
-            file >> semester >> grade;
-            recordBook.addSub(Predmet(subjectName, semester, grade));
-        }
-
-        students[studentCount++] = Student(name, address, group, recordBook);
-       
+    if (students != nullptr) {
+        delete[] students;
+    }
+    students = new Student[studentCount];
+    for (int i = 0; i < studentCount; i++) {
+        file >> students[i];
     }
     AddtoGroup(PMI11, students);
     AddtoGroup(PMI12, students);
     AddtoGroup(PMI13, students);
 }
-

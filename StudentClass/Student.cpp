@@ -2,21 +2,17 @@
 #include <iostream>
 using namespace std;
 
-Student::Student(){}
+Student::Student(): name("noname"),address(Adresa()),group("nogroup"),zalik(Zalikovka()) {}
 Student::Student(string n, Adresa adr, string gr, Zalikovka zal) : name(n), address(adr), group(gr), zalik(zal) {};
 string Student::GetName()const { return name; };
 Adresa Student::GetAdr()const { return address; }
 string Student::GetGroup()const { return group; }
 Zalikovka Student::GetZal()const { return zalik; }
 istream& operator>>(istream& is, Student& stud) {
-    cout << "\nEnter student name : ";
     is >> stud.name;
-    cout << "\nEnter Group: ";
-    is >> stud.group;
-    cout << "\nEnter address data: " << endl;
     is >> stud.address;
-    cout << "\nEnter data of zalikovka: " << endl;
-    is>>stud.zalik;
+    is >> stud.group;
+    is >> stud.zalik;
     return is;
 }
 ostream& operator<<(ostream& os, const Student& stud) {

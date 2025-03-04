@@ -10,7 +10,7 @@ int main() {
         cout << "Error opening file!" << endl;
         return 1;
     }
-    Student students[100];
+    Student *students=nullptr;
     int studentCount = 0;
     readFile(file, studentCount, students);
     Startmenu();

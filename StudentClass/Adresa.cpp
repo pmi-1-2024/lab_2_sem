@@ -17,11 +17,8 @@ string Adresa::GetStreet()const {
 
 istream& operator>>(istream& is, Adresa& adr)
 {
-    cout << "\nEnter index: ";
     is >> adr.index;
-    cout << "\nEnter city: ";
     is >> adr.city;
-    cout << "Enter street: ";
     is >> adr.street;
     return is;
 }

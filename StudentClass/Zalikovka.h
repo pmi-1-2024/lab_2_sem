@@ -8,17 +8,22 @@ using namespace std;
 class Zalikovka {
 private:
     string number;
-    Predmet subjects[5];
+    Predmet* subjects;
     int count;
 public:
     Zalikovka();
-    Zalikovka(string zalnum);
+    Zalikovka(string zalnum, int subc,Predmet* subj);
+    Zalikovka(const Zalikovka& zal);
     string GetNumber()const;
+    Predmet* Getsubj()const;
+    int Getcount()const;
     void addSub(Predmet subject);
     bool hasSub(string subname)const;
     bool hasSem(string sem)const;
     friend istream& operator>>(istream& is, Zalikovka& zal);
     friend ostream& operator<<(ostream& os, const Zalikovka& zal);
+    Zalikovka& operator=(const Zalikovka& recordBook);
+    ~Zalikovka();
 
 };
 

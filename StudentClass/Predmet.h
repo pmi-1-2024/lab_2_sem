@@ -12,11 +12,13 @@ private:
 public:
     Predmet();
     Predmet(string n, string sem,int grade);
+    Predmet(const Predmet& sub);
     string GetName() const;
     string GetSem() const;
     int GetGrade() const;
     friend istream& operator>>(istream& is, Predmet& pred);
     friend ostream& operator<<(ostream& os, const Predmet& pred);
+    Predmet& operator=(const Predmet& pred);
 };
 
 #endif

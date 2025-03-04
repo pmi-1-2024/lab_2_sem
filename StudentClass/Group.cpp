@@ -3,7 +3,11 @@
 using namespace std;
 
 Group::Group() : studcount(0), students(nullptr), name("noname") {}
-Group::Group(int sc, Student* studs, string name) : studcount(sc), students(studs), name(name) {}
+Group::Group(int sc,string sname) {
+	studcount = sc;
+	name = sname;
+	students = new Student[studcount];
+}
 Group::Group(const Group& other) {
 	studcount = other.studcount;
 	name = other.name;
@@ -27,6 +31,11 @@ int Group::GetSCount() const
 	return studcount;
 }
 
+Student* Group::GetSud()
+{
+	return students;
+}
+
 
 istream& operator>>(istream& is, Group& group) {
 	cout << "\nEnter group name: ";
@@ -39,7 +48,7 @@ istream& operator>>(istream& is, Group& group) {
 	}
 	group.students = new Student[group.studcount];
 	for (int i = 0; i < group.studcount; i++) {
-		cin>>group.students[i];
+		is>>group.students[i];
 	}
 	return is;
 }
@@ -80,4 +89,19 @@ void Group::RemoveStudent(int number)
 	delete[]students;
 	students = newstudents;
 	studcount--;
+}
+
+Group& Group::operator=(const Group& gr)
+{
+	if (this == &gr) {
+		return *this;
+	}
+	studcount = gr.studcount;
+	name = gr.name;
+	delete[]students;
+	students = new Student[studcount];
+	for (int i = 0; i < studcount; i++) {
+		students[i] = gr.students[i];
+	}
+	return *this;
 }

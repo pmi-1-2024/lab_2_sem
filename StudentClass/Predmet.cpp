@@ -2,8 +2,15 @@
 #include <iostream>
 using namespace std;
 
-Predmet::Predmet(){}
+Predmet::Predmet(): name("noname"),semester("nosem"),grade(0){}
 Predmet::Predmet(string n,string s,int g): name(n), semester(s), grade(g){}
+
+/*Predmet::Predmet(const Predmet& sub)
+{
+    name = sub.name;
+    semester = sub.semester;
+    grade = sub.grade;
+}*/
 
 string Predmet::GetName() const {
     return name;
@@ -15,13 +22,21 @@ int Predmet::GetGrade()const {
     return grade;
 }
 
+Predmet& Predmet::operator=(const Predmet& pred)
+{
+    if (this == &pred) {
+        return *this;
+    }
+    name = pred.name;
+    semester = pred.semester;
+    grade = pred.grade;
+    return*this;
+}
+
 istream& operator>>(istream& is, Predmet& pred)
 {
-    cout << "\nEnter subject: ";
     is >> pred.name;
-    cout << "\nEnter Semestr: ";
     is >> pred.semester;
-    cout << "\nEnter Grade: ";
     is >> pred.grade;
     return is;
 }
