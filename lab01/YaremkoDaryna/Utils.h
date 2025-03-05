@@ -1,31 +1,41 @@
 #ifndef UTILS_H
 #define UTILS_H
 #include <string>
-#include <iostream>
+#include <fstream>
+#include "Group.h"
 using namespace std;
 
-int stringToInt(const string& str) {
-    int result = 0;
-    for (size_t i = 0; i < str.length(); i++) {
-        char ch = str[i];
-        if (ch >= '0' && ch <= '9') {
-            result = result * 10 + (ch - '0');
-        }
-        else {
-            break;
-        }
+void readFromFile(ifstream& file, int& studentCount, Student*& students) {
+    if (!file.is_open()) return;
+    file >> studentCount;
+    students = new Student[studentCount];
+    for (int i = 0; i < studentCount; i++) {
+        file >> students[i];
     }
-    return result;
 }
 
-void menu() {
-    cout << "Виберіть по чому здійснювати пошук:" << endl;
-    cout << "1. По імені" << endl;
-    cout << "2. За адресою" << endl;
-    cout << "3. За групою" << endl;
-    cout << "4. За заліковкою" << endl;
-    cout << "5. За назвою предмету" << endl;
-    cout << "6. За семестром" << endl;
-    cout << "Введіть свій вибір: ";
+void menu1() {
+    cout << "Menu:" << endl;
+    cout << "1. By name" << endl;
+    cout << "2. By city(address)" << endl;
+    cout << "3. By group" << endl;
+    cout << "4. By recordbook number" << endl;
+    cout << "5. By subject name" << endl;
+    cout << "6. By semester" << endl;
+    cout << "7. Group menu" << endl;
+    cout << "Enter a number: ";
 }
+
+void menu2() {
+    cout << "Group menu:" << endl;
+    cout << "1. Enter group menu" << endl;
+    cout << "2. Add student" << endl;
+    cout << "3. Delete student" << endl;
+    cout << "4. Show group" << endl;
+    cout << "5. Search by address" << endl;
+    cout << "6. Search by recordbook number" << endl;
+    cout << "7. Search by subject" << endl;
+    cout << "Enter a number: ";
+}
+
 #endif

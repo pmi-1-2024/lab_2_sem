@@ -1,56 +1,127 @@
-#include "Student.h"
-#include <fstream>
-#include <Windows.h>
-using namespace std;
-
+п»ї#include "Group.h"
+#include "Utils.h"
+#include <windows.h>
 int main() {
     SetConsoleOutputCP(1251);
     ifstream file("students.txt");
     if (!file) {
-        cout << "Помилка відкриття файлу" << endl;
+        cout << "File was not opened" << endl;
         return 1;
     }
 
-    Student students[100];
+    Student* students = nullptr;
     int studentCount = 0;
 
-    while (file.peek() != EOF && studentCount < 100) {
-        string name, group, index, city, street, recordNumber;
-        file >> name >> index >> city >> street >> group >> recordNumber;
+    readFromFile(file, studentCount, students);
+    file.close();
 
-        Address address(index, city, street);
-        RecordBook recordBook(recordNumber);
-
-        string subjectName;
-        int semester, grade;
-        while (file >> subjectName) {
-            if (subjectName == "END") break;
-            file >> semester >> grade;
-            recordBook.addSubject(Subject(subjectName, semester, grade));
-        }
-
-        students[studentCount++] = Student(name, address, group, recordBook);
+    if (students == nullptr || studentCount == 0) {
+        cout << "No student was found." << endl;
+        return 1;
     }
+    cout << "File was opened correctly." << endl;
 
-    menu();
+    Group* group = new Group("Main group:", nullptr, 0);
+    group->addStudents(students, studentCount);
+
+    menu1();
+
     int searchType;
     cin >> searchType;
+    cin.ignore();
 
-    cout << "Введіть дані для пошуку: ";
-    string searchValue;
-    cin >> searchValue;
+    if (searchType == 7) {
+        int groupChoice;
+        do {
+            menu2();
+            cin >> groupChoice;
+            cin.ignore();
 
-    bool found = false;
-    for (int i = 0; i < studentCount; i++) {
-        if (students[i].matchesCriteria(searchValue, searchType)) {
-            students[i].display();
-            found = true;
+            switch (groupChoice) {
+            case 1: {
+                string groupName;
+                cout << "Enter group name: ";
+                getline(cin, groupName);
+                delete group;
+                group = new Group(groupName, nullptr, 0);
+                cout << "Group \"" << groupName << "\" is created." << endl;
+                break;
+            }
+            case 2: {
+                Student student;
+                cout << "Enter student's info: ";
+                cin >> student;
+                group->addStudent(student);
+                cout << "Student is added." << endl;
+                break;
+            }
+            case 3: {
+                string studentName;
+                cout << "Enter student's name: ";
+                getline(cin, studentName);
+                cout << endl;
+                group->removeStudent(studentName);
+                break;
+            }
+            case 4: {
+                cout << "Group info:" << endl;
+                cout << endl;
+                group->display();
+                break;
+            }
+            case 5: {
+                Address address;
+                cout << "Enter address (index, city, street): ";
+                cin >> address;
+                cout << endl;
+                group->searchByAddress(address);
+                break;
+            }
+            case 6: {
+                string recordNumber;
+                cout << "Enter recordbook number: ";
+                getline(cin, recordNumber);
+                cout << endl;
+                group->searchByRecordNumber(recordNumber);
+                break;
+            }
+            case 7: {
+                string subjectName;
+                cout << "Enter subject name: ";
+                getline(cin, subjectName);
+                cout << endl;
+                group->searchBySubjectName(subjectName);
+                break;
+            }
+            case 0:
+                cout << "Exiting group menu..." << endl;
+                break;
+            default:
+                cout << "Wrong choice." << endl;
+                break;
+            }
+        } while (groupChoice != 0);
+    }
+    else {
+        string searchValue;
+        cout << "Enter a number to search: ";
+        getline(cin, searchValue);
+
+        bool found = false;
+        for (int i = 0; i < group->getStudentCount(); i++) {
+            if (group->getStudents()[i].matchesCriteria(searchValue, searchType)) {
+                group->getStudents()[i].display();
+                found = true;
+            }
+        }
+
+        if (!found) {
+            cout << "Students are not found." << endl;
         }
     }
 
-    if (!found) {
-        cout << "Не знайдено студента(-ів)." << endl;
-    }
+    delete[] students;
+    delete group;
 
     return 0;
 }
