@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Alex\\Desktop\\poect1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F1BFD0E1-3846-429C-AFDD-6012CED27468}|poect1\\poect1.vcxproj|C:\\Users\\Alex\\Desktop\\poect1\\poect1\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{F1BFD0E1-3846-429C-AFDD-6012CED27468}|poect1\\poect1.vcxproj|solutionrelative:poect1\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F1BFD0E1-3846-429C-AFDD-6012CED27468}|poect1\\poect1.vcxproj|C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Group.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F1BFD0E1-3846-429C-AFDD-6012CED27468}|poect1\\poect1.vcxproj|solutionrelative:poect1\\Group.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -61,7 +65,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -69,7 +73,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\.gitignore",
+              "RelativeDocumentMoniker": "poect1\\.gitignore",
+              "ToolTip": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\.gitignore",
+              "RelativeToolTip": "poect1\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-02T13:17:55.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Address.h",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Address.h",
               "RelativeDocumentMoniker": "poect1\\Address.h",
@@ -82,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Zalikovka.h",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Zalikovka.h",
               "RelativeDocumentMoniker": "poect1\\Zalikovka.h",
@@ -95,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Student.cpp",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Student.cpp",
               "RelativeDocumentMoniker": "poect1\\Student.cpp",
@@ -108,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Group.cpp",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Group.cpp",
               "RelativeDocumentMoniker": "poect1\\Group.cpp",
@@ -121,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "students.txt",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\students.txt",
               "RelativeDocumentMoniker": "students.txt",
@@ -133,12 +150,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Group.h",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Group.h",
               "RelativeDocumentMoniker": "poect1\\Group.h",
-              "ToolTip": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Group.h*",
-              "RelativeToolTip": "poect1\\Group.h*",
+              "ToolTip": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Group.h",
+              "RelativeToolTip": "poect1\\Group.h",
               "ViewState": "AgIAAAMAAAAAAAAAAADwvxsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-02-24T11:01:20.001Z",
@@ -146,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Student.h",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Student.h",
               "RelativeDocumentMoniker": "poect1\\Student.h",
@@ -159,7 +176,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Subject.h",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Subject.h",
               "RelativeDocumentMoniker": "poect1\\Subject.h",
@@ -172,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "information.txt",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\information.txt",
               "RelativeDocumentMoniker": "..\\information.txt",
@@ -185,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Subject.cpp",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Subject.cpp",
               "RelativeDocumentMoniker": "poect1\\Subject.cpp",
@@ -198,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Address.cpp",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Address.cpp",
               "RelativeDocumentMoniker": "poect1\\Address.cpp",
@@ -211,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Zalikovka.cpp",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Zalikovka.cpp",
               "RelativeDocumentMoniker": "poect1\\Zalikovka.cpp",
@@ -224,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Main.cpp",
               "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\poect1\\Main.cpp",
               "RelativeDocumentMoniker": "poect1\\Main.cpp",
