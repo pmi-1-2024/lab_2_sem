@@ -1,14 +1,12 @@
 ﻿#include "Functions.h"
-#include <windows.h>
 #include <iostream>
+#include <windows.h>
 using namespace std;
-
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     string filename = "students.txt";
     int choice;
-
     do {
         cout << "\nМеню:" << endl;
         cout << "1. Вивести всіх студентів" << endl;
@@ -17,7 +15,6 @@ int main() {
         cout << "4. Вихід" << endl;
         cout << "Ваш вибір: ";
         cin >> choice;
-
         if (choice == 1) {
             readStudentsFromFile(filename);
         }
@@ -36,7 +33,6 @@ int main() {
             searchStudentByGroup(filename, group);
         }
     } while (choice != 4);
-
     cout << "Програма завершена." << endl;
     return 0;
 }

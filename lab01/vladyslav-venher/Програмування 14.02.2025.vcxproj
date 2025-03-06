@@ -108,6 +108,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,6 +131,7 @@
   <ItemGroup>
     <ClCompile Include="Address.cpp" />
     <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="Group.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="Zalikovka.cpp" />
@@ -137,6 +140,7 @@
   <ItemGroup>
     <ClInclude Include="Address.h" />
     <ClInclude Include="Functions.h" />
+    <ClInclude Include="Group.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="Zalikovka.h" />

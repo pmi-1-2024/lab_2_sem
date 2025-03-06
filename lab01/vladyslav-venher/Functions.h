@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Student.h"
 #include <string>
 using namespace std;

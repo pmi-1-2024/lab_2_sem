@@ -2,6 +2,7 @@
 #include "Student.h"
 #include <iostream>
 #include <fstream>
+
 using namespace std;
 
 void readStudentsFromFile(const string& filename) {
@@ -32,13 +33,13 @@ void searchStudentByName(const string& filename, const string& name) {
     while (getline(file, line)) {
         if (line == name) {
             found = true;
-            cout << "Студента з іменем " << name << " знайдено!" << endl;
+            cout << "Студент з іменем " << name << " знайдений!" << endl;
             break;
         }
     }
 
     if (!found) {
-        cout << "Студента з таким ім'ям не знайдено!" << endl;
+        cout << "Студента з таким іменем не знайдено!" << endl;
     }
 
     file.close();
@@ -57,7 +58,7 @@ void searchStudentByGroup(const string& filename, const string& group) {
     while (getline(file, line)) {
         if (line == group) {
             found = true;
-            cout << "Студента з групою " << group << " знайдено!" << endl;
+            cout << "Студент з групи " << group << " знайдений!" << endl;
             break;
         }
     }

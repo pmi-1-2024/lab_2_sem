@@ -1,15 +1,17 @@
 #include "Address.h"
-#include <iostream>
 using namespace std;
 
 Address::Address() : zipcode(0), city(""), street("") {}
+Address::Address(int code, const string& c, const string& s) : zipcode(code), city(c), street(s) {}
 
-void Address::setAddress(int code, const string& c, const string& s) {
-    zipcode = code;
-    city = c;
-    street = s;
+ostream& operator<<(ostream& os, const Address& a) {
+    os << a.zipcode << " " << a.city << " " << a.street;
+    return os;
 }
 
-void Address::print() const {
-    cout << "Адреса: " << zipcode << ", " << city << ", " << street << endl;
+istream& operator>>(istream& is, Address& a) {
+    is >> a.zipcode >> ws;
+    getline(is, a.city);
+    getline(is, a.street);
+    return is;
 }

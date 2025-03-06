@@ -1,12 +1,18 @@
 #include "Student.h"
-#include <iostream>
 using namespace std;
 
 Student::Student() : name(""), group("") {}
 
-void Student::print() const {
-    cout << "Студент: " << name << endl;
-    address.print();
-    cout << "Група: " << group << endl;
-    zalikovka.output();
+ostream& operator<<(ostream& os, const Student& student) {
+    os << student.name << "\n" << student.address << "\n" << student.group << "\n" << student.zalikovka;
+    return os;
+}
+
+istream& operator>>(istream& is, Student& student) {
+    getline(is, student.name);
+    is >> student.address;
+    is.ignore();
+    getline(is, student.group);
+    is >> student.zalikovka;
+    return is;
 }
