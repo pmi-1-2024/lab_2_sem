@@ -34,3 +34,10 @@
 
 .idea/
 .vscode/
+.vs/
+.json/
+*.json
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
