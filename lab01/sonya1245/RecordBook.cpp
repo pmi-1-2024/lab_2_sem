@@ -3,7 +3,7 @@
 RecordBook::RecordBook() : recordNumber(""), subjects(nullptr), subjectCount(0) {}
 
 RecordBook::~RecordBook() {
-    delete[] subjects; // Звільняємо пам'ять
+    delete[] subjects; 
 }
 
 RecordBook::RecordBook(const RecordBook& other) {
@@ -17,7 +17,7 @@ RecordBook::RecordBook(const RecordBook& other) {
 
 RecordBook& RecordBook::operator=(const RecordBook& other) {
     if (this != &other) {
-        delete[] subjects; // Звільняємо попередню пам'ять
+        delete[] subjects; 
         recordNumber = other.recordNumber;
         subjectCount = other.subjectCount;
         subjects = new Subject[subjectCount];
@@ -27,6 +27,14 @@ RecordBook& RecordBook::operator=(const RecordBook& other) {
     }
     return *this;
 }
+
+Subject& RecordBook::operator[](int index) {
+    if (index < 0 || index >= subjectCount) {
+        return subjects[0];
+    }
+    return subjects[index];
+}
+
 
 istream& operator>>(istream& in, RecordBook& recordBook) {
     cout << "Enter record book number: ";

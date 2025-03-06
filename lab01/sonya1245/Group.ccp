@@ -7,9 +7,36 @@ Group::Group() : name(""), students(nullptr), studentCount(0) {}
 
 Group::Group(const string& name) : name(name), students(nullptr), studentCount(0) {}
 
-Group::~Group() {
-    delete[] students;
+Group::Group(const Group& other) {
+    name = other.name;
+    studentCount = other.studentCount;
+    students = new Student[studentCount];
+    for (int i = 0; i < studentCount; i++) {
+        students[i] = other.students[i];
+    }
 }
+
+Group& Group::operator=(const Group& other) {
+    if (this != &other) {
+        if (students != nullptr) {
+            delete[] students;
+        }
+
+        name = other.name;
+        studentCount = other.studentCount;
+        students = new Student[studentCount];
+        for (int i = 0; i < studentCount; i++) {
+            students[i] = other.students[i];
+        }
+    }
+    return *this;
+}
+
+
+Group::~Group() {
+    if (students != nullptr) {
+        delete[] students;
+    }
 
 void Group::addStudent(const Student& student) {
     Student* temp = new Student[studentCount + 1];
@@ -89,6 +116,12 @@ void Group::printStudents() const {
         cout << students[i] << "\n";
     }
 }
+
+Student& Group::operator[](int index) {
+    if (index < 0 || index >= studentCount) {
+        return students[0]; 
+    }
+    return students[index];
 
 istream& operator>>(istream& in, Group& group) {
     cout << "Enter group name: ";

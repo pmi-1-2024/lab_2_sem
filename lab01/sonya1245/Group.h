@@ -14,6 +14,8 @@ private:
 public:
     Group();
     Group(const string& name);
+    Group(const Group& other);
+    Group& operator=(const Group& other);
     ~Group();
     void addStudent(const Student& student);
     void searchByName(const string& name) const;
@@ -24,6 +26,7 @@ public:
     void searchBySubjectName(const string& subjectName) const;
     void searchBySemester(int semester) const;
     void printStudents() const;
+    const Student& operator[](int index) const;
     friend istream& operator>>(istream& in, Group& group);
     friend ostream& operator<<(ostream& out, const Group& group);
 };
