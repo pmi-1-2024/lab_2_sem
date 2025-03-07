@@ -1,0 +1,6 @@
+JohnDoe
+12345 Kyiv Khreshchatyk-1
+IT-01
+1001 2
+Math 1 95
+Physics 2 88

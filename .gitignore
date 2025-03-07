@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+".vs/" 
+=======
 # Prerequisites
 *.d
 
@@ -35,3 +38,4 @@
 .idea/
 .vscode/
 .vs/
+>>>>>>> 039b85f4887775ec50950c4c7adfc2faa6348b49
