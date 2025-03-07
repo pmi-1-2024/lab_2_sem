@@ -1,1 +1,41 @@
+<<<<<<< HEAD
 ".vs/" 
+=======
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+
+.idea/
+.vscode/
+.vs/
+>>>>>>> 039b85f4887775ec50950c4c7adfc2faa6348b49
