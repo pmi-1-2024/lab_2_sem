@@ -94,8 +94,7 @@
               "RelativeToolTip": "poect1\\Address.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-24T12:27:19.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-24T12:27:19.61Z"
             },
             {
               "$type": "Document",
@@ -107,8 +106,7 @@
               "RelativeToolTip": "poect1\\Zalikovka.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-17T16:03:53.065Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T16:03:53.065Z"
             },
             {
               "$type": "Document",
@@ -120,8 +118,7 @@
               "RelativeToolTip": "poect1\\Student.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-17T15:58:14.214Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T15:58:14.214Z"
             },
             {
               "$type": "Document",
@@ -133,8 +130,7 @@
               "RelativeToolTip": "poect1\\Group.cpp",
               "ViewState": "AgIAADwAAAAAAAAAAAAAAGAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-24T11:00:51.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-24T11:00:51.925Z"
             },
             {
               "$type": "Document",
@@ -158,8 +154,7 @@
               "RelativeToolTip": "poect1\\Group.h",
               "ViewState": "AgIAAAMAAAAAAAAAAADwvxsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-24T11:01:20.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-24T11:01:20.001Z"
             },
             {
               "$type": "Document",
@@ -171,8 +166,7 @@
               "RelativeToolTip": "poect1\\Student.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-17T16:03:42.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T16:03:42.449Z"
             },
             {
               "$type": "Document",
@@ -184,21 +178,19 @@
               "RelativeToolTip": "poect1\\Subject.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-17T16:04:11.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T16:04:11.843Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "information.txt",
-              "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\information.txt",
-              "RelativeDocumentMoniker": "..\\information.txt",
-              "ToolTip": "C:\\Users\\Alex\\Desktop\\information.txt",
-              "RelativeToolTip": "..\\information.txt",
+              "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\poect1\\information.txt",
+              "RelativeDocumentMoniker": "information.txt",
+              "ToolTip": "C:\\Users\\Alex\\Desktop\\poect1\\information.txt",
+              "RelativeToolTip": "information.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-02-17T16:42:19.196Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T16:42:19.196Z"
             },
             {
               "$type": "Document",
@@ -210,8 +202,7 @@
               "RelativeToolTip": "poect1\\Subject.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-17T15:58:55.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T15:58:55.345Z"
             },
             {
               "$type": "Document",
@@ -223,8 +214,7 @@
               "RelativeToolTip": "poect1\\Address.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-17T15:58:44.626Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T15:58:44.626Z"
             },
             {
               "$type": "Document",
@@ -236,8 +226,7 @@
               "RelativeToolTip": "poect1\\Zalikovka.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-17T15:58:30.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T15:58:30.766Z"
             },
             {
               "$type": "Document",
@@ -249,8 +238,7 @@
               "RelativeToolTip": "poect1\\Main.cpp",
               "ViewState": "AgIAAEoAAAAAAAAAAAAYwF8AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-17T15:58:01.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-17T15:58:01.212Z"
             }
           ]
         }
