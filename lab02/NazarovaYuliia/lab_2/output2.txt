@@ -1,0 +1,4 @@
+Name: Eeyore, Birth Year: 2015, Type: Grey, Height: 1.2
+Name: Muley, Birth Year: 2018, Color: Brown, Type: Grey, Height: 1.4, Nickname: Muley
+Number of white horses: 0
+Number of donkeys <=1.5m: 2
