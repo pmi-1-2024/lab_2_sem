@@ -1,0 +1,10 @@
+All phones sorted by price:
+60
+80
+150
+950
+1100
+1200
+Total price: 3540
+
+Radio phones with answering machine:
