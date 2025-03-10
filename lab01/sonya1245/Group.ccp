@@ -111,11 +111,6 @@ void Group::searchBySemester(int semester) const {
     }
 }
 
-void Group::printStudents() const {
-    for (int i = 0; i < studentCount; i++) {
-        cout << students[i] << "\n";
-    }
-}
 
 Student& Group::operator[](int index) {
     if (index < 0 || index >= studentCount) {

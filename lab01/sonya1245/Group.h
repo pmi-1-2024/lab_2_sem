@@ -25,7 +25,6 @@ public:
     void searchByCity(const string& city) const;
     void searchBySubjectName(const string& subjectName) const;
     void searchBySemester(int semester) const;
-    void printStudents() const;
     const Student& operator[](int index) const;
     friend istream& operator>>(istream& in, Group& group);
     friend ostream& operator<<(ostream& out, const Group& group);

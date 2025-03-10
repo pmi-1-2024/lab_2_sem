@@ -78,7 +78,7 @@ int main() {
             group.searchBySemester(semester);
         }
         else if (choice == 9) {
-            group.printStudents();
+            cout << group;
         }
         else if (choice == 10) {
             break;
