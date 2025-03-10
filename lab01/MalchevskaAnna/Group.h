@@ -27,4 +27,5 @@ public:
     void loadFromFile(const string& students);
     Student& operator[](int index);
     friend ostream& operator<<(ostream& os, const Group& group);
+    friend istream& operator>>(istream& is, Group& group);
 };

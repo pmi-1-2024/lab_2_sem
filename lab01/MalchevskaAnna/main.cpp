@@ -8,6 +8,8 @@
 
 using namespace std;
 
+
+
 bool checkGroupExists(Group* group) {
     if (group == nullptr) {
         cout << "Please create a group first (Option 1).\n";

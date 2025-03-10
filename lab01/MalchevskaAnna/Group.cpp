@@ -59,10 +59,9 @@ void Group::removeStudent(const string& name) {
     }
 }
 
+
 void Group::printStudents() const {
-    for (int i = 0; i < studentCount; i++) {
-        cout << students[i] << endl;
-    }
+    cout << *this;
 }
 
 void Group::searchByName(const string& name) const {
@@ -104,9 +103,7 @@ void Group::searchByRecordNumber(const string& recordNumber) const {
 void Group::saveToFile(const string& students) const {
     ofstream outFile(students);
     if (outFile.is_open()) {
-        for (int i = 0; i < studentCount; i++) {
-            outFile << students[i] << endl;
-        }
+        outFile << *this;  
         outFile.close();
     }
     else {
@@ -114,13 +111,32 @@ void Group::saveToFile(const string& students) const {
     }
 }
 
+ostream& operator<<(ostream& os, const Group& group) {
+    os << group.name << endl; 
+    os << group.studentCount << endl; 
+    for (int i = 0; i < group.studentCount; i++) {
+        os << group.students[i] << endl; 
+    }
+    return os;
+}
+
+istream& operator>>(istream& is, Group& group) {
+    is >> group.name;  
+    is >> group.studentCount; 
+
+    delete[] group.students;  
+    group.students = new Student[group.studentCount];  
+
+    for (int i = 0; i < group.studentCount; i++) {
+        is >> group.students[i]; 
+    }
+    return is;
+}
+
 void Group::loadFromFile(const string& students) {
     ifstream inFile(students);
     if (inFile.is_open()) {
-        Student tempStudent;
-        while (inFile >> tempStudent) {
-            addStudent(tempStudent);
-        }
+        inFile >> *this;  
         inFile.close();
     }
     else {
@@ -135,10 +151,3 @@ Student& Group::operator[](int index) {
     return students[index];
 }
 
-ostream& operator<<(ostream& os, const Group& group) {
-    os << "Group Name: " << group.name << endl;
-    for (int i = 0; i < group.studentCount; i++) {
-        os << group.students[i] << endl;
-    }
-    return os;
-}
