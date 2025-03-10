@@ -1,0 +1,30 @@
+John Doe
+10001
+New York
+5th Avenue 10
+CS-2023
+RB123456
+2
+Mathematics
+1
+85
+Programming
+2
+90
+
+Jane Smith
+90001
+Los Angeles
+Sunset Blvd 20
+IT-2022
+RB654321
+3
+Physics
+1
+78.5
+Algorithms
+2
+88
+Databases
+3
+92.3
