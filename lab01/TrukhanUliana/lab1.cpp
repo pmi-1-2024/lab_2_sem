@@ -45,7 +45,7 @@ int main() {
 
         if (groupStudentCount == 0) {
             cout << "No students found in group " << groupName << "." << endl;
-
+            
             delete[] groupStudents;
             delete[] students;
             return 1;
@@ -85,8 +85,7 @@ int main() {
             case 3:
             {
                 cout << "Displaying group information:" << endl;
-                cout << endl;
-                group->display();
+                cout << *group << endl;
                 break;
             }
             case 4:
@@ -133,7 +132,7 @@ int main() {
         bool found = false; // Лічильник знайдених студентів
         for (int i = 0; i < studentCount; i++) {
             if (students[i].matchesCriteria(searchValue, searchType)) {
-                students[i].display();
+                cout << students[i] << endl;
                 found = true;
             }
         }

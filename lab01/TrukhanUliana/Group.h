@@ -18,10 +18,10 @@ public:
 	Student& operator[](int index);
 	~Group();
 
+	void saveToFile(const string& filename);
 	void addStudents(const Student* students, int count);
 	void addStudent(const Student& student);
 	void removeStudent(string studentName);
-	void display() const;
 
 	string getName() const;
 	int getStudentCount() const;
@@ -31,7 +31,6 @@ public:
 	void searchByAddress(const Address& address) const;
 	void searchByRecordNumber(const string& recordNumber) const;
 	void searchBySubjectName(const string& subjectName) const;
-	void saveToFile(const string& filename);
 
 	friend istream& operator>>(istream& is, Group& group);
 	friend ostream& operator<<(ostream& os, const Group& group);

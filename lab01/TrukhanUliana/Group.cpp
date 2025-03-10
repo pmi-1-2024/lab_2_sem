@@ -12,7 +12,7 @@ Group::Group(string name, Student* student, int studentCount)
 		}
 	}
 	else {
-		students = nullptr;  // Важливо! Щоб уникнути некоректного доступу
+		students = nullptr;
 	}
 };
 
@@ -41,7 +41,7 @@ Group& Group::operator=(const Group& group) {
 
 Student& Group::operator[](int index) {
 	if (index < 0 || index >= studentCount) {
-		throw out_of_range("Invalid index"); // Захист від виходу за межі
+		throw out_of_range("Invalid index");
 	}
 	return students[index];
 }
@@ -50,36 +50,32 @@ Group::~Group() {
 	delete[] students;
 }
 
-
 void Group::addStudents(const Student* newStudents, int newCount) {
 	if (newCount <= 0) return;
 
 	Student* updatedStudents = new Student[studentCount + newCount];
 
-	// Копіюємо старих студентів (якщо вони є)
 	if (students != nullptr) {
 		for (int i = 0; i < studentCount; i++) {
 			updatedStudents[i] = students[i];
 		}
-		delete[] students; // Звільняємо старий масив
+		delete[] students;
 	}
 
-	// Додаємо нових студентів
 	for (int i = 0; i < newCount; i++) {
 		updatedStudents[studentCount + i] = newStudents[i];
 	}
 
-	students = updatedStudents; // Оновлюємо вказівник
+	students = updatedStudents; 
 	studentCount += newCount;
 }
 
 void Group::addStudent(const Student& student) {
 	Student tempStudent = student;
-	addStudents(&student, 1); // Просто викликаємо `addStudents()`
+	addStudents(&student, 1); 
 
 	saveToFile("students.txt");
 }
-
 
 //Function to remove student	
 void Group::removeStudent(string studentName) {
@@ -103,26 +99,10 @@ void Group::removeStudent(string studentName) {
 	saveToFile("students.txt");
 }
 
-
-void Group::display() const {
-	cout << "\nGroup name: " << name << endl;
-	cout << "Students in this group:" << endl;
-
-	if (studentCount == 0) {
-		cout << "No students in this group." << endl;
-		return;
-	}
-
-	for (int i = 0; i < studentCount; i++) {
-		cout << students[i] << endl;  // Вивід студента (повинен бути метод Student::display())
-	}
-}
-
 string Group::getName() const { return name; }
 int Group::getStudentCount() const { return studentCount; }
 Student* Group::getStudents() const { return students; }
 
-//Function to search
 void Group::searchByGroupName(const string& groupName) const {
 	for (int i = 0; i < studentCount; i++) {
 		if (students[i].getGroup() == groupName) {
@@ -161,30 +141,28 @@ void Group::saveToFile(const string& filename) {
 	Student* allStudents = nullptr;
 	int totalStudents = 0;
 
-	if (inFile) {
-		inFile >> totalStudents;
-		inFile.ignore();
-		if (totalStudents > 0) {
-			allStudents = new Student[totalStudents];
-			for (int i = 0; i < totalStudents; i++) {
-				inFile >> allStudents[i];
-			}
-		}
-	}
+	readFromFile(inFile, totalStudents, allStudents);
 	inFile.close();
 
-	// Оновлення списку
 	int newTotal = 0;
-	Student* updatedStudents = new Student[totalStudents + studentCount];
-
 	for (int i = 0; i < totalStudents; i++) {
 		if (allStudents[i].getGroup() != this->name) {
-			updatedStudents[newTotal++] = allStudents[i];
+			newTotal++;
+		}
+	}
+	newTotal += studentCount;
+
+	Student* updatedStudents = new Student[newTotal];
+
+	int index = 0;
+	for (int i = 0; i < totalStudents; i++) {
+		if (allStudents[i].getGroup() != this->name) {
+			updatedStudents[index++] = allStudents[i];
 		}
 	}
 
 	for (int i = 0; i < studentCount; i++) {
-		updatedStudents[newTotal++] = students[i];
+		updatedStudents[index++] = students[i];
 	}
 
 	ofstream outFile(filename);
@@ -197,7 +175,6 @@ void Group::saveToFile(const string& filename) {
 	delete[] allStudents;
 	delete[] updatedStudents;
 }
-
 
 istream& operator>>(istream& is, Group& group) {
 	is >> group.name;
