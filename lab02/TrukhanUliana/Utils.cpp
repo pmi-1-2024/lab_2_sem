@@ -5,38 +5,41 @@ void readFromFile(ifstream& file, HouseElectronic** electronics, int& count) {
         cout << "Error: file didn`t open!" << endl;
         return;
     }
-
     count = 0;
-    string name;
-    while (file >> name && count < 7) {
-        string firm;
-        double price;
+    char ch;
 
-        if (name == "VacuumCleaner") {
-            int power;
-            string color;
-            file >> firm >> price >> power >> color;
-            electronics[count++] = new VacuumCleaner(name, firm, price, power, color);
+    while (file >> ch && count < 7) {
+        switch (ch) {
+        case 'v':
+            electronics[count] = new VacuumCleaner();
+            break;
+        case 'w':
+            electronics[count] = new WashingMachine();
+            break;
+        case 'c':
+            electronics[count] = new Combine();
+            break;
+        default:
+            cout << "Unknown type: " << ch << endl;
+            file.clear();
+            file.ignore(numeric_limits<streamsize>::max(), '\n'); // Пропуск решти рядка
+            continue;
         }
-        else if (name == "WashingMachine") {
-            int programs, volume;
-            file >> firm >> price >> programs >> volume;
-            electronics[count++] = new WashingMachine(name, firm, price, programs, volume);
+        if (!(file >> *electronics[count])) {
+            cout << "Error reading data for element " << count << endl;
+            delete electronics[count];
+            electronics[count] = nullptr;
+            continue;
         }
-        else if (name == "Combine") {
-            int power, functions;
-            file >> firm >> price >> power >> functions;
-            electronics[count++] = new Combine(name, firm, price, power, functions);
-        }
+
+        count++;
     }
-
 }
-
 
 void sortByName(HouseElectronic** electronics, int count) {
     for (int i = 0; i < count - 1; i++) {
         for (int j = 0; j < count - i - 1; j++) {
-            if (electronics[j]->getName() > electronics[j+1]->getName()) {
+            if (*electronics[j + 1] < *electronics[j]) {  // Використовуємо перевантажений оператор <
                 HouseElectronic* temp = electronics[j];
                 electronics[j] = electronics[j + 1];
                 electronics[j + 1] = temp;
@@ -45,10 +48,11 @@ void sortByName(HouseElectronic** electronics, int count) {
     }
     cout << "After sorting:\n";
     for (int i = 0; i < count; i++) {
-        cout << electronics[i]->getName() << " | " << *electronics[i] << endl;
+        cout << *electronics[i] << endl;
     }
 
 }
+
 
 void writeSorted(ofstream& file, HouseElectronic** electronics, int count) {
     if (!file.is_open()) {

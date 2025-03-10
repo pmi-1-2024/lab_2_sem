@@ -6,7 +6,7 @@ int main() {
     HouseElectronic* electronics[7];
     int count = 0;
     readFromFile(file, electronics, count);
-   
+
     file.close();
 
     ofstream file1("File1.txt");

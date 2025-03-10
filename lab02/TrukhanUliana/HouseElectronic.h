@@ -22,6 +22,9 @@ public:
 	string getFirm() const;
 	double getPrice() const;
 
+	bool operator<(const HouseElectronic& other) const;
+	virtual void readData(istream& is) = 0;
+
 	friend istream& operator>>(istream& is, HouseElectronic& he);
 	virtual void print(ostream& os) const;
 	friend ostream& operator<<(ostream& os, const HouseElectronic& obj);

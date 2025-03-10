@@ -15,7 +15,10 @@ public:
 	Combine(string n, string f, double p, int pow, int fn);
 	Combine(const Combine& c);
 
+	void readData(istream& is) override;
+
 	friend istream& operator>>(istream& is, Combine& c);
 	void print(ostream& os) const override;
+	friend ostream& operator<<(ostream& os, Combine& c);
 };
 #endif

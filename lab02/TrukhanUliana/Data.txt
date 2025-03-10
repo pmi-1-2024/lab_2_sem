@@ -1,13 +1,7 @@
-VacuumCleaner Dyson 699 525 Golden
-
-WashingMachine Bosch 600 15 9
-
-Combine Philips 200 750 7
-
-WashingMachine Samsung 800 14 10.5
-
-VacuumCleaner Xiaomi 450 65 White
-
-VacuumCleaner Samsung 500 200 Blue
-
-Combine Kenwood 350 1000 5
+v VacuumCleaner Dyson 699 525 Golden
+w WashingMachine Bosch 600 15 9
+c Combine Philips 200 750 7
+w WashingMachine Samsung 800 14 10
+v VacuumCleaner Xiaomi 450 65 White
+v VacuumCleaner Samsung 500 200 Blue
+c Combine Kenwood 350 1000 5

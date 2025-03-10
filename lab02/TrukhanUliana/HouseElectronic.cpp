@@ -8,8 +8,14 @@ string HouseElectronic::getName() const { return name; }
 string HouseElectronic::getFirm() const { return firm; }
 double HouseElectronic::getPrice() const { return price; }
 
+bool HouseElectronic::operator<(const HouseElectronic& other) const {
+	return this->getName() < other.getName();
+}
+
+
 istream& operator>>(istream& is, HouseElectronic& he) {
 	is >> he.name >> he.firm >> he.price;
+	he.readData(is);
 	return is;
 }
 
@@ -17,8 +23,8 @@ void HouseElectronic::print(ostream& os) const {
 	os << name << " " << firm << " " << price;
 }
 
-ostream& operator<<(ostream& os, const HouseElectronic& obj) {
-	obj.print(os);
+ostream& operator<<(ostream& os, const HouseElectronic& he) {
+	he.print(os);
 	return os;
 }
 

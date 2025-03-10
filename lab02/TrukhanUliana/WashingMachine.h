@@ -15,9 +15,10 @@ public:
 	WashingMachine(string n, string f, double p, int pn, int vol);
 	WashingMachine(const WashingMachine& wm);
 
+	void readData(istream& is) override;
 
 	friend istream& operator>>(istream& is, WashingMachine& wm);
 	void print(ostream& os) const override;
-
+	friend ostream& operator<<(ostream& os, WashingMachine& wm);
 };
 #endif

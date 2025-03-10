@@ -1,3 +1,0 @@
-VacuumCleaner
-WashingMachine
-Total price: 1300
