@@ -26,52 +26,44 @@ int main() {
             animals = temp;
         }
         if (type == "Horse") {
-            string color, breed;
-            fin >> color >> breed;
-            animals[count++] = new Horse(name, birthYear, color, breed);
+            Horse* h = new Horse();
+            fin >> *h;
+            animals[count++] = h;
         }
         else if (type == "Donkey") {
-            string donkeyType;
-            double height;
-            fin >> donkeyType >> height;
-            animals[count++] = new Donkey(name, birthYear, donkeyType, height);
+            Donkey* d = new Donkey();
+            fin >> *d;
+            animals[count++] = d;
         }
         else if (type == "Mule") {
-            string color, breed, donkeyType, nickname;
-            double height;
-            fin >> color >> breed >> donkeyType >> height >> nickname;
-            animals[count++] = new Mule(name, birthYear, color, breed, donkeyType, height, nickname);
+            Mule* m = new Mule();
+            fin >> *m;
+            animals[count++] = m;
         }
     }
 
-    // Сортування за роком народження (бульбашкове сортування)
     for (int i = 0; i < count - 1; ++i) {
         for (int j = i + 1; j < count; ++j) {
-            if (animals[i]->getBirthYear() > animals[j]->getBirthYear()) {
-                Animal* temp = animals[i];
-                animals[i] = animals[j];
-                animals[j] = temp;
+            if (*animals[j] < *animals[i]) {
+                swap(animals[i], animals[j]);
             }
         }
     }
 
     for (int i = 0; i < count; ++i) {
-        animals[i]->print(fout1);
-        fout1 << endl;
+        fout1 << *animals[i] << endl;
     }
 
     int whiteHorses = 0, shortDonkeys = 0;
     for (int i = 0; i < count; ++i) {
         Horse* h = dynamic_cast<Horse*>(animals[i]);
-        if (h && h->getColor() == "white") {
-            h->print(fout2);
-            fout2 << endl;
+        if ( h && h->getColor() == "white") {
+            fout2 << *h << endl;
             whiteHorses++;
         }
         Donkey* d = dynamic_cast<Donkey*>(animals[i]);
-        if (d && d->getHeight() <= 1.5) {
-            d->print(fout2);
-            fout2 << endl;
+        if ( d && d->getHeight() <= 1.5) {
+            fout2 << *d << endl;
             shortDonkeys++;
         }
     }
