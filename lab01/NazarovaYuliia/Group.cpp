@@ -72,12 +72,6 @@ void Group::removeStudent(const string& studentName) {
     studentCount--;
 }
 
-void Group::displayStudents() const {
-    for (int i = 0; i < studentCount; i++) {
-        cout << students[i] << endl;
-    }
-}
-
 Student& Group::operator[](int index) {
     if (index < 0 || index >= studentCount) {
         cerr << "Index goes beyond the students array" << endl;

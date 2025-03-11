@@ -18,7 +18,7 @@ ostream& operator<<(ostream& os, const Student& student) {
     return os;
 }
 
-istream& operator>>(istream& is, const Student& student) {
+istream& operator>>(istream& is, Student& student) {
     cout << "Enter student name: ";
     is.ignore();
     getline(is, student.name);

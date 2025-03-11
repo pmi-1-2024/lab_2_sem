@@ -22,7 +22,6 @@ public:
 
     void addStudent(const Student& student);
     void removeStudent(const string& studentName);
-    void displayStudents() const;
 
     Student& operator[](int index);
     Student& operator[](const string& studentName);

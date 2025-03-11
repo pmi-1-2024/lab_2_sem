@@ -17,7 +17,7 @@ void searchByName(Student* students, int count, const string& name) {
     bool found = false;
     for (int i = 0; i < count; ++i) {
         if (students[i].getName() == name) {
-            students[i].output();
+            cout << students[i] << endl;
             found = true;
             break;
         }
@@ -30,8 +30,8 @@ void searchByName(Student* students, int count, const string& name) {
 void searchByGroup(Student* students, int count, const string& group) {
     bool found = false;
     for (int i = 0; i < count; ++i) {
-        if (students[i].getGroup() == group) {
-            students[i].output();
+        if (students[i].getGroupName() == group) {
+            cout << students[i] << endl;
             found = true;
         }
     }
@@ -40,11 +40,11 @@ void searchByGroup(Student* students, int count, const string& group) {
     }
 }
 
-void searchByAddress(Student* students, int count, const string& city, const string& street, int index) {
+void searchByAddress(Student* students, int count, const Address& address) {
     bool found = false;
     for (int i = 0; i < count; ++i) {
-        if (students[i].getAddress().city == city && students[i].getAddress().street == street && students[i].getAddress().houseNumber == houseNumber && students[i].getAddress().index == index) {
-            students[i].output();
+        if (students[i].getAddress() == address) {
+            cout << students[i] << endl;
             found = true;
         }
     }
@@ -56,8 +56,8 @@ void searchByAddress(Student* students, int count, const string& city, const str
 void searchByZalikovkaNumber(Student* students, int count, const string& zalikNumber) {
     bool found = false;
     for (int i = 0; i < count; ++i) {
-        if (students[i].getZalikovka().number == zalikNumber) {
-            students[i].output();
+        if (students[i].getZalikovkaNumber().getNumber == zalikNumber) {
+            cout << students[i] << endl;
             found = true;
         }
     }
@@ -69,9 +69,10 @@ void searchByZalikovkaNumber(Student* students, int count, const string& zalikNu
 void searchBySubjectName(Student* students, int count, const string& subjectName) {
     bool found = false;
     for (int i = 0; i < count; ++i) {
-        for (int j=0; j<students[i].getZalikovka().subjectCount; ++j) {
-            if (students[i].getZalikovka().subjects[j].name == subjectName) {
-                students[i].output();
+        const Zalikovka& z = students[i].getZalikovkaNumber();
+        for (int j = 0; j < z.getSubjectCount(); ++j) {
+            if (z.getSubjects()[j].name == subjectName) {
+                cout << students[i] << endl;
                 found = true;
                 break;
             }
@@ -85,9 +86,10 @@ void searchBySubjectName(Student* students, int count, const string& subjectName
 void searchBySemester(Student* students, int count, int semester) {
     bool found = false;
     for (int i = 0; i < count; ++i) {
-        for (int j = 0; j < students[i].getZalikovka().subjectCount; ++j) {
-            if (students[i].getZalikovka().subjects[j].semester == semester) {
-                students[i].output();
+        const Zalikovka& z = students[i].getZalikovkaNumber();
+        for (int j = 0; j < z.getSubjectCount(); ++j) {
+            if (z.getSubjects()[j].semester == semester) {
+                cout << students[i] << endl;
                 found = true;
                 break;
             }
@@ -120,52 +122,50 @@ int main() {
         if (choice == 1) {
             Student* tempStudents = new Student[studentCount + 1];
             for (int i = 0; i < studentCount; ++i) {
-                int(i = 0; i < studentCount; ++i) {
-                    cout << "Enter data foor new student: " << endl;
-                    tempStudents[studentCount].input();
-
-                    delete[] students;
-                    students = tempStudents;
-                    ++studentCount;
-                    saveToFile(students, studentCount);
-                }
+                tempStudents[i] = students[i];
             }
+
+            cout << "Enter data foor new student: " << endl;
+            cin >> tempStudents[studentCount];
+
+            delete[] students;
+            students = tempStudents;
+            ++studentCount;
+            saveToFile(students, studentCount);
+            
         }
         else if (choice == 2) {
             string name;
             cout << "Enter student name to search: ";
-            cin >> name;
-            serchByName(students, studentCount, name);
+            cin >> ws;
+            getline(cin, name);
+            searchByName(students, studentCount, name);
         }
         else if (choice == 3) {
             string groupName;
             cout << "Enter group name to search: ";
-            cin >> groupName;
-            serchByGroup(students, studentCount, groupeName);
+            cin >> ws;
+            getline(cin, groupName);
+            searchByGroup(students, studentCount, groupName);
         }
         else if (choice == 4) {
-            string city, street;
-            int houseNumber, index;
-            cout << "Enter city: ";
-            cin >> city;
-            cout << "Enter street: ";
-            cin >> street;
-            cout << "Enter house number: ";
-            cin >> houseNumber;
-            cout << "Enter index: ";
-            cin >> index;
-            searchByAddress(students, studentCount, city, street, houseNumber, index);
+            Address address;
+            cout << "Enter address details:\n";
+            cin >> address;
+            searchByAddress(students, studentCount, address);
         }
         else if (choice == 5) {
             string zalikNumber;
             cout << "Enter zalikovka number: ";
-            cin >> zalikNumber;
+            cin >> ws;
+            getline(cin, zalikNumber);
             searchByZalikovkaNumber(students, studentCount, zalikNumber);
         }
         else if (choice == 6) {
             string subjectName;
             cout << "Enter subject name: ";
-            cin >> subjectName;
+            cin >> ws;
+            getline(cin, subjectName);
             searchBySubjectName(students, studentCount, subjectName);
         }
         else if (choice == 7) {
