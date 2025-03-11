@@ -4,13 +4,16 @@
 using namespace std;
 
 class Address {
-public:
+private:
     string zipCode;
     string city;
     string street;
 
+public:
     Address(string zip, string c, string s) : zipCode(zip), city(c), street(s) {}
-    void display() const;
-};
-#endif
 
+    friend ostream& operator<<(ostream& out, const Address& addr);
+    friend istream& operator>>(istream& in, Address& addr);
+};
+
+#endif
