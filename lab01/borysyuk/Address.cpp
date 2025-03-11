@@ -7,7 +7,7 @@ string Address::getCity() const { return city; }
 string Address::getFullAddress() const { return index + ", " + city + ", " + street; }
 
 void Address::display(ostream& os) const {
-    os << "Address: " << getFullAddress() << endl;
+    os << "Address: " <<index<<" " << city<<" "<< street << endl;
 }
 
 void Address::read(istream& is)
