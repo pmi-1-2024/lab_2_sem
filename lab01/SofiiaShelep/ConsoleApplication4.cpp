@@ -18,18 +18,9 @@ void loadGroups() {
     groups = new Group[groupCount];
 
     for (int i = 0; i < groupCount; i++) {
-        string groupName;
-        int studentCount;
-        file >> groupName >> studentCount;
-        cout << studentCount << endl;
-        groups[i] = Group(groupName, studentCount);
-
-        for (int j = 0; j < studentCount; j++) {
-            Student student;
-            file >> student;
-            groups[i].addStudent(student);
-        }
+        file >> groups[i]; 
     }
+
     file.close();
 }
 
@@ -41,7 +32,7 @@ int main() {
     }
     else {
         for (int i = 0; i < groupCount; i++) {
-            groups[i].showGroup();
+            cout << groups[i] << endl; 
         }
     }
 
