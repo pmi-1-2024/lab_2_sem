@@ -66,7 +66,6 @@ Phone ** has_auto(Phone ** list, int size, int & res_size){
 	for(int i = 0; i < size; i ++){
 		if(list[i]->get_type() == "R"){
 			buff[j] = dynamic_cast<RadioPhone*>(list[i]);
-			cout << i;
 			j ++;
 		}}
 
