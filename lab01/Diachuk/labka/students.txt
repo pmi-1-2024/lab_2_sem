@@ -1,0 +1,2 @@
+JohnDoe GroupA Math Kyiv 90 12345
+JaneDoe GroupB Physics Lviv 85 67890
