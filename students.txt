@@ -1,30 +1,6 @@
-John Doe
-10001
-New York
-5th Avenue 10
-CS-2023
-RB123456
-2
-Mathematics
-1
-85
-Programming
-2
-90
+4
 
-Jane Smith
-90001
-Los Angeles
-Sunset Blvd 20
-IT-2022
-RB654321
-3
-Physics
-1
-78.5
-Algorithms
-2
-88
-Databases
-3
-92.3
+John Doe 12345 Kyiv MainStreet-10 CS101 1001 2 Math 1 85 Physics 1 90
+Alice Smith 54321 Lviv GreenStreet-5 CS101 1002 2 Chemistry 1 78 Biology 1 82
+Bob Johnson 67890 Odesa BlueStreet-7 CS102 1003 3 History 1 88 Literature 2 91 Art 2 87
+Emma Brown 13579 Dnipro YellowStreet-3 CS102 1004 2 Programming 1 95 Algorithms 2 92
