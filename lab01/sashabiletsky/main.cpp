@@ -1,20 +1,62 @@
-#include <iostream>
-#include "Name.h"
-#include "Group.h"
-#include "Address.h"
-#include "Predmet.h"
-#include "RecordBook.h"
 #include "Student.h"
+#include "Features.h"
+#include <iostream>
+#include <fstream>
 using namespace std;
 
 int main() {
-    RecordBook rb("12344242");
-    rb.addSubject(Predmet("Math", 1, 5));
-    rb.addSubject(Predmet("Physics", 1, 4));
-    rb.addSubject(Predmet("Chemistry", 2, 3));
+    Group groups[3] = {
+     Group(0, "PMI-11"),
+     Group(0, "PMI-12"),
+     Group(0, "PMI-13")
+    };
 
-    Student student(Name("Alex Flash"), Group("PMI-11"), Address(123456, "Lviv", "Grikov"), rb);
-    student.print();
+    ifstream file("students.txt");
+    if (!file) {
+        cout << "Error opening file!" << endl;
+        return 1;
+    }
+    Student* students = nullptr;
+    int studentCount = 0;
+    readFile(file, studentCount, students, groups);
+    Startmenu();
+    int startchoice;
+    cin >> startchoice;
+    if (startchoice == 1) {
+        Searchmenu();
+        int searchType;
+        cin >> searchType;
 
-    return 0;
+        cout << "Enter search term: ";
+        string searchValue;
+        cin >> searchValue;
+
+        bool found = false;
+        for (int i = 0; i < studentCount; i++) {
+            if (students[i].ToFCriter(searchValue, searchType)) {
+                cout << students[i];
+                found = true;
+            }
+        }
+
+        if (!found) {
+            cout << "No students found with this criteria." << endl;
+        }
+
+        return 0;
+
+    }
+    else if (startchoice == 2) {
+        Groupmenu();
+        string groupchoice;
+        cin >> groupchoice;
+        GroupStudCout(groupchoice, groups);
+    }
+    else {
+        cout << "Enter your choice please:";
+        Startmenu();
+    }
+
+
+
 }

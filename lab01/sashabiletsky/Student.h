@@ -1,30 +1,29 @@
 #ifndef STUDENT_H
 #define STUDENT_H
-
+#include "Predmet.h"
+#include "Zalikovka.h"
+#include "Adresa.h"
 #include <iostream>
-#include "Name.h"
-#include "Group.h"
-#include "Address.h"
-#include "RecordBook.h"
+#include <string>
 using namespace std;
 
+
 class Student {
+private:
+    string name;
+    Adresa address;
+    string group;
+    Zalikovka zalik;
 public:
-    Name name;
-    Group group;
-    Address address;
-    RecordBook recordBook;
-
-    Student(Name n, Group g, Address a, RecordBook rb)
-        : name(n), group(g), address(a), recordBook(rb) {
-    }
-
-    void print() {
-        cout << "Name: " << name.fullName << endl;
-        cout << "Group: " << group.groupName << endl;
-        cout << "Address: " << address.city << ", " << address.street << ", " << address.index << endl;
-        recordBook.print();
-    }
+    Student();
+    Student(string n, Adresa adr, string gr, Zalikovka zal);
+    string GetName()const;
+    Adresa GetAdr()const;
+    string GetGroup()const;
+    Zalikovka GetZal()const;
+    bool ToFCriter(string search,int searchnum)const;
+    friend istream& operator>>(istream& is, Student& stud);
+    friend ostream& operator<<(ostream& os, const Student& stud);
 };
 
-#endif 
+#endif
