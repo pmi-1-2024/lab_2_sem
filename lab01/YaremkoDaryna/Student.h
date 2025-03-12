@@ -44,5 +44,4 @@ public:
         return os;
     }
 };
-
 #endif

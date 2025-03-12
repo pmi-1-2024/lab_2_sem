@@ -121,5 +121,5 @@ int main() {
     delete[] students;
     delete group;
 
-    return 0;
+   return 0;
 }

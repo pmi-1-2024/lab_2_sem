@@ -124,7 +124,7 @@ public:
     }
 
     friend ostream& operator<<(ostream& os, const Group& group) {
-        os << "Назва групи: " << group.name << endl;
+        os << "Group name: " << group.name << endl;
         for (int i = 0; i < group.studentCount; i++) {
             os << group.students[i] << endl;
         }

@@ -37,5 +37,4 @@ void menu2() {
     cout << "7. Search by subject" << endl;
     cout << "Enter a number: ";
 }
-
 #endif

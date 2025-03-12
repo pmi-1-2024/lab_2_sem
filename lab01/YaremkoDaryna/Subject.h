@@ -27,5 +27,4 @@ public:
         return os;
     }
 };
-
 #endif
