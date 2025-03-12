@@ -9,13 +9,6 @@ Group::~Group() {
     delete[] students;
 }
 
-void Group::print() {
-    cout << "Група: " << name << ", К-сть студентів: " << studentsCount << endl;
-    for (unsigned i = 0; i < studentsCount; ++i) {
-        students[i].print();
-    }
-}
-
 void Group::addStudent(const Student& student) {
     Student* newStudents = new Student[studentsCount + 1];
     for (unsigned i = 0; i < studentsCount; ++i) {
@@ -51,10 +44,7 @@ istream& operator>>(istream& is, Group& group) {
 }
 
 ostream& operator<<(ostream& os, const Group& group) {
-    os << group.name << endl;
-    os << group.studentsCount << endl;
-    for (unsigned i = 0; i < group.studentsCount; ++i) {
-        os << group.students[i] << endl;
-    }
+    os << "Група: " << group.name << ", К-сть студентів: " << group.studentsCount << endl;
+    for (unsigned i = 0; i < group.studentsCount; ++i) os << group.students[i] << endl;
     return os;
 }

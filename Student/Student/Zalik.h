@@ -15,7 +15,6 @@ public:
     Zalik(const Zalik& other);
     Zalik& operator=(const Zalik& other);
     ~Zalik();
-    void print();
     unsigned getId();
     Subject findSubjectByName(string name);
     Subject findSubjectBySemester(int semester);

@@ -13,7 +13,6 @@ class Adress {
 public:
     Adress() : index(0), city(""), house("") {}
     Adress(unsigned index, string city, string house);
-    void print();
     unsigned getIndex();
     string getCity();
     string getHouse();

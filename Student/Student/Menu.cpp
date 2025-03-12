@@ -74,7 +74,7 @@ void handleMenu(Student* students, int studentCount, Group* groups, int groupCou
             cout << "¬ведена група: " << inputStr << endl;
             for (int i = 0; i < groupCount; ++i) {
                 if (groups[i].getName() == inputStr) {
-                    groups[i].print();
+                    cout << groups[i] << endl;
                     break;
                 }
             }

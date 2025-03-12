@@ -15,7 +15,6 @@ class Student {
 public:
     Student() : name(""), adress(0, "", ""), group(""), zalik(0, 0) {}
     Student(string name, Adress adress, string group, Zalik zalik);
-    void print();
     string getName() const;
     string getGroup() const;
     Adress getAdress() const;

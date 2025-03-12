@@ -17,7 +17,9 @@ Zalik::Zalik(const Zalik& other) : id(other.id), subjCount(other.subjCount) {
 Zalik& Zalik::operator=(const Zalik& other) {
     if (this == &other) return *this;
 
-    delete[] subjects;
+    if (subjects != nullptr) {
+        delete[] subjects;
+    }
 
     id = other.id;
     subjCount = other.subjCount;
@@ -31,11 +33,6 @@ Zalik& Zalik::operator=(const Zalik& other) {
 
 Zalik::~Zalik() {
     delete[] subjects;
-}
-
-void Zalik::print() {
-    cout << "\t\tЗаліковка: Номер заліковки = " << id << ", К-сть предметів = " << subjCount << ". | Предмети: " << endl;
-    for (unsigned i = 0; i < subjCount; i++) subjects[i].print();
 }
 
 unsigned Zalik::getId() { return id; }
@@ -82,10 +79,7 @@ istream& operator>>(istream& is, Zalik& zalik) {
 }
 
 ostream& operator<<(ostream& os, const Zalik& zalik) {
-    os << zalik.id << " " << zalik.subjCount << endl;
-    for (unsigned i = 0; i < zalik.subjCount; ++i) {
-        os << zalik.subjects[i].getName() << endl;
-        os << zalik.subjects[i].getSem() << " " << zalik.subjects[i].getGrade() << endl;
-    }
+    os << "\t\tЗаліковка: Номер заліковки = " << zalik.id << ", К-сть предметів = " << zalik.subjCount << ". | Предмети: " << endl;
+    for (unsigned i = 0; i < zalik.subjCount; i++) os << zalik.subjects[i] << endl;
     return os;
 }

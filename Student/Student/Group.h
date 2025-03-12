@@ -14,7 +14,6 @@ public:
     Group() : name(""), students(nullptr), studentsCount(0) {}
     Group(string name);
     ~Group();
-    void print();
     void addStudent(const Student& student);
 
     string getName() const;
