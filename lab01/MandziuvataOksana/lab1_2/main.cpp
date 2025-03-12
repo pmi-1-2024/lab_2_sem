@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include <fstream>
+#include <string>
 #include "Group.h"
 #include "Student.h"
 #include "Address.h"
@@ -9,6 +9,7 @@
 using namespace std;
 
 int main() {
+    // Створення групи
     Group* group = nullptr;
     int choice;
 
@@ -39,7 +40,51 @@ int main() {
             group = new Group(groupName, nullptr, 0);
             cout << "Group " << groupName << " has been created.\n";
         }
+        else if (choice == 2) {
+            Student student;
+            cin >> student; // Введення студента
+
+            group->addStudent(student); // Додавання студента в групу
+            cout << "Student has been added.\n";
+        }
+        else if (choice == 3) {
+            string name;
+            cout << "Enter student name: ";
+            cin >> name;
+            group->searchByName(name); // Пошук студента за іменем
+        }
+        else if (choice == 4) {
+            string groupName;
+            cout << "Enter group name: ";
+            cin >> groupName;
+            group->searchByGroupName(groupName); // Пошук по групі
+        }
+        else if (choice == 5) {
+            string recordNumber;
+            cout << "Enter record book number: ";
+            cin >> recordNumber;
+            group->searchByRecordNumber(recordNumber); // Пошук за номером заліковки
+        }
+        else if (choice == 6) {
+            Address address;
+            cin >> address; // Введення адреси
+            group->searchByAddress(address); // Пошук за адресою
+        }
+        else if (choice == 7) {
+            group->printStudents(); // Виведення всіх студентів групи
+        }
+        else if (choice == 8) {
+            string name;
+            cout << "Enter student name to remove: ";
+            cin >> name;
+            group->removeStudent(name); // Видалення студента з групи
+        }
+        else if (choice == 9) {
+            // Збереження групи в файл (якщо потрібно)
+            cout << "Saving to file is not implemented yet.\n";
+        }
         else if (choice == 10) {
+            // Завершення програми
             if (group != nullptr) {
                 delete group;
             }

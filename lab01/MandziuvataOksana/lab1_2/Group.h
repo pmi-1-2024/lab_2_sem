@@ -1,6 +1,7 @@
 #ifndef GROUP_H
 #define GROUP_H
 
+#include <string>
 #include "Student.h"
 
 class Group {
@@ -10,9 +11,11 @@ private:
     int studentCount;
 
 public:
-    Group(string n, Student* s, int count);
-    ~Group();
-
+    Group(string n, Student* s = nullptr, int count = 0);
+    ~Group(); 
+    Group(const Group& other); 
+    Group& operator=(const Group& other); 
+    Student& operator[](int index); 
     void addStudent(const Student& s);
     void removeStudent(const string& name);
     void searchByName(const string& name) const;
@@ -24,5 +27,4 @@ public:
     friend ostream& operator<<(ostream& out, const Group& g);
 };
 
-#endif
-
+#endif // GROUP_H
