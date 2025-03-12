@@ -1,4 +1,17 @@
-²γξπ
-80750
-ίρεν³βφ³
-ΟΜ²-11
+14
+Olena 45678 Kharkiv Sumskaya-12 Group4 112233
+Biology Semestr-1 85
+Chemistry Semestr-2 90
+END
+Natalia 36912 Kyiv Khreshchatyk-1 Group5 334455
+Law Semestr-1 93
+Economics Semestr-2 91
+END
+Ostap 74185 Ternopil Ruska-10 Group4 556677
+IT Semestr-1 97
+Math Semestr-2 95
+END
+Maksym 25814 Rivne Soborna-50 Group5 990011
+Economics Semestr-1 89
+Law Semestr-2 87
+END

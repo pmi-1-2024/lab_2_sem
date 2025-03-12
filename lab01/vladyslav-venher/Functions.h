@@ -1,8 +1,11 @@
 #pragma once
-#include "Student.h"
+#include <fstream>
+#include "Group.h"
 #include <string>
 using namespace std;
 
-void readStudentsFromFile(const string& filename);
-void searchStudentByName(const string& filename, const string& name);
-void searchStudentByGroup(const string& filename, const string& group);
+void readFromFile(ifstream& file, int& studentCount, Student*& students);
+
+void firstMenu();
+
+void secondMenu();

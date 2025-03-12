@@ -1,71 +1,48 @@
 #include "Functions.h"
-#include "Student.h"
 #include <iostream>
-#include <fstream>
-
 using namespace std;
 
-void readStudentsFromFile(const string& filename) {
-    ifstream file(filename);
-    if (!file) {
-        cout << "Файл не знайдено!" << endl;
+
+void readFromFile(ifstream& file, int& studentCount, Student*& students) {
+    if (!file.is_open()) {
+        cout << "Помилка: файл не можливо відкрити!" << endl;
         return;
     }
 
-    string line;
-    while (getline(file, line)) {
-        cout << line << endl;
+    file >> studentCount;
+
+    if (students != nullptr) {
+        delete[] students;
     }
 
-    file.close();
+    students = new Student[studentCount];
+
+    for (int i = 0; i < studentCount; i++) {
+        file >> students[i];
+    }
 }
 
-void searchStudentByName(const string& filename, const string& name) {
-    ifstream file(filename);
-    if (!file) {
-        cout << "Файл не знайдено!" << endl;
-        return;
-    }
 
-    string line;
-    bool found = false;
-
-    while (getline(file, line)) {
-        if (line == name) {
-            found = true;
-            cout << "Студент з іменем " << name << " знайдений!" << endl;
-            break;
-        }
-    }
-
-    if (!found) {
-        cout << "Студента з таким іменем не знайдено!" << endl;
-    }
-
-    file.close();
+void firstMenu() {
+    cout << "Меню пошуку:" << endl;
+    cout << "1. За ім'ям" << endl;
+    cout << "2. За адресою" << endl;
+    cout << "3. За групою" << endl;
+    cout << "4. За номером залікової книжки" << endl;
+    cout << "5. За предметом" << endl;
+    cout << "6. За семестром" << endl;
+    cout << "7. *Меню академічної групи*" << endl;
+    cout << "Ваш вибір: ";
 }
 
-void searchStudentByGroup(const string& filename, const string& group) {
-    ifstream file(filename);
-    if (!file) {
-        cout << "Файл не знайдено!" << endl;
-        return;
-    }
-
-    string line;
-    bool found = false;
-
-    while (getline(file, line)) {
-        if (line == group) {
-            found = true;
-            cout << "Студент з групи " << group << " знайдений!" << endl;
-            break;
-        }
-    }
-
-    if (!found) {
-        cout << "Студента з такою групою не знайдено!" << endl;
-    }
-
-    file.close();
+void secondMenu() {
+    cout << "Меню академічної групи:" << endl;
+    cout << "1. Показати групу" << endl;
+    cout << "2. Додати студента" << endl;
+    cout << "3. Видалити студента" << endl;
+    cout << "4. Пошук за адресою" << endl;
+    cout << "5. Пошук за номером залікової книжки" << endl;
+    cout << "6. Пошук за предметом" << endl;
+    cout << "0. Вихід" << endl;
+    cout << "Ваш вибір: ";
 }

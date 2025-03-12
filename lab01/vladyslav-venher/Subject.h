@@ -6,11 +6,16 @@ using namespace std;
 class Subject {
 private:
     string name;
-    int semester;
+    string semester;
     int grade;
 public:
     Subject();
-    Subject(string n, int sem, int g);
-    friend ostream& operator<<(ostream& os, const Subject& s);
-    friend istream& operator>>(istream& is, Subject& s);
+    Subject(string name, string semester, int grade);
+
+    string getName() const;
+    string getSemester() const;
+    int getGrade() const;
+
+    friend ostream& operator<<(ostream& os, const Subject& subject);
+    friend istream& operator>>(istream& is, Subject& subject);
 };
