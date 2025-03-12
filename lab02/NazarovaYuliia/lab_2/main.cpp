@@ -12,10 +12,7 @@ int main() {
     Animal** animals = new Animal * [capacity];
 
     string type;
-    while (fin >> type) {
-        string name;
-        int birthYear;
-        fin >> name >> birthYear;
+    while (fin >> type) {        
         if (count == capacity) {
             capacity *= 2;
             Animal** temp = new Animal * [capacity];
