@@ -100,6 +100,63 @@ void searchBySemester(Student* students, int count, int semester) {
     }
 }
 
+void addStudent(Student*& students, int& studentCount) {
+    Student* tempStudents = new Student[studentCount + 1];
+    for (int i = 0; i < studentCount; ++i) {
+        tempStudents[i] = students[i];
+    }
+    cout << "Enter data for new student: " << endl;
+    cin >> tempStudents[studentCount];
+    delete[] students;
+    students = tempStudents;
+    ++studentCount;
+    saveToFile(students, studentCount);
+}
+
+void searchStudent(Student* students, int studentCount, int choice) {
+    string input;
+    Address address;
+    int semester;
+    switch (choice) {
+        case 2:
+            cout << "Enter student name to search: ";
+            cin >> ws;
+            getline(cin, input);
+            searchByName(students, studentCount, input);
+            break;
+        case 3:
+            cout << "Enter group name to search: ";
+            cin >> ws;
+            getline(cin, input);
+            searchByGroup(students, studentCount, input);
+            break;
+        case 4:
+            cout << "Enter address details:\n";
+            cin >> address;
+            searchByAddress(students, studentCount, address);
+            break;
+        case 5:
+            cout << "Enter zalikovka number: ";
+            cin >> ws;
+            getline(cin, input);
+            searchByZalikovkaNumber(students, studentCount, input);
+            break;
+        case 6:
+            cout << "Enter subject name: ";
+            cin >> ws;
+            getline(cin, input);
+            searchBySubjectName(students, studentCount, input);
+            break;
+        case 7:
+            cout << "Enter semester: ";
+            cin >> semester;
+            searchBySemester(students, studentCount, semester);
+            break;
+        default:
+            cout << "Invalid choice" << endl;
+    }
+}
+
 int main() {
     const int max_students = 100;
     Student* students = new Student[max_students];
@@ -120,59 +177,10 @@ int main() {
         cin >> choice;
 
         if (choice == 1) {
-            Student* tempStudents = new Student[studentCount + 1];
-            for (int i = 0; i < studentCount; ++i) {
-                tempStudents[i] = students[i];
-            }
-
-            cout << "Enter data foor new student: " << endl;
-            cin >> tempStudents[studentCount];
-
-            delete[] students;
-            students = tempStudents;
-            ++studentCount;
-            saveToFile(students, studentCount);
-            
+            addStudent(students, studentCount);
         }
-        else if (choice == 2) {
-            string name;
-            cout << "Enter student name to search: ";
-            cin >> ws;
-            getline(cin, name);
-            searchByName(students, studentCount, name);
-        }
-        else if (choice == 3) {
-            string groupName;
-            cout << "Enter group name to search: ";
-            cin >> ws;
-            getline(cin, groupName);
-            searchByGroup(students, studentCount, groupName);
-        }
-        else if (choice == 4) {
-            Address address;
-            cout << "Enter address details:\n";
-            cin >> address;
-            searchByAddress(students, studentCount, address);
-        }
-        else if (choice == 5) {
-            string zalikNumber;
-            cout << "Enter zalikovka number: ";
-            cin >> ws;
-            getline(cin, zalikNumber);
-            searchByZalikovkaNumber(students, studentCount, zalikNumber);
-        }
-        else if (choice == 6) {
-            string subjectName;
-            cout << "Enter subject name: ";
-            cin >> ws;
-            getline(cin, subjectName);
-            searchBySubjectName(students, studentCount, subjectName);
-        }
-        else if (choice == 7) {
-            int semester;
-            cout << "Enter semester: ";
-            cin >> semester;
-            searchBySemester(students, studentCount, semester);
+        else if (choice >= 2 && choice <= 7) {
+            searchStudent(students, studentCount, choice);
         }
         else if (choice == 8) {
             break;
