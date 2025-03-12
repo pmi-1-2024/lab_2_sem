@@ -21,11 +21,6 @@ public:
     string getGroup() const { return group; }
     RecordBook getRecordBook() const { return recordBook; }
 
-    void display() const {
-        cout << "Name: " << name << "\nGroup: " << group
-            << "\nAdress: " << address << "\nRecordbook number: " << recordBook << endl;
-    }
-
     bool matchesCriteria(string searchValue, int searchType) const {
         switch (searchType) {
         case 1: return name == searchValue;
@@ -44,7 +39,8 @@ public:
     }
 
     friend ostream& operator<<(ostream& os, const Student& student) {
-        os << student.name << " " << student.address << " " << student.group << " " << student.recordBook;
+        os << "Name: " << student.name << "\nGroup: " << student.group
+            << "\nAddress: " << student.address << "\nRecordbook number: " << student.recordBook << endl;
         return os;
     }
 };

@@ -8,10 +8,32 @@ private:
     string recordNumber;
     Subject* subjects;
     int subjectCount;
+
+    void deepCopy(const RecordBook& other) {
+        recordNumber = other.recordNumber;
+        subjectCount = other.subjectCount;
+        subjects = new Subject[subjectCount];
+        for (int i = 0; i < subjectCount; i++) {
+            subjects[i] = other.subjects[i];
+        }
+    }
+
 public:
     RecordBook() : recordNumber(""), subjects(nullptr), subjectCount(0) {}
     RecordBook(string recordNumber, Subject* subjects, int subjectCount)
         : recordNumber(recordNumber), subjects(subjects), subjectCount(subjectCount) {
+    }
+
+    RecordBook(const RecordBook& other) {
+        deepCopy(other);
+    }
+
+    RecordBook& operator=(const RecordBook& other) {
+        if (this != &other) {
+            delete[] subjects;
+            deepCopy(other);
+        }
+        return *this;
     }
 
     ~RecordBook() { delete[] subjects; }

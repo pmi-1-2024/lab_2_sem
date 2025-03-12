@@ -1,8 +1,6 @@
 ﻿#include "Group.h"
 #include "Utils.h"
-#include <windows.h>
 int main() {
-    SetConsoleOutputCP(1251);
     ifstream file("students.txt");
     if (!file) {
         cout << "File was not opened" << endl;
@@ -66,7 +64,7 @@ int main() {
             case 4: {
                 cout << "Group info:" << endl;
                 cout << endl;
-                group->display();
+                cout << *group;
                 break;
             }
             case 5: {
@@ -110,7 +108,7 @@ int main() {
         bool found = false;
         for (int i = 0; i < group->getStudentCount(); i++) {
             if (group->getStudents()[i].matchesCriteria(searchValue, searchType)) {
-                group->getStudents()[i].display();
+                cout << group->getStudents()[i];
                 found = true;
             }
         }

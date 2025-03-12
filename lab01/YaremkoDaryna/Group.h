@@ -75,13 +75,6 @@ public:
         studentCount--;
     }
 
-    void display() const {
-        cout << "Назва групи: " << name << endl;
-        for (int i = 0; i < studentCount; i++) {
-            cout << students[i] << endl;
-        }
-    }
-
     int getStudentCount() const { return studentCount; }
     Student* getStudents() const { return students; }
 
@@ -121,16 +114,6 @@ public:
         }
     }
 
-    void saveToFile(const string& filename) const {
-        ofstream file(filename);
-        if (!file.is_open()) return;
-        file << studentCount << endl;
-        for (int i = 0; i < studentCount; i++) {
-            file << students[i] << endl;
-        }
-        file.close();
-    }
-
     friend istream& operator>>(istream& is, Group& group) {
         is >> group.name;
         Student student;
@@ -141,7 +124,7 @@ public:
     }
 
     friend ostream& operator<<(ostream& os, const Group& group) {
-        os << group.name << endl;
+        os << "Назва групи: " << group.name << endl;
         for (int i = 0; i < group.studentCount; i++) {
             os << group.students[i] << endl;
         }

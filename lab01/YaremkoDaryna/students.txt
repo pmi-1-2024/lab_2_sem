@@ -7,19 +7,19 @@ Math Semester-2 95
 END
 Anna
 12345 Lviv HeroivUPA-75
-Group1 123456
+Group1 123457
 Algebra Semester-1 96 
 Arts Semester-2 15 
 END
 Uliana 
 79099 Lviv Universytetska-10
-Group1 123456
+Group1 123458
 German Semester-1 85
 History Semester-2 90
 END
 Mariia
 79013 Lviv Khutorivka-87 
-Group1 123456
+Group1 123459
 Physics Semester-1 75
 Geography Semester-2 80
 END
