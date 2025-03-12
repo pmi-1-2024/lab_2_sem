@@ -2,9 +2,6 @@
 #include "Group.h"
 #include "Student.h"
 using namespace std;
-Group PMI11 = Group(0, "PMI-11");
-Group PMI12 = Group(0, "PMI-12");
-Group PMI13 = Group(0, "PMI-13");
 
 void Startmenu()
 {
@@ -25,82 +22,48 @@ void Searchmenu() {
 }
 void Groupmenu()
 {
-    cout << "\nChoose number of group: ";
+    cout << "\nGroup list: ";
     cout << "\n1. PMI-11";
     cout << "\n2. PMI-12";
     cout << "\n3. PMI-13";
-    cout << "\nEnter choice: ";
+    cout << "\nEnter group name: ";
 }
-void GroupStudCout(int choise)
+void GroupStudCout(string choise, Group groups[])
 {
-    int answer;
+    int choice2;
     string answername;
-    switch (choise) {
-        
-    case 1:
-        cout << PMI11;
-        cout << "\nDo you want to check data of student?";
-        cout << "\n1.Yes";
-        cout << "\n2.No";
-        cout << "\nEnter choice:";
-        cin >> answer;
-        if (answer == 1) {
-            cout << "\nEnter name student`s name:";
-            cin >> answername;
-            for (int i = 0; i < PMI11.GetSCount(); i++) {
-                if (answername == PMI11.GetSud()[i].GetName()) {
-                    cout << PMI11.GetSud()[i];
+    for (int i1 = 0; i1 < 3; i1++) {
+        if (choise == groups[i1].GetName()) {
+            cout << groups[i1];
+            cout << "\n Do you want to check data of student?";
+            cout << "\n1.Yes";
+            cout << "\n2.No";
+            cout << "\nEnter choice:";
+            cin >> choice2;
+            if (choice2 == 1) {
+                cout << "\nEnter  student`s name:";
+                cin >> answername;
+                for (int i = 0; i < groups[i1].GetSCount(); i++) {
+                    if (answername == groups[i1].GetSud()[i].GetName()) {
+                        cout << groups[i1].GetSud()[i];
+                    }
                 }
             }
         }
-            break;
-    case 2:
-        cout << PMI12;
-        cout << "\nDo you want to check data of student?";
-        cout << "\n1.Yes";
-        cout << "\n2.No";
-        cout << "\nEnter choice:";
-        cin >> answer;
-        if (answer == 1) {
-            cout << "\nEnter name student`s name:";
-            cin >> answername;
-            for (int i = 0; i < PMI12.GetSCount(); i++) {
-                if (answername == PMI12.GetSud()[i].GetName()) {
-                    cout << PMI12.GetSud()[i];
-                }
-            }
-        }
-        break;
-    case 3:
-        cout << PMI13;
-        cout << "\nDo you want to check data of student?";
-        cout << "\n1.Yes";
-        cout << "\n2.No";
-        cout << "\nEnter choice:";
-        cin >> answer;
-        if (answer == 1) {
-            cout << "\nEnter name student`s name:";
-            cin >> answername;
-            for (int i = 0; i < PMI13.GetSCount(); i++) {
-                if (answername == PMI13.GetSud()[i].GetName()) {
-                    cout << PMI13.GetSud()[i];
-                }
-            }
-        }
-        break;
-
-    }
+   }
 }
-void AddtoGroup(Group& gr, Student* studs)
+void AddtoGroup(Group groups[], Student* studs)
 {
-    for (int i = 0; i < 5; i++) {
-        if (studs[i].GetGroup() == gr.GetName()) {
-            gr.AddStudent(studs[i]);
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (groups[i].GetName() == studs[j].GetGroup()) {
+                groups[i].AddStudent(studs[j]);
+            }
         }
     }
 }
 
-void readFile(ifstream& file, int& studentCount, Student*& students) {
+void readFile(ifstream& file, int& studentCount, Student*& students,Group groups[]) {
     while (!file.is_open()) {
         cout << "File is not open! ";
         return;
@@ -115,7 +78,5 @@ void readFile(ifstream& file, int& studentCount, Student*& students) {
     for (int i = 0; i < studentCount; i++) {
         file >> students[i];
     }
-    AddtoGroup(PMI11, students);
-    AddtoGroup(PMI12, students);
-    AddtoGroup(PMI13, students);
+    AddtoGroup(groups, students);
 }

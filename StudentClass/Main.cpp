@@ -5,6 +5,12 @@
 using namespace std;
 
 int main() {
+    Group groups[3] = {
+     Group(0, "PMI-11"),
+     Group(0, "PMI-12"),
+     Group(0, "PMI-13")
+    };
+
     ifstream file("students.txt");
     if (!file) {
         cout << "Error opening file!" << endl;
@@ -12,7 +18,7 @@ int main() {
     }
     Student *students=nullptr;
     int studentCount = 0;
-    readFile(file, studentCount, students);
+    readFile(file, studentCount, students,groups);
     Startmenu();
     int startchoice;
     cin >> startchoice;
@@ -42,9 +48,9 @@ int main() {
     }
     else if (startchoice == 2) {
         Groupmenu();
-        int groupchoice;
+        string groupchoice;
         cin >> groupchoice;
-        GroupStudCout(groupchoice);
+        GroupStudCout(groupchoice,groups);
     }
     else {
         cout << "Enter your choice please:";

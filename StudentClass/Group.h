@@ -23,5 +23,6 @@ public:
 	friend istream& operator>>(istream& is, Group& group);
 	friend ostream& operator<<(ostream& os, const Group& group);
 	Group& operator=(const Group& gr);
+	Student& operator[](int index);
 };
 #endif

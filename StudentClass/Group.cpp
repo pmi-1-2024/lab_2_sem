@@ -19,7 +19,10 @@ Group::Group(const Group& other) {
 }
 Group::~Group()
 {
-	delete[] students;
+	if (students) {
+		delete[] students;
+		students = nullptr;
+	}
 }
 string Group::GetName() const
 {
@@ -64,7 +67,7 @@ ostream& operator<<(ostream& os, const Group& group)
 	return os;
 }
 
-void Group:: AddStudent(Student& student) {
+void Group:: AddStudent	(Student& student) {
 	Student* newstudents = new Student[studcount + 1];
 	for (int i = 0; i < studcount; i++) {
 		newstudents[i] = students[i];
@@ -104,4 +107,12 @@ Group& Group::operator=(const Group& gr)
 		students[i] = gr.students[i];
 	}
 	return *this;
+}
+
+Student& Group::operator[](int index)
+{
+	if (index < 0 || index >= studcount) {
+		throw out_of_range("Invalid index");
+	}
+	return students[index];
 }
