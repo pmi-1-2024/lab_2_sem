@@ -1,52 +1,20 @@
-#include <iostream>
-#include <fstream>
 #include "Student.h"
+#include <iostream>
 
 using namespace std;
 
-int readStudentsFromFile(const string& filename, Student students[], int maxStudents) {
-    ifstream file(filename);
-    if (!file) {
-        cerr << "Не вдалося відкрити файл!" << endl;
-        return 0;
-    }
+Student::Student() : name(""), group(""), subject(""), residence(""), grade(0.0), postal_code("") {}
 
-    int count = 0;
-    string line;
-    while (getline(file, line) && count < maxStudents) {
-        size_t pos = 0;
-        Student s;
-
-        pos = line.find(" ");
-        s.name = line.substr(0, pos);
-        line.erase(0, pos + 1);
-
-        pos = line.find(" ");
-        s.group = line.substr(0, pos);
-        line.erase(0, pos + 1);
-
-        pos = line.find(" ");
-        s.subject = line.substr(0, pos);
-        line.erase(0, pos + 1);
-
-        pos = line.find(" ");
-        s.residence = line.substr(0, pos);
-        line.erase(0, pos + 1);
-
-        pos = line.find(" ");
-        s.grade = stod(line.substr(0, pos));
-        line.erase(0, pos + 1);
-
-        s.postal_code = line;
-
-        students[count++] = s;
-    }
-    file.close();
-    return count;
+Student::Student(string name, string group, string subject, string residence, double grade, string postal_code)
+    : name(name), group(group), subject(subject), residence(residence), grade(grade), postal_code(postal_code) {
 }
 
-void printStudentInfo(const Student& s) {
-    cout << "Ім'я: " << s.name << ", Група: " << s.group
-        << ", Предмет: " << s.subject << ", Місце проживання: " << s.residence
-        << ", Оцінка: " << s.grade << ", Поштовий індекс: " << s.postal_code << endl;
+void Student::print() const {
+    cout << "Ім'я: " << name
+        << ", Група: " << group
+        << ", Предмет: " << subject
+        << ", Адреса: " << residence
+        << ", Оцінка: " << grade
+        << ", Поштовий індекс: " << postal_code
+        << endl;
 }

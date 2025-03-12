@@ -182,16 +182,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="address.cpp" />
-    <ClCompile Include="group.cpp" />
+    <ClCompile Include="SearchByResidence.cpp" />
+    <ClCompile Include="SearchByGroup.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="name.cpp" />
-    <ClCompile Include="postal.cpp" />
+    <ClCompile Include="SearchByName.cpp" />
+    <ClCompile Include="SearchByPostalCode.cpp" />
     <ClCompile Include="Student.cpp" />
-    <ClCompile Include="subject.cpp" />
-    <ClCompile Include="zalikovka.cpp" />
+    <ClCompile Include="SearchBySubject.cpp" />
+    <ClCompile Include="SearchByGrade.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SearchByGrade.h" />
+    <ClInclude Include="SearchByGroup.h" />
+    <ClInclude Include="SearchByName.h" />
+    <ClInclude Include="SearchByPostalCode.h" />
+    <ClInclude Include="SearchByResidence.h" />
+    <ClInclude Include="SearchBySubject.h" />
     <ClInclude Include="Student.h" />
   </ItemGroup>
   <ItemGroup>

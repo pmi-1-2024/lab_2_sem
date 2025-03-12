@@ -1,14 +1,42 @@
 #include <windows.h>
 #include <iostream>
-#include "Student.h"
+#include <fstream>
+#include <string>
+#include "SearchByName.h"
+#include "SearchByGroup.h"
+#include "SearchBySubject.h"
+#include "SearchByResidence.h"
+#include "SearchByGrade.h"
+#include "SearchByPostalCode.h"
 
 using namespace std;
+
+const int MAX_STUDENTS = 100;
+
+int readStudentsFromFile(const string& filename, Student students[], int maxStudents) {
+    ifstream file(filename);
+    if (!file) {
+        cerr << "Не вдалося відкрити файл!" << endl;
+        return 0;
+    }
+
+    int count = 0;
+    while (count < maxStudents && file >> students[count].name >> students[count].group >> students[count].subject
+        >> students[count].residence >> students[count].grade >> students[count].postal_code) {
+        count++;
+    }
+    file.close();
+    return count;
+}
+
+void printStudentInfo(const Student& s) {
+    s.print();
+}
 
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    const int MAX_STUDENTS = 100;
     Student students[MAX_STUDENTS];
     int studentCount = readStudentsFromFile("students.txt", students, MAX_STUDENTS);
 
@@ -38,44 +66,38 @@ int main() {
         case 1:
             cout << "Введіть ім'я для пошуку: ";
             cin >> input;
-            name(students, studentCount, input);
+            searchByName(students, studentCount, input);
             break;
         case 2:
             cout << "Введіть групу для пошуку: ";
             cin >> input;
-            group(students, studentCount, input);
+            searchByGroup(students, studentCount, input);
             break;
         case 3:
             cout << "Введіть предмет для пошуку: ";
             cin >> input;
-            subject(students, studentCount, input);
+            searchBySubject(students, studentCount, input);
             break;
         case 4:
             cout << "Введіть місце проживання для пошуку: ";
             cin >> input;
-            address(students, studentCount, input);
+            searchByResidence(students, studentCount, input);
             break;
         case 5:
             cout << "Введіть оцінку для пошуку: ";
             cin >> grade;
-            grade(students, studentCount, grade);
+            searchByGrade(students, studentCount, grade);
             break;
         case 6:
             cout << "Введіть поштовий індекс для пошуку: ";
             cin >> input;
-            postl(students, studentCount, input);
+            searchByPostalCode(students, studentCount, input);
             break;
         case 7:
-            cout << "Всі студенти:" << endl;
-            for (int i = 0; i < studentCount; ++i) {
+            for (int i = 0; i < studentCount; i++) {
                 printStudentInfo(students[i]);
             }
             break;
-        case 0:
-            cout << "Вихід з програми." << endl;
-            break;
-        default:
-            cout << "Невірний вибір! Спробуйте ще раз." << endl;
         }
     } while (choice != 0);
 

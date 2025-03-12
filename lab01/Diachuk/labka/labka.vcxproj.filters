@@ -21,27 +21,45 @@
     <ClCompile Include="Student.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="name.cpp">
+    <ClCompile Include="SearchByName.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="group.cpp">
+    <ClCompile Include="SearchByGroup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="subject.cpp">
+    <ClCompile Include="SearchBySubject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="address.cpp">
+    <ClCompile Include="SearchByResidence.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="zalikovka.cpp">
+    <ClCompile Include="SearchByGrade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="postal.cpp">
+    <ClCompile Include="SearchByPostalCode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Student.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchByName.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchByGroup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchBySubject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchByResidence.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchByGrade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchByPostalCode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
