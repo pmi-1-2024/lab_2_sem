@@ -31,6 +31,11 @@ int Electroprilad::GetPrice() const
 	return price;
 }
 
+bool Electroprilad::operator<(const Electroprilad& elp) const
+{
+	return this->GetName() < elp.GetName();
+}
+
 void Electroprilad::print(ostream& os) const
 {
 	os << "\nName: " << name;

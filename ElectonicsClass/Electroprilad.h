@@ -18,6 +18,7 @@ public:
 	int GetPrice() const;
 	friend istream& operator >>(istream& is, Electroprilad& elp);
 	friend ostream& operator <<(ostream& os, const Electroprilad& elp);
+	bool operator<(const Electroprilad& elp) const;
 	virtual void print(ostream& os)const;
 	virtual istream& write(istream& is);
 	virtual ~Electroprilad(){}

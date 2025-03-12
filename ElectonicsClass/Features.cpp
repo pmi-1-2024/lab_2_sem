@@ -7,35 +7,34 @@ void Readfile(ifstream& file, Electroprilad** prilads,int &count)
 		return;
 	}
 	count = 0;
-	string name;
-	while (file >> name) {
-		string firm;
-		int price;
-		if (name == "Vacuumcleaner") {
-			int power;
-			string color;
-			file >> firm >> price >> power >> color;
-			prilads[count++] = new Vacuumcleaner(name, firm, price, power, color);
+	int type ;
+	Vacuumcleaner v1;
+	Washmash w1;
+	Combine c1;
+	for (int i = 0; i < 7; i++) {
+		file >> type;
+		switch (type) {
+		case 1:
+			file >> v1;
+			prilads[count++] = new Vacuumcleaner(v1);
+			break;
+		case 2:
+			file >> w1;
+			prilads[count++] = new Washmash(w1);
+			break;
+		case 3:
+			file >> c1;
+			prilads[count++] = new Combine(c1);
+			break;
 		}
-		else if(name=="Washingmachine")
-		{
-			int countop, capacity;
-			file >> firm >> price >> countop >> capacity;
-			prilads[count++] = new Washmash(name, firm, price, countop, capacity);
-		}
-		else if (name == "Combine") {
-			int cpower, countf;
-			file >> firm >> price >> cpower >> countf;
-			prilads[count++] = new Combine(name, firm, price, cpower, countf);
-		}
-	}	
+	}
 }
 
 void NameSort(Electroprilad** prilads, int count)
 {
 	for (int i = 0; i < count - 1; i++) {
 		for (int j = 0; j < count - i - 1; j++) {
-			if (prilads[j]->GetName() > prilads[j + 1]->GetName()) {
+			if (*prilads[j + 1] < *prilads[j]) {
 				Electroprilad* temp = prilads[j];
 				prilads[j] = prilads[j + 1];
 				prilads[j + 1] = temp;
@@ -72,7 +71,7 @@ void WriteSortToFile(ofstream& file, Electroprilad** prilads, int count)
 	file << "\nCount of Combines: " << cm;
 	cout << "\nAfter sorting: ";
 	for (int i = 0; i < count; i++) {
-		cout << prilads[i]->GetName() << "\n";
+		cout <<"\n " << prilads[i]->GetName() << "\n";
 	}
 	cout << "\nCount of prilads: " << count;
 	cout << "\nCount of Vacuumcleaners: " << vc;
