@@ -21,8 +21,8 @@ public:
 	void setPrice(double price);
 	double getPrice();
 
-	virtual ~Phone() {};
-
+	virtual ~Phone() =0;
+	virtual void read(istream& in) = 0;
 };
 
-
+std::istream& operator>>(std::istream& in, Phone& phone);

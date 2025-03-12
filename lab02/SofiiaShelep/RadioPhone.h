@@ -1,7 +1,8 @@
 #pragma once
 #include "Phone.h"
-class RadioPhone : public Phone
+class RadioPhone : virtual public Phone
 {
+protected:
 	double range;
 	bool answeringMachine;
 public:
@@ -11,5 +12,7 @@ public:
 	double getRange();
 	void setAnsweringMachine(bool answeringMachine);
 	bool getAnsweringMachine();	
+	~RadioPhone() {};
+	void read(istream& in);
 };
 

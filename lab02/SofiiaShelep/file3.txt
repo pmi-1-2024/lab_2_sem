@@ -1,5 +1,6 @@
 Sony Sony 200 50 1
 Sony Sony 250 50 1
+Panasonic Version22 560 black 256
 Iphone Apple 560 White 128
 Iphone Apple 860 White 128
 Iphone Apple 890 Purple 128
@@ -7,6 +8,7 @@ Iphone Apple 980 Black 516
 Iphone Apple 1000 Black 1000
 Samsung Galaxy 1000 Purple 128
 Iphone Apple 1200 White 256
-6940
+7500
 Sony Sony 200 50 1
 Sony Sony 250 50 1
+Panasonic Version22 560 100 1

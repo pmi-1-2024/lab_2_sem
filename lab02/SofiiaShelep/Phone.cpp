@@ -46,3 +46,12 @@ double Phone::getPrice()
 {
 	return price;
 }
+Phone::~Phone()
+{
+}
+std::istream& operator>>(std::istream& in, Phone& phone)
+{
+	phone.read(in);
+	return in;
+
+}

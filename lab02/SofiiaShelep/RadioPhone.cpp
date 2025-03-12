@@ -34,3 +34,8 @@ bool RadioPhone::getAnsweringMachine()
 {
     return answeringMachine;
 }
+
+void RadioPhone::read(istream& in)
+{
+	in >> name >> brand >> price >> range >> answeringMachine;
+}

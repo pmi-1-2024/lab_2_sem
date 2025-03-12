@@ -1,5 +1,11 @@
 #include "MobilePhone.h"
 
+MobilePhone::MobilePhone()
+{
+	color = "";
+	memory = 0;
+}
+
 MobilePhone::MobilePhone(string name, string brand, double price, string color, int memory)
 {
 	this->name = name;
@@ -29,3 +35,10 @@ void MobilePhone::setMemory(int memory)
 {
 	this->memory = memory;
 }
+
+void MobilePhone::read(istream& in)
+{
+	in >> name >> brand >> price >> color >> memory;
+}
+
+

@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication7.cpp" />
+    <ClCompile Include="HybridPhone.cpp" />
     <ClCompile Include="MobilePhone.cpp" />
     <ClCompile Include="Phone.cpp" />
     <ClCompile Include="RadioPhone.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HybridPhone.h" />
     <ClInclude Include="MobilePhone.h" />
     <ClInclude Include="Phone.h" />
     <ClInclude Include="RadioPhone.h" />

@@ -3,6 +3,7 @@
 #include "Phone.h"
 #include "MobilePhone.h"
 #include "RadioPhone.h"
+#include "HybridPhone.h"
 
 using namespace std;
 
@@ -25,25 +26,21 @@ int main()
 		file1 >> type;
 		if (type == "Mobile")
 		{
-			string name;
-			string brand;
-			double price;
-			string color;
-			int memory;
-			file1 >> name >> brand >> price >> color >> memory;
-			phones[i] = new MobilePhone(name, brand, price, color, memory);
+			phones[i] = new MobilePhone();
+			file1 >> *phones[i];
 		}
 		else if (type == "Radio")
 		{
-			string name;
-			string brand;
-			double price;
-			double range;
-			bool answeringMachine;
-			file1 >> name >> brand >> price >> range >> answeringMachine;
-			phones[i] = new RadioPhone(name, brand, price, range, answeringMachine);
+			phones[i] = new RadioPhone();
+			file1 >> *phones[i];
+		}
+		else if (type == "Hybrid")
+		{
+			phones[i] = new HybridPhone();
+			file1 >> *phones[i];
 		}
 	}
+
 
 	for (int i = count1; i < count1+count2; i++)
 	{
@@ -51,23 +48,18 @@ int main()
 		file2 >> type;
 		if (type == "Mobile")
 		{
-			string name;
-			string brand;
-			double price;
-			string color;
-			int memory;
-			file2 >> name >> brand >> price >> color >> memory;
-			phones[i] = new MobilePhone(name, brand, price, color, memory);
+			phones[i] = new MobilePhone();
+			file2 >> *phones[i];
 		}
 		else if (type == "Radio")
 		{
-			string name;
-			string brand;
-			double price;
-			double range;
-			bool answeringMachine;
-			file2 >> name >> brand >> price >> range >> answeringMachine;
-			phones[i] = new RadioPhone(name, brand, price, range, answeringMachine);
+			phones[i] = new RadioPhone();
+			file2 >> *phones[i];
+		}
+		else if (type == "Hybrid")
+		{
+			phones[i] = new HybridPhone();
+			file2 >> *phones[i];
 		}
 	}
 
@@ -91,6 +83,10 @@ int main()
 		else if (dynamic_cast<RadioPhone*>(phones[i]))
 		{
 			file3 << dynamic_cast<RadioPhone*>(phones[i])->getRange() << " " << dynamic_cast<RadioPhone*>(phones[i])->getAnsweringMachine() << endl;
+		}
+		else if (dynamic_cast<HybridPhone*>(phones[i]))
+		{
+			file3 << dynamic_cast<HybridPhone*>(phones[i])->getColor() << " " << dynamic_cast<HybridPhone*>(phones[i])->getMemory() << " " << dynamic_cast<HybridPhone*>(phones[i])->getRange() << " " << dynamic_cast<HybridPhone*>(phones[i])->getAnsweringMachine() << endl;
 		}
 	}
 
