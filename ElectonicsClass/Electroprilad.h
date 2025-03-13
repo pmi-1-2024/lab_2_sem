@@ -20,7 +20,7 @@ public:
 	friend ostream& operator <<(ostream& os, const Electroprilad& elp);
 	bool operator<(const Electroprilad& elp) const;
 	virtual void print(ostream& os)const;
-	virtual istream& write(istream& is);
+	virtual void write(istream& is)=0;
 	virtual ~Electroprilad(){}
 };
 #endif

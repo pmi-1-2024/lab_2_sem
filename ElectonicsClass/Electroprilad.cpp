@@ -43,17 +43,14 @@ void Electroprilad::print(ostream& os) const
 	os << "\nPrice: " << price;
 }
 
-istream& Electroprilad::write(istream& is)
-{
-	is >> name;
-	is >> firm;
-	is >> price;
-	return is;
-}
 
 istream& operator>>(istream& is, Electroprilad& elp)
 {
-	return elp.write(is);
+	is >> elp.name;
+	is >> elp.firm;
+	is >> elp.price;
+	elp.write(is);
+	return is;
 }
 
 ostream& operator<<(ostream& os, const Electroprilad& elp)

@@ -15,19 +15,19 @@ void Washmash::print(ostream& os) const
 	os << "\nCapacity: " << capacity;
 }
 
-istream& Washmash::write(istream& is)
+void Washmash::write(istream& is)
 {
-	is >> name;
-	is >> firm;
-	is >> price;
 	is >> countop;
 	is >> capacity;
-	return is;
 }
 
 istream& operator>>(istream& is, Washmash& wash)
 {
-	return wash.write(is);
+	is >> wash.name;
+	is >> wash.firm;
+	is >> wash.price;
+	wash.write(is);
+	return is;
 }
 
 ostream& operator<<(ostream& os, const Washmash& wash)

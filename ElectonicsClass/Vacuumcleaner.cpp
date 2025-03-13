@@ -18,19 +18,19 @@ void Vacuumcleaner::print(ostream& os) const
 	os << "\nColor: " << color;
 }
 
-istream& Vacuumcleaner::write(istream& is)
+void Vacuumcleaner::write(istream& is)
 {
-	is >> name;
-	is >> firm;
-	is >> price;
 	is >> power;
 	is >> color;
-	return is;
 }
 
 istream& operator>>(istream& is, Vacuumcleaner& vac)
 {
-	return vac.write(is);
+	is >> vac.name;
+	is >> vac.firm;
+	is >> vac.price;
+	vac.write(is);
+	return is;
 }
 
 ostream& operator<<(ostream& os, const Vacuumcleaner& vac)

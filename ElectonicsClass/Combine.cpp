@@ -15,19 +15,19 @@ void Combine::print(ostream& os) const
 	os << "\nCount of functions: " << countf;
 }
 
-istream& Combine::write(istream& is)
+void Combine::write(istream& is)
 {
-	is >> name;
-	is >> firm;
-	is >> price;
 	is >> cpower;
 	is >> countf;
-	return is;
 }
 
 istream& operator>>(istream& is, Combine& com)
 {
-	return com.write(is);
+	is >> com.name;
+	is >> com.firm;
+	is >> com.price;
+	com.write(is);
+	return is;
 }
 
 ostream& operator<<(ostream& os, const Combine& com)
