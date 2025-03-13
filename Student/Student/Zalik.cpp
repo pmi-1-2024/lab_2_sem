@@ -32,7 +32,9 @@ Zalik& Zalik::operator=(const Zalik& other) {
 }
 
 Zalik::~Zalik() {
-    delete[] subjects;
+    if (subjects != nullptr) {
+        delete[] subjects;
+    }
 }
 
 unsigned Zalik::getId() { return id; }

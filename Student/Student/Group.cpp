@@ -5,8 +5,34 @@ using namespace std;
 
 Group::Group(string name) : name(name), students(nullptr), studentsCount(0) {}
 
+Group::Group(const Group& other) : name(other.name), studentsCount(other.studentsCount) {
+    students = new Student[studentsCount];
+    for (unsigned i = 0; i < studentsCount; ++i) {
+        students[i] = other.students[i];
+    }
+}
+
+Group& Group::operator=(const Group& other) {
+    if (this == &other) return *this;
+
+    if (students != nullptr) {
+        delete[] students;
+    }
+
+    name = other.name;
+    studentsCount = other.studentsCount;
+    students = new Student[studentsCount];
+    for (unsigned i = 0; i < studentsCount; ++i) {
+        students[i] = other.students[i];
+    }
+
+    return *this;
+}
+
 Group::~Group() {
-    delete[] students;
+    if (students != nullptr) {
+        delete[] students;
+    }
 }
 
 void Group::addStudent(const Student& student) {

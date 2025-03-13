@@ -13,6 +13,8 @@ class Group {
 public:
     Group() : name(""), students(nullptr), studentsCount(0) {}
     Group(string name);
+    Group(const Group& other);
+    Group& operator=(const Group& other);
     ~Group();
     void addStudent(const Student& student);
 
