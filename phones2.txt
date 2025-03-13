@@ -1,0 +1,4 @@
+Mobile Xiaomi RedmiNote 400 Blue 64
+Radio Gigaset A120 30 50 No
+Mobile OnePlus Nord 600 Gray 128
+Radio VTech CS6719 35 150 Yes
