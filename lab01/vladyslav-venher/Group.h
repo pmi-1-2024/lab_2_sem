@@ -8,18 +8,25 @@ using namespace std;
 class Group {
 private:
     string name;
-    int studentCount;
     Student* students;
+    int studentCount;
+
+    void deepCopy(const Group& other) {
+        name = other.name;
+        studentCount = other.studentCount;
+        students = new Student[studentCount];
+        for (int i = 0; i < studentCount; i++) {
+            students[i] = other.students[i];
+        }
+    }
 public:
     Group();
-    Group(string name, int studentCount, Student* student);
+    Group(string name, Student* student, int studentCount);
     Group(const Group& group);
     Group& operator=(const Group& group);
     ~Group();
     Student& operator[](int index);
 
-    string getName() const;
-    void saveToFile(const string& filename);
     void addStudent(const Student& student);
     int getStudentCount() const;
     Student* getStudents() const;

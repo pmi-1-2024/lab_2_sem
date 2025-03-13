@@ -1,17 +1,31 @@
-14
-Olena 45678 Kharkiv Sumskaya-12 Group4 112233
-Biology Semestr-1 85
-Chemistry Semestr-2 90
+5
+Zakhar
+12345 Lviv Naukova-7 
+Group1 123456
+Physics Semester-1 95 
+Math Semester-2 95 
 END
-Natalia 36912 Kyiv Khreshchatyk-1 Group5 334455
-Law Semestr-1 93
-Economics Semestr-2 91
+Anna
+12345 Lviv HeroivUPA-75
+Group1 123457
+Algebra Semester-1 96 
+Arts Semester-2 15 
 END
-Ostap 74185 Ternopil Ruska-10 Group4 556677
-IT Semestr-1 97
-Math Semestr-2 95
+Uliana 
+79099 Lviv Universytetska-10
+Group1 123458
+German Semester-1 85
+History Semester-2 90
 END
-Maksym 25814 Rivne Soborna-50 Group5 990011
-Economics Semestr-1 89
-Law Semestr-2 87
+Mariia
+79013 Lviv Khutorivka-87 
+Group1 123459
+Physics Semester-1 75
+Geography Semester-2 80
+END
+Yulia
+79113 Lviv Horodotska-40 
+Group2 111111
+Physics Semester-1 75
+Geography Semester-2 80
 END

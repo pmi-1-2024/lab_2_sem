@@ -2,51 +2,30 @@
 #include <iostream>
 using namespace std;
 
-Zalikovka::Zalikovka() : zalikovkaNumber(""), subjectCount(0), subjects(nullptr) {}
+Zalikovka::Zalikovka() : zalikovkaNumber(""), subjects(nullptr), subjectCount(0) {}
 
-Zalikovka::Zalikovka(string zalikovkaNumber, int subjectCount, Subject* subjects)
-    : zalikovkaNumber(zalikovkaNumber), subjectCount(subjectCount) {
-    this->subjects = new Subject[subjectCount];
-    for (int i = 0; i < subjectCount; i++) {
-        this->subjects[i] = subjects[i];
-    }
+Zalikovka::Zalikovka(string zalikovkaNumber, Subject * subjects, int subjectCount)
+    : zalikovkaNumber(zalikovkaNumber), subjects(subjects), subjectCount(subjectCount) {
 }
 
 
-Zalikovka::Zalikovka(const Zalikovka& zalikovka) {
-    zalikovkaNumber = zalikovka.zalikovkaNumber;
-    subjectCount = zalikovka.subjectCount;
-    subjects = new Subject[subjectCount];
-    for (int i = 0; i < subjectCount; i++) {
-        subjects[i] = zalikovka.subjects[i];
-    }
+Zalikovka::Zalikovka(const Zalikovka& other) {
+    deepCopy(other);
 }
 
-Zalikovka& Zalikovka::operator=(const Zalikovka& zalikovka) {
-    if (this == &zalikovka) {
-        return *this;
+
+Zalikovka& Zalikovka::operator=(const Zalikovka& other) {
+    if (this != &other) {
+        delete[] subjects;
+        deepCopy(other);
     }
-
-    delete[] subjects; 
-
-    subjectCount = zalikovka.subjectCount;
-    subjects = new Subject[subjectCount];
-
-    for (int i = 0; i < subjectCount; i++) {
-        subjects[i] = zalikovka.subjects[i];
-    }
-
-    zalikovkaNumber = zalikovka.zalikovkaNumber;
     return *this;
-
 }
+
 
 Zalikovka::~Zalikovka() {
-    if (subjects) {
-        delete[] subjects;
-    }
+    delete[] subjects;
 }
-
 
 string Zalikovka::getZalikovkaNumber() const { return zalikovkaNumber; }
 int Zalikovka::getSubjectCount() const { return subjectCount; }
@@ -56,14 +35,11 @@ Subject* Zalikovka::getSubjects() const { return subjects; }
 
 void Zalikovka::addSubject(Subject subject) {
     Subject* newSubjects = new Subject[subjectCount + 1];
-
     for (int i = 0; i < subjectCount; i++) {
         newSubjects[i] = subjects[i];
     }
     newSubjects[subjectCount] = subject;
-
     delete[] subjects;
-
     subjects = newSubjects;
     subjectCount++;
 }
@@ -88,11 +64,10 @@ Subject& Zalikovka::operator[](int index) {
 }
 
 ostream& operator<<(ostream& os, const Zalikovka& zalikovka) {
-    os << "Номер залікової книжки: " << zalikovka.zalikovkaNumber << "\n";
+    os << zalikovka.zalikovkaNumber << "\n";
     for (int i = 0; i < zalikovka.subjectCount; i++) {
         os << zalikovka.subjects[i] << endl;
     }
-    os << "END" << endl;
     return os;
 }
 

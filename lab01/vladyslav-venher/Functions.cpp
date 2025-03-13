@@ -4,19 +4,9 @@ using namespace std;
 
 
 void readFromFile(ifstream& file, int& studentCount, Student*& students) {
-    if (!file.is_open()) {
-        cout << "Помилка: файл не можливо відкрити!" << endl;
-        return;
-    }
-
+    if (!file.is_open()) return;
     file >> studentCount;
-
-    if (students != nullptr) {
-        delete[] students;
-    }
-
     students = new Student[studentCount];
-
     for (int i = 0; i < studentCount; i++) {
         file >> students[i];
     }
@@ -24,25 +14,25 @@ void readFromFile(ifstream& file, int& studentCount, Student*& students) {
 
 
 void firstMenu() {
-    cout << "Меню пошуку:" << endl;
-    cout << "1. За ім'ям" << endl;
-    cout << "2. За адресою" << endl;
-    cout << "3. За групою" << endl;
-    cout << "4. За номером залікової книжки" << endl;
-    cout << "5. За предметом" << endl;
-    cout << "6. За семестром" << endl;
-    cout << "7. *Меню академічної групи*" << endl;
-    cout << "Ваш вибір: ";
+    cout << "Menu:" << endl;
+    cout << "1. By name" << endl;
+    cout << "2. By address" << endl;
+    cout << "3. By group" << endl;
+    cout << "4. By recordbook number" << endl;
+    cout << "5. By subject" << endl;
+    cout << "6. By semester" << endl;
+    cout << "7. *Group menu*" << endl;
+    cout << "Your choice: ";
 }
 
 void secondMenu() {
-    cout << "Меню академічної групи:" << endl;
-    cout << "1. Показати групу" << endl;
-    cout << "2. Додати студента" << endl;
-    cout << "3. Видалити студента" << endl;
-    cout << "4. Пошук за адресою" << endl;
-    cout << "5. Пошук за номером залікової книжки" << endl;
-    cout << "6. Пошук за предметом" << endl;
-    cout << "0. Вихід" << endl;
-    cout << "Ваш вибір: ";
+    cout << "Group menu:" << endl;
+    cout << "1. Create group" << endl;
+    cout << "2. Add student" << endl;
+    cout << "3. Delete student" << endl;
+    cout << "4. Show group" << endl;
+    cout << "5. Search by address" << endl;
+    cout << "6. Search by recordbook number" << endl;
+    cout << "7. Search by subject" << endl;
+    cout << "Your choice: ";
 }

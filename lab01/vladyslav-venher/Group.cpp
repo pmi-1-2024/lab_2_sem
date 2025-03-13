@@ -1,45 +1,22 @@
 #include "Group.h"
 using namespace std;
 
-Group::Group() : name(""), studentCount(0), students(nullptr) {}
+Group::Group() : name(""), students(nullptr), studentCount(0) {}
 
-Group::Group(string name, int studentCount, Student* student) : name(name), studentCount(studentCount) {
-    if (studentCount > 0) {
-        students = new Student[studentCount];
-
-        for (int i = 0; i < studentCount; i++) {
-            students[i] = student[i];
-        }
-    }
-    else {
-        students = nullptr;
-    }
-}
-
-Group::Group(const Group& group) : name(group.name), studentCount(group.studentCount) {
-    if (studentCount > 0) {
-        students = new Student[studentCount];
-        for (int i = 0; i < studentCount; ++i) {
-            students[i] = group.students[i];
-        }
-    }
-    else {
-        students = nullptr;
-    }
+Group::Group(string name, Student* students, int studentCount)
+    : name(name), students(students), studentCount(studentCount) {
 }
 
 
-Group& Group::operator=(const Group& group) {
-    if (this == &group) return *this;
+Group::Group(const Group& other) {
+    deepCopy(other);
+}
 
-    delete[] students;
 
-    name = group.name;
-    studentCount = group.studentCount;
-    students = (studentCount > 0) ? new Student[studentCount] : nullptr;
-
-    for (int i = 0; i < studentCount; i++) {
-        students[i] = group.students[i];
+Group& Group::operator=(const Group& other) {
+    if (this != &other) {
+        delete[] students;
+        deepCopy(other);
     }
     return *this;
 }
@@ -49,9 +26,6 @@ Group::~Group() {
     delete[] students;
 }
 
-string Group::getName() const {
-    return name;
-}
 
 int Group::getStudentCount() const {
     return studentCount;
@@ -63,61 +37,39 @@ Student* Group::getStudents() const {
 
 
 void Group::addStudent(const Student& student) {
-    Student temporaryStudent = student;
-    addStudents(&student, 1);
-    saveToFile("students.txt");
+    Student* newStudents = new Student[studentCount + 1];
+    for (int i = 0; i < studentCount; i++) newStudents[i] = students[i];
+    newStudents[studentCount] = student;
+    delete[] students;
+    students = newStudents;
+    studentCount++;
 }
 
-void Group::addStudents(const Student* newStudents, int newCount) {
-    if (newCount <= 0) return;
-    Student* updatedStudents = new Student[studentCount + newCount];
 
-    if (students != nullptr) {
-        for (int i = 0; i < studentCount; i++) {
-            updatedStudents[i] = students[i];
-        }
-        delete[] students;
-    }
-    for (int i = 0; i < newCount; i++) {
-        updatedStudents[studentCount + i] = newStudents[i];
-    }
+void Group::addStudents(const Student* newStudents, int count) {
+    if (count <= 0 || newStudents == nullptr) return;
+    Student* updatedStudents = new Student[studentCount + count];
+    for (int i = 0; i < studentCount; i++) updatedStudents[i] = students[i];
+    for (int i = 0; i < count; i++) updatedStudents[studentCount + i] = newStudents[i];
+    delete[] students;
     students = updatedStudents;
-    studentCount += newCount;
+    studentCount += count;
 }
 
 
 void Group::removeStudent(string studentName) {
-    if (studentCount == 0) {
-        cout << "No students in the group to remove.\n";
-        return;
-    }
-
-    int newSize = 0;
-    for (int i = 0; i < studentCount; i++) {
-        if (students[i].getName() != studentName) {
-            newSize++;
-        }
-    }
-
-    if (newSize == studentCount) {
-        cout << "Student not found.\n";
-        return;
-    }
-
-    Student* newStudents = new Student[newSize];
+    if (studentCount == 0) return;
+    Student* newStudents = new Student[studentCount - 1];
     int j = 0;
-
     for (int i = 0; i < studentCount; i++) {
         if (students[i].getName() != studentName) {
-            newStudents[j++] = students[i];
+            newStudents[j] = students[i];
+            j++;
         }
     }
-
     delete[] students;
     students = newStudents;
-    studentCount = newSize;
-
-    saveToFile("students.txt");
+    studentCount--;
 }
 
 
@@ -129,6 +81,7 @@ void Group::searchByGroup(const string& groupName) const {
     }
 }
 
+
 void Group::searchByAddress(const Address& address) const {
     for (int i = 0; i < studentCount; i++) {
         if (students[i].getAddress() == address) {
@@ -136,13 +89,17 @@ void Group::searchByAddress(const Address& address) const {
         }
     }
 }
-void Group::searchByZalikovkaNumber(const string& zalikovka) const {
+
+
+void Group::searchByZalikovkaNumber(const string& zalikovkaNumber) const {
     for (int i = 0; i < studentCount; i++) {
-        if (students[i].getZalikovka().getZalikovkaNumber() == zalikovka) {
+        if (students[i].getZalikovka().getZalikovkaNumber() == zalikovkaNumber) {
             cout << students[i] << endl;
         }
     }
 }
+
+
 void Group::searchBySubject(const string& subjectName) const {
     for (int i = 0; i < studentCount; i++) {
         Zalikovka zalikovka= students[i].getZalikovka();
@@ -155,56 +112,6 @@ void Group::searchBySubject(const string& subjectName) const {
     }
 }
 
-void Group::saveToFile(const string& filename) {
-    ifstream inFile(filename);
-    if (!inFile) {
-        cout << "Could not open file for reading.\n";
-        return;
-    }
-
-    Student* allStudents = nullptr;
-    int total = 0;
-    readFromFile(inFile, total, allStudents);
-    inFile.close();
-
-    int newTotal = 0;
-    for (int i = 0; i < total; i++) {
-        if (allStudents[i].getGroup() != this->name) {
-            newTotal++;
-        }
-    }
-    newTotal += studentCount;
-
-    Student* updatedStudents = new Student[newTotal];
-    int index = 0;
-
-    for (int i = 0; i < total; i++) {
-        if (allStudents[i].getGroup() != this->name) {
-            updatedStudents[index++] = allStudents[i];
-        }
-    }
-    for (int i = 0; i < studentCount; i++) {
-        updatedStudents[index++] = students[i];
-    }
-
-    ofstream outFile(filename);
-    if (!outFile) {
-        cout << "Could not open file for writing.\n";
-        delete[] allStudents;
-        delete[] updatedStudents;
-        return;
-    }
-
-    outFile << newTotal << endl;
-    for (int i = 0; i < newTotal; i++) {
-        outFile << updatedStudents[i];
-    }
-    outFile.close();
-
-    delete[] allStudents;
-    delete[] updatedStudents;
-}
-
 
 Student& Group::operator[](int index) {
     if (index < 0 || index >= studentCount) {
@@ -214,17 +121,16 @@ Student& Group::operator[](int index) {
 }
 
 ostream& operator<<(ostream& os, const Group& group) {
-    os << "Група: " << group.name << "\n";
+    os << "Group: " << group.name << "\n";
     for (int i = 0; i < group.studentCount; i++) {
         os << group.students[i] << endl;
     }
-    os << "END" << endl;
     return os;
 }
 
 istream& operator>>(istream& is, Group& group) {
     is >> group.name;
-    Student student;
+    Student student;    
     while (is >> student) {
         group.addStudent(student);
     }

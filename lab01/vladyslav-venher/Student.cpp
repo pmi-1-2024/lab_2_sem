@@ -33,19 +33,17 @@ bool Student::match(string searchValue, int searchType) const {
     }
 }
 
+
+
 ostream& operator<<(ostream& os, const Student& student) {
-    os << "Ім'я: " << student.name << "\n"
-        << "Адреса: " << student.address << "\n"
-        << "Група: " << student.group << "\n"
-        << "Заліковка: " << student.zalikovka;
+    os << "Name: " << student.name << "\n"
+        << "Address: " << student.address << "\n"
+        << "Group: " << student.group << "\n"
+        << "Recordbook: " << student.zalikovka;
     return os;
 }
 
 istream& operator>>(istream& is, Student& student) {
-    getline(is, student.name); 
-    is >> student.address;     
-    is.ignore();                
-    getline(is, student.group); 
-    is >> student.zalikovka;    
+    is >> student.name >> student.address >> student.group >> student.zalikovka;
     return is;
 }

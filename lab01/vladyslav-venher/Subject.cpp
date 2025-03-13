@@ -1,7 +1,7 @@
 #include "Subject.h"
 using namespace std;
 
-Subject::Subject() : name(""), semester(0), grade(0) {}
+Subject::Subject() : name(""), semester(""), grade(0) {}
 
 Subject::Subject(string name, string semester, int grade) : name(name), semester(semester), grade(grade) {}
 

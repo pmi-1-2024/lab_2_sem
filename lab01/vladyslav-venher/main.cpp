@@ -1,16 +1,13 @@
 ﻿#include "Functions.h"
 #include "Group.h"
 #include <iostream>
-#include <windows.h>
 using namespace std;
 
-int main() {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
 
+int main() {
     ifstream file("students.txt");
     if (!file) {
-        cout << "Не вдалося відкрити файл!" << endl;
+        cout << "File was not opened" << endl;
         return 1;
     }
 
@@ -20,12 +17,14 @@ int main() {
     readFromFile(file, studentCount, students);
     file.close();
 
-    if (studentCount == 0 || students == nullptr) {
-        cout << "Жодного студента не знайдено." << endl;
+    if (students == nullptr || studentCount == 0) {
+        cout << "No student was found." << endl;
         return 1;
     }
+    cout << "File was opened correctly." << endl;
 
-    Group* group = nullptr;
+    Group* group = new Group("Main group:", nullptr, 0);
+    group->addStudents(students, studentCount);
 
     firstMenu();
 
@@ -34,121 +33,97 @@ int main() {
     cin.ignore();
 
     if (searchType == 7) {
-        string groupName;
-        cout << "Введіть групу: ";
-        getline(cin, groupName);
-
-        Student* groupStudents = new Student[studentCount];
-        int groupStudentCount = 0;
-
-        for (int i = 0; i < studentCount; i++) {
-            if (students[i].getGroup() == groupName) {
-                groupStudents[groupStudentCount++] = students[i];
-            }
-        }
-
-        if (groupStudentCount == 0) {
-            cout << "Жодного студента не знайдено в " << groupName << "." << endl;
-            delete[] groupStudents;
-            delete[] students;
-            return 1;
-        }
-
-        group = new Group(groupName, groupStudentCount, groupStudents);
-        delete[] groupStudents;
-
         int groupChoice;
         do {
             secondMenu();
             cin >> groupChoice;
             cin.ignore();
 
-            switch (groupChoice)
-            {
-            case 1:
-            {
-                Student student;
-                cout << "Введіть дані про студента: ";
-                cin >> student;
-                group->addStudent(student);
-                cout << "Студента додано." << endl;
+            switch (groupChoice) {
+            case 1: {
+                string groupName;
+                cout << "Enter group name: ";
+                getline(cin, groupName);
+                delete group;
+                group = new Group(groupName, nullptr, 0);
+                cout << "Group \"" << groupName << "\" is created." << endl;
                 break;
             }
-            case 2:
-            {
+            case 2: {
+                Student student;
+                cout << "Enter student's info: ";
+                cin >> student;
+                group->addStudent(student);
+                cout << "Student is added." << endl;
+                break;
+            }
+            case 3: {
                 string studentName;
-                cout << "Введіть ім'я студента: ";
+                cout << "Enter student's name: ";
                 getline(cin, studentName);
                 cout << endl;
                 group->removeStudent(studentName);
-                cout << "Студента видалено." << endl;
                 break;
             }
-            case 3:
-            {
-                cout << "Інформація про групу:" << endl;
-                cout << *group << endl;
+            case 4: {
+                cout << "Group info:" << endl;
+                cout << endl;
+                cout << *group;
                 break;
             }
-            case 4:
-            {
+            case 5: {
                 Address address;
-                cout << "Введіть адресу (поштовий індекс, місто, вулиця): ";
+                cout << "Enter address (index, city, street): ";
                 cin >> address;
                 cout << endl;
                 group->searchByAddress(address);
                 break;
             }
-            case 5:
-            {
+            case 6: {
                 string recordNumber;
-                cout << "Введіть номер залікової книжки: ";
+                cout << "Enter recordbook number: ";
                 getline(cin, recordNumber);
                 cout << endl;
                 group->searchByZalikovkaNumber(recordNumber);
                 break;
             }
-            case 6:
-            {
+            case 7: {
                 string subjectName;
-                cout << "Введіть назву предмета: ";
+                cout << "Enter subject name: ";
                 getline(cin, subjectName);
                 cout << endl;
                 group->searchBySubject(subjectName);
                 break;
             }
             case 0:
-                cout << "Вихід із меню..." << endl;
+                cout << "Exiting group menu..." << endl;
                 break;
             default:
-                cout << "Неправильний вибір." << endl;
+                cout << "Wrong choice." << endl;
                 break;
             }
         } while (groupChoice != 0);
     }
     else {
         string searchValue;
-        cout << "Введіть варіант пошуку: ";
+        cout << "Enter search query: ";
         getline(cin, searchValue);
 
         bool found = false;
-        for (int i = 0; i < studentCount; i++) {
-            if (students[i].match(searchValue, searchType)) {
-                cout << students[i] << endl;
+        for (int i = 0; i < group->getStudentCount(); i++) {
+            if (group->getStudents()[i].match(searchValue, searchType)) {
+                cout << group->getStudents()[i];
                 found = true;
             }
         }
 
         if (!found) {
-            cout << "Не знайдено студента із заданими критеріями." << endl;
+            cout << "Students are not found." << endl;
         }
-
-        if (group != nullptr) {
-            delete group;
-        }
-        delete[] students;
-
-
-        return 0;
     }
+
+    delete[] students;
+    delete group;
+
+    return 0;
 }

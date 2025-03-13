@@ -6,12 +6,21 @@ using namespace std;
 class Zalikovka {
 private:
     string zalikovkaNumber;
-    int subjectCount;
     Subject* subjects;
+    int subjectCount;
+
+    void deepCopy(const Zalikovka& other) {
+        zalikovkaNumber = other.zalikovkaNumber;
+        subjectCount = other.subjectCount;
+        subjects = new Subject[subjectCount];
+        for (int i = 0; i < subjectCount; i++) {
+            subjects[i] = other.subjects[i];
+        }
+    }
 public:
     Zalikovka();
 
-    Zalikovka(string zalikovkaNumber, int subjectCount, Subject* subject);
+    Zalikovka(string zalikovkaNumber, Subject* subject, int subjectCount);
     Zalikovka(const Zalikovka& zalikovka);
     Zalikovka& operator=(const Zalikovka& zalikovka);
     Subject& operator[](int index);
