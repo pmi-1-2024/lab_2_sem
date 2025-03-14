@@ -1,0 +1,7 @@
+Vacuum Dyson_V15 Dyson 18000 2300 Silver
+Washing Samsung_EcoBubble Samsung 14000 12 7.5
+FoodProcessor Braun_MultiQuick Braun 9000 750 10
+Vacuum Philips_PowerPro Philips 11000 1900 Black
+Washing Bosch_Serie6 Braun 16000 15 9.0
+FoodProcessor Kenwood_Prospero Kenwood 8500 800 8
+Vacuum Xiaomi_Roidmi Xiaomi 9500 1700 White
