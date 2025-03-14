@@ -1,0 +1,4 @@
+
+Firm: Philips
+Device from this company: Combine
+Final price: 500
