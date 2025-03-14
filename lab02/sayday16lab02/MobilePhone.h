@@ -2,6 +2,7 @@
 #define MOBILEPHONE_H
 
 #include "Phone.h"
+using namespace std;
 
 class MobilePhone : public Phone {
 private:
@@ -11,8 +12,10 @@ private:
 public:
     MobilePhone(string n, string b, double p, string c, int m);
     void display() const override;
+
+    friend ostream& operator<<(ostream& os, const MobilePhone& phone);
+
+    friend istream& operator>>(istream& is, MobilePhone& phone);
 };
 
-#endif 
-
-
+#endif

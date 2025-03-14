@@ -18,9 +18,19 @@ public:
     virtual void display() const = 0;
     virtual bool hasAnsweringMachine() const;
 
-    double getPrice() const;
+    double getPrice() const; 
+    
+    bool operator<(const Phone& other) const {
+        return this->getPrice() < other.getPrice();
+    }
 
-    friend istream& operator>>(istream& in, Phone*& p);
+    friend istream& operator>>(istream& is, Phone*& phone);
+    friend ostream& operator<<(ostream& out, const Phone& phone); // Виправлено передачу по посиланню
 };
 
 #endif
+
+
+
+
+

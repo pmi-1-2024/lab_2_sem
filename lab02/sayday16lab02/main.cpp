@@ -1,18 +1,14 @@
-// laab_2.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// llab_2.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// #include "../include/Phone.h"
 #include "Phone.h"
 #include "MobilePhone.h"
 #include "RadioPhone.h"
-
+#include "PhoneFactory.h"
 #include <iostream>
 #include <fstream>
+
+
 using namespace std;
 
 int main() {
@@ -36,12 +32,17 @@ int main() {
         count++;
     }
 
-    while (count < MAX_SIZE && file2 >> phones[count]) {
-        if (!phones[count]) {
-            cerr << "Error reading phone from file2!" << endl;
-            break;
-        }
-        count++;
+    while (count < MAX_SIZE) {
+        phones[count] = createPhone(file1);
+        if (phones[count] == nullptr) break;
+        ++count;
+    }
+
+    
+    while (count < MAX_SIZE) {
+        phones[count] = createPhone(file2);
+        if (phones[count] == nullptr) break;
+        ++count;
     }
 
     cout << "Loaded phones: " << count << endl;
@@ -50,10 +51,10 @@ int main() {
         return 1;
     }
 
-    // Сортування за ціною
+    
     for (int i = 0; i < count - 1; ++i) {
         for (int j = i + 1; j < count; ++j) {
-            if (phones[i]->getPrice() > phones[j]->getPrice()) {
+            if (*phones[j] < *phones[i]) {
                 swap(phones[i], phones[j]);
             }
         }
@@ -69,9 +70,11 @@ int main() {
             totalPrice += phones[i]->getPrice();
         }
     }
+
     cout << "Total price: " << totalPrice << "\n";
     output << "Total price: " << totalPrice << "\n";
 
+   
     cout << "\nRadio phones with answering machine:\n";
     output << "\nRadio phones with answering machine:\n";
     for (int i = 0; i < count; ++i) {
@@ -79,12 +82,16 @@ int main() {
             phones[i]->display();
         }
     }
-
-    // Видалення динамічних об'єктів
+   
     for (int i = 0; i < count; ++i) delete phones[i];
 
     return 0;
-}
+}     
+
+// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
+// Debug program: F5 or Debug > Start Debugging menu
+
+// Tips for Getting Started: 
 //   1. Use the Solution Explorer window to add/manage files
 //   2. Use the Team Explorer window to connect to source control
 //   3. Use the Output window to see build output and other messages
