@@ -1,0 +1,10 @@
+
+Name: PikmiSuperRobot
+Firm: LG
+Price: 950
+Power of Vacuumcleaner: 230
+Color of Vacuumcleaner: Pikmi
+Count of Washing machine programs: 13
+Capacity of Washing machine: 55
+Power of Combine: 470
+Count of Combine`s functions: 11
