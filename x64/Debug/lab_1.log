@@ -1,5 +1,2 @@
-﻿  Group.cpp
-C:\Users\Alex\source\repos\lab_1\lab_1\Group.cpp(29,9): error C2084: function 'Group::~Group(void)' already has a body
-      C:\Users\Alex\source\repos\lab_1\lab_1\Group.cpp(21,9):
-      see previous definition of 'Group::~Group'
-  
+﻿  Main.cpp
+  lab_1.vcxproj -> C:\Users\Alex\source\repos\lab_1\x64\Debug\lab_1.exe
