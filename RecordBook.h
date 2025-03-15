@@ -15,6 +15,8 @@ private:
 public:
     RecordBook();
     RecordBook(int number, int subjectCount);
+    RecordBook(const RecordBook& other); 
+    RecordBook& operator=(const RecordBook& other); 
     ~RecordBook();
 
     int getNumber() const;

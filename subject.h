@@ -15,12 +15,16 @@ private:
 public:
     Subject();
     Subject(const string& name, int semester, int grade);
+    Subject(const Subject& other); 
+    Subject& operator=(const Subject& other); 
+    ~Subject() = default; 
 
     string getName() const;
     int getSemester() const;
+    int getGrade() const;
 
     friend ostream& operator<<(ostream& os, const Subject& subject);
     friend istream& operator>>(istream& is, Subject& subject);
 };
 
-#endif
+#endif 

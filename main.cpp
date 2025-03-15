@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Student.h"
 #include "Utils.h"
+#include "Group.h"
+#include "RecordBook.h"
 
 using namespace std;
 
@@ -9,7 +11,7 @@ void menu(Student* students, int count) {
     do {
         cout << "\nMenu:\n";
         cout << "1. Show all students\n";
-        cout << "2. Search student\n";
+        cout << "2. Search student or group\n";
         cout << "3. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;

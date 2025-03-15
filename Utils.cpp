@@ -5,6 +5,8 @@ bool matchesSearch(const Student& student, const string& query) {
     return student.getFirstName() == query ||
         student.getLastName() == query ||
         student.getAddress().getCity() == query ||
+        student.getAddress().getIndex() == query ||
+        student.getAddress().getStreet() == query ||
         student.getGroupName() == query ||
         to_string(student.getRecordBook().getNumber()) == query;
 }
@@ -14,10 +16,25 @@ void searchStudents(Student* students, int count) {
     string query;
     cin >> query;
 
+    bool found = false;
+    int studentCount = 0;
+
     for (int i = 0; i < count; i++) {
         if (matchesSearch(students[i], query)) {
-            cout << students[i] << endl;
+            studentCount++;
         }
+    }
+
+    if (studentCount > 0) {
+        cout << "Number of students found: " << studentCount << "\n";
+        for (int i = 0; i < count; i++) {
+            if (matchesSearch(students[i], query)) {
+                cout << students[i] << endl;
+            }
+        }
+    }
+    else {
+        cout << "No students found matching the query: " << query << endl;
     }
 }
 
@@ -26,7 +43,7 @@ void loadStudents(const string& filename, Student*& students, int& count) {
     if (!file) {
         cout << "Error: Unable to open file.\n";
         return;
-    }   
+    }
 
     file >> count;
     students = new Student[count];

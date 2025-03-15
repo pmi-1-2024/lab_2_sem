@@ -15,6 +15,8 @@ private:
 public:
     Group();
     Group(const string& name, int studentCount);
+    Group(const Group& other); 
+    Group& operator=(const Group& other); 
     ~Group();
 
     string getName() const;
@@ -27,4 +29,4 @@ public:
     friend istream& operator>>(istream& is, Group& group);
 };
 
-#endif
+#endif // GROUP_H

@@ -6,8 +6,43 @@ Group::Group(const string& name, int studentCount) : name(name), studentCount(st
     students = new Student[studentCount];
 }
 
+Group::Group(const Group& other) : name(other.name), studentCount(other.studentCount) {
+    if (studentCount > 0) {
+        students = new Student[studentCount];
+        for (int i = 0; i < studentCount; ++i) {
+            students[i] = other.students[i];
+        }
+    }
+    else {
+        students = nullptr;
+    }
+}
+
+Group& Group::operator=(const Group& other) {
+    if (this != &other) {
+        delete[] students;
+
+        name = other.name;
+        studentCount = other.studentCount;
+
+        if (studentCount > 0) {
+            students = new Student[studentCount];
+            for (int i = 0; i < studentCount; ++i) {
+                students[i] = other.students[i];
+            }
+        }
+        else {
+            students = nullptr;
+        }
+    }
+    return *this;
+}
+
 Group::~Group() {
-    delete[] students;
+    if (students) {
+        delete[] students;
+        students = nullptr;
+    }
 }
 
 string Group::getName() const {
