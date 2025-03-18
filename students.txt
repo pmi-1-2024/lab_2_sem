@@ -1,0 +1,21 @@
+16
+
+John Doe 12345 Kyiv MainStreet-10 CS101 1001 2 Math 1 85 Physics 1 90
+Alice Smith 54321 Lviv GreenStreet-5 CS101 1002 2 Chemistry 1 78 Biology 1 82
+Ethan Hunt 11223 Kharkiv RedStreet-15 CS101 1005 3 Geography 1 88 History 2 80 Literature 2 84
+Sophia White 99887 Zaporizhzhia BrownStreet-9 CS101 1006 2 English 1 92 Programming 2 89
+
+Bob Johnson 67890 Odesa BlueStreet-7 CS102 1003 3 History 1 88 Literature 2 91 Art 2 87
+Emma Brown 13579 Dnipro YellowStreet-3 CS102 1004 2 Programming 1 95 Algorithms 2 92
+Daniel Green 22446 Vinnytsia PinkStreet-12 CS102 1007 3 DataStructures 1 85 Databases 2 88 Networks 2 86
+Olivia Black 55678 Rivne WhiteStreet-8 CS102 1008 2 CyberSecurity 1 90 AI 2 94
+
+Mason Lee 33445 Lutsk OrangeStreet-20 CS103 1009 3 Robotics 1 87 Automation 2 89 ControlSystems 2 90
+Ava Wilson 66789 Ivano-Frankivsk PurpleStreet-30 CS103 1010 2 WebDevelopment 1 92 UIUX 2 91
+James Carter 99001 Ternopil SilverStreet-25 CS103 1011 3 AI 1 89 ML 2 90 DeepLearning 2 93
+Lily Scott 22334 Uzhhorod GoldStreet-14 CS103 1012 2 CloudComputing 1 85 DevOps 2 88
+
+Henry Adams 77441 Poltava GreenStreet-7 CS104 1013 3 GameDev 1 95 ARVR 2 93 GameAI 2 92
+Charlotte Evans 88255 Cherkasy BlueStreet-18 CS104 1014 2 Blockchain 1 90 Cryptography 2 87
+Liam Harris 33699 Sumy SilverStreet-11 CS104 1015 3 QuantumComputing 1 89 TheoreticalCS 2 91 ComputationalMath 2 88
+Emily Turner 55977 Chernivtsi CopperStreet-6 CS104 1016 2 SoftwareEngineering 1 94 Testing 2 90
