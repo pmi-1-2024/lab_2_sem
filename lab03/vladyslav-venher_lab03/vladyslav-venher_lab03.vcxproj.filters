@@ -15,8 +15,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="vladyslav-venher_lab03.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HybridRobotDonkey.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Donkey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Horse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="animals.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

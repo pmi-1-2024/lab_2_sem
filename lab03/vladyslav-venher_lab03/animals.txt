@@ -1,0 +1,4 @@
+1 Pegasus 2010 white Arabian
+2 Eeyore 2015 standard 1.4
+3 Hybrid 2020 gray Mule 1.6 HybridMule
+4 RoboDonkey 2025 white Robotic 1.8 RoboDon HybridCleaning
