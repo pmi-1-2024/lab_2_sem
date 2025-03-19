@@ -1,0 +1,3 @@
+Name: Eeyore, Birth Year: 2015, Type: Grey, Height: 1.2, Ear Lenght: 0
+Number of white horses: 0
+Number of donkeys <=1.5m: 1
