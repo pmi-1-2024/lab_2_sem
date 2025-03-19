@@ -1,0 +1,8 @@
+Horse: Spirit, 2011, Color: white, Breed: Appaloosa
+Donkey: Tiny, 2012, Type: domestic, Height: 1.5m
+Donkey: Daisy, 2013, Type: wild, Height: 1.35m
+Horse: Mustang, 2015, Color: white, Breed: Arabian
+Donkey: Bruno, 2017, Type: wild, Height: 1.3m
+Donkey: BigEars, 2018, Type: domestic, Height: 1.45m
+White Horses: 2
+Short Donkeys: 4
