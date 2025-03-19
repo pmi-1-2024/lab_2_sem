@@ -1,0 +1,11 @@
+Combine Philips 200 750 7
+Combine Kenwood 350 1000 5
+MultiTool Samsung 1755 425 Red 13 5 900 4
+MultiTool Xiaomi 1500 800 Pink 12 11 700 8
+MultiTool LG 1300 700 Blue 11 8 650 6
+VacuumCleaner Dyson 699 525 Golden
+VacuumCleaner Xiaomi 450 65 White
+VacuumCleaner Samsung 500 200 Blue
+WashingMachine Bosch 600 15 9
+WashingMachine Samsung 800 14 10
+Total: 10
