@@ -73,7 +73,7 @@ int main() {
             }
             case 5: {
                 Address address;
-                cout << "Enter address (index, city, street): ";
+                cout << "Enter address: ";
                 cin >> address;
                 cout << endl;
                 group->searchByAddress(address);

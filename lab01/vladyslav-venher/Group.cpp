@@ -23,8 +23,11 @@ Group& Group::operator=(const Group& other) {
 
 
 Group::~Group() {
-    delete[] students;
+    if (students) {
+        delete[] students;
+    }
 }
+
 
 
 int Group::getStudentCount() const {

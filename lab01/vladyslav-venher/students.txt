@@ -1,6 +1,6 @@
-5
-Zakhar
-12345 Lviv Naukova-7 
+6
+Vlad
+12345 Lviv Horodotska-39 
 Group1 123456
 Physics Semester-1 95 
 Math Semester-2 95 
@@ -19,13 +19,19 @@ History Semester-2 90
 END
 Mariia
 79013 Lviv Khutorivka-87 
-Group1 123459
+Group2 123459
 Physics Semester-1 75
 Geography Semester-2 80
 END
 Yulia
 79113 Lviv Horodotska-40 
 Group2 111111
+Physics Semester-1 75
+Geography Semester-2 80
+END
+Ihor
+79113 Lviv Antonycha-5
+Group1 111111
 Physics Semester-1 75
 Geography Semester-2 80
 END
