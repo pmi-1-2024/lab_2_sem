@@ -1,0 +1,29 @@
+
+Washing Machine
+Brand: Samsung
+Price: 30000
+Programs: 14
+Volume: 55
+
+
+Universal Helper
+Brand: Samsung
+Price: 30000
+Vacuum Power: 200
+Color: Black
+Washing Programs: 20
+Washing Volume: 34
+Combine Power: 230
+Functions: 9
+
+
+Universal Helper
+Brand: Philips
+Price: 30000
+Vacuum Power: 200
+Color: Black
+Washing Programs: 40
+Washing Volume: 55
+Combine Power: 260
+Functions: 12
+
