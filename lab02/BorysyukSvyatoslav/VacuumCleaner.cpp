@@ -14,4 +14,14 @@ void VacuumCleaner::read(istream& is) {
     is >> power >> color;
 }
 
+ostream& operator<<(ostream& os, const VacuumCleaner& device)
+{
+    device.print(os);
+    return os;
+}
 
+istream& operator>>(istream& is, VacuumCleaner& device)
+{
+    device.read(is);
+    return is;
+}

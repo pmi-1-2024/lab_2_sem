@@ -11,6 +11,33 @@ ElectroDeviceManager::~ElectroDeviceManager() {
     delete[] devices;
 }
 
+ElectroDeviceManager::ElectroDeviceManager(const ElectroDeviceManager& other) {
+    size = other.size;
+    devices = new ElectroDevice * [size];
+
+    for (int i = 0; i < size; i++) {
+        devices[i] = other.devices[i]->clone();
+    }
+}
+
+ElectroDeviceManager& ElectroDeviceManager::operator=(const ElectroDeviceManager& other) {
+    if (this == &other) return *this;
+
+    for (int i = 0; i < size; i++) {
+        delete devices[i];
+    }
+    delete[] devices;
+
+    size = other.size;
+    devices = new ElectroDevice * [size];
+
+    for (int i = 0; i < size; i++) {
+        devices[i] = other.devices[i]->clone();
+    }
+
+    return *this;
+}
+
 ElectroDevice& ElectroDeviceManager::operator[](int index) {
     if (index < 0 || index >= size) {
         throw out_of_range("index out");

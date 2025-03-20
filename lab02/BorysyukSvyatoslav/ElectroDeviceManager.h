@@ -14,6 +14,9 @@ public:
     ElectroDeviceManager(int s);
     ~ElectroDeviceManager();
 
+    ElectroDeviceManager(const ElectroDeviceManager& other);
+    ElectroDeviceManager& operator=(const ElectroDeviceManager& other);
+
     ElectroDevice& operator[](int index);
     
 

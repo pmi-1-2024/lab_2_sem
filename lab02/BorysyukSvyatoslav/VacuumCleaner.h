@@ -7,12 +7,18 @@ private:
     string color;
 
 public:
-    
-
-    
+ 
     VacuumCleaner(string n = "", string b = "", double p = 0.0, int pow = 0, string col = "");
     ~VacuumCleaner();
 
     void print(ostream& os) const override;
     void read(istream& is) override;
+
+    VacuumCleaner* clone() const override {
+        return new VacuumCleaner(*this);
+    }
+
+
+    friend ostream& operator<<(ostream& os, const VacuumCleaner& device);
+    friend istream& operator>>(istream& is, VacuumCleaner& device);
 };

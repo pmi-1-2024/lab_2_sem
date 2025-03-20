@@ -27,6 +27,8 @@ double ElectroDevice::getPrice() const
     return price;
 }
 
+
+
 ostream& operator<<(ostream& os, const ElectroDevice& device) {
     device.print(os);
     return os;

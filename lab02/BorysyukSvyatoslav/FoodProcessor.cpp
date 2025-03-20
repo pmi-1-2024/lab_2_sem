@@ -15,4 +15,14 @@ void FoodProcessor::read(istream& is) {
     is >> power >> numFunctions;
 }
 
+ostream& operator<<(ostream& os, const FoodProcessor& device)
+{
+    device.print(os);
+    return os;
+}
 
+istream& operator>>(istream& is, FoodProcessor& device)
+{
+    device.read(is);
+    return is;
+}

@@ -15,6 +15,7 @@ public:
 
     virtual void print(ostream& os) const;
     virtual void read(istream& is);
+    virtual ElectroDevice* clone() const = 0;
 
      string getName() const;
      string getBrand() const; 
