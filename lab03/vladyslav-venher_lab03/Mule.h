@@ -22,10 +22,12 @@ public:
     }
 
     bool matchesCriteria(const string& parameter) const override {
-        return nickname == parameter ||
-            Horse::matchesCriteria(parameter) ||
-            Donkey::matchesCriteria(parameter);
+        return nickname == parameter ||            // Перевірка прізвиська
+            Horse::matchesCriteria(parameter) || // Властивості Horse
+            Donkey::matchesCriteria(parameter);  // Властивості Donkey
     }
+
+
 };
 
 #endif

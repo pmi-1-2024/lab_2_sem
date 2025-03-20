@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HybridRobotDonkey.h">
+    <ClCompile Include="HybridAnimal.h">
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -30,9 +30,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Horse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Mule.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

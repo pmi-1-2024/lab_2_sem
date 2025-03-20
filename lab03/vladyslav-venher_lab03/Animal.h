@@ -17,15 +17,10 @@ public:
     virtual ~Animal() {}
 
     int getBirthYear() const { return birthYear; }
-    string getName() const { return name; }
-
+    const string& getName() const { return name; }
     virtual void display(ostream& os) const = 0;
-    virtual bool matchesCriteria(const string& parameter) const = 0;
-
-    friend ostream& operator<<(ostream& os, const Animal& animal) {
-        animal.display(os);
-        return os;
-    }
+    virtual bool isWhiteHorse() const { return false; }
+    virtual bool isShortDonkey() const { return false; }
 };
 
 #endif

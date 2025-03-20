@@ -1,2 +1,0 @@
-Horse: Pegasus, 2010, Color: white, Breed: Arabian
-Donkey: Eeyore, 2015, Type: standard, Height: 1.4m

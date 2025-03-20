@@ -4,12 +4,12 @@
 #include "Animal.h"
 
 class Donkey : virtual public Animal {
+protected:
     string type;
     double height;
 
 public:
-    Donkey(const string& name = "", int birthYear = 0,
-        const string& type = "", double height = 0)
+    Donkey(const string& name = "", int birthYear = 0, const string& type = "", double height = 0)
         : Animal(name, birthYear), type(type), height(height) {
     }
 
@@ -17,10 +17,7 @@ public:
         os << "Donkey: " << name << ", " << birthYear
             << ", Type: " << type << ", Height: " << height << "m\n";
     }
-
-    bool matchesCriteria(const string& parameter) const override {
-        return type == parameter;
-    }
+    bool isShortDonkey() const override { return height <= 1.5; }
 };
 
 #endif
