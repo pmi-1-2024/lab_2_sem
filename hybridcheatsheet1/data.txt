@@ -1,0 +1,10 @@
+UlianaTrukhan Group1
+1 Math 1 A5 Pocket
+2 History 2 comp
+3 Physics 3 A4 Notebook phone
+0
+NazarKryvanyo Group2
+2 Arts 4 Watch
+1 Biology 3 A6 Backpack
+3 Chemistry 5 A5 Notes Smartwatch
+0
