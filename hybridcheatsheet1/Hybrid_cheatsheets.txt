@@ -1,0 +1,4 @@
+[Electronic CheatSheet] Subject: History, number: 2, media: comp
+[Hybrid CheatSheet] Subject: Physics, Number: 3, Size: A4, Hiding Place: Notebook, Media: phone
+[Electronic CheatSheet] Subject: Arts, number: 4, media: Watch
+[Hybrid CheatSheet] Subject: Chemistry, Number: 5, Size: A5, Hiding Place: Notes, Media: Smartwatch
