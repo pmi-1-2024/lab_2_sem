@@ -10,14 +10,19 @@ protected:
 	Link() : next(0) {}
 };
 
-struct Student_Link : Link {
+struct Student {
 	string name;
 	string surname;
 	double aver;
-	Student_Link(string n = " ", string sn = " ", double a = 0.0) : name(n), surname(sn), aver(a) {}
+	Student(string n = " ", string sn = " ", double a = 0.0) : name(n), surname(sn), aver(a) {}
 
-	friend ostream& operator<<(ostream& os, const Student_Link& student);
-	friend istream& operator>>(istream& is, Student_Link& student);
+	friend ostream& operator<<(ostream& os, const Student& student);
+	friend istream& operator>>(istream& is, Student& student);
+};
+
+struct Student_Link : Link {
+	Student data;
+	Student_Link(const Student& student) : data(student) {}
 };
 
 class List {

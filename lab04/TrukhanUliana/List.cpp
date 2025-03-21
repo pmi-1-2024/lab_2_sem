@@ -1,13 +1,13 @@
 #include "List.h"
 
-ostream& operator<<(ostream& os, const Student_Link& student) {
+ostream& operator<<(ostream& os, const Student& student) {
 	os << "Name: " << student.name
 		<< ", Surname: " << student.surname
 		<< ", Average grades: " << student.aver;
 	return os;
 }
 
-istream& operator>>(istream& is, Student_Link& student) {
+istream& operator>>(istream& is, Student& student) {
 	cout << "Enter student's name: ";
 	is >> student.name;
 	cout << "Enter student's surname: ";
@@ -26,9 +26,7 @@ List& List::operator=(const List&) {
 List::~List() {
 	while (!empty()) {
 		Link* removedNode = remove();
-		if (removedNode) {
-			delete removedNode;
-		}
+		delete removedNode;
 	}
 }
 

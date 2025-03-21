@@ -1,43 +1,39 @@
 #include "Student_Manager.h"
 
-void Student_Manager::addStud(string name, string surname, double aver) {
+void Student_Manager::addStud(const Student& student) {
 
-	list.add(name, surname, aver);
+	list.add(student);
 }
 
-void Student_Manager::removeStud(string name, string surname) {
-	Student_Link* student = list.find(name, surname);
-	if (student) {
-		delete list.remove(student);
+void Student_Manager::removeStud(const Student& student) {
+	Student_Link* stud = list.find(student);
+	if (stud) {
+		delete list.remove(stud);
 	}
 	else {
-		cout << "Student with name " << name << " " << " not founded!\n";
+		cout << "Student not founded!\n";
 	}
 }
 
-Student_Link* Student_Manager::findStud(string name, string surname) {
-	return list.find(name, surname);
+Student_Link* Student_Manager::findStud(const Student& student) {
+	return list.find(student);
 }
 
-void Student_Manager::replaceStud(string oldName, string oldSurname, string newName, string newSurname, double newAv) {
-	Student_Link* student = list.find(oldName, oldSurname);
+void Student_Manager::replaceStud(const Student& oldData, const Student& newData) {
+	Student_Link* student = list.find(oldData);
 	if (student) {
-		student->name = newName;
-		student->surname = newSurname;
-		student->aver = newAv;
+		student->data = newData;
 		cout << "Student updated successfully!\n";
 	}
 	else {
-		cout << "Student with name " << oldName << " not founded!\n";
+		cout << "Student not founded!\n";
 	}
 }
 
 void Student_Manager::printStud() {
 	Student_Link* temp = list.top();
 	while (temp) {
-		cout << "Name: " << temp->name 
-			<< ", Surname: " << temp->surname
-			<< ", Average marks: " << temp->aver << endl;
+		cout << temp->data << endl;
 		temp = (Student_Link*)temp->next;
 	}
 }

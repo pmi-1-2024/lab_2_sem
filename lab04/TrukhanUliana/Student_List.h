@@ -4,10 +4,10 @@
 
 class Student_List : public List {
 public:
-    void add(string n, string sn, double a);
+    void add(const Student& student);
     Student_Link* top() const;
-    Student_Link* find(string n, string sn);
-    void insert(string n, string sn, double a, Student_Link* after);
+    Student_Link* find(const Student& student);
+    void insert(const Student& student, Student_Link* after);
 };
 
 #endif // STUDENT_LIST_H

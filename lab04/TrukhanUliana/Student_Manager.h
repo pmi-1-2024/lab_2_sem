@@ -6,10 +6,10 @@ class Student_Manager
 private:
 	Student_List list;
 public:
-	void addStud(string name, string surname, double aver);
-	void removeStud(string name, string surname);
-	Student_Link* findStud(string name, string surname);
-	void replaceStud(string oldName, string oldSurname, string newName, string newSurname, double newAv);
+	void addStud(const Student& student);
+	void removeStud(const Student& student);
+	Student_Link* findStud(const Student& student);
+	void replaceStud(const Student& oldData, const Student& newData);
 	void printStud();
 };
 
