@@ -1,0 +1,15 @@
+RadioPhone: GigasetC530 Gigaset 90 30 0
+RadioPhone: SiemensGigaset Siemens 95 35 0
+RadioPhone: MotorolaT200 Motorola 110 40 1
+RadioPhone: PanasonicKX Panasonic 120 50 1
+MobilePhone: Xiaomi12 Xiaomi 650 Blue 256
+MobilePhone: Pixel7 Google 700 White 128
+MobilePhone: OnePlus9 OnePlus 780 Green 128
+MobilePhone: GalaxyS21 Samsung 850 Black 256
+MobilePhone: Xperia5 Sony 920 Red 128
+MobilePhone: iPhone13 Apple 999 Silver 128
+Total cost: 5314
+
+Phones with answering machine:
+RadioPhone: MotorolaT200 Motorola 110 40 1
+RadioPhone: PanasonicKX Panasonic 120 50 1
