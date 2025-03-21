@@ -429,6 +429,11 @@ FodyWeavers.xsd
 *.out
 *.app
 
+#Eclipse c++ supporting files and folders
+*.cproject
+*.project
+Debug/
+.settings/
 
 .idea/
 .vscode/

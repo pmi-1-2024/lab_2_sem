@@ -1,0 +1,5 @@
+M Samsung S29 150 Grey 256
+M Samsung A10 120 Red 64
+R Samsung R12 50 100 1
+R Samsung R8 130 500 0
+R Samsung R120 500 120 1
