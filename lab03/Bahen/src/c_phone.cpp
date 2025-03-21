@@ -13,3 +13,13 @@ void ComboPhone::input(istream & in){
 void ComboPhone::print(ostream & out){
 	out << firm + " " + name + " " + color + " " + to_string(storage) + "GB " + to_string(radius) + "km " + "answering machine:" + to_string(is_auto) + " price:" + to_string(price) + "usd" << endl;
 }
+
+ostream& operator << (ostream& out, ComboPhone& ph) {
+	ph.print(out);
+	return out;
+}
+
+istream& operator >> (istream& in, ComboPhone& ph) {
+	ph.input(in);
+	return in;
+}

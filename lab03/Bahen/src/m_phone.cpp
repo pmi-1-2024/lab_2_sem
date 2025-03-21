@@ -16,5 +16,14 @@ void MobilePhone ::input(istream& in){
 	in >> firm >> name >> price >> color >> storage;
 }
 
+ostream& operator << (ostream& out, MobilePhone& ph) {
+	ph.print(out);
+	return out;
+}
+
+istream& operator >> (istream& in, MobilePhone& ph) {
+	ph.input(in);
+	return in;
+}
 
 

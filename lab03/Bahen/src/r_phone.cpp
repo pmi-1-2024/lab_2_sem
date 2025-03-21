@@ -19,3 +19,12 @@ void RadioPhone ::input(istream& in){
 	in >> firm >> name >> price >> radius >> is_auto;
 }
 
+ostream& operator << (ostream& out, RadioPhone& ph) {
+	ph.print(out);
+	return out;
+}
+
+istream& operator >> (istream& in, RadioPhone& ph) {
+	ph.input(in);
+	return in;
+}
