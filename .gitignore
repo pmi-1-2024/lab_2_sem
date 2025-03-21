@@ -432,6 +432,9 @@ FodyWeavers.xsd
 
 .idea/
 .vscode/
+hrynchyshyn
+.vs
+
 .vs/
 .json/
 *.json
@@ -439,3 +442,4 @@ FodyWeavers.xsd
 *.vcxproj.filters
 *.vcxproj.user
 *.sln
+main
