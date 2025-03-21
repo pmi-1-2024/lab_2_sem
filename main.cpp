@@ -1,47 +1,55 @@
-#include <iostream>
-#include "Student.h"
-#include "Utils.h"
-#include "Group.h"
-#include "RecordBook.h"
+#include "Phone.h"
 
-using namespace std;
+void readData(Phone** phones, int& count, const string& filename) {
+    ifstream inFile(filename);
+    if (!inFile) {
+        cerr << "Error opening file: " << filename << endl;
+        exit(1);
+    }
 
-void menu(Student* students, int count) {
-    int choice;
-    do {
-        cout << "\nMenu:\n";
-        cout << "1. Show all students\n";
-        cout << "2. Search student or group\n";
-        cout << "3. Exit\n";
-        cout << "Enter choice: ";
-        cin >> choice;
+    count = 0;
+    int type;
+    while (inFile >> type) {
+        if (type == 1) phones[count] = new MobilePhone();
+        else if (type == 2) phones[count] = new RadioPhone();
+        else if (type == 3) phones[count] = new HybridPhone();
+        else continue;
 
-        switch (choice) {
-        case 1:
-            for (int i = 0; i < count; ++i) {
-                cout << students[i] << endl;
-            }
-            break;
-        case 2:
-            searchStudents(students, count);
-            break;
-        case 3:
-            cout << "Exiting program...\n";
-            break;
-        default:
-            cout << "Invalid choice! Try again.\n";
+        inFile >> *phones[count];
+        count++;
+    }
+
+    inFile.close();
+}
+
+void searchByPrice(Phone** phones, int count, double minPrice, const string& filename) {
+    ofstream outFile(filename);
+    if (!outFile) {
+        cerr << "Error opening file: " << filename << endl;
+        exit(1);
+    }
+
+    for (int i = 0; i < count; i++) {
+        if (phones[i]->getPrice() >= minPrice) {
+            outFile << *phones[i];
         }
-    } while (choice != 3);
+    }
+
+    outFile.close();
 }
 
 int main() {
-    Student* students = nullptr;
-    int studentCount = 0;
+    const int MAX_PHONES = 100;
+    Phone* phones[MAX_PHONES];
+    int count = 0;
 
-    loadStudents("students.txt", students, studentCount);
-    menu(students, studentCount);
-    
+    readData(phones, count, "input.txt");
 
-    delete[] students;
+    searchByPrice(phones, count, 500, "output.txt");
+
+    for (int i = 0; i < count; i++) {
+        delete phones[i];
+    }
+
     return 0;
 }
