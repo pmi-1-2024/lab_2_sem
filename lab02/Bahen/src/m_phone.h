@@ -9,7 +9,7 @@ private:
     int storage;
 public:
     virtual void print(ostream& out);
-    virtual void input(istream& out);
+    virtual void input(istream& in);
     MobilePhone();
     virtual string get_type();
     ~MobilePhone(){}

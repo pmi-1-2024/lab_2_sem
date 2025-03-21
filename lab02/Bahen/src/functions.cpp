@@ -14,7 +14,7 @@ void read(string src, Phone ** list, int &index){
 		else if(type == "M")
 			p = new MobilePhone();
 
-		p->input(inp);
+		inp >> *p;
 		list[index] = p;
 		index ++;
 	}
@@ -24,7 +24,7 @@ void read(string src, Phone ** list, int &index){
 void write(string src, Phone ** list, int size){
 	ofstream out(src);
 	for(int i = 0; i < size; i ++)
-			list[i]->print(out);
+		out << *list[i];
 	out.close();
 }
 
