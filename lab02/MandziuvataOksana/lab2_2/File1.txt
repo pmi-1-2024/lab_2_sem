@@ -1,0 +1,21 @@
+Name: Braun, Firm: Philips, Price: 130
+Power: 350W, Functions: 6
+
+Name: Dyson, Firm: Philips, Price: 500
+Power: 200, Color: Blue
+
+Name: LG, Firm: Philips, Price: 600
+Power: 250, Color: Red
+
+Name: Philips, Firm: Braun, Price: 150
+Power: 400W, Functions: 5
+
+Name: Philips, Firm: LG, Price: 450
+Power: 220, Color: White
+
+Name: Samsung, Firm: LG, Price: 800
+Programs: 12, Volume: 10.5L
+
+Name: Whirlpool, Firm: Samsung, Price: 500
+Programs: 10, Volume: 8L
+
