@@ -13,6 +13,7 @@ int main() {
 	Phone ** phones = new Phone*[n];
 
 	read("data.txt", phones, index);
+	cout << 1;
 	search(phones,index);
 
 	return 1;
