@@ -20,7 +20,7 @@ public:
 	friend istream& operator>>(istream& is, Vacuumcleaner& vac);
 	friend ostream& operator << (ostream & os, const Vacuumcleaner & vac);
 	virtual void print(ostream& os)const;
-	virtual void write(istream& is)override;
+	virtual void read(istream& is)override;
 
 };
 #endif

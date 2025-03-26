@@ -28,7 +28,7 @@ void Vacuumcleaner::print(ostream& os) const
 	os << "\nColor: " << color;
 }
 
-void Vacuumcleaner::write(istream& is)
+void Vacuumcleaner::read(istream& is)
 {
 	is >> power;
 	is >> color;
@@ -39,7 +39,7 @@ istream& operator>>(istream& is, Vacuumcleaner& vac)
 	is >> vac.name;
 	is >> vac.firm;
 	is >> vac.price;
-	vac.write(is);
+	vac.read(is);
 	return is;
 }
 

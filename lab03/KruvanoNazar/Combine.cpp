@@ -25,7 +25,7 @@ void Combine::print(ostream& os) const
 	os << "\nCount of functions: " << countf;
 }
 
-void Combine::write(istream& is)
+void Combine::read(istream& is)
 {
 	is >> cpower;
 	is >> countf;
@@ -36,7 +36,7 @@ istream& operator>>(istream& is, Combine& com)
 	is >> com.name;
 	is >> com.firm;
 	is >> com.price;
-	com.write(is);
+	com.read(is);
 	return is;
 }
 

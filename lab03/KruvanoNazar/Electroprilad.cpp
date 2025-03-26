@@ -49,7 +49,7 @@ istream& operator>>(istream& is, Electroprilad& elp)
 	is >> elp.name;
 	is >> elp.firm;
 	is >> elp.price;
-	elp.write(is);
+	elp.read(is);
 	return is;
 }
 

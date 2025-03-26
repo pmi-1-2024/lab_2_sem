@@ -13,7 +13,7 @@ public:
 	SuperRobot(string n, string f, int p, int pow, string col, int cop, int cap, int cp, int cof);
 	SuperRobot(const SuperRobot& sr);
 	virtual void print(ostream& os)const;
-	virtual void write(istream& is);
+	virtual void read(istream& is);
 	friend istream& operator>>(istream& is, SuperRobot& sr);
 	friend ostream& operator<<(ostream& os, SuperRobot& sr);
 

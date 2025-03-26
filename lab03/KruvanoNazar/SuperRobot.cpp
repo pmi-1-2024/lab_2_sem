@@ -19,11 +19,11 @@ void SuperRobot::print(ostream& os)const
 	os << "\nCount of Combine`s functions: " << countf;
 }
 
-void SuperRobot::write(istream& is)
+void SuperRobot::read(istream& is)
 {
-	Vacuumcleaner::write(is);
-	Washmash::write(is);
-	Combine::write(is);
+	Vacuumcleaner::read(is);
+	Washmash::read(is);
+	Combine::read(is);
 }
 
 istream& operator>>(istream& is, SuperRobot& sr)
@@ -31,7 +31,7 @@ istream& operator>>(istream& is, SuperRobot& sr)
 	is >> sr.name;
 	is >> sr.firm;
 	is >> sr.price;
-	sr.write(is);
+	sr.read(is);
 	return is;
 }
 

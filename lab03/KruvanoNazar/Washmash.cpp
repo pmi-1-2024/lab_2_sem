@@ -25,7 +25,7 @@ void Washmash::print(ostream& os) const
 	os << "\nCapacity: " << capacity;
 }
 
-void Washmash::write(istream& is)
+void Washmash::read(istream& is)
 {
 	is >> countop;
 	is >> capacity;
@@ -36,7 +36,7 @@ istream& operator>>(istream& is, Washmash& wash)
 	is >> wash.name;
 	is >> wash.firm;
 	is >> wash.price;
-	wash.write(is);
+	wash.read(is);
 	return is;
 }
 

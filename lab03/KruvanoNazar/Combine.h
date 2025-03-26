@@ -17,6 +17,6 @@ public:
 	friend istream& operator>>(istream& is, Combine& com);
 	friend ostream& operator<<(ostream& os, const Combine& com);
 	virtual void print(ostream& os)const ;
-	virtual void write(istream& is)override;
+	virtual void read(istream& is)override;
 };
 #endif

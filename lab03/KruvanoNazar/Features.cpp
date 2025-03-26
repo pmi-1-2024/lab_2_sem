@@ -52,7 +52,7 @@ void WriteSortToFile(ofstream& file, Electroprilad** prilads, int count)
 {
 	if (!file.is_open()) {
 		cout << "\nFile is not open!";
-		return;
+		return;	
 	}
 	NameSort(prilads, count);
 	int vc = 0;
