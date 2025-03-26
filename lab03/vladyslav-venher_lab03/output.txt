@@ -1,2 +1,6 @@
+Hybrid Animal: Hybrid1, 2018, Hybrid Name: HybridMix
+Donkey: Donkey1, 2012, Type: working, Height: 1.2m
+Horse: Horse1, 2015, Color: white, Breed: Arabian
 Donkey: Donkey1, 2012, Type: working, Height: 1.2m
 Hybrid Animal: Hybrid1, 2018, Hybrid Name: HybridMix
+Horse: Horse1, 2015, Color: white, Breed: Arabian
