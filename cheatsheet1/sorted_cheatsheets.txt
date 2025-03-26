@@ -1,0 +1,5 @@
+[Paper CheatSheet] Subject: Math, Number: 1, Size: A5, Hiding Place: Pocket
+[Electronic CheatSheet] Subject: History, Number: 2, Media: comp
+[Paper CheatSheet] Subject: Biology, Number: 3, Size: A6, Hiding Place: Backpack
+[Electronic CheatSheet] Subject: Arts, Number: 4, Media: Watch
+[Electronic CheatSheet] Subject: Chemistry, Number: 5, Media: comp
