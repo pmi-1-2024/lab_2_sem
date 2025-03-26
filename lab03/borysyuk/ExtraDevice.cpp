@@ -30,9 +30,10 @@ ExtraDevice& ExtraDevice::operator=(const ExtraDevice& other) {
 
 void ExtraDevice::print(ostream& os) const {
     
-    VacuumCleaner::print(os);
+    /*VacuumCleaner::print(os);
     os << ", ";
-    WashingMachine::print(os);
+    WashingMachine::print(os);*/
+    os << "Name : " << name<<"Brand: "<<brand<<"Price: "<<price<<"Color: "<<color<<"NumProg: "<<numPrograms<<"Volume: "<<volume<<endl;
 }
 
 void ExtraDevice::read(istream& is) {
@@ -40,18 +41,18 @@ void ExtraDevice::read(istream& is) {
    /* VacuumCleaner::read(is);
     WashingMachine::read(is);*/
    /* is >> name >> brand >> price >> power >> color>>numPro*/
-    ElectroDevice::read(is);
+    /*ElectroDevice::read(is);
     int power;
     string color;
     int numPrograms;
-    double volume;
+    double volume;*/
 
-    is >> power >> color >> numPrograms >> volume;
+    is >>name>>brand>>price>> power >> color >> numPrograms >> volume;
 
-    this->power = power;
+    /*this->power = power;
     this->color = color;
     this->numPrograms = numPrograms;
-    this->volume = volume;
+    this->volume = volume;*/
 }
 
 ostream& operator<<(ostream& os, const ExtraDevice& device) {

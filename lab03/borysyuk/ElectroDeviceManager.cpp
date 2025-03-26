@@ -11,7 +11,6 @@ ElectroDeviceManager::~ElectroDeviceManager() {
     delete[] devices;
 }
 
-// Конструктор копіювання
 ElectroDeviceManager::ElectroDeviceManager(const ElectroDeviceManager& other) : size(other.size) {
     devices = new ElectroDevice * [size];
 

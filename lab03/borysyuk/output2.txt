@@ -2,4 +2,4 @@ List of company devices Braun:
 Bosch_Serie6
 Bosch_Serie66
 Braun_MultiQuick
-Total cost: 26600 grn
+Total cost: 41000 grn
