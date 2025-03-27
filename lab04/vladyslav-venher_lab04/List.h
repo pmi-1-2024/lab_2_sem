@@ -9,20 +9,6 @@ protected:
     Node() : next(nullptr) {}
 };
 
-struct Student {
-    string firstName;
-    string lastName;
-    double gpa;
-    Student(string fn = "", string ln = "", double g = 0.0) : firstName(fn), lastName(ln), gpa(g) {}
-
-    friend ostream& operator<<(ostream& os, const Student& student);
-    friend istream& operator>>(istream& is, Student& student);
-};
-
-struct Student_Node : Node {
-    Student info;
-    Student_Node(const Student& student) : info(student) {}
-};
 
 class List {
 private:
@@ -30,24 +16,24 @@ private:
     List& operator=(const List&);
 protected:
     Node* head;
-    void add(Node*);
+    void push(Node*);
     Node* top() const { return head; }
 public:
     List() : head(nullptr) {}
     ~List();
     Node* remove(Node* node = nullptr);
-    bool isEmpty() const { return !head; }
+    bool empty() const { return !head; }
 };
 
 // Реалізація методів класу List
 List::~List() {
-    while (!isEmpty()) {
+    while (!empty()) {
         Node* temp = remove();
         delete temp;
     }
 }
 
-void List::add(Node* node) {
+void List::push(Node* node) {
     if (!node) return;
     node->next = head;
     head = node;
@@ -73,21 +59,4 @@ Node* List::remove(Node* node) {
         return node;
     }
     return nullptr;
-}
-
-ostream& operator<<(ostream& os, const Student& student) {
-    os << "First Name: " << student.firstName
-        << ", Last Name: " << student.lastName
-        << ", GPA: " << student.gpa;
-    return os;
-}
-
-istream& operator>>(istream& is, Student& student) {
-    cout << "Enter first name: ";
-    is >> student.firstName;
-    cout << "Enter last name: ";
-    is >> student.lastName;
-    cout << "Enter GPA: ";
-    is >> student.gpa;
-    return is;
 }

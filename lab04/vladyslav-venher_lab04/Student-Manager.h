@@ -1,5 +1,7 @@
 #pragma once
 #include "Student-List.h"
+
+
 class StudentManager {
 private:
     StudentList list;
@@ -11,13 +13,14 @@ public:
     void displayStudents();
 };
 
+
 // Реалізація методів класу StudentManager
 void StudentManager::addNewStudent(const Student& student) {
-    list.addStudent(student);
+    list.push(student);
 }
 
 void StudentManager::deleteStudent(const string& firstName, const string& lastName) {
-    Student_Node* stud = list.searchByName(firstName, lastName);
+    Student_Node* stud = list.find(firstName, lastName);
     if (stud) {
         delete list.remove(stud);
     }
@@ -27,11 +30,11 @@ void StudentManager::deleteStudent(const string& firstName, const string& lastNa
 }
 
 Student_Node* StudentManager::findStudent(const string& firstName, const string& lastName) {
-    return list.searchByName(firstName, lastName);
+    return list.find(firstName, lastName);
 }
 
 void StudentManager::updateStudent(const string& firstName, const string& lastName) {
-    Student_Node* student = list.searchByName(firstName, lastName);
+    Student_Node* student = list.find(firstName, lastName);
     if (student) {
         cout << "Enter new student data: \n";
         cin >> student->info;
@@ -43,7 +46,7 @@ void StudentManager::updateStudent(const string& firstName, const string& lastNa
 }
 
 void StudentManager::displayStudents() {
-    Student_Node* temp = list.getTop();
+    Student_Node* temp = list.top();
     while (temp) {
         cout << temp->info << endl;
         temp = (Student_Node*)temp->next;
