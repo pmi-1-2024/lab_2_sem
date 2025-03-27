@@ -7,10 +7,12 @@
 class Students_List : public List {
 public:
     Students_List() { head = nullptr; }
-    void add(Link* newLink) override;
     void display() override;
-    Student_Link* findByName(string fName);
-    Student_Link* findByLastName(string lName);
-    void findByGroup(string grp);
     void remove(string fName, string lName);
+    void push(Student s);  
+    Student top() const;  
+    Student_Link* find(Student s);
+    void insert(Student s, Student_Link* after);
+protected:
+    void add(Link* newLink) override;
 };

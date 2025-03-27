@@ -7,8 +7,8 @@ private:
 public:
     void addStudent(string fName, string lName, string grp);
     void removeStudent(string fName, string lName);
-    void findStudentByName(string fName);
-    void findStudentByLastName(string lName);
-    void findStudentsByGroup(string grp);
+    void findStudent(const string& fName = "", const string& lName = "", const string& grp = "");
     void displayAll();
+    void insertAfter(const Student& newStudent, const string& afterFName, const string& afterLName);
+    Student getTopStudent() const;
 };

@@ -14,47 +14,13 @@ void Students_List::display() {
     }
 }
 
-Student_Link* Students_List::findByName(string fName) {
-    Link* current = head;
-    while (current) {
-        Student_Link* sLink = static_cast<Student_Link*>(current); 
-        if (sLink->student.firstName == fName) return sLink;
-        current = current->next;
-    }
-    return nullptr;
-}
-
-Student_Link* Students_List::findByLastName(string lName) {
-    Link* current = head;
-    while (current) {
-        Student_Link* sLink = static_cast<Student_Link*>(current); 
-        if (sLink->student.lastName == lName) return sLink;
-        current = current->next;
-    }
-    return nullptr;
-}
-
-void Students_List::findByGroup(string grp) {
-    Link* current = head;
-    bool found = false;
-    while (current) {
-        Student_Link* sLink = static_cast<Student_Link*>(current); 
-        if (sLink->student.group == grp) {
-            sLink->student.display();
-            found = true;
-        }
-        current = current->next;
-    }
-    if (!found) cout << "No students found in group " << grp << endl;
-}
-
 void Students_List::remove(string fName, string lName) {
     Link* current = head; 
     Link* prev = nullptr;
 
     while (current) {
         Student_Link* sLink = static_cast<Student_Link*>(current);
-        if (sLink->student.firstName == fName && sLink->student.lastName == lName) {
+        if (sLink->student.getFirstName() == fName && sLink->student.getLastName() == lName) {
             if (prev) prev->next = current->next;
             else head = current->next;
 
@@ -66,4 +32,34 @@ void Students_List::remove(string fName, string lName) {
         current = current->next;
     }
     cout << "Student not found.\n";
+}
+
+void Students_List::push(Student s) {
+    Student_Link* newLink = new Student_Link(s);
+    newLink->next = head;
+    head = newLink;
+}
+
+Student Students_List::top() const {
+    if (head)
+        return static_cast<Student_Link*>(head)->student;
+    throw runtime_error("The list is empty!");
+}
+
+Student_Link* Students_List::find(Student s) {
+    Link* current = head;
+    while (current) {
+        Student_Link* sLink = static_cast<Student_Link*>(current);
+        if (sLink->student.getFirstName() == s.getFirstName() && sLink->student.getLastName() == s.getLastName())
+            return sLink;
+        current = current->next;
+    }
+    return nullptr;
+}
+
+void Students_List::insert(Student s, Student_Link* after) {
+    if (!after) return;
+    Student_Link* newLink = new Student_Link(s);
+    newLink->next = after->next;
+    after->next = newLink;
 }
