@@ -31,7 +31,7 @@ private:
 	List& operator=(const List&);
 protected:
 	Link* head;
-	void add(Link*);
+	void push(Link*);
 	Link* top()const { return head; }
 
 public:

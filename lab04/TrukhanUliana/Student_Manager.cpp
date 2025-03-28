@@ -2,7 +2,7 @@
 
 void Student_Manager::addStud(const Student& student) {
 
-	list.add(student);
+	list.push(student);
 }
 
 void Student_Manager::removeStud(const Student& student) {

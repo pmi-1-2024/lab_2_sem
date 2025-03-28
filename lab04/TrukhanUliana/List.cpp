@@ -30,7 +30,7 @@ List::~List() {
 	}
 }
 
-void List::add(Link* node) {
+void List::push(Link* node) {
 	if (!node) return;
 
 	if (!head) head = node;

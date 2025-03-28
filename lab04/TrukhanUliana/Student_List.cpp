@@ -1,8 +1,8 @@
 #include "Student_list.h"
 
-void Student_List::add(const Student& student) {
+void Student_List::push(const Student& student) {
     Student_Link* temp = new Student_Link(student);
-    List::add(temp);
+    List::push(temp);
 }
 
 Student_Link* Student_List::top() const { return (Student_Link*)head; }

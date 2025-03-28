@@ -4,7 +4,7 @@
 
 class Student_List : public List {
 public:
-    void add(const Student& student);
+    void push(const Student& student);
     Student_Link* top() const;
     Student_Link* find(const Student& student);
     void insert(const Student& student, Student_Link* after);
