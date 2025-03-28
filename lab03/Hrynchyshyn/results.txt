@@ -1,0 +1,13 @@
+
+Vacuum Cleaner
+Brand: LG
+Price: 12000
+Power: 1800
+Color: Black
+
+Combine
+Brand: Tefal
+Price: 12000
+Power: 2000
+Functions: 4
+
