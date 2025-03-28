@@ -1,0 +1,3 @@
+3 GigasetA415 Gigaset 80 150 0
+2 Pixel8 Google 950 Blue 128
+3 VTechCS6719 VTech 60 100 1
