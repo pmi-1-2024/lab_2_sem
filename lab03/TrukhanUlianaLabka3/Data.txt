@@ -1,0 +1,10 @@
+v VacuumCleaner Dyson 699 525 Golden
+w WashingMachine Bosch 600 15 9
+c Combine Philips 200 750 7
+w WashingMachine Samsung 800 14 10
+m MultiTool Samsung 1755 425 Red 13 5 900 4
+v VacuumCleaner Xiaomi 450 65 White
+v VacuumCleaner Samsung 500 200 Blue
+c Combine Kenwood 350 1000 5
+m MultiTool Xiaomi 1500 800 Pink 12 11 700 8
+m MultiTool LG 1300 700 Blue 11 8 650 6
