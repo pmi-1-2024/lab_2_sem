@@ -433,14 +433,4 @@ FodyWeavers.xsd
 
 .idea/
 .vscode/
-hrynchyshyn
-.vs
 
-.vs/
-.json/
-*.json
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
-*.sln
-main
