@@ -25,7 +25,9 @@ public:
     }
 
     friend istream& operator>>(istream& is, Phone*& phone);
-    friend ostream& operator<<(ostream& out, const Phone& phone); // Виправлено передачу по посиланню
+        
+    
+    friend ostream& operator<<(ostream& out, const Phone& phone);
 };
 
 #endif

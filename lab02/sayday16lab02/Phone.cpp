@@ -24,6 +24,6 @@ double Phone::getPrice() const {
 }
 
 bool Phone::hasAnsweringMachine() const {
-    return false; 
+    return false;
 }
 

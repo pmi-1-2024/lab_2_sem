@@ -7,11 +7,39 @@
 #include "PhoneFactory.h"
 #include <iostream>
 #include <fstream>
-
+#include <string>
 
 using namespace std;
 
+Phone* createPhone(istream& in) {
+    int type;
+    if (!(in >> type)) {  
+        //cerr << "Error reading phone type.\n";
+        return nullptr;
+    }
+
+   /* cout << "Detected type: " << type << endl*/;
+
+    if (type == 2) {
+        MobilePhone* mp = new MobilePhone("", "", 0.0, "", 0);
+        in >> *mp;
+        return mp;
+    }
+    else if (type == 3) {
+        RadioPhone* rp = new RadioPhone("", "", 0.0, 0.0, false);
+        in >> *rp;
+        return rp;
+    }
+    else {
+        cerr << "Unknown phone type: " << type << endl;
+        return nullptr;
+    }
+
+
+}
+
 int main() {
+   
     ifstream file1("phones1.txt"), file2("phones2.txt");
     ofstream output("result.txt");
 
@@ -19,6 +47,7 @@ int main() {
         cerr << "Error opening files!" << endl;
         return 1;
     }
+
 
     const int MAX_SIZE = 100;
     Phone* phones[MAX_SIZE];
