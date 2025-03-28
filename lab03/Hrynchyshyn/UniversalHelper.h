@@ -4,6 +4,8 @@
 #include "WashingMachine.h"
 #include "Combine.h"
 
+using namespace std;
+
 class UniversalHelper : public VacuumCleaner, public WashingMachine, public Combine {
 public:
     UniversalHelper();
@@ -12,4 +14,3 @@ public:
     void print(ostream& os) const override;
     void read(istream& is) override;
 };
-

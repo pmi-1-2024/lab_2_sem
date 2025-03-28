@@ -5,7 +5,7 @@
 #include "UniversalHelper.h"
 #include <iostream>
 #include <fstream>
-
+#include <string>
 using namespace std;
 
 int loadDevices(Electrodevice**& devices) {
@@ -36,13 +36,21 @@ int loadDevices(Electrodevice**& devices) {
         else if (type == "UniversalHelper") {
             devices[i] = new UniversalHelper();
         }
-        inputFile >> *devices[i];
+        if (devices[i]) {
+            inputFile >> *devices[i];
+        }
+        else {
+            cout << "Unknown device type: " << type << endl;
+            delete[] devices;
+            inputFile.close();
+            return 0;
+        }
     }
     inputFile.close();
     return count;
 }
 
-void searchDevices(Electrodevice** devices, int n, int choice) {
+void searchDevices(Electrodevice** devices, int n) {
     ofstream resultFile("results.txt");
     if (!resultFile) {
         cout << "Error creating results.txt!" << endl;
@@ -50,57 +58,55 @@ void searchDevices(Electrodevice** devices, int n, int choice) {
     }
 
     string searchBrand = "";
-    int searchPrice = -1, searchVacuumPower = -1, searchPrograms = -1, searchVolume = -1, searchCombinePower = -1, searchFunctions = -1;
+    int searchPrice = -1;
+    int searchVacuumPower = -1;
     string searchColor = "";
+    int searchPrograms = -1;
+    int searchVolume = -1;
+    int searchCombinePower = -1;
+    int searchFunctions = -1;
 
-    if (choice == 1) {
-        ifstream searchFile("search.txt");
-        if (!searchFile) {
-            cout << "Error opening search.txt!" << endl;
-            return;
-        }
-        searchFile >> searchBrand >> searchPrice >> searchVacuumPower >> searchColor >> searchPrograms >> searchVolume >> searchCombinePower >> searchFunctions;
-        searchFile.close();
 
-       
-        if (searchBrand == "any") searchBrand = "";
-        if (searchColor == "any") searchColor = "";
+    ifstream searchFile("search.txt");
+    if (!searchFile) {
+        cout << "Error opening search.txt!" << endl;
+        resultFile << "Error opening search.txt!" << endl;
+        resultFile.close();
+        return;
     }
-    else {
-        cout << "Enter brand (or 'any' to skip): ";
-        cin >> searchBrand;
-        if (searchBrand == "any") searchBrand = "";
+    searchFile >> searchBrand >> searchPrice >> searchVacuumPower >> searchColor >> searchPrograms >> searchVolume >> searchCombinePower >> searchFunctions;
+    searchFile.close();
 
-        cout << "Enter price (or -1 to skip): ";
-        cin >> searchPrice;
-
-        cout << "Enter vacuum power (or -1 to skip): ";
-        cin >> searchVacuumPower;
-
-        cout << "Enter color (or 'any' to skip): ";
-        cin >> searchColor;
-        if (searchColor == "any") searchColor = "";
-
-        cout << "Enter washing programs (or -1 to skip): ";
-        cin >> searchPrograms;
-
-        cout << "Enter washing volume (or -1 to skip): ";
-        cin >> searchVolume;
-
-        cout << "Enter combine power (or -1 to skip): ";
-        cin >> searchCombinePower;
-
-        cout << "Enter functions (or -1 to skip): ";
-        cin >> searchFunctions;
-    }
+    if (searchBrand == "any") searchBrand = "";
+    if (searchColor == "any") searchColor = "";
 
     bool found = false;
     for (int i = 0; i < n; ++i) {
         bool matches = true;
 
-   
         if (!searchBrand.empty() && devices[i]->getBrand() != searchBrand) matches = false;
         if (searchPrice != -1 && devices[i]->getPrice() != searchPrice) matches = false;
+
+        if (VacuumCleaner* vc = dynamic_cast<VacuumCleaner*>(devices[i])) {
+            if (searchVacuumPower != -1 && vc->getPower() != searchVacuumPower) matches = false;
+            if (!searchColor.empty() && vc->getColor() != searchColor) matches = false;
+        }
+        if (WashingMachine* wm = dynamic_cast<WashingMachine*>(devices[i])) {
+            if (searchPrograms != -1 && wm->getPrograms() != searchPrograms) matches = false;
+            if (searchVolume != -1 && wm->getVolume() != searchVolume) matches = false;
+        }
+        if (Combine* cb = dynamic_cast<Combine*>(devices[i])) {
+            if (searchCombinePower != -1 && cb->getCombinePower() != searchCombinePower) matches = false;
+            if (searchFunctions != -1 && cb->getFunctions() != searchFunctions) matches = false;
+        }
+        if (UniversalHelper* uh = dynamic_cast<UniversalHelper*>(devices[i])) {
+            if (searchVacuumPower != -1 && uh->VacuumCleaner::getPower() != searchVacuumPower) matches = false;
+            if (!searchColor.empty() && uh->VacuumCleaner::getColor() != searchColor) matches = false;
+            if (searchPrograms != -1 && uh->WashingMachine::getPrograms() != searchPrograms) matches = false;
+            if (searchVolume != -1 && uh->WashingMachine::getVolume() != searchVolume) matches = false;
+            if (searchCombinePower != -1 && uh->Combine::getCombinePower() != searchCombinePower) matches = false;
+            if (searchFunctions != -1 && uh->Combine::getFunctions() != searchFunctions) matches = false;
+        }
 
         if (matches) {
             resultFile << "\n";

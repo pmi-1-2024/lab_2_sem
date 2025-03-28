@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Electrodevice.h"
-
+using namespace std;
 class VacuumCleaner : virtual public Electrodevice {
 protected:
     int power;
@@ -16,5 +16,3 @@ public:
     int getPower() const;
     string getColor() const;
 };
-
-

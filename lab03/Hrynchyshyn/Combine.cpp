@@ -1,6 +1,6 @@
 #include "Combine.h"
 
-Combine::Combine() : power(0), functions(0) {}
+Combine::Combine() : Electrodevice(), power(0), functions(0) {}
 
 Combine::Combine(const string& b, int p, int pow, int f)
     : Electrodevice(b, p), power(pow), functions(f) {
@@ -11,9 +11,14 @@ void Combine::print(ostream& os) const {
 }
 
 void Combine::read(istream& is) {
-    is >> brand >> price >> power >> functions;
+    Electrodevice::read(is);
+    is >> power >> functions;
 }
 
-int Combine::getCombinePower() const { return power; }
+int Combine::getCombinePower() const {
+    return power;
+}
 
-int Combine::getFunctions() const { return functions; }
+int Combine::getFunctions() const {
+    return functions;
+}

@@ -15,7 +15,7 @@ public:
     virtual ~Electrodevice();
 
     virtual void print(ostream& os) const = 0;
-    virtual void read(istream& is) = 0;
+    virtual void read(istream& is);
 
     const string& getBrand() const;
     int getPrice() const;

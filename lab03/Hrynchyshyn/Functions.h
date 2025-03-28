@@ -3,6 +3,6 @@
 #include "Electrodevice.h"
 
 int loadDevices(Electrodevice**& devices);
-void searchDevices(Electrodevice** devices, int n, int choice);
+void searchDevices(Electrodevice** devices, int n);
 
 

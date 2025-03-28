@@ -6,6 +6,10 @@ Electrodevice::Electrodevice(const string& b, int p) : brand(b), price(p) {}
 
 Electrodevice::~Electrodevice() {}
 
+void Electrodevice::read(std::istream& is) {
+    is >> brand >> price;
+}
+
 const string& Electrodevice::getBrand() const { return brand; }
 
 int Electrodevice::getPrice() const { return price; }
