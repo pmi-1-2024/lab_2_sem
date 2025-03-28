@@ -430,6 +430,7 @@ FodyWeavers.xsd
 *.app
 
 
+
 .idea/
 .vscode/
 hrynchyshyn
