@@ -1,0 +1,47 @@
+
+Name: Combine
+Firm: Bosh
+Price: 400
+Power: 542
+Count of functions: 10
+
+Name: Combine
+Firm: Philips
+Price: 500
+Power: 453
+Count of functions: 9
+
+Name: Vacuumcleaner
+Firm: Samsung
+Price: 543
+Power: 321
+Color: White
+
+Name: Vacuumcleaner
+Firm: LG
+Price: 350
+Power: 250
+Color: Black
+
+Name: Vacuumcleaner
+Firm: Bosh
+Price: 478
+Power: 395
+Color: Pikmi
+
+Name: Washingmachine
+Firm: LG
+Price: 600
+Count of programs: 7
+Capacity: 40
+
+Name: Washingmachine
+Firm: Samsung
+Price: 700
+Count of programs: 8
+Capacity: 45
+
+Count of prilads: 7
+Count of Vacuumcleaners: 3
+Count of Washingmachines: 2
+Count of Combines: 2
