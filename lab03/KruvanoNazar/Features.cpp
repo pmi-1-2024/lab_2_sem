@@ -2,36 +2,32 @@
 
 void Readfile(ifstream& file, Electroprilad** prilads, int& count, SuperRobot **robots, int& rcount)
 {
-	if(!file.is_open()) {
+	if (!file.is_open()) {
 		cout << "\nFile is not open!";
 		return;
 	}
 	count = 0;
 	rcount = 0;
-	int type ;
-	Vacuumcleaner v1;
-	Washmash w1;
-	Combine c1;
-	SuperRobot s1;
+	int type;
 	for (int i = 0; i < 10; i++) {
+		Electroprilad* e1 = nullptr;
 		file >> type;
 		switch (type) {
 		case 1:
-			file >> v1;
-			prilads[count++] = new Vacuumcleaner(v1);
+			e1 = new Vacuumcleaner();
 			break;
 		case 2:
-			file >> w1;
-			prilads[count++] = new Washmash(w1);
+			e1 = new Washmash();
 			break;
 		case 3:
-			file >> c1;
-			prilads[count++] = new Combine(c1);
+			e1 = new Combine();
 			break;
 		case 4:
-			file >> s1;
-			robots[rcount++] = new SuperRobot(s1);
+			e1 = new SuperRobot();
+			break;
 		}
+		file >> *e1;
+		type == 4 ? robots[rcount++] = dynamic_cast<SuperRobot*>(e1) : prilads[count++] = e1;
 	}
 }
 
