@@ -1,0 +1,7 @@
+iPhone4 Apple 49.99
+Pixel5 Google 99.99
+Pixel12 Google 799.99
+iPhoneX Apple 899.99
+Pixel15 Google 899.99
+iPhone13 Apple 999.99
+Total sum: 3749.94
