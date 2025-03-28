@@ -1,0 +1,2 @@
+Name: Spirit, Birth Year: 2010, Color: White, Breed: Mustang
+Name: Eeyore, Birth Year: 2015, Type: Grey, Height: 1.2, Ear Lenght: 0
