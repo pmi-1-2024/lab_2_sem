@@ -1,0 +1,7 @@
+VacuumCleaner Dyson Philips 500 200 Blue
+WashingMachine Samsung LG 800 12 10.5
+Blender Philips Braun 150 400 5
+VacuumCleaner LG Philips 600 250 Red
+WashingMachine Whirlpool Samsung 500 10 8
+Blender Braun Philips 130 350 6
+VacuumCleaner Philips LG 450 220 White

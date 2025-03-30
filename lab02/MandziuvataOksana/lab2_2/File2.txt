@@ -1,0 +1,9 @@
+Name: Braun, Firm: Philips, Price: 130
+Power: 350W, Functions: 6
+
+Name: Dyson, Firm: Philips, Price: 500
+Power: 200, Color: Blue
+
+Name: LG, Firm: Philips, Price: 600
+Power: 250, Color: Red
+
