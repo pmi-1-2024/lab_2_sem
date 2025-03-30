@@ -1,0 +1,10 @@
+Vacuum LG 12000 1800 Black 
+WashingMachine Samsung 18000 12 50  
+Combine Bosch 9500 1500 5  
+Combine Tefal 12000 2000 4  
+WashingMachine Samsung 30000 14 55  
+Combine Philips 10000 1000 4  
+Vacuum Xiaomi 8000 2000 Black  
+UniversalHelper Samsung 30000 210 Red 20 34 230 9
+UniversalHelper Philips 30000 200 Black 40 55 260 12
+UniversalHelper Lg 22000 180 Gold 19 40 230 10
