@@ -14,8 +14,6 @@ public:
 	Washmash(const Washmash& wash);
 	int GetCountOfPrograms()const;
 	int GetCapacity()const;
-	friend istream& operator>>(istream& is, Washmash& wash);
-	friend ostream& operator<<(ostream& os, const Washmash& wash);
 	virtual void print(ostream& os)const;
 	virtual void read(istream& is)override;
 

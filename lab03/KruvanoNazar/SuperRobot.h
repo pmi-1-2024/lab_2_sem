@@ -14,9 +14,6 @@ public:
 	SuperRobot(const SuperRobot& sr);
 	virtual void print(ostream& os)const;
 	virtual void read(istream& is);
-	friend istream& operator>>(istream& is, SuperRobot& sr);
-	friend ostream& operator<<(ostream& os, SuperRobot& sr);
-
 };
 #endif
 

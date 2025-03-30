@@ -43,12 +43,16 @@ void Electroprilad::print(ostream& os) const
 	os << "\nPrice: " << price;
 }
 
+void Electroprilad::read(istream& is)
+{
+	is >> name;
+	is >> firm;
+	is >> price;
+}
+
 
 istream& operator>>(istream& is, Electroprilad& elp)
 {
-	is >> elp.name;
-	is >> elp.firm;
-	is >> elp.price;
 	elp.read(is);
 	return is;
 }

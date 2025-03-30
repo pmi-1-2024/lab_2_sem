@@ -17,8 +17,6 @@ public:
 	Vacuumcleaner(const Vacuumcleaner& vac);
 	int Getpower()const;
 	string GetColor()const;
-	friend istream& operator>>(istream& is, Vacuumcleaner& vac);
-	friend ostream& operator << (ostream & os, const Vacuumcleaner & vac);
 	virtual void print(ostream& os)const;
 	virtual void read(istream& is)override;
 

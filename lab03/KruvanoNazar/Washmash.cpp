@@ -27,22 +27,7 @@ void Washmash::print(ostream& os) const
 
 void Washmash::read(istream& is)
 {
+	Electroprilad::read(is);
 	is >> countop;
 	is >> capacity;
 }
-
-istream& operator>>(istream& is, Washmash& wash)
-{
-	is >> wash.name;
-	is >> wash.firm;
-	is >> wash.price;
-	wash.read(is);
-	return is;
-}
-
-ostream& operator<<(ostream& os, const Washmash& wash)
-{
-	wash.print(os);
-	return os;
-}
-

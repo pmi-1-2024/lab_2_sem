@@ -27,21 +27,7 @@ void Combine::print(ostream& os) const
 
 void Combine::read(istream& is)
 {
+	Electroprilad::read(is);
 	is >> cpower;
 	is >> countf;
-}
-
-istream& operator>>(istream& is, Combine& com)
-{
-	is >> com.name;
-	is >> com.firm;
-	is >> com.price;
-	com.read(is);
-	return is;
-}
-
-ostream& operator<<(ostream& os, const Combine& com)
-{
-	com.print(os);
-	return os;
 }

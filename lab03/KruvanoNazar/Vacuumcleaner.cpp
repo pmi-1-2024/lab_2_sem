@@ -30,22 +30,7 @@ void Vacuumcleaner::print(ostream& os) const
 
 void Vacuumcleaner::read(istream& is)
 {
+	Electroprilad::read(is);
 	is >> power;
 	is >> color;
 }
-
-istream& operator>>(istream& is, Vacuumcleaner& vac)
-{
-	is >> vac.name;
-	is >> vac.firm;
-	is >> vac.price;
-	vac.read(is);
-	return is;
-}
-
-ostream& operator<<(ostream& os, const Vacuumcleaner& vac)
-{
-	vac.print(os);
-	return os;
-}
-

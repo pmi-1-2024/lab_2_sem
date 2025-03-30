@@ -14,8 +14,6 @@ public:
 	Combine(const Combine& com);
 	int GetCombinePower()const;
 	int GetCountOfFunctions()const;
-	friend istream& operator>>(istream& is, Combine& com);
-	friend ostream& operator<<(ostream& os, const Combine& com);
 	virtual void print(ostream& os)const ;
 	virtual void read(istream& is)override;
 };

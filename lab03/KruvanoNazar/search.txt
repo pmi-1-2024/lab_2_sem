@@ -1,10 +1,10 @@
 
-Name: PikmiSuperRobot
-Firm: LG
-Price: 950
-Power of Vacuumcleaner: 230
-Color of Vacuumcleaner: Pikmi
-Count of Washing machine programs: 13
-Capacity of Washing machine: 55
-Power of Combine: 470
-Count of Combine`s functions: 11
+Name: AlphaSuperRobot
+Firm: Bosh
+Price: 1100
+Power of Vacuumcleaner: 300
+Color of Vacuumcleaner: Silver
+Count of Washing machine programs: 14
+Capacity of Washing machine: 65
+Power of Combine: 550
+Count of Combine`s functions: 16

@@ -21,23 +21,11 @@ void SuperRobot::print(ostream& os)const
 
 void SuperRobot::read(istream& is)
 {
-	Vacuumcleaner::read(is);
-	Washmash::read(is);
-	Combine::read(is);
+	Electroprilad::read(is);
+	is >> power;
+	is >> color;
+	is >> countop;
+	is >> capacity;
+	is >> cpower;
+	is >> countf;
 }
-
-istream& operator>>(istream& is, SuperRobot& sr)
-{
-	is >> sr.name;
-	is >> sr.firm;
-	is >> sr.price;
-	sr.read(is);
-	return is;
-}
-
-ostream& operator<<(ostream& os, SuperRobot& sr)
-{
-	sr.print(os);
-	return os;
-}
-
