@@ -7,101 +7,79 @@
 
 using namespace std;
 
-int main()
-{
-	ifstream file1("file1.txt");
-	ifstream file2("file2.txt");
+Phone* createPhone(const string& type) {
+    if (type == "Mobile") return new MobilePhone();
+    if (type == "Radio") return new RadioPhone();
+    if (type == "Hybrid") return new HybridPhone();
+    return nullptr;
+}
 
-	int count1 = 0;
-	int count2 = 0;
+void readPhones(ifstream& file, Phone** phones, int count, int offset) {
+    for (int i = 0; i < count; i++) {
+        string type;
+        file >> type;
+        phones[offset + i] = createPhone(type);
+        if (phones[offset + i]) file >> *phones[offset + i];
+    }
+}
 
-	file1 >> count1;
-	file2 >> count2;
+void sortPhones(Phone** phones, int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (*phones[j] > *phones[j + 1]) {
+                Phone* temp = phones[j];
+                phones[j] = phones[j + 1];
+                phones[j + 1] = temp;
+            }
+        }
+    }
+}
 
-	Phone** phones = new Phone * [count1 + count2];
+int calculateTotalPrice(Phone** phones, int count) {
+    int sum = 0;
+    for (int i = 0; i < count; i++) {
+        sum += phones[i]->getPrice();
+    }
+    return sum;
+}
 
-	for (int i = 0; i < count1; i++)
-	{
-		string type;
-		file1 >> type;
-		if (type == "Mobile")
-		{
-			phones[i] = new MobilePhone();
-			file1 >> *phones[i];
-		}
-		else if (type == "Radio")
-		{
-			phones[i] = new RadioPhone();
-			file1 >> *phones[i];
-		}
-		else if (type == "Hybrid")
-		{
-			phones[i] = new HybridPhone();
-			file1 >> *phones[i];
-		}
-	}
+int main() {
+    ifstream file1("file1.txt");
+    ifstream file2("file2.txt");
 
+    int count1 = 0, count2 = 0;
+    file1 >> count1;
+    file2 >> count2;
 
-	for (int i = count1; i < count1 + count2; i++)
-	{
-		string type;
-		file2 >> type;
-		if (type == "Mobile")
-		{
-			phones[i] = new MobilePhone();
-			file2 >> *phones[i];
-		}
-		else if (type == "Radio")
-		{
-			phones[i] = new RadioPhone();
-			file2 >> *phones[i];
-		}
-		else if (type == "Hybrid")
-		{
-			phones[i] = new HybridPhone();
-			file2 >> *phones[i];
-		}
-	}
+    Phone** phones = new Phone * [count1 + count2];
 
-	for (int i = 0; i < count1 + count2 - 1; i++) {
-		for (int j = 0; j < count1 + count2 - i - 1; j++) {
-			if (*phones[j] > *phones[j + 1]) {
-				Phone* temp = phones[j];
-				phones[j] = phones[j + 1];
-				phones[j + 1] = temp;
-			}
-		}
-	}
-	ofstream file3("file3.txt");
-	for (int i = 0; i < count1 + count2; i++)
-	{
-		file3 << *phones[i] << endl;
-	}
+    readPhones(file1, phones, count1, 0);
+    readPhones(file2, phones, count2, count1);
 
-	int sum = 0;
-	for (int i = 0; i < count1 + count2; i++)
-	{
-		sum += phones[i]->getPrice();
-	}
-	file3 << sum << endl;
+    sortPhones(phones, count1 + count2);
 
-	for (int i = 0; i < count1 + count2; i++)
-	{
-		if (dynamic_cast<RadioPhone*>(phones[i]))
-		{
-			if (dynamic_cast<RadioPhone*>(phones[i])->getAnsweringMachine())
-			{
-				file3 << *phones[i] << endl;
-			}
-		}
-	}
-	file1.close();
-	file2.close();
-	file3.close();
-	for (int i = 0; i < count1 + count2; i++)
-	{
-		delete phones[i];
-	}
+    ofstream file3("file3.txt");
+    for (int i = 0; i < count1 + count2; i++) {
+        file3 << *phones[i] << endl;
+    }
 
-	return 0;
+    file3 << calculateTotalPrice(phones, count1 + count2) << endl;
+
+    for (int i = 0; i < count1 + count2; i++) {
+        RadioPhone* rp = dynamic_cast<RadioPhone*>(phones[i]);
+        if (rp && rp->getAnsweringMachine()) {
+            file3 << *phones[i] << endl;
+        }
+    }
+
+    file1.close();
+    file2.close();
+    file3.close();
+
+    for (int i = 0; i < count1 + count2; i++) {
+        delete phones[i];
+    }
+    delete[] phones;
+
+    return 0;
 }
