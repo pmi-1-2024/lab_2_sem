@@ -4,10 +4,11 @@
 #include "Phone.h"
 
 class RadioPhone : public Phone {
-public:
+private:
     double range;
     bool answeringMachine;
 
+public:
     RadioPhone();
     RadioPhone(const string& name, const string& brand, double price, double range, bool answeringMachine);
 
@@ -16,6 +17,7 @@ public:
 
     bool operator<(const Phone& other) const override;
     void input(istream& is) override;
+    void read(istream& is) override;
 
     friend istream& operator>>(istream& is, RadioPhone& phone);
     friend ostream& operator<<(ostream& os, const RadioPhone& phone);
