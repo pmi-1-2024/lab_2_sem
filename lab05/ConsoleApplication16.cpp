@@ -37,49 +37,77 @@ bool comparePersonAge(const Person& p1, const Person& p2) {
     return p1.age > p2.age;
 }
 
+template <typename T>
+void printArray(T arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void printPersonArray(Person arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i].name << " (" << arr[i].age << ") ";
+    }
+    cout << endl;
+}
+
 int main() {
-    int intArr[] = { 5, 1, 4, 2, 8 };
-    int nInt = sizeof(intArr) / sizeof(intArr[0]);
+    int nInt;
+    cout << "Enter number of integers: ";
+    cin >> nInt;
+    int* intArr = new int[nInt];
+    cout << "Enter integers: ";
+    for (int i = 0; i < nInt; i++) {
+        cin >> intArr[i];
+    }
     bubbleSort(intArr, nInt);
     cout << "Sorted int array: ";
-    for (int i = 0; i < nInt; i++) {
-        cout << intArr[i] << " ";
-    }
-    cout << endl;
+    printArray(intArr, nInt);
+    delete[] intArr;
 
-    double doubleArr[] = { 5.5, 1.1, 4.4, 2.2, 8.8 };
-    int nDouble = sizeof(doubleArr) / sizeof(doubleArr[0]);
+    int nDouble;
+    cout << "Enter number of doubles: ";
+    cin >> nDouble;
+    double* doubleArr = new double[nDouble];
+    cout << "Enter doubles: ";
+    for (int i = 0; i < nDouble; i++) {
+        cin >> doubleArr[i];
+    }
     bubbleSort(doubleArr, nDouble);
     cout << "Sorted double array: ";
-    for (int i = 0; i < nDouble; i++) {
-        cout << doubleArr[i] << " ";
-    }
-    cout << endl;
+    printArray(doubleArr, nDouble);
+    delete[] doubleArr;
 
-    string stringArr[] = { "apple", "banana", "kiwi", "grape" };
-    int nString = sizeof(stringArr) / sizeof(stringArr[0]);
+    int nString;
+    cout << "Enter number of strings: ";
+    cin >> nString;
+    string* stringArr = new string[nString];
+    cout << "Enter strings: ";
+    for (int i = 0; i < nString; i++) {
+        cin >> stringArr[i];
+    }
     bubbleSort(stringArr, nString);
     cout << "Sorted string array (alphabetical): ";
-    for (int i = 0; i < nString; i++) {
-        cout << stringArr[i] << " ";
-    }
-    cout << endl;
+    printArray(stringArr, nString);
 
     bubbleSort(stringArr, nString, compareStringLength);
     cout << "Sorted string array (by length): ";
-    for (int i = 0; i < nString; i++) {
-        cout << stringArr[i] << " ";
-    }
-    cout << endl;
+    printArray(stringArr, nString);
+    delete[] stringArr;
 
-    Person personArr[] = { {"Alice", 30}, {"Bob", 25}, {"Charlie", 35} };
-    int nPerson = sizeof(personArr) / sizeof(personArr[0]);
+    int nPerson;
+    cout << "Enter number of people: ";
+    cin >> nPerson;
+    Person* personArr = new Person[nPerson];
+    cout << "Enter name and age for each person: ";
+    for (int i = 0; i < nPerson; i++) {
+        cin >> personArr[i].name >> personArr[i].age;
+    }
     bubbleSort(personArr, nPerson, comparePersonAge);
     cout << "Sorted Person array (by age): ";
-    for (int i = 0; i < nPerson; i++) {
-        cout << personArr[i].name << " (" << personArr[i].age << ") ";
-    }
-    cout << endl;
+    printPersonArray(personArr, nPerson);
+    delete[] personArr;
 
     return 0;
 }
