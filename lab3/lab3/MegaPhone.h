@@ -12,6 +12,11 @@ public:
         return RadioPhone::hasAnsweringMachine();
     }
 
+   void read(istream& in) override {
+        MobilePhone::read(in);  
+        in >> range >> answeringMachine; 
+    }
+
     void display() const override {
         cout << "MegaPhone: " << name << ", " << brand << ", " << price << ", "
             << color << ", " << memory << "GB, Range: " << range << "m, "

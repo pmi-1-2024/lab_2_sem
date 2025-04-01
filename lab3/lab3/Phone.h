@@ -24,6 +24,11 @@ public:
         return this->getPrice() < other.getPrice();
     }
 
+    virtual void read(istream& in) = 0; 
+    
+
+   
+
     friend istream& operator>>(istream& is, Phone*& phone);
     friend ostream& operator<<(ostream& out, const Phone& phone); 
 };

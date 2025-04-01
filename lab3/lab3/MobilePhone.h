@@ -11,7 +11,18 @@ protected:
 
 public:
     MobilePhone(string n, string b, double p, string c, int m);
-    void display() const override;
+    //void display() const override;
+
+
+    void read(istream& in) override {
+        in >> name >> brand >> price >> color >> memory;
+    }
+
+    void display() const override {
+        cout << "MobilePhone: " << name << ", " << brand << ", " << price
+            << ", " << color << ", " << memory << "GB\n";
+    }
+
 
     friend ostream& operator<<(ostream& os, const MobilePhone& phone);
 
