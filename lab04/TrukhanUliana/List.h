@@ -1,29 +1,6 @@
 #ifndef LIST_H
 #define LIST_H
-#include <iostream>
-using namespace std;
-
-struct Link {
-	Link* next;
-	virtual ~Link() {}
-protected:
-	Link() : next(0) {}
-};
-
-struct Student {
-	string name;
-	string surname;
-	double aver;
-	Student(string n = " ", string sn = " ", double a = 0.0) : name(n), surname(sn), aver(a) {}
-
-	friend ostream& operator<<(ostream& os, const Student& student);
-	friend istream& operator>>(istream& is, Student& student);
-};
-
-struct Student_Link : Link {
-	Student data;
-	Student_Link(const Student& student) : data(student) {}
-};
+#include "Student_Link.h"
 
 class List {
 private:

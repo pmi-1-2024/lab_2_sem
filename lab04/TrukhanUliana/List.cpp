@@ -1,25 +1,24 @@
 #include "List.h"
 
-ostream& operator<<(ostream& os, const Student& student) {
-	os << "Name: " << student.name
-		<< ", Surname: " << student.surname
-		<< ", Average grades: " << student.aver;
-	return os;
+List::List(const List& other) : head(nullptr) {
+	if (!other.head) return;
+
+	head = new Link(*other.head);
+	Link* currentOther = other.head->next;
+	Link* lastNew = head;
+
+	while (currentOther) {
+		lastNew->next = new Link(*currentOther);
+		lastNew = lastNew->next;
+		currentOther = currentOther->next;
+	}
 }
 
-istream& operator>>(istream& is, Student& student) {
-	cout << "Enter student's name: ";
-	is >> student.name;
-	cout << "Enter student's surname: ";
-	is >> student.surname;
-	cout << "Enter student's average grades: ";
-	is >> student.aver;
-	return is;
-}
-
-List::List(const List& other) : head(nullptr) {}
-
-List& List::operator=(const List&) {
+List& List::operator=(const List& other) {
+	if (this != &other) {
+		List temp(other);
+		swap(head, temp.head);
+	}
 	return *this;
 }
 
@@ -48,20 +47,17 @@ Link* List::remove(Link* node) {
 	Link* temp = head;
 	Link* prev = nullptr;
 
-	// ѕерев≥р€Їмо, чи вузол Ї головою
 	if (temp == node) {
 		head = head->next;
 		node->next = nullptr;
 		return node;
 	}
 
-	// ЎукаЇмо вузол у списку
 	while (temp && temp != node) {
 		prev = temp;
 		temp = temp->next;
 	}
 
-	// якщо знайшли вузол, видал€Їмо його
 	if (temp == node) {
 		prev->next = node->next;
 		node->next = nullptr;
