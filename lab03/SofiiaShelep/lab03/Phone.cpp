@@ -55,9 +55,8 @@ bool Phone::operator<(const Phone& other) const
 	return price < other.price;
 }
 
-bool Phone::operator>(const Phone& other) const
-{
-	return false;
+bool Phone::operator>(const Phone& other) const {
+	return price > other.price;
 }
 
 std::istream& operator>>(std::istream& in, Phone& phone)
