@@ -1,26 +1,69 @@
 #pragma once
-#include "Link.h"
 #include <iostream>
 using namespace std;
 
-class List {
-	List(const List&);
-	List& operator=(const List&);
-protected:
-	Link* head;
-	void push(Link*);
-	Link* top()const { return head; }
-public:
-	List() : head(0) {}
-	~List();
-	Link* remove(Link* node = 0);
-	bool empty()const { return !head; }
+template<typename T>
+struct Node {
+    T data;
+    Node* next;
+    Node(T d) : data(d), next(nullptr) {}
 };
 
-class Phone_list : public List {
+template<typename T>
+class List {
+private:
+    Node<T>* head;
 public:
-	void push(Phone a);
-	Phone top() const { return((Phone_link*)head)->data; }
-	Phone_link* find(Phone a);
-	void insert(Phone a, Phone_link* after);
+    List() : head(nullptr) {}
+    ~List() { clear(); }
+
+    void push(T data) {
+        Node<T>* temp = new Node<T>(data);
+        temp->next = head;
+        head = temp;
+    }
+
+    bool find(T data) {
+        Node<T>* temp = head;
+        while (temp) {
+            if (temp->data == data) return true;
+            temp = temp->next;
+        }
+        return false;
+    }
+
+    void remove(T data) {
+        if (!head) return;
+        if (head->data == data) {
+            Node<T>* temp = head;
+            head = head->next;
+            delete temp;
+            return;
+        }
+        Node<T>* current = head;
+        while (current->next && current->next->data != data) {
+            current = current->next;
+        }
+        if (current->next) {
+            Node<T>* temp = current->next;
+            current->next = temp->next;
+            delete temp;
+        }
+    }
+
+    void show() {
+        Node<T>* temp = head;
+        while (temp) {
+            cout << temp->data << endl;
+            temp = temp->next;
+        }
+    }
+
+    void clear() {
+        while (head) {
+            Node<T>* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
 };
