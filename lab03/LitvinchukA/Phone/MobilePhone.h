@@ -4,10 +4,11 @@
 #include "Phone.h"
 
 class MobilePhone : virtual public Phone {
-public:
+protected:
     string color;
     int memory;
 
+public:
     MobilePhone();
     MobilePhone(const string& name, const string& brand, double price, const string& color, int memory);
 
@@ -16,6 +17,7 @@ public:
 
     bool operator<(const Phone& other) const override;
     void input(istream& is) override;
+    void read(istream& is) override;
 
     friend istream& operator>>(istream& is, MobilePhone& phone);
     friend ostream& operator<<(ostream& os, const MobilePhone& phone);

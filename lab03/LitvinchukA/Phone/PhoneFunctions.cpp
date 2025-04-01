@@ -38,20 +38,21 @@ void readPhonesFromStream(ifstream& stream, Phone**& phones, int& count, int& ca
         if (!(stream >> type))
             break;
         Phone* p = nullptr;
-        if (type == 1) {
-            MobilePhone* mp = new MobilePhone();
-            stream >> *mp;
-            p = mp;
-        }
-        else if (type == 2) {
-            RadioPhone* rp = new RadioPhone();
-            stream >> *rp;
-            p = rp;
-        }
-        else if (type == 3) {
-            HybridPhone* hp = new HybridPhone();
-            stream >> *hp;
-            p = hp;
+        switch (type) {
+        case 1:
+            p = new MobilePhone();
+            p->read(stream);
+            break;
+        case 2:
+            p = new RadioPhone();
+            p->read(stream);
+            break;
+        case 3:
+            p = new HybridPhone();
+            p->read(stream);
+            break;
+        default:
+            continue;
         }
         if (p) {
             if (count >= capacity) {

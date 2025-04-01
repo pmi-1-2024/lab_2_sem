@@ -22,6 +22,10 @@ void HybridPhone::input(istream& is) {
     is >> Phone::name >> Phone::brand >> Phone::price >> MobilePhone::color >> MobilePhone::memory >> RadioPhone::range >> RadioPhone::answeringMachine;
 }
 
+void HybridPhone::read(istream& is) {
+    input(is);
+}
+
 istream& operator>>(istream& is, HybridPhone& phone) {
     phone.input(is);
     return is;
