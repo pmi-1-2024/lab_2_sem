@@ -1,11 +1,44 @@
 #include "List.h"
 
-List::List(const List& other) : head(nullptr) {}
+List::List(const List& other) : head(nullptr) {
+	if (!other.head) return; 
 
-List& List::operator=(const List&)
+	head = new Link(*other.head);
+	Link* currentNew = head;
+	Link* currentOther = other.head->next;
+
+	while (currentOther) {
+		currentNew->next = new Link(*currentOther);
+		currentNew = currentNew->next;
+		currentOther = currentOther->next;
+	}
+}
+
+List& List::operator=(const List& other)
 {
+	if (this == &other) return *this; 
+
+	while (!empty()) {
+		delete remove(head);
+	}
+	if (!other.head) {
+		head = nullptr;
+		return *this;
+	}
+
+	head = new Link(*other.head);
+	Link* currentNew = head;
+	Link* currentOther = other.head->next;
+
+	while (currentOther) {
+		currentNew->next = new Link(*currentOther);
+		currentNew = currentNew->next;
+		currentOther = currentOther->next;
+	}
+
 	return *this;
 }
+
 
 void List::push(Link* node)
 {

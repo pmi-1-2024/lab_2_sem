@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 #include "Student_list.h"
-class Student_Manager : public Student_list
+class Student_Manager 
 {
 private:
 	Student_list studlist;
