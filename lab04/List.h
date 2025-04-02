@@ -2,9 +2,7 @@
 #define LIST_H
 #include "Link.h"
 using namespace std;
-class List { 
-    List(const List&);
-    List& operator =(const List&);
+class List {
 protected:
     Link* head;
     void push(Link* node) {
@@ -15,10 +13,15 @@ protected:
         }
     }
     Link* top() const { return head; }
+
 public:
-    List() :head(0) {}
+    List() : head(0) {}
     ~List();
+    List(const List& other);
+    List& operator=(const List& other);
+
     Link* remove(Link* node = 0);
     bool empty() const { return !head; }
 };
+
 #endif

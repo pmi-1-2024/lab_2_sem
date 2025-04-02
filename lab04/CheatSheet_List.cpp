@@ -1,12 +1,10 @@
 #include "CheatSheet_List.h"
 #include <iostream>
 using namespace std;
-
 void CheatSheet_List::push(const CheatSheet& cheatsheet) {
     CheatSheet_link* temp = new CheatSheet_link(cheatsheet);
-    List::push(temp);
+    List::push(temp); 
 }
-
 CheatSheet_link* CheatSheet_List::find(const CheatSheet& cheatsheet) const {
     CheatSheet_link* temp = (CheatSheet_link*)head;
     while (temp) {
@@ -17,18 +15,19 @@ CheatSheet_link* CheatSheet_List::find(const CheatSheet& cheatsheet) const {
     }
     return 0;
 }
-
 void CheatSheet_List::insert(const CheatSheet& cheatsheet, CheatSheet_link* after) {
     if (!after) return;
     CheatSheet_link* temp = new CheatSheet_link(cheatsheet);
     temp->next = after->next;
     after->next = temp;
 }
-
 void CheatSheet_List::printAll() const {
     CheatSheet_link* temp = (CheatSheet_link*)head;
     while (temp) {
         cout << temp->data << endl;
         temp = (CheatSheet_link*)temp->next;
     }
+}
+CheatSheet_link* CheatSheet_List::remove(CheatSheet_link* node) {
+    return (CheatSheet_link*)List::remove(node);
 }

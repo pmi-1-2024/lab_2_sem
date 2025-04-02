@@ -10,6 +10,7 @@ public:
     CheatSheet_link* find(const CheatSheet& cheatsheet) const;
     void insert(const CheatSheet& cheatsheet, CheatSheet_link* after);
     void printAll() const;
+    CheatSheet_link* remove(CheatSheet_link* node = 0);
 };
 
 #endif
