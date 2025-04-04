@@ -12,6 +12,9 @@ public:
 
     void print(ostream& os) const override;
     void read(istream& is) override;
+
+    friend ostream& operator<<(ostream& os, const VacuumCleaner& device);
+    friend istream& operator>>(istream& is, VacuumCleaner& device);
 };
 
 #endif

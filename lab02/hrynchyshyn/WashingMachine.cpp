@@ -13,3 +13,13 @@ void WashingMachine::print(ostream& os) const {
 void WashingMachine::read(istream& is) {
     is >> brand >> price >> programs >> volume;
 }
+
+ostream& operator<<(ostream& os, const WashingMachine& device) {
+    device.print(os);
+    return os;
+}
+
+istream& operator>>(istream& is, WashingMachine& device) {
+    device.read(is);
+    return is;
+}

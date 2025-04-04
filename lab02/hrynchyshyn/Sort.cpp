@@ -1,12 +1,12 @@
 #include "Sort.h"
 
 void sortDevices(Electrodevice** devices, int n) {
-    for (int i = 0; i < n - 1; ++i) {
-        for (int j = i + 1; j < n; ++j) {
-            if (devices[i]->getBrand() > devices[j]->getBrand()) {
-                Electrodevice* temp = devices[i];
-                devices[i] = devices[j];
-                devices[j] = temp;
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (devices[j]->getBrand() > devices[j + 1]->getBrand()) {
+                Electrodevice* temp = devices[j];
+                devices[j] = devices[j + 1];
+                devices[j + 1] = temp;
             }
         }
     }

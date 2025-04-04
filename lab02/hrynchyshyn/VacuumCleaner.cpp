@@ -13,3 +13,12 @@ void VacuumCleaner::print(ostream& os) const {
 void VacuumCleaner::read(istream& is) {
     is >> brand >> price >> power >> color;
 }
+ostream& operator<<(ostream& os, const VacuumCleaner& device) {
+    device.print(os);
+    return os;
+}
+
+istream& operator>>(istream& is, VacuumCleaner& device) {
+    device.read(is);
+    return is;
+}

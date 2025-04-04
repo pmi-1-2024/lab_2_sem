@@ -13,3 +13,13 @@ void Combine::print(ostream& os) const {
 void Combine::read(istream& is) {
     is >> brand >> price >> power >> functions;
 }
+
+ostream& operator<<(ostream& os, const Combine& device) {
+    device.print(os);
+    return os;
+}
+
+istream& operator>>(istream& is, Combine& device) {
+    device.read(is);
+    return is;
+}

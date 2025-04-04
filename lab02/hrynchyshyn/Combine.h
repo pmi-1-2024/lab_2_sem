@@ -11,6 +11,9 @@ public:
 
     void print(ostream& os) const override;
     void read(istream& is) override;
+
+    friend ostream& operator<<(ostream& os, const Combine& device);
+    friend istream& operator>>(istream& is, Combine& device);
 };
 
 #endif
