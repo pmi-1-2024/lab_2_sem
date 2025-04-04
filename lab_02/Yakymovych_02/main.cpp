@@ -1,9 +1,10 @@
 #include "Phone.h"
 #include "MobilePhone.h"
 #include "RadioPhone.h"
+#include "MySort.h"
 #include <fstream>
 #include <iostream>
-#include <algorithm>
+
 
 int main() {
     ifstream file1("phones1.txt");
@@ -36,7 +37,7 @@ int main() {
         size++;
     }
 
-    sort(phones, phones + size, [](Phone* a, Phone* b) { return a->getPrice() < b->getPrice(); });
+    mySort(phones, phones + size, [](Phone* a, Phone* b) { return a->getPrice() < b->getPrice(); });
     double totalCost = 0;
     for (int i = 0; i < size; i++) {
         output << *phones[i];
