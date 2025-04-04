@@ -1,0 +1,2 @@
+Donkey: Donkey1, 2012, Type: working, Height: 1.2m
+Hybrid Animal: Hybrid1, 2018, Hybrid Name: HybridMix
