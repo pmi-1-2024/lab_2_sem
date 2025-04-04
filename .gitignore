@@ -1,3 +1,30 @@
+# System folders and files
+.vs/
+*.db
+*.sln
+*.suo
+*.log
+*.cache
+*.bak
+*.tmp
+*.user
+*.opendb
+
+# Build directories
+Debug/
+Release/
+x64/
+*.exe
+*.dll
+*.pdb
+*.obj
+*.idb
+*.ipdb
+*.iobj
+
+# Temporary project settings
+*.vcxproj.user
+
 # Prerequisites
 *.d
 ## Ignore Visual Studio temporary files, build results, and
@@ -433,3 +460,4 @@ FodyWeavers.xsd
 
 .idea/
 .vscode/
+/lab01/

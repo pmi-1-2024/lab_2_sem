@@ -1,0 +1,11 @@
+1 Mustang 2015 white Arabian
+2 BigEars 2018 domestic 1.45
+3 Hybrid 2020 brown Mustang domestic 1.55 Muley
+1 Thunder 2010 black Thoroughbred
+2 Daisy 2013 wild 1.35
+3 Miracle 2019 white Mustang wild 1.40 Snowy
+1 Blaze 2016 chestnut QuarterHorse
+2 Tiny 2012 domestic 1.50
+3 Power 2021 grey Mustang domestic 1.60 Mighty
+1 Spirit 2011 white Appaloosa
+2 Bruno 2017 wild 1.30
