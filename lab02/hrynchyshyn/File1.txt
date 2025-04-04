@@ -1,0 +1,46 @@
+3 Name: Combine
+Brand: Bosch
+Price: 9000
+Power: 1500
+Count of functions: 5
+
+1 Name: Vacuum Cleaner
+Brand: LG
+Price: 12000
+Power: 2000
+Color: Black
+
+3 Name: Combine
+Brand: Philips
+Price: 10000
+Power: 1000
+Count of functions: 4
+
+2 Name: Washing Machine
+Brand: Samsung
+Price: 30000
+Programs: 14
+Volume: 55
+
+2 Name: Washing Machine
+Brand: Samsung
+Price: 20000
+Programs: 12
+Volume: 50
+
+3 Name: Combine
+Brand: Tefal
+Price: 11000
+Power: 2000
+Count of functions: 4
+
+1 Name: Vacuum Cleaner
+Brand: Xiaomi
+Price: 8000
+Power: 2000
+Color: White
+
+Total number of devices: 7
+Vacuum Cleaners: 2
+Washing Machines: 2
+Combines: 3
