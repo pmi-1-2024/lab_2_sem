@@ -13,6 +13,11 @@ bool Student::operator>(const Student& stud)
 	return name > stud.name;
 }
 
+string Student::GetSurname()
+{
+	return surname;
+}
+
 istream& operator>>(istream& is, Student& stud)
 {
 	cout << "\nEnter student`s name: ";

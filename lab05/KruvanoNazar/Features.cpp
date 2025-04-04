@@ -1,5 +1,27 @@
 #include "Features.h"
 
+bool intComp(int& first, int& second)
+{
+    return first%10 > second%10;
+}
+
+bool doubleComp(double& first, double& second)
+{
+    int fi = first;
+    int si = second;
+    return fi > si;
+}
+
+bool stringComp(string& first, string&second)
+{
+    return first.length() > second.length();
+}
+
+bool studentsurnameComp(Student& first, Student& second)
+{
+    return first.GetSurname().length() > second.GetSurname().length();
+}
+
 void startmenu()
 {
     cout << "\n Enter number to choose type of array: ";
@@ -27,11 +49,11 @@ void Arraymenu(int choice)
         cin >> arraysize;
         intarr = new int[arraysize];
         EnterElem(intarr, arraysize);
-        cout << "\nEnter a type of BubbleSort fuction you want to sort array: " << "\n1.Normal function" << "\n2.With Comp()";
+        cout << "\nEnter a type of BubbleSort fuction you want to sort array: " << "\n1.Normal sort" << "\n2.Sort by last digit";
         cout << "\nEnter choice:";
         cin >> sorttype;
         if (sorttype == 1) BubbleSort1(intarr, arraysize);
-        else if (sorttype == 2) BubbleSort2(intarr, arraysize,Comp<int>);
+        else if (sorttype == 2) BubbleSort2(intarr, arraysize,intComp);
         cout << "\nSorted array: ";
         PrintArr(intarr, arraysize);
         delete[] intarr;
@@ -42,11 +64,11 @@ void Arraymenu(int choice)
         cin >> arraysize;
         doublearr = new double[arraysize];
         EnterElem(doublearr, arraysize);
-        cout << "\nEnter a type of BubbleSort fuction you want to sort array: " << "\n1.Normal function" << "\n2.With Comp()";
+        cout << "\nEnter a type of BubbleSort fuction you want to sort array: " << "\n1.Normal function" << "\n2.Sort by integer part";
         cout << "\nEnter choice:";
         cin >> sorttype;
         if (sorttype == 1) BubbleSort1(doublearr, arraysize);
-        else if (sorttype == 2) BubbleSort2(doublearr, arraysize, Comp<double>);
+        else if (sorttype == 2) BubbleSort2(doublearr, arraysize, doubleComp);
         cout << "\nSorted array: ";
         PrintArr(doublearr, arraysize);
         delete[] doublearr;
@@ -57,11 +79,11 @@ void Arraymenu(int choice)
         cin >> arraysize;
         strarray = new string[arraysize];
         EnterElem(strarray, arraysize);
-        cout << "\nEnter a type of BubbleSort fuction you want to sort array: " << "\n1.Normal function" << "\n2.With Comp()";
+        cout << "\nEnter a type of BubbleSort fuction you want to sort array: " << "\n1.Sorting alphabetically" << "\n2.Sort by string length";
         cout << "\nEnter choice:";
         cin >> sorttype;
         if (sorttype == 1) BubbleSort1(strarray, arraysize);
-        else if (sorttype == 2) BubbleSort2(strarray, arraysize, Comp<string>);
+        else if (sorttype == 2) BubbleSort2(strarray, arraysize, stringComp);
         cout << "\nSorted array: ";
         PrintArr(strarray, arraysize);
         delete[] strarray;
@@ -72,11 +94,11 @@ void Arraymenu(int choice)
         cin >> arraysize;
         studarray = new Student[arraysize];
         EnterElem(studarray, arraysize);
-        cout << "\nEnter a type of BubbleSort fuction you want to sort array: " << "\n1.Normal function" << "\n2.With Comp()";
+        cout << "\nEnter a type of BubbleSort fuction you want to sort array: " << "\n1.Normal function" << "\n2.Sort by surname length";
         cout << "\nEnter choice:";
         cin >> sorttype;
         if (sorttype == 1) BubbleSort1(studarray, arraysize);
-        else if (sorttype == 2) BubbleSort2(studarray, arraysize, Comp<Student>);
+        else if (sorttype == 2) BubbleSort2(studarray, arraysize, studentsurnameComp);
         cout << "\nSorted array: ";
         PrintArr(studarray, arraysize);
         delete[] studarray;

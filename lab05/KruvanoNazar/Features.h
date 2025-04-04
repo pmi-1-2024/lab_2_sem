@@ -5,10 +5,10 @@
 #include "StudentStruct.h"
 using namespace std;
 
-template <typename T>
-bool Comp( T& first, T& second) {
-    return first > second;
-}
+bool intComp(int& first, int& second);
+bool doubleComp(double& first, double& second);
+bool stringComp(string& first, string&second);
+bool studentsurnameComp(Student& first, Student& second);
 template <typename T>
 void BubbleSort1(T arr[], size_t size) {
     for (size_t i = 0; i < size - 1; i++) {
