@@ -8,8 +8,9 @@ MobilePhone: Pixel7 Google 700 White 128
 MobilePhone: OnePlus9 OnePlus 780 Green 128
 MobilePhone: GalaxyS21 Samsung 850 Black 256
 MobilePhone: Xperia5 Sony 920 Red 128
+MobilePhone: Xperia2 Sony 950 Black 128
 MobilePhone: iPhone13 Apple 999 Silver 128
-Total cost: 5464
+Total cost: 6414
 
 Phones with answering machine:
 RadioPhone: MotorolaT200 Motorola 110 40 1

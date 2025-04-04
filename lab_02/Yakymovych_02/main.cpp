@@ -37,7 +37,7 @@ int main() {
         size++;
     }
 
-    mySort(phones, phones + size, [](Phone* a, Phone* b) { return a->getPrice() < b->getPrice(); });
+    mySort(phones, size); 
     double totalCost = 0;
     for (int i = 0; i < size; i++) {
         output << *phones[i];

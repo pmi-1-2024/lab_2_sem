@@ -4,3 +4,4 @@
 2 SiemensGigaset Siemens 95 35 0
 1 Xperia5 Sony 920 Red 128
 1 MotorolaD100 Motorola 150 80 1
+1 Xperia2 Sony 950 Black 128
