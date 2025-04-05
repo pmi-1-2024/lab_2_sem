@@ -1,0 +1,5 @@
+John Doe CS101
+Alice Smith CS102
+Ethan Hunt CS103
+Sophia White CS104
+Bob Johnson CS105
