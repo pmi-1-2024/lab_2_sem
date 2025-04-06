@@ -20,3 +20,8 @@ ostream& operator<<(ostream& os, const Phone& phone) {
     os << phone.name << " " << phone.brand << " " << phone.price;
     return os;
 }
+
+istream& operator>>(istream& is, Phone& phone) {
+    is >> phone.name >> phone.brand >> phone.price;
+    return is;
+}

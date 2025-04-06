@@ -1,13 +1,14 @@
 #include "HybridPhone.h"
 
 HybridPhone::HybridPhone()
-    : Phone("", "", 0), MobilePhone(), RadioPhone() {
+    : Phone("", "", 0), MobilePhone("", "", 0, "", 0), RadioPhone("", "", 0, 0.0, false), sensor(false) {
 }
 
-HybridPhone::HybridPhone(const string& name, const string& brand, double price, const string& color, int memory, double range, bool hasAnsweringMachine)
+HybridPhone::HybridPhone(const string& name, const string& brand, double price, const string& color, int memory, double range, bool hasAnsweringMachine, bool sensor)
     : Phone(name, brand, price),
     MobilePhone(name, brand, price, color, memory),
-    RadioPhone(name, brand, price, range, hasAnsweringMachine) {
+    RadioPhone(name, brand, price, range, hasAnsweringMachine),
+    sensor(sensor) {
 }
 
 bool HybridPhone::hasAnsweringMachine() const {
@@ -18,22 +19,15 @@ bool HybridPhone::operator<(const Phone& other) const {
     return Phone::price < other.getPrice();
 }
 
-void HybridPhone::input(istream& is) {
-    is >> Phone::name >> Phone::brand >> Phone::price >> MobilePhone::color >> MobilePhone::memory >> RadioPhone::range >> RadioPhone::answeringMachine;
-}
-
-void HybridPhone::read(istream& is) {
-    input(is);
-}
-
 istream& operator>>(istream& is, HybridPhone& phone) {
-    phone.input(is);
+    is >> phone.Phone::name >> phone.Phone::brand >> phone.Phone::price >> phone.MobilePhone::color >> phone.MobilePhone::memory >> phone.RadioPhone::range >> phone.RadioPhone::answeringMachine >> phone.sensor;
     return is;
 }
 
 ostream& operator<<(ostream& os, const HybridPhone& phone) {
     os << phone.Phone::name << " " << phone.Phone::brand << " " << phone.Phone::price << " "
         << phone.MobilePhone::color << " " << phone.MobilePhone::memory << " "
-        << phone.RadioPhone::range << " " << (phone.RadioPhone::hasAnsweringMachine() ? "Yes" : "No");
+        << phone.RadioPhone::range << " " << (phone.RadioPhone::hasAnsweringMachine() ? "Yes" : "No") << " "
+        << (phone.sensor ? "Yes" : "No");
     return os;
 }

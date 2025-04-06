@@ -20,10 +20,9 @@ public:
 
     virtual bool operator<(const Phone& other) const = 0;
     virtual bool hasAnsweringMachine() const { return false; }
-    virtual void input(istream& is) = 0;
-    virtual void read(istream& is) = 0;
 
     friend ostream& operator<<(ostream& os, const Phone& phone);
+    friend istream& operator>>(istream& is, Phone& phone);
 };
 
 #endif

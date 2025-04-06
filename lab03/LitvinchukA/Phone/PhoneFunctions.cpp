@@ -41,15 +41,15 @@ void readPhonesFromStream(ifstream& stream, Phone**& phones, int& count, int& ca
         switch (type) {
         case 1:
             p = new MobilePhone();
-            p->read(stream);
+            stream >> *p;
             break;
         case 2:
             p = new RadioPhone();
-            p->read(stream);
+            stream >> *p;
             break;
         case 3:
             p = new HybridPhone();
-            p->read(stream);
+            stream >> *p;
             break;
         default:
             continue;

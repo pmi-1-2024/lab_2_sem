@@ -14,16 +14,8 @@ bool MobilePhone::operator<(const Phone& other) const {
     return price < other.getPrice();
 }
 
-void MobilePhone::input(istream& is) {
-    is >> name >> brand >> price >> color >> memory;
-}
-
-void MobilePhone::read(istream& is) {
-    input(is);
-}
-
 istream& operator>>(istream& is, MobilePhone& phone) {
-    phone.input(is);
+    is >> phone.name >> phone.brand >> phone.price >> phone.color >> phone.memory;
     return is;
 }
 
