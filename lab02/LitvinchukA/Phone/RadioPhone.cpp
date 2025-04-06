@@ -14,16 +14,8 @@ bool RadioPhone::operator<(const Phone& other) const {
     return price < other.getPrice();
 }
 
-void RadioPhone::input(istream& is) {
-    is >> name >> brand >> price >> range >> answeringMachine;
-}
-
-void RadioPhone::read(istream& is) {
-    input(is);
-}
-
 istream& operator>>(istream& is, RadioPhone& phone) {
-    phone.input(is);
+    is >> phone.name >> phone.brand >> phone.price >> phone.range >> phone.answeringMachine;
     return is;
 }
 
