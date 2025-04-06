@@ -2,10 +2,14 @@ Horse: Thunder, 2010, Color: black, Breed: Thoroughbred
 Horse: Spirit, 2011, Color: white, Breed: Appaloosa
 Donkey: Tiny, 2012, Type: domestic, Height: 1.5m
 Donkey: Daisy, 2013, Type: wild, Height: 1.35m
+Horse: Snowflake, 2014, Color: white, Breed: Andalusian
 Horse: Mustang, 2015, Color: white, Breed: Arabian
 Horse: Blaze, 2016, Color: chestnut, Breed: QuarterHorse
 Donkey: Bruno, 2017, Type: wild, Height: 1.3m
 Donkey: BigEars, 2018, Type: domestic, Height: 1.45m
-Mule: Miracle, 2019, Nickname: Snowy
-Mule: Hybrid, 2020, Nickname: Muley
-Mule: Power, 2021, Nickname: Mighty
+Mule: Miracle, 2019, Color: white, Breed: Mustang, Type: wild, Height: 1.4m, Nickname: Snowy
+Donkey: Coco, 2019, Type: wild, Height: 1.32m
+Mule: Hybrid, 2020, Color: brown, Breed: Mustang, Type: domestic, Height: 1.55m, Nickname: Muley
+Mule: Power, 2021, Color: grey, Breed: Mustang, Type: domestic, Height: 1.6m, Nickname: Mighty
+Mule: Flash, 2022, Color: black, Breed: Appaloosa, Type: wild, Height: 1.48m, Nickname: Shadow
+Mule: Stormy, 2023, Color: grey, Breed: Arabian, Type: domestic, Height: 1.42m, Nickname: Bolt

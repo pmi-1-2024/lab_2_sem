@@ -2,9 +2,9 @@
 #define HORSE_H
 
 #include "Animal.h"
-using namespace std;
 
-class Horse : virtual public Animal { 
+class Horse : virtual public Animal {
+protected:
     string color, breed;
 
 public:
@@ -13,12 +13,16 @@ public:
         : Animal(name, birthYear), color(color), breed(breed) {
     }
 
-    void display(ostream& os) const override {
+    bool isWhiteHorse() const override { return color == "white"; }
+
+    void read(istream& is) override {
+        is >> name >> birthYear >> color >> breed;
+    }
+
+    void print(ostream& os) const override {
         os << "Horse: " << name << ", " << birthYear
             << ", Color: " << color << ", Breed: " << breed << '\n';
     }
-
-    bool isWhiteHorse() const override { return color == "white"; }
 };
 
 #endif

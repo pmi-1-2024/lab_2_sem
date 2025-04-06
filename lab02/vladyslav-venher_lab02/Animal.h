@@ -14,15 +14,26 @@ public:
     Animal(const string& name = "", int birthYear = 0)
         : name(name), birthYear(birthYear) {
     }
+
     virtual ~Animal() {}
 
     int getBirthYear() const { return birthYear; }
 
-    virtual void display(ostream& os) const = 0;
     virtual bool isWhiteHorse() const { return false; }
     virtual bool isShortDonkey() const { return false; }
 
-    friend istream& operator>>(istream& is, Animal*& animal);
+    virtual void read(istream& is) = 0;
+    virtual void print(ostream& os) const = 0;
+
+    friend istream& operator>>(istream& is, Animal& a) {
+        a.read(is);
+        return is;
+    }
+
+    friend ostream& operator<<(ostream& os, const Animal& a) {
+        a.print(os);
+        return os;
+    }
 };
 
-#endif 
+#endif

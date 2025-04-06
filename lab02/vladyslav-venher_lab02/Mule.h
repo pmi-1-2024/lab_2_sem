@@ -17,10 +17,33 @@ public:
         Donkey(name, birthYear, type, height), nickname(nickname) {
     }
 
-    void display(ostream& os) const override {
+    void read(istream& is) override {
+        string color, breed, type;
+        double height;
+        is >> name >> birthYear >> color >> breed >> type >> height >> nickname;
+
+        Horse::color = color;
+        Horse::breed = breed;
+        Donkey::type = type;
+        Donkey::height = height;
+    }
+
+    void print(ostream& os) const override {
         os << "Mule: " << name << ", " << birthYear
+            << ", Color: " << Horse::color
+            << ", Breed: " << Horse::breed
+            << ", Type: " << Donkey::type
+            << ", Height: " << Donkey::height << "m"
             << ", Nickname: " << nickname << '\n';
     }
+
+    /*bool isWhiteHorse() const override {
+        return Horse::isWhiteHorse();
+    }
+
+    bool isShortDonkey() const override {
+        return Donkey::isShortDonkey();
+    }*/
 };
 
-#endif // MULE_H
+#endif
