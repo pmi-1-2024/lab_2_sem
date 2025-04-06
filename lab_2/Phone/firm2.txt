@@ -1,3 +1,0 @@
-1 Pixel12 Google 799.99 White 128
-1 Pixel15 Google 899.99 Black 256
-2 Pixel5 Google 99.99 100 1
