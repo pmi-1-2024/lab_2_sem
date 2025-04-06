@@ -3,7 +3,7 @@
 #include "Mule.h"
 #include <fstream>
 #include <iostream>
-#include <algorithm> // дозволено для swap
+#include <algorithm> 
 
 using namespace std;
 
@@ -21,7 +21,7 @@ int main() {
     Animal* animals[MAX_ANIMALS];
     int count = 0;
 
-    // Зчитуємо тварин з файлу
+
     while (count < MAX_ANIMALS && inputFile.peek() != EOF) {
         int type;
         inputFile >> type;
@@ -38,7 +38,7 @@ int main() {
         }
     }
 
-    // Сортуємо тварин за роком народження (bubble sort)
+
     for (int i = 0; i < count - 1; ++i) {
         for (int j = 0; j < count - i - 1; ++j) {
             if (animals[j]->getBirthYear() > animals[j + 1]->getBirthYear()) {
@@ -47,16 +47,16 @@ int main() {
         }
     }
 
-    // Виводимо всіх тварин у File1.txt
+
     for (int i = 0; i < count; ++i)
         file1 << *animals[i];
 
     int whiteHorses = 0, shortDonkeys = 0;
 
-    // Виводимо білі коні та короткі віслюки у File2.txt (без мулів)
+
     for (int i = 0; i < count; ++i) {
         if (dynamic_cast<Mule*>(animals[i]) != nullptr) {
-            continue; // пропускаємо мулів
+            continue; 
         }
 
         if (animals[i]->isWhiteHorse()) {
@@ -70,11 +70,11 @@ int main() {
         }
     }
 
-    // Виводимо статистику у File2.txt
+
     file2 << "White Horses: " << whiteHorses << '\n';
     file2 << "Short Donkeys: " << shortDonkeys << '\n';
 
-    // Очищаємо пам'ять
+
     for (int i = 0; i < count; ++i)
         delete animals[i];
 

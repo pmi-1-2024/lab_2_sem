@@ -37,13 +37,6 @@ public:
             << ", Nickname: " << nickname << '\n';
     }
 
-    /*bool isWhiteHorse() const override {
-        return Horse::isWhiteHorse();
-    }
-
-    bool isShortDonkey() const override {
-        return Donkey::isShortDonkey();
-    }*/
 };
 
 #endif
