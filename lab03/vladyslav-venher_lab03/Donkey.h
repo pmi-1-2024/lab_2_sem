@@ -2,6 +2,7 @@
 #define DONKEY_H
 
 #include "Animal.h"
+using namespace std;
 
 class Donkey : virtual public Animal {
 protected:
@@ -13,11 +14,16 @@ public:
         : Animal(name, birthYear), type(type), height(height) {
     }
 
-    void display(ostream& os) const override {
+    bool isShortDonkey() const override { return height <= 1.5; }
+
+    void read(istream& is) override {
+        is >> name >> birthYear >> type >> height;
+    }
+
+    void print(ostream& os) const override {
         os << "Donkey: " << name << ", " << birthYear
             << ", Type: " << type << ", Height: " << height << "m\n";
     }
-    bool isShortDonkey() const override { return height <= 1.5; }
 };
 
 #endif

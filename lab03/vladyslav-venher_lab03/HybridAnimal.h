@@ -14,12 +14,21 @@ public:
         Donkey(name, birthYear, type, height), hybridName(hybridName) {
     }
 
-    void display(ostream& os) const override {
-        os << "Hybrid Animal: " << name << ", " << birthYear
-            << ", Hybrid Name: " << hybridName << "\n";
-    }
     bool isWhiteHorse() const override { return Horse::isWhiteHorse(); }
     bool isShortDonkey() const override { return Donkey::isShortDonkey(); }
+
+    void read(istream& is) override {
+        is >> name >> birthYear >> Horse::color >> Horse::breed >> Donkey::type >> Donkey::height >> hybridName;
+    }
+
+    void print(ostream& os) const override {
+        os << "HybridAnimal: " << name << ", " << birthYear
+            << ", Color: " << Horse::color
+            << ", Breed: " << Horse::breed
+            << ", Type: " << Donkey::type
+            << ", Height: " << Donkey::height << "m"
+            << ", Nickname: " << hybridName << '\n';
+    }
 };
 
 #endif

@@ -1,3 +1,9 @@
 1 Horse1 2015 white Arabian
 2 Donkey1 2012 working 1.2
 3 Hybrid1 2018 brown Mustang wild 1.4 HybridMix
+1 Snowflake 2014 white Arabian
+2 Stubborn 2011 wild 1.32
+3 Mixie 2017 white Mustang wild 1.38 Fluffy
+1 Jet 2019 black Friesian
+2 Bambi 2015 domestic 1.48
+3 Combo 2020 brown Mustang domestic 1.52 Lightning

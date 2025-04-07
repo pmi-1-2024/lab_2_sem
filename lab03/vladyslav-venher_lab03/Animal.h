@@ -18,9 +18,21 @@ public:
 
     int getBirthYear() const { return birthYear; }
     const string& getName() const { return name; }
-    virtual void display(ostream& os) const = 0;
     virtual bool isWhiteHorse() const { return false; }
     virtual bool isShortDonkey() const { return false; }
+
+    virtual void read(istream& is) = 0;
+    virtual void print(ostream& os) const = 0;
+
+    friend istream& operator>>(istream& is, Animal& a) {
+        a.read(is);
+        return is;
+    }
+
+    friend ostream& operator<<(ostream& os, const Animal& a) {
+        a.print(os);
+        return os;
+    }
 };
 
 #endif
