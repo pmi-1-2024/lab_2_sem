@@ -1,9 +1,0 @@
-student: 2 3
-Zalick: 4 5 
-Predmet - 2 semester - 3 marks  - 5 2 3 4 
-Predmet - 5 semester - 2 marks  - 4 5 2 
-Predmet - 3 semester - 4 marks  - 2 3 4 5 2 
-Predmet - 3 semester - 4 marks  - 5 -1414812757 -1414812757 -1414812757 -1414812757 
-Predmet -  semester - 0 marks  - 
-addres: 0  
-
