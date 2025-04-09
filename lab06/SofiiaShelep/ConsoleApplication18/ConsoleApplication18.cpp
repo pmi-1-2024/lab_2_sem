@@ -2,6 +2,8 @@
 #include <iostream>
 #include "SpecialTransport.h"
 #include <fstream>
+#include <stdexcept>	
+
 
 
 int main()
@@ -33,46 +35,84 @@ int main()
 	int numberOfTransport = 0;
 	cout << "Enter the number of transport(1-"<<n<<"): ";
 	cin >> numberOfTransport;
+	try
+	{
+		if (numberOfTransport < 1 || numberOfTransport > n)
+		{
+			throw invalid_argument("Invalid transport number");
+		}
+	}
+	catch (const invalid_argument& e)
+	{
+		cout << "Error: " << e.what() << endl;
+		return 1;
+	}
 	int choice;
 	cout << "1. Change destination" << endl;
 	cout << "2. Change cargo" << endl;
 	cout << "Enter your choice: ";
 	cin >> choice;
-	if (choice == 1)
+	
+	try
 	{
-		string destination;
-		cout << "Enter new destination: ";
-		cin >> destination;
-		t[numberOfTransport - 1]->setDestination(destination);
+		if (choice == 1)
+		{
+			string destination;
+			cout << "Enter new destination: ";
+			cin >> destination;
+			t[numberOfTransport - 1]->setDestination(destination);
+		}
+		else if (choice == 2)
+		{
+			string cargo;
+			cout << "Enter new cargo: ";
+			cin >> cargo;
+			t[numberOfTransport - 1]->setCargo(cargo);
+		}
+		else
+		{
+			throw invalid_argument("Invalid choice");
+		}
 	}
-	else
+	catch (const invalid_argument& e)
 	{
-		string cargo;
-		cout << "Enter new cargo: ";
-		cin >> cargo;
-		t[numberOfTransport - 1]->setCargo(cargo);
+		cout << "Error: " << e.what() << endl;
+		return 1;
 	}
+
 	cout << "New details after change: " << endl;
 	t[numberOfTransport - 1]->print();
 	string filter;
 	cout << "Enter filter(cargo or passangers): ";
 	cin >> filter;
-	for (int i = 0; i < n; i++)
+	try
 	{
-		if (filter == "passangers")
+		if (filter != "cargo" && filter != "passangers")
 		{
-			if (t[i]->getCargo() == "Passanger")
+			throw invalid_argument("Invalid filter");
+		}
+		for (int i = 0; i < n; i++)
+		{
+			if (filter == "passangers")
 			{
-				t[i]->print();
+				if (t[i]->getCargo() == "Passanger")
+				{
+					t[i]->print();
+				}
+			}
+			else if (filter == "cargo")
+			{
+				if (t[i]->getCargo() != "Passanger")
+				{
+					t[i]->print();
+				}
 			}
 		}
-		else if (filter == "cargo")
-		{
-			if (t[i]->getCargo() != "Passanger")
-			{
-				t[i]->print();
-			}
-		}
+	}
+	catch (const invalid_argument& e)
+	{
+		cout << "Error: " << e.what() << endl;
+		return 1;
 	}
 	int sum = 0;
 	for (int i = 0; i < n; i++)
