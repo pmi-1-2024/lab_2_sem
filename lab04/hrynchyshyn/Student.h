@@ -20,9 +20,4 @@ public:
     const string& getGroup() const;
     const string& getRecordNumber() const;
 
-    void setName(const string& newName);
-    void setGroup(const string& newGroup);
-    void setRecordNumber(const string& newRecordNumber);
 };
-
-

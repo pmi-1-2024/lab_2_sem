@@ -1,27 +1,11 @@
 #pragma once
-
+#include "List.h"
 #include "Student.h"
 
-struct Link {
-    Link* next;
-    virtual ~Link() {}
-protected:
-    Link() : next(nullptr) {}
-};
-
-struct Student_Link : Link {
-    Student student;
-    Student_Link(const Student& s);
-};
-
-class Students_List {
-private:
-    Link* head;
+class Students_List : public List {
 public:
-    Students_List();
-    ~Students_List();
-    Link* getHead() const;
-    void setHead(Link* newHead);
+    void push(const Student& s);
+    Student topStudent() const;
+    Student_Link* find(const string& recordNumber);
+    void insert(const Student& s, Student_Link* after);
 };
-
-

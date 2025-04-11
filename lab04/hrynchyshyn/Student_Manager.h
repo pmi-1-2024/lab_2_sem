@@ -1,5 +1,6 @@
 #pragma once
 
+#include "List.h"
 #include "Student_List.h"
 
 class Student_Manager {
