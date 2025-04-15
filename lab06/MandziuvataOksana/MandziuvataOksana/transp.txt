@@ -1,0 +1,12 @@
+1 Passenger Germany 1100
+1 Medicine Canada 1600
+2 Passenger Lviv 1000
+VIP
+1 Electronics Kyiv 950
+2 Medicine Ukraine 1500
+Premium
+2 Seafood France 1250
+Premium
+1 BottledWater Africa 780
+2 Passenger Poland 1500
+Premium
