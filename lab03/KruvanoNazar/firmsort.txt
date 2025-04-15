@@ -1,0 +1,5 @@
+
+Firm: LG
+Device from this company: Vacuumcleaner
+Device from this company: Washingmachine
+Final price: 950
