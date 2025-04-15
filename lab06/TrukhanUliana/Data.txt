@@ -1,0 +1,9 @@
+8
+t Banana Ivano-Frankivsk 1600
+s People Kyiv 867 Passenger 15
+s Medicine Dnipro 1500 Medical 20
+t Electronics Kharkiv 2000
+s People Odesa 850 Passenger 10
+s Vaccine Lviv 3000 Medical 25
+t Bananas Vinnytsia 600
+s People Lviv 950 Passenger 5

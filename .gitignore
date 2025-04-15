@@ -433,3 +433,14 @@ FodyWeavers.xsd
 
 .idea/
 .vscode/
+
+.vs/
+.json/
+*.json
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.rc
+*resource.h
+
