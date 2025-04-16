@@ -30,4 +30,14 @@ public:
         Transport<T>::print(os);
         os << ", Special: " << specialCategory;
     }
+
+    friend istream& operator>>(istream& is, SpecialTransport<T>& obj) {
+        obj.read(is);
+        return is;
+    }
+
+    friend ostream& operator<<(ostream& os, const SpecialTransport<T>& obj) {
+        obj.print(os);
+        return os;
+    }
 };
