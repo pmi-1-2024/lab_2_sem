@@ -1,0 +1,9 @@
+Всі телефони (відсортовані за ціною):
+Philips D450 40 100 No
+Panasonic KX-TG 50 300 Yes
+Samsung GalaxyS21 800 Black 128
+Apple iPhone13 1000 White 256
+Загальна сума: 1890
+
+Радіотелефони з автовідповідачем:
+Panasonic KX-TG 50 300 Yes
