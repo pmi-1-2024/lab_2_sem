@@ -8,15 +8,20 @@ bool LessString(const char* a, const char* b) {
 }
 
 template <typename T>
+bool defaultComp(const T& a, const T& b) {
+    return a < b;
+}
+
+template <typename T>
 void heapify(T arr[], int n, int i, bool (*comp)(const T&, const T&)) {
     int largest = i;
     int left = 2 * i + 1;
     int right = 2 * i + 2;
 
-    if (left < n && comp(arr[left], arr[largest]))
+    if (left < n && comp(arr[largest], arr[left]))
         largest = left;
 
-    if (right < n&& comp(arr[right], arr[largest]))
+    if (right < n&& comp(arr[largest], arr[right]))
         largest = right;
 
     if (largest != i) {
@@ -27,22 +32,35 @@ void heapify(T arr[], int n, int i, bool (*comp)(const T&, const T&)) {
     }
 }
 
-template <typename T>
-void sort(T arr[], int n, bool (*comp)(const T&, const T&)) {
+template <class T>
+void sort1(T a[], int n) {
     for (int i = n / 2 - 1; i >= 0; i--)
-        heapify(arr, n, i, comp);
+        heapify(a, n, i, defaultComp<T>);
 
     for (int i = n - 1; i > 0; i--) {
-        T temp = arr[0];
-        arr[0] = arr[i];
-        arr[i] = temp;
-        heapify(arr, i, 0, comp);
+        T temp = a[0];
+        a[0] = a[i];
+        a[i] = temp;
+        heapify(a, i, 0, defaultComp<T>);
+    }
+}
+
+template <class T>
+void sort2(T a[], int n, bool (*Comp)(const T&, const T&)) {
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(a, n, i, Comp);
+
+    for (int i = n - 1; i > 0; i--) {
+        T temp = a[0];
+        a[0] = a[i];
+        a[i] = temp;
+        heapify(a, i, 0, Comp);
     }
 }
 
 template <typename T>
 void print(T arr[], int n) {
     for (int i = 0; i < n; i++)
-    cout << arr[i] << " ";
+        cout << arr[i] << " ";
     cout << endl;
 }
