@@ -1,0 +1,13 @@
+oxygen Lviv 5000 passenger medical
+boxes Kyiv 3000 cargo fragile
+documents Odessa 2000 passenger none
+machinery Dnipro 8000 cargo none
+patients Ternopil 4000 passenger medical
+electronics Kharkiv 6000 cargo fragile
+books Lutsk 1500 cargo none
+tourists Uzhhorod 2500 passenger none
+vaccines Mykolaiv 5500 passenger medical
+furniture Poltava 3500 cargo none
+medsupplies Ivano-Frankivsk 4500 cargo medical
+equipment Zaporizhzhia 7000 cargo fragile
+staff Chernivtsi 2200 passenger none
