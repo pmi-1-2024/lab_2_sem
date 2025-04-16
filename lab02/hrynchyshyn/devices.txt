@@ -1,0 +1,7 @@
+Vacuum LG 12000 2000 Black  
+WashingMachine Samsung 20000 12 50  
+Combine Bosch 9000 1500 5  
+Combine Tefal 11000 2000 4  
+WashingMachine Samsung 30000 14 55  
+Combine Philips 10000 1000 4  
+Vacuum Xiaomi 8000 2000 White  

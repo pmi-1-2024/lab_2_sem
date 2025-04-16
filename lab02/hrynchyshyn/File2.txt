@@ -1,0 +1,11 @@
+List of device names:
+Bosch
+LG
+Philips
+Samsung
+Samsung
+Tefal
+Xiaomi
+
+Total cost: 100000 UAH
+
