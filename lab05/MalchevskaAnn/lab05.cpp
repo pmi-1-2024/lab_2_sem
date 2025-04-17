@@ -23,6 +23,17 @@ bool comparePersonByName(const Person& a, const Person& b) {
 bool comparePersonByAge(const Person& a, const Person& b) {
     return a.age < b.age;
 }
+bool compareIntDescending(const int& a, const int& b) {
+    return a < b; 
+}
+bool compareDoubleFractionDescending(const double& a, const double& b) {
+    double fracA = a - static_cast<int>(a);
+    double fracB = b - static_cast<int>(b);
+    return fracA > fracB;
+}
+bool compareStringLengthDescending(const string& a, const string& b) {
+    return a.length() > b.length();
+}
 
 template <typename T>
 void input(T* array, size_t n) {
@@ -88,7 +99,17 @@ int main() {
             int* array = new int[n];
             cout << "Enter " << n << " elements: ";
             input(array, n);
-            shellSort(array, n);
+            cout << "Choose sorting method:\n";
+            cout << "1. Shell Sort\n";
+            cout << "2. Shell Sort with comparator\n";
+            int method;
+            cin >> method;
+            if (method == 1) {
+                shellSort(array, n);
+            } else {
+                shellSortWithComp(array, n, compareIntDescending);
+            }
+
             cout << "Array after sorting: ";
             print(array, n);
             delete[] array;
@@ -100,7 +121,16 @@ int main() {
             double* array = new double[n];
             cout << "Enter " << n << " elements: ";
             input(array, n);
-            shellSort(array, n);
+            cout << "Choose sorting method:\n";
+            cout << "1. Shell Sort\n";
+            cout << "2. Shell Sort with comparator \n";
+            int method;
+            cin >> method;
+            if (method == 1) {
+                shellSort(array, n);
+            } else {
+                shellSortWithComp(array, n, compareDoubleFractionDescending);
+            }
             cout << "Array after sorting: ";
             print(array, n);
             delete[] array;
@@ -112,7 +142,16 @@ int main() {
             string* array = new string[n];
             cout << "Enter " << n << " elements: ";
             input(array, n);
-            shellSort(array, n);
+            сout << "Choose sorting method:\n";
+            cout << "1. Shell Sort \n";
+            cout << "2. Shell Sort with comparator\n";
+            int method;
+            cin >> method;
+            if (method == 1) {
+                shellSort(array, n);
+            } else {
+                shellSortWithComp(array, n, compareStringLengthDescending);
+            }
             cout << "Array after sorting: ";
             print(array, n);
             delete[] array;
