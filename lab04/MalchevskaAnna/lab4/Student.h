@@ -13,5 +13,6 @@ public:
     Student(const string& n = "", int a = 0, const string& m = "",
         const string& addr = "", const string& grp = "");
     void print() const;
+friend istream& operator>>(istream& is, Student& s);
 };
 
