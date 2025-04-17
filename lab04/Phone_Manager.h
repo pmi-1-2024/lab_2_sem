@@ -4,7 +4,7 @@
 
 class Phone_Manager {
 private:
-    List<Phone> list;
+    Phone_List list;
 public:
     void add(Phone phone) { list.push(phone); }
     void remove(Phone phone) { list.remove(phone); }

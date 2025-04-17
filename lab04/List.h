@@ -2,29 +2,29 @@
 #include <iostream>
 using namespace std;
 
-template<typename T>
+
 struct Node {
-    T data;
+    Phone data;
     Node* next;
     Node(T d) : data(d), next(nullptr) {}
 };
 
-template<typename T>
-class List {
+
+class Phone_List {
 private:
-    Node<T>* head;
+    Node* head;
 public:
     List() : head(nullptr) {}
     ~List() { clear(); }
 
-    void push(T data) {
-        Node<T>* temp = new Node<T>(data);
+    void push(Phone data) {
+        Node* temp = new Node(data);
         temp->next = head;
         head = temp;
     }
 
-    bool find(T data) {
-        Node<T>* temp = head;
+    bool find(Phone data) {
+        Node* temp = head;
         while (temp) {
             if (temp->data == data) return true;
             temp = temp->next;
@@ -32,27 +32,27 @@ public:
         return false;
     }
 
-    void remove(T data) {
+    void remove(Phone data) {
         if (!head) return;
         if (head->data == data) {
-            Node<T>* temp = head;
+            Node* temp = head;
             head = head->next;
             delete temp;
             return;
         }
-        Node<T>* current = head;
+        Node* current = head;
         while (current->next && current->next->data != data) {
             current = current->next;
         }
         if (current->next) {
-            Node<T>* temp = current->next;
+            Node* temp = current->next;
             current->next = temp->next;
             delete temp;
         }
     }
 
     void show() {
-        Node<T>* temp = head;
+        Node* temp = head;
         while (temp) {
             cout << temp->data << endl;
             temp = temp->next;
@@ -61,9 +61,10 @@ public:
 
     void clear() {
         while (head) {
-            Node<T>* temp = head;
+            Node* temp = head;
             head = head->next;
             delete temp;
         }
     }
 };
+
