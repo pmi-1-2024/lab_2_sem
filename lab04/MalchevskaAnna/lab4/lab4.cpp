@@ -13,25 +13,6 @@ void displayMenu() {
     cout << "Choose an option: ";
 }
 
-Student inputStudentData() {
-    string name, major, address, group;
-    int age;
-
-    cout << "Enter name: ";
-    getline(cin, name);
-    cout << "Enter age: ";
-    cin >> age;
-    cin.ignore();
-    cout << "Enter major: ";
-    getline(cin, major);
-    cout << "Enter address: ";
-    getline(cin, address);
-    cout << "Enter group: ";
-    getline(cin, group);
-
-    return Student(name, age, major, address, group);
-}
-
 int main() {
     Student_Manager manager;
     int choice;
@@ -44,7 +25,8 @@ int main() {
 
         switch (choice) {
         case 1: {
-            Student s = inputStudentData();
+            Student s;
+            cin>>s;
             manager.addStudent(s);
             break;
         }
@@ -75,7 +57,8 @@ int main() {
         case 6: {
             cout << "Enter name of the student to update: ";
             getline(cin, name);
-            Student newData = inputStudentData();
+            Student newData;
+            cin >> newData;  
             manager.updateStudent(name, newData);
             break;
         }
