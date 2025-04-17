@@ -12,3 +12,8 @@ istream& operator>>(istream& is, MobilePhone& phone) {
     is >> phone.name >> phone.brand >> phone.price >> phone.color >> phone.memory;
     return is;
 }
+
+MobilePhone::MobilePhone() : Phone("", "", 0.0) {
+    color = "";
+    memory = 0;
+}

@@ -7,10 +7,15 @@
 using namespace std;
 
 
+istream& operator>>(istream& is, Phone*& phone) {
+    int type;
+    if (!(is >> type)) {
+        phone = nullptr;
+        return is;
+    }
 
-istream& operator>>(std::istream& in, Phone*& phone) {
-    phone = createPhone(in);
-    return in;
+    phone = PhoneFactory::createPhone(type, is);
+    return is;
 }
 
 Phone::Phone() : name(""), brand(""), price(0.0) {}

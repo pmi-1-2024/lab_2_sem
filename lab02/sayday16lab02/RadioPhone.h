@@ -10,6 +10,7 @@ private:
     bool answeringMachine;
 
 public:
+    RadioPhone();
     RadioPhone(string n, string b, double p, double r, bool a);
     void display() const override;
     bool hasAnsweringMachine() const override;

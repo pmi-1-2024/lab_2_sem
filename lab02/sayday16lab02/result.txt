@@ -8,3 +8,5 @@ All phones sorted by price:
 Total price: 3540
 
 Radio phones with answering machine:
+60
+150

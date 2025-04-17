@@ -13,3 +13,8 @@ istream& operator>>(istream& is, RadioPhone& rp) {
     is >> rp.name >> rp.brand >> rp.price >> rp.range >> rp.answeringMachine;
     return is;
 }
+
+RadioPhone::RadioPhone() : Phone("", "", 0.0) {
+    range = 0;
+    answeringMachine = false;
+}

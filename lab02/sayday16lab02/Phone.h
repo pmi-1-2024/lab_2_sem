@@ -24,6 +24,9 @@ public:
         return this->getPrice() < other.getPrice();
     }
 
+
+
+
     friend istream& operator>>(istream& is, Phone*& phone);
         
     

@@ -6,5 +6,8 @@
 #include "MobilePhone.h"
 #include "RadioPhone.h"
 
-Phone* createPhone(istream& in);
+class PhoneFactory {
+public:
+    static Phone* createPhone(int type, istream& is);
+};
 #endif 

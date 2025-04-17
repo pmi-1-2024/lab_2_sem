@@ -1,41 +1,26 @@
 #include "PhoneFactory.h"
 #include <string>
-//Phone* createPhone(istream& in) {
-   // int type;
-   // if (!(in >> type)) {
-   //     //cerr << "Failed to read phone type.\n";
-   //     return nullptr;
-   // }
+#include "MobilePhone.h"
+#include "RadioPhone.h"
+#include <iostream>
 
-   // string name, brand;
-   // double price;
-   // if (!(in >> name >> brand >> price)) {
-   //     cerr << "Failed to read phone data.\n";
-   //     return nullptr;
-   // }
+using namespace std;
 
-   /*if (type == 2) {
-        string color;
-        int memory;
-        if (!(in >> color >> memory)) {
-            cerr << "Failed to read mobile phone details.\n";
-           return nullptr;
-        }
-        return new MobilePhone(name, brand, price, color, memory);
+Phone* PhoneFactory::createPhone(int type, istream& is) {
+    switch (type) {
+    case 2: {
+        auto* mp = new MobilePhone();
+        is >> *mp;
+        return mp;
     }
-
-    else if (type == 3) {
-        double range;
-        bool answeringMachine;
-   /    if (!(in >> range >> answeringMachine)) {
-            cerr << "Failed to read radio phone details.\n";
-            return nullptr;
-        }
-        return new RadioPhone(name, brand, price, range, answeringMachine);
+    case 3: {
+        auto* rp = new RadioPhone();
+        is >> *rp;
+        return rp;
     }
-    else {
+    default:
         cerr << "Unknown phone type: " << type << endl;
         return nullptr;
     }
-}*/
+}
 

@@ -11,35 +11,9 @@
 
 using namespace std;
 
-Phone* createPhone(istream& in) {
-    int type;
-    if (!(in >> type)) {  
-        //cerr << "Error reading phone type.\n";
-        return nullptr;
-    }
 
-   /* cout << "Detected type: " << type << endl*/;
-
-    if (type == 2) {
-        MobilePhone* mp = new MobilePhone("", "", 0.0, "", 0);
-        in >> *mp;
-        return mp;
-    }
-    else if (type == 3) {
-        RadioPhone* rp = new RadioPhone("", "", 0.0, 0.0, false);
-        in >> *rp;
-        return rp;
-    }
-    else {
-        cerr << "Unknown phone type: " << type << endl;
-        return nullptr;
-    }
-
-
-}
 
 int main() {
-   
     ifstream file1("phones1.txt"), file2("phones2.txt");
     ofstream output("result.txt");
 
@@ -48,30 +22,28 @@ int main() {
         return 1;
     }
 
-
     const int MAX_SIZE = 100;
     Phone* phones[MAX_SIZE];
     int count = 0;
 
-    while (count < MAX_SIZE && file1 >> phones[count]) {
-        if (!phones[count]) {
-            cerr << "Error reading phone from file1!" << endl;
+    while (count < MAX_SIZE) {
+        Phone* temp = nullptr;
+        if (file1 >> temp && temp) {
+            phones[count++] = temp;
+        }
+        else {
             break;
         }
-        count++;
     }
 
     while (count < MAX_SIZE) {
-        phones[count] = createPhone(file1);
-        if (phones[count] == nullptr) break;
-        ++count;
-    }
-
-    
-    while (count < MAX_SIZE) {
-        phones[count] = createPhone(file2);
-        if (phones[count] == nullptr) break;
-        ++count;
+        Phone* temp = nullptr;
+        if (file2 >> temp && temp) {
+            phones[count++] = temp;
+        }
+        else {
+            break;
+        }
     }
 
     cout << "Loaded phones: " << count << endl;
@@ -80,7 +52,6 @@ int main() {
         return 1;
     }
 
-    
     for (int i = 0; i < count - 1; ++i) {
         for (int j = i + 1; j < count; ++j) {
             if (*phones[j] < *phones[i]) {
@@ -92,9 +63,10 @@ int main() {
     double totalPrice = 0.0;
     cout << "All phones sorted by price:\n";
     output << "All phones sorted by price:\n";
+
     for (int i = 0; i < count; ++i) {
         if (phones[i]) {
-            phones[i]->display();
+            phones[i]->display(); 
             output << phones[i]->getPrice() << "\n";
             totalPrice += phones[i]->getPrice();
         }
@@ -103,19 +75,23 @@ int main() {
     cout << "Total price: " << totalPrice << "\n";
     output << "Total price: " << totalPrice << "\n";
 
-   
+
     cout << "\nRadio phones with answering machine:\n";
     output << "\nRadio phones with answering machine:\n";
+
     for (int i = 0; i < count; ++i) {
         if (phones[i] && phones[i]->hasAnsweringMachine()) {
             phones[i]->display();
+            output << phones[i]->getPrice() << "\n";
         }
     }
-   
-    for (int i = 0; i < count; ++i) delete phones[i];
+
+    for (int i = 0; i < count; ++i) {
+        delete phones[i];
+    }
 
     return 0;
-}     
+}
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

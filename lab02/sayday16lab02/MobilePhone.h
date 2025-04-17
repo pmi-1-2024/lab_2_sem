@@ -10,6 +10,7 @@ private:
     int memory;
 
 public:
+    MobilePhone();
     MobilePhone(string n, string b, double p, string c, int m);
     void display() const override;
 
