@@ -1,0 +1,7 @@
+6
+t Apple Kyiv 2000 5000
+s People Lviv 1500 3000 Passenger 10
+t Electronics Kharkiv 2500 4500
+s Medicine Dnipro 1800 2800 Medical 15
+t Bananas Odesa 1200 3500
+s Fruits Kherson 2200 3700 Medical 20
