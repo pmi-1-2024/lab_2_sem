@@ -3,14 +3,35 @@
 #include "SpecialTransport.h"
 #include <fstream>
 #include <stdexcept>	
-
+#include "Invalid_Filter.h"
 
 
 int main()
 {
-	ifstream in("file.txt");
+	ifstream in;
+	in.exceptions(ifstream::failbit | ifstream::badbit);
+	try {
+		in.open("file.txt");
+	}
+	catch (const ifstream::failure& e)
+	{
+		cerr << "Error opening file: " << e.what() << endl;
+		return 1;
+	}
 	int n;
-	in >> n;
+	try {
+		in >> n;
+		if (n <= 0)
+		{
+			throw invalid_argument("Invalid number of transports");
+		}
+	}
+	catch (const invalid_argument& e)
+	{
+		cout << "Error: " << e.what() << endl;
+		return 1;
+	}
+
 	Transport<string>** t = new Transport<string>*[n];
 	for (int i = 0; i < n; i++)
 	{
@@ -89,7 +110,7 @@ int main()
 	{
 		if (filter != "cargo" && filter != "passangers")
 		{
-			throw invalid_argument("Invalid filter");
+			throw Invalid_Filter("allowed filters are cargo or passengers");
 		}
 		for (int i = 0; i < n; i++)
 		{
@@ -109,7 +130,7 @@ int main()
 			}
 		}
 	}
-	catch (const invalid_argument& e)
+	catch (const Invalid_Filter& e)
 	{
 		cout << "Error: " << e.what() << endl;
 		return 1;
