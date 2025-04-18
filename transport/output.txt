@@ -1,0 +1,18 @@
+Cargo: Electronics
+Destination: Kharkiv
+Cost: 900
+
+Cargo: Furniture
+Destination: Lviv
+Cost: 1500
+Special Conditions: Fragile
+
+Cargo: Food
+Destination: Poltava
+Cost: 700
+
+Cargo: Chemicals
+Destination: Zaporizhzhia
+Cost: 1300
+Special Conditions: RequiresVentilation
+
