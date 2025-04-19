@@ -35,7 +35,7 @@ int main() {
         count++;
     }
 
-    while (count < MAX_SIZE) {
+   /* while (count < MAX_SIZE) {
         phones[count] = createPhone(file1);
         if (phones[count] == nullptr) break;
         ++count;
@@ -46,7 +46,40 @@ int main() {
         phones[count] = createPhone(file2);
         if (phones[count] == nullptr) break;
         ++count;
+    }*/
+
+    int size = 0;
+    Phone** phones = new Phone * [100];
+    int type;
+
+    while (file1 >> type) {
+        if (type == 1)
+            phones[size] = new MobilePhone;
+        else if (type == 2)
+            phones[size] = new RadioPhone;
+        else if (type == 3)
+            phones[size] = new MegaPhone;
+        else
+            continue;
+
+        file1 >> *phones[size];
+        size++;
     }
+
+    while (file2 >> type) {
+        if (type == 1)
+            phones[size] = new MobilePhone;
+        else if (type == 2)
+            phones[size] = new RadioPhone;
+        else if (type == 3)
+            phones[size] = new MegaPhone;
+        else
+            continue;
+
+        file2 >> *phones[size];
+        size++;
+    }
+    
 
     cout << "Loaded phones: " << count << endl;
     if (count == 0) {

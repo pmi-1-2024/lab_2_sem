@@ -5,6 +5,7 @@
 
 class MegaPhone : public MobilePhone, public RadioPhone {
 public:
+    MegaPhone();
     MegaPhone(string n, string b, double p, string c, int m, double r, bool a)
         : Phone(n, b, p), MobilePhone(n, b, p, c, m), RadioPhone(n, b, p, r, a) {}
 

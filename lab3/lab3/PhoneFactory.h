@@ -6,5 +6,5 @@
 #include "MobilePhone.h"
 #include "RadioPhone.h"
 
-Phone* createPhone(istream& in);
+//Phone* createPhone(istream& in);
 #endif 

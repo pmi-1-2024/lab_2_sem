@@ -11,6 +11,7 @@ protected:
 
 public:
     RadioPhone(string n, string b, double p, double r, bool a);
+    RadioPhone();
     //void display() const override;
     bool hasAnsweringMachine() const override;
 

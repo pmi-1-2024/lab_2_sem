@@ -8,7 +8,7 @@ using namespace std;
 
 
 
-istream& operator>>(std::istream& in, Phone*& phone) {
+istream& operator>>(istream& in, Phone*& phone) {
     phone = createPhone(in);
     return in;
 }

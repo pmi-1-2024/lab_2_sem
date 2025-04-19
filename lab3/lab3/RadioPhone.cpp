@@ -8,7 +8,10 @@ RadioPhone::RadioPhone(string n, string b, double p, double r, bool a) : Phone(n
 
 bool RadioPhone::hasAnsweringMachine() const { return answeringMachine; }
 
-
+RadioPhone::RadioPhone() : Phone() {
+    range = 0;
+    answeringMachine = false;
+}
 
 //istream& operator>>(istream& is, RadioPhone& rp) {
 //    is >> rp.name >> rp.brand >> rp.price >> rp.range >> rp.answeringMachine;
