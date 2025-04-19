@@ -19,6 +19,19 @@ void selectionSort(T* arr, int size, bool (*compare)(T, T)) {
 }
 
 template <typename T>
+void selectionSort(T* arr, int size) {
+    for (int i = 0; i < size - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < size; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        swap(arr[i], arr[minIndex]);
+    }
+}
+
+template <typename T>
 void printArray(T* arr, int size) {
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
