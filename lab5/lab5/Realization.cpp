@@ -12,8 +12,33 @@ void inputArray(T* arr, int size) {
     }
 }
 
+bool compareInt(int a, int b) {
+    return a < b;
+}
+
+bool compareDouble(double a, double b) {
+    return a < b;
+}
+
+bool compareString(string a, string b) {
+    return a < b;
+}
+
+bool compareByPrice(MobilePhone a, MobilePhone b) {
+    return a.getPrice() < b.getPrice();
+}
+
+bool compareByBrand(MobilePhone a, MobilePhone b) {
+    return a.getBrand() < b.getBrand();
+}
+
+bool stdCompare( MobilePhone a,  MobilePhone b) {
+    return a < b;
+}
+
+// Μενώ
 void showMenu() {
-    while (true) {       
+    while (true) {
         cout << "1. Sort integers\n";
         cout << "2. Sort doubles\n";
         cout << "3. Sort strings\n";
@@ -36,21 +61,21 @@ void showMenu() {
         if (choice == 1) {
             int* arr = new int[size];
             inputArray(arr, size);
-            selectionSort(arr, size, [](int a, int b) { return a < b; });
+            selectionSort(arr, size, compareInt);
             printArray(arr, size);
             delete[] arr;
         }
         else if (choice == 2) {
             double* arr = new double[size];
             inputArray(arr, size);
-            selectionSort(arr, size, [](double a, double b) { return a < b; });
+            selectionSort(arr, size, compareDouble);
             printArray(arr, size);
             delete[] arr;
         }
         else if (choice == 3) {
             string* arr = new string[size];
             inputArray(arr, size);
-            selectionSort(arr, size, [](string a, string b) { return a < b; });
+            selectionSort(arr, size, compareString);
             printArray(arr, size);
             delete[] arr;
         }
@@ -60,24 +85,26 @@ void showMenu() {
             cout << "Enter name, brand, price, color, memory for each phone:\n";
             for (int i = 0; i < size; i++) {
                 cout << "Phone " << i + 1 << ": ";
-                cin >> phones[i].name >> phones[i].brand >> phones[i].price >> phones[i].color >> phones[i].memory;
+                cin >> phones[i];
             }
 
-            cout << "\nSort by:\n1. Price\n2. Brand\nChoose: ";
+            cout << "\nSort by:\n1. Price\n2. Brand\n3. defoultSort\n Choose: ";
             int sortChoice;
             cin >> sortChoice;
 
             if (sortChoice == 1)
                 selectionSort(phones, size, compareByPrice);
-            else
+            else if (sortChoice == 2)
                 selectionSort(phones, size, compareByBrand);
+            else if(sortChoice == 3)
+                selectionSort(phones, size, stdCompare);
 
             cout << "Sorted MobilePhones:\n";
             printArray(phones, size);
             delete[] phones;
         }
         else {
-            cout << "Invalid option,try again.";
+            cout << "Invalid option, try again.";
         }
     }
 }
