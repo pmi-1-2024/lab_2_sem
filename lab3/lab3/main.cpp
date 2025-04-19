@@ -1,13 +1,14 @@
-// llab_2.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// lab3.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include "Phone.h"
 #include "MobilePhone.h"
 #include "RadioPhone.h"
 #include "PhoneFactory.h"
+#include "MegaPhone.h"
 #include <iostream>
 #include <fstream>
-#include <string>
+
 
 using namespace std;
 
@@ -22,28 +23,29 @@ int main() {
         return 1;
     }
 
-    const int MAX_SIZE = 100;
+   /* const int MAX_SIZE = 100;
     Phone* phones[MAX_SIZE];
-    int count = 0;
+    int count = 0;*/
 
-   /* while (count < MAX_SIZE) {
-        Phone* temp = nullptr;
-        if (file1 >> temp && temp) {
-            phones[count++] = temp;
-        }
-        else {
+    while (count < MAX_SIZE && file1 >> phones[count]) {
+        if (!phones[count]) {
+            cerr << "Error reading phone from file1!" << endl;
             break;
         }
+        count++;
     }
 
+   /* while (count < MAX_SIZE) {
+        phones[count] = createPhone(file1);
+        if (phones[count] == nullptr) break;
+        ++count;
+    }
+
+
     while (count < MAX_SIZE) {
-        Phone* temp = nullptr;
-        if (file2 >> temp && temp) {
-            phones[count++] = temp;
-        }
-        else {
-            break;
-        }
+        phones[count] = createPhone(file2);
+        if (phones[count] == nullptr) break;
+        ++count;
     }*/
 
     int size = 0;
@@ -55,24 +57,36 @@ int main() {
             phones[size] = new MobilePhone;
         else if (type == 2)
             phones[size] = new RadioPhone;
+        else if (type == 3)
+            phones[size] = new MegaPhone;
+        else
+            continue;
+
         file1 >> *phones[size];
         size++;
     }
+
     while (file2 >> type) {
         if (type == 1)
             phones[size] = new MobilePhone;
         else if (type == 2)
             phones[size] = new RadioPhone;
+        else if (type == 3)
+            phones[size] = new MegaPhone;
+        else
+            continue;
+
         file2 >> *phones[size];
         size++;
     }
-
+    
 
     cout << "Loaded phones: " << count << endl;
     if (count == 0) {
         cerr << "No valid data read from files." << endl;
         return 1;
     }
+
 
     for (int i = 0; i < count - 1; ++i) {
         for (int j = i + 1; j < count; ++j) {
@@ -85,12 +99,20 @@ int main() {
     double totalPrice = 0.0;
     cout << "All phones sorted by price:\n";
     output << "All phones sorted by price:\n";
-
     for (int i = 0; i < count; ++i) {
         if (phones[i]) {
-            phones[i]->display(); 
+            phones[i]->display();
             output << phones[i]->getPrice() << "\n";
             totalPrice += phones[i]->getPrice();
+        }
+    }
+
+    cout << "\nMega phones:\n";
+    output << "\nMega phones:\n";
+    for (int i = 0; i < count; ++i) {
+        MegaPhone* mp = dynamic_cast<MegaPhone*>(phones[i]);
+        if (mp) {
+            mp->display();
         }
     }
 
@@ -100,17 +122,13 @@ int main() {
 
     cout << "\nRadio phones with answering machine:\n";
     output << "\nRadio phones with answering machine:\n";
-
     for (int i = 0; i < count; ++i) {
         if (phones[i] && phones[i]->hasAnsweringMachine()) {
             phones[i]->display();
-            output << phones[i]->getPrice() << "\n";
         }
     }
 
-    for (int i = 0; i < count; ++i) {
-        delete phones[i];
-    }
+    for (int i = 0; i < count; ++i) delete phones[i];
 
     return 0;
 }
