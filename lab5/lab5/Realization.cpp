@@ -36,7 +36,7 @@ bool stdCompare( MobilePhone a,  MobilePhone b) {
     return a < b;
 }
 
-// Μενώ
+
 void showMenu() {
     while (true) {
         cout << "1. Sort integers\n";

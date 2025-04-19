@@ -7,3 +7,4 @@ bool compareByPrice(const MobilePhone& a, const MobilePhone& b) {
 bool compareByBrand(const MobilePhone& a, const MobilePhone& b) {
     return a.brand < b.brand;
 }
+//

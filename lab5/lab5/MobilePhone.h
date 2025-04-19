@@ -34,7 +34,7 @@ struct MobilePhone {
     }
 };
 
-
+//
 
 bool compareByPrice(const MobilePhone& a, const MobilePhone& b);
 
