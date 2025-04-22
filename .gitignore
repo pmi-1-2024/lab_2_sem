@@ -462,3 +462,8 @@ FodyWeavers.xsd
 .vscode/
 /lab01/
 /lab02/
+
+*.vcxproj
+*.rc
+*.vcxproj.filters
+**/resource.h
