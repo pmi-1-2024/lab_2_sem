@@ -10,23 +10,14 @@ int main()
     Student_Manager manager;
     int numberOfStudents;
     manager.isEmpty();
-        
+
     cout << "\nEnter number of students: ";
     cin >> numberOfStudents;
-    
-    for (int i = 1; i < numberOfStudents + 1; ++i) {
-        string name, group;
-        int age;
-        cout << "Enter name for student " << i << ": ";
-        cin >> name;
 
-        cout << "Enter age for student " << i << ": ";
-        cin >> age;
-
-        cout << "Enter level for student " << i << ": ";
-        cin >> group;
-      
-        Student student(name, age, group);
+    for (int i = 1; i <= numberOfStudents; ++i) {
+        cout << "\nStudent " << i << ":" << endl;
+        Student student;
+        student.input();               
         manager.pushStudent(student);
     }
 
@@ -40,7 +31,6 @@ int main()
 
     cout << "\nUpdated list of students:" << endl;
     manager.displayAllStudents();
-
 
 }
 

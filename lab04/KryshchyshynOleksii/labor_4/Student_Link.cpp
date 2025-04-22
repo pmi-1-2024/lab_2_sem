@@ -8,12 +8,12 @@ void Student::display() const {
    cout << "Name: " << name << ", Age: " << age << ", Level: " << group << endl;
 }
 
-ostream& operator<<(std::ostream& os, const Student& student) {
+ostream& operator<<(ostream& os, const Student& student) {
     os << student.name << " " << student.age << " " << student.group;
     return os;
 }
 
-istream& operator>>(std::istream& is, Student& student) {
+istream& operator>>(istream& is, Student& student) {
     is >> student.name >> student.age >> student.group;
     return is;
 }
@@ -21,4 +21,13 @@ istream& operator>>(std::istream& is, Student& student) {
 
 Student_Link::Student_Link(const Student& s) : student(s) {
     next = nullptr;
+}
+
+void Student::input() {
+    cout << "Enter name: ";
+    cin >> name;
+    cout << "Enter age: ";
+    cin >> age;
+    cout << "Enter level/group: ";
+    cin >> group;
 }

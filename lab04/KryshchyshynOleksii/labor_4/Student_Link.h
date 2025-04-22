@@ -17,6 +17,7 @@ struct Student {
 
     friend ostream& operator<<(ostream& os, const Student& student);
     friend istream& operator>>(istream& is, Student& student);
+    void input();
 
 };
 
