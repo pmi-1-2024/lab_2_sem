@@ -31,10 +31,15 @@ bool compareStringLength(const string& s1, const string& s2) {
 struct Person {
     string name;
     int age;
-    bool operator>(const Person& other) const {
-        return age > other.age;
-    }
 };
+
+istream& operator>>(istream& in, Person& p) {
+    return in >> p.name >> p.age;
+}
+
+ostream& operator<<(ostream& out, const Person& p) {
+    return out << p.name << " (" << p.age << ")";
+}
 
 bool comparePersonAge(const Person& p1, const Person& p2) {
     return p1.age > p2.age;
@@ -44,13 +49,6 @@ template <typename T>
 void printArray(T arr[], int n) {
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
-    }
-    cout << endl;
-}
-
-void printPersonArray(Person arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i].name << " (" << arr[i].age << ") ";
     }
     cout << endl;
 }
@@ -103,13 +101,15 @@ int main() {
     cout << "Enter number of people: ";
     cin >> nPerson;
     Person* personArr = new Person[nPerson];
-    cout << "Enter name and age for each person: ";
+    cout << "Enter name and age for each person:\n";
     for (int i = 0; i < nPerson; i++) {
-        cin >> personArr[i].name >> personArr[i].age;
+        cin >> personArr[i]; 
     }
-    bubbleSort(personArr, nPerson);
+
+    bubbleSort(personArr, nPerson, comparePersonAge);
     cout << "Sorted Person array (by age): ";
-    printPersonArray(personArr, nPerson);
+    printArray(personArr, nPerson); 
     delete[] personArr;
+
     return 0;
 }
