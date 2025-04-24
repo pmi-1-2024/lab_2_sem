@@ -5,12 +5,15 @@
 using namespace std;
 
 static void showMenu() {
-    cout << "================ MENU ================\n";
-    cout << "1. Sort int array\n";
-    cout << "2. Sort double array\n";
-    cout << "3. Sort string array\n";
-    cout << "0. Exit\n";
-    cout << "======================================\n";
+    cout << "=============== MENU ===============" << endl;
+    cout << "1. Sort int array (recursive)" << endl;
+    cout << "2. Sort int array (iterative)" << endl;
+    cout << "3. Sort double array (recursive)" << endl;
+    cout << "4. Sort double array (iterative)" << endl;
+    cout << "5. Sort string array (recursive)" << endl;
+    cout << "6. Sort string array (iterative)" << endl;
+    cout << "0. Exit";
+    cout << "====================================" << endl;
 }
 
 int main() {
@@ -26,63 +29,67 @@ int main() {
             cout << "Invalid input. Try again.\n";
             continue;
         }
-
-        if (choice == 1) {
-            int size;
-            cout << "Enter the size of int array: ";
+        
+        int size;
+        if (choice >= 1 && choice <= 6) {
+            cout << "Enter the size of array: ";
             cin >> size;
             if (size <= 0) {
-                cout << "Invalid size.\n";
+                cout << "Invalid size." << endl;
                 continue;
             }
+        }
 
-            int* intArr = new int[size];
+        if (choice == 1 || choice == 2) {
+            int* arr = new int[size];
             cout << "Enter " << size << " integers: ";
-            cin >> ArrayWrapper<int>(intArr, size);
+            inputArray(arr, size);
 
-            cout << "Original: " << ArrayWrapper<int>(intArr, size) << endl;
-            quickSortRecursive(intArr, 0, size - 1, compareInt);
-            cout << "Sorted:   " << ArrayWrapper<int>(intArr, size) << endl;
+            cout << "Original: ";
+            printArray(arr, size);
 
-            delete[] intArr;
+            if (choice == 1)
+                quickSortRecursive(arr, 0, size - 1, compareInt);
+            else
+                quickSortIterative(arr, size, compareInt);
+
+            cout << "Sorted:   ";
+            printArray(arr, size);
+            delete[] arr;
         }
-        else if (choice == 2) {
-            int size;
-            cout << "Enter the size of double array: ";
-            cin >> size;
-            if (size <= 0) {
-                cout << "Invalid size.\n";
-                continue;
-            }
-
-            double* doubleArr = new double[size];
+        else if (choice == 3 || choice == 4) {
+            double* arr = new double[size];
             cout << "Enter " << size << " doubles: ";
-            cin >> ArrayWrapper<double>(doubleArr, size);
+            inputArray(arr, size);
 
-            cout << "Original: " << ArrayWrapper<double>(doubleArr, size) << endl;
-            quickSortRecursive(doubleArr, 0, size - 1, compareDouble);
-            cout << "Sorted:   " << ArrayWrapper<double>(doubleArr, size) << endl;
+            cout << "Original: ";
+            printArray(arr, size);
 
-            delete[] doubleArr;
+            if (choice == 3)
+                quickSortRecursive(arr, 0, size - 1, compareDouble);
+            else
+                quickSortIterative(arr, size, compareDouble);
+
+            cout << "Sorted:   ";
+            printArray(arr, size);
+            delete[] arr;
         }
-        else if (choice == 3) {
-            int size;
-            cout << "Enter the size of string array: ";
-            cin >> size;
-            if (size <= 0) {
-                cout << "Invalid size.\n";
-                continue;
-            }
+        else if (choice == 5 || choice == 6) {
+            string* arr = new string[size];
+            cout << "Enter " << size << " strings: ";
+            inputArray(arr, size);
 
-            string* stringArr = new string[size];
-            cout << "Enter " << size << " words: ";
-            cin >> ArrayWrapper<string>(stringArr, size);
+            cout << "Original: ";
+            printArray(arr, size);
 
-            cout << "Original: " << ArrayWrapper<string>(stringArr, size) << endl;
-            quickSortRecursive(stringArr, 0, size - 1, compareString);
-            cout << "Sorted:   " << ArrayWrapper<string>(stringArr, size) << endl;
+            if (choice == 5)
+                quickSortRecursive(arr, 0, size - 1, compareString);
+            else
+                quickSortIterative(arr, size, compareString);
 
-            delete[] stringArr;
+            cout << "Sorted:   ";
+            printArray(arr, size);
+            delete[] arr;
         }
         else if (choice == 0) {
             cout << "Exiting...\n";
@@ -91,7 +98,7 @@ int main() {
             cout << "Invalid choice. Try again.\n";
         }
 
-        cout << "\n";
+        cout << " " << endl;
     } while (choice != 0);
 
     return 0;
