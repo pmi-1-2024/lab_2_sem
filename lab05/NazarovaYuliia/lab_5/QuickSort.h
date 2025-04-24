@@ -4,26 +4,18 @@
 using namespace std;
 
 template <typename T>
-struct ArrayWrapper {
-    T* arr;
-    int size;
-    ArrayWrapper(T* a, int s) : arr(a), size(s) {}
-};
-
-template <typename T>
-ostream& operator<<(ostream& os, const ArrayWrapper<T>& aw) {
-    for (int i = 0; i < aw.size; ++i) {
-        os << aw.arr[i] << " ";
+void inputArray(T* arr, int size) {
+    for (int i = 0; i < size; ++i) {
+        cin >> arr[i];
     }
-    return os;
 }
 
 template <typename T>
-istream& operator>>(istream& is, const ArrayWrapper<T>& aw) {
-    for (int i = 0; i < aw.size; ++i) {
-        is >> aw.arr[i];
+void printArray(T* arr, int size) {
+    for (int i = 0; i < size; ++i) {
+        cout << arr[i] << " ";
     }
-    return is;
+    cout << endl;
 }
 
 bool compareInt(const int& a, const int& b);
