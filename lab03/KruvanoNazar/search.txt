@@ -1,0 +1,10 @@
+
+Name: AlphaSuperRobot
+Firm: Bosh
+Price: 1100
+Power of Vacuumcleaner: 300
+Color of Vacuumcleaner: Silver
+Count of Washing machine programs: 14
+Capacity of Washing machine: 65
+Power of Combine: 550
+Count of Combine`s functions: 16

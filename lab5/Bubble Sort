@@ -1,0 +1,107 @@
+#include <iostream>
+#include <string>
+#include <cstring>
+using namespace std;
+
+
+template <typename T>
+void bubbleSort(T* arr, int size) {
+    for (int i = 0; i < size - 1; ++i) {
+        for (int j = 0; j < size - i - 1; ++j) {
+            if (arr[j] > arr[j + 1]) {
+                T temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+
+template <typename T, typename Compare>
+void bubbleSort(T* arr, int size, Compare comp) {
+    for (int i = 0; i < size - 1; ++i) {
+        for (int j = 0; j < size - i - 1; ++j) {
+            if (comp(arr[j + 1], arr[j])) {
+                T temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+
+struct Person {
+    string name;
+    int age;
+
+    bool operator>(const Person& other) const {
+        return age > other.age;
+    }
+
+    void print() const {
+        cout << name << " (" << age << ")";
+    }
+};
+
+int main() {
+    const int n1 = 5;
+    int* arrInt = new int[n1] {5, 3, 8, 1, 2};
+
+    const int n2 = 4;
+    double* arrDouble = new double[n2] {3.14, 2.71, 1.41, 4.2};
+
+    const int n3 = 4;
+    string* arrStr = new string[n3]{ "banana", "apple", "cherry", "date" };
+
+    const int n4 = 3;
+    Person* arrPerson = new Person[n4]{
+        {"Alice", 30},
+        {"Bob", 25},
+        {"Charlie", 35}
+    };
+
+   
+    bubbleSort(arrInt, n1);
+    bubbleSort(arrDouble, n2);
+    bubbleSort(arrStr, n3);
+    bubbleSort(arrPerson, n4); 
+
+    cout << "Sorted int: ";
+    for (int i = 0; i < n1; ++i) cout << arrInt[i] << " ";
+    cout << "\n";
+
+    cout << "Sorted double: ";
+    for (int i = 0; i < n2; ++i) cout << arrDouble[i] << " ";
+    cout << "\n";
+
+    cout << "Sorted string: ";
+    for (int i = 0; i < n3; ++i) cout << arrStr[i] << " ";
+    cout << "\n";
+
+    cout << "Sorted Person (by age): ";
+    for (int i = 0; i < n4; ++i) {
+        arrPerson[i].print();
+        cout << " ";
+    }
+    cout << "\n";
+
+    bubbleSort(arrPerson, n4, [](const Person& a, const Person& b) {
+        return a.name < b.name;
+        });
+
+    cout << "Sorted Person (by name): ";
+    for (int i = 0; i < n4; ++i) {
+        arrPerson[i].print();
+        cout << " ";
+    }
+    cout << "\n";
+   
+    delete[] arrInt;
+    delete[] arrDouble;
+    delete[] arrStr;
+    delete[] arrPerson;
+
+    return 0;
+}
