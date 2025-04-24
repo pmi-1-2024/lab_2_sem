@@ -1,4 +1,4 @@
-#include "goods.h"
+
 #include "functions.h"
 using namespace std;
 
