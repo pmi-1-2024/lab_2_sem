@@ -10,7 +10,6 @@ class SpecialTransport : public Transport<T> {
 private:
     string specialConditions;
     double discount;  
-
 public:
     SpecialTransport(T c, string d, double co, string cond, double disc = 0.0)
         : Transport<T>(c, d, co), specialConditions(cond), discount(disc) {}
@@ -21,7 +20,7 @@ public:
 
     double countDiscount(double percent) override {
         double ordinaryDiscount = Transport<T>::countDiscount(percent);
-        return ordinaryDiscount - (ordinaryDiscount * 0.10); 
+        return ordinaryDiscount - (ordinaryDiscount * 0.10);  
     }
 
     void displayInformation(ofstream& os) override {

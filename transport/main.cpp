@@ -20,22 +20,24 @@ int main() {
     int totalCargos;
 
     fin >> totalCargos;
+
     for (int i = 0; i < totalCargos; ++i) {
         int type;
         string cargo, destination, condition;
         double cost;
         fin >> cargo >> destination >> cost;
+
         if (i == 1 || i == 3) {
             fin >> condition;  
         }
+
         if (i == 1 || i == 3) {
             cargos[i] = new SpecialTransport<string>(cargo, destination, cost, condition);
         }
         else {
             cargos[i] = new Transport<string>(cargo, destination, cost);
         }
-
-        double discountedCost = cargos[i]->countDiscount(10);  
+        double discountedCost = cargos[i]->countDiscount(10); 
         fout << "Discounted Cost for " << cargo << ": " << discountedCost << endl;
         cargos[i]->displayInformation(fout);
         fout << "Weight: 100 kg" << endl;  
@@ -52,7 +54,8 @@ int main() {
         distributor.addTransport(cap);
     }
 
-    double totalCargoWeight = 400.0; 
+    double totalCargoWeight = 400.0;
+
     if (distributor.distributeCargo(totalCargoWeight)) {
         fout << "Cargo distributed successfully." << endl;
     }
@@ -61,6 +64,7 @@ int main() {
     }
 
     distributor.printReport(fout);
+
     for (int i = 0; i < totalCargos; ++i) {
         delete cargos[i];
     }
