@@ -31,6 +31,18 @@ bool compareStringLength(const string& s1, const string& s2) {
 struct Person {
     string name;
     int age;
+
+    bool operator<(const Person& other) const {
+        return age < other.age;
+    }
+
+    bool operator>(const Person& other) const {
+        return age > other.age;
+    }
+
+    bool operator==(const Person& other) const {
+        return name == other.name && age == other.age;
+    }
 };
 
 istream& operator>>(istream& in, Person& p) {
@@ -103,12 +115,12 @@ int main() {
     Person* personArr = new Person[nPerson];
     cout << "Enter name and age for each person:\n";
     for (int i = 0; i < nPerson; i++) {
-        cin >> personArr[i]; 
+        cin >> personArr[i];
     }
 
-    bubbleSort(personArr, nPerson, comparePersonAge);
+    bubbleSort(personArr, nPerson);
     cout << "Sorted Person array (by age): ";
-    printArray(personArr, nPerson); 
+    printArray(personArr, nPerson);
     delete[] personArr;
 
     return 0;
