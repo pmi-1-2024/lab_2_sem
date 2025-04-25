@@ -30,7 +30,6 @@ public:
     }
 
     bool distributeCargo(double totalCargo) {
-        // сортуємо за спаданням
         for (int i = 0; i < count - 1; ++i) {
             for (int j = i + 1; j < count; ++j) {
                 if (capacities[i] < capacities[j]) {
@@ -40,7 +39,6 @@ public:
                 }
             }
         }
-
         for (int i = 0; i < count; ++i) {
             double canTake = capacities[i] - used[i];
             double toAssign = (totalCargo < canTake) ? totalCargo : canTake;
@@ -49,7 +47,7 @@ public:
             if (totalCargo <= 0.0) break;
         }
 
-        return totalCargo <= 0.0;
+        return totalCargo <= 0.0; 
     }
 
     void printReport(ofstream& os) const {
@@ -60,4 +58,4 @@ public:
     }
 };
 
-#endif 
+#endif

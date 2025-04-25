@@ -22,10 +22,10 @@ public:
 
     void updateCargo(T newCargo) { cargo = newCargo; }
     void updateDestination(string newDestination) { destination = newDestination; }
-    void updatecCost(double newCost) { cost = newCost; }
+    void updateCost(double newCost) { cost = newCost; }
 
     virtual double countDiscount(double percent) {
-        return cost - (cost * percent / 100.0);
+        return cost - (cost * percent / 100.0);  
     }
 
     virtual void displayInformation(ofstream& os) {
@@ -40,7 +40,7 @@ public:
     }
 
     friend ostream& operator<<(ostream& os, const Transport<T>& t) {
-        os << "Cargo:" << t.cargo << "\nDestination:" << t.destination << "\nCost:" << t.cost;
+        os << "Cargo: " << t.cargo << "\nDestination: " << t.destination << "\nCost: " << t.cost;
         return os;
     }
 };
