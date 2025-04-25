@@ -1,13 +1,21 @@
 #pragma once
 #include "def_transport.h"
 #include "goods.h"
+#include <stdexcept>
+using namespace std;
+
 template <typename T>
 class Transport : public DefaultTransport {
 protected:
     T object;
 public:
     Transport(const T& obj, double pr, const string& dest)
-        : DefaultTransport(pr, dest), object(obj) {}
+        : DefaultTransport(pr, dest), object(obj) {
+        if (pr < 0) {
+            throw InvalidTransportDataException(); 
+        }
+    }
+
     Transport() : DefaultTransport(), object(T()) {}
 
     string get_type() const override { return "Transport"; }
@@ -20,20 +28,37 @@ public:
     }
 
     void input(istream& in) override {
-        DefaultTransport::input(in);
-        in >> object;
+        try {
+            DefaultTransport::input(in);
+            in >> object;
+            if (in.fail()) {
+                throw invalid_argument("Failed to read object data."); 
+            }
+        }
+        catch (const exception& e) {
+            cerr << "Error while reading input: " << e.what() << endl;
+            throw;  
+        }
     }
 
     void apply_discount() override {
+        if (price < 0) {
+            throw InvalidTransportDataException();  
+        }
+
         if constexpr (is_same<T, Goods>::value) {
-            if (object.medical)
-                price *= 0.85;
-            else if (price > 1000)
-                price *= 0.9;
+            if (object.medical) {
+                price *= 0.85;  
+            }
+            else if (price > 1000) {
+                price *= 0.9;  
+            }
         }
         else {
-            if (price > 1000)
-                price *= 0.9;
+            if (price > 1000) {
+                price *= 0.9; 
+            }
         }
     }
 };
+

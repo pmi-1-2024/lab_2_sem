@@ -1,4 +1,4 @@
 Transport Goods bread 100 10 0 0 1200 Kyiv
-Transport Person Svyatoslav 30 800 Lviv
+Transport Person Svyatoslav 31 800 Lviv
 SpecialTransport Goods tablets 20 50 0 1 2000 Xarciv 1
-SpecialTransport Person Bolodya 25 1500 Odesa 1
+SpecialTransport Person Bolodya 250 1500 Odesa 1
