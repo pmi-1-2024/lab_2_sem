@@ -20,30 +20,30 @@ public:
     }
 
     virtual void printInfo() const {
-        cout << "Cargo: " << typeOfCargo << ", Cost: $" << costOfDeliv << ", Destination: " << destin << ", Max Load: " << maxLoad << "kg" << endl;
+        cout << "Passenger: " << typeOfCargo << ", Cost: $" << costOfDeliv << ", Destination: "
+            << destin << ", Max Load: " << maxLoad << "kg" << endl;
     }
 
+    void updatePassengerInfo(const string& newName, int newAge) {
+        typeOfCargo.name = newName;
+        typeOfCargo.age = newAge;
+    }
 
-    void updateCargoInfo(T newCargoType, double newCost) {
-        typeOfCargo = newCargoType;
+    void updateCost(double newCost) {
         costOfDeliv = newCost;
     }
 
-    double discount() const {
-        return costOfDeliv * 0.85; 
-    }
+    T& getCargoType() { return typeOfCargo; }
 
     double getMaxLoad() const { return maxLoad; }
-
 
     friend ostream& operator<<(ostream& os, const Transport& t) {
         os << t.typeOfCargo << " " << t.costOfDeliv << " " << t.destin << " " << t.maxLoad;
         return os;
     }
-    
+
     friend istream& operator>>(istream& is, Transport& t) {
         is >> t.typeOfCargo >> t.costOfDeliv >> t.destin >> t.maxLoad;
         return is;
     }
 };
-

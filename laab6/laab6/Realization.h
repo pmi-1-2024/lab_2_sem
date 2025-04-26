@@ -1,38 +1,9 @@
-#pragma once
+﻿#pragma once
 #include "Transport.h"
 #include "SpecialTransport.h"
-
+#include "Passenger.h"
 #include <iostream>
 using namespace std;
-
-//template <typename T>
-//void inputInfo(Transport<T>* arr, int size) {
-//    for (int i = 0; i < size; i++) {
-//        cout << "Enter info for transport #" << i + 1 << " (cargo type, cost, destination, maxLoad): ";
-//        cin >> arr[i];
-//    }
-//}
-
-//template <typename T>
-//void updateTransportInfo(Transport<T>* arr, int size) {
-//    int index;
-//    cout << "Enter the transport number to update (1 to " << size << "): ";
-//    cin >> index;
-//    if (index < 1 || index > size) {
-//        cout << "Invalid transport number!" << endl;
-//        return;
-//    }
-//
-//    T newCargoType;
-//    double newCost;
-//    cout << "Enter new cargo type: ";
-//    cin >> newCargoType;
-//    cout << "Enter new delivery cost: ";
-//    cin >> newCost;
-//
-//    arr[index - 1].updateCargoInfo(newCargoType, newCost);
-//    cout << "Transport #" << index << " info updated!" << endl;
-//}
 
 template <typename T>
 void applySpecialCondition(SpecialTransport<T>& transport) {
@@ -42,59 +13,69 @@ void applySpecialCondition(SpecialTransport<T>& transport) {
 
     transport.updateSpecialCondition(condition);
     transport.expediteDelivery();
-    transport.printInfo();  
+    transport.printInfo();
 }
 
-//template <typename T>
-//void distributeCargo(Transport<T>* arr, int size, double totalCargo) {
-//    double remaining = totalCargo;
-//    cout << "\nDistributing " << totalCargo << "kg of cargo:\n";
-//    for (int i = 0; i < size; i++) {
-//        if (remaining <= 0) break;
-//        double load = min(arr[i].getMaxLoad(), remaining);
-//        cout << "Transport #" << i + 1 << ": " << load << "kg\n";
-//        remaining -= load;
-//    }
-//    if (remaining > 0) {
-//        cout << "\nCould not distribute " << remaining << "kg of cargo due to capacity limits.\n";
-//    }
-//    else {
-//        cout << "\nAll cargo distributed successfully.\n";
-//    }
-//}
+
 
 template <typename T>
 void createMenu() {
     int size;
-    cout << "Enter the number of transports: ";
+    cout << "Enter number of transports: ";
     cin >> size;
 
-    
     Transport<T>** transports = new Transport<T>*[size];
+
+    int numPassengers;
+    cout << "Enter number of passengers to transport: ";
+    cin >> numPassengers;
+
+    T* passengers = new T[numPassengers];
+    bool* usedPassengers = new bool[numPassengers];
+
+    for (int i = 0; i < numPassengers; ++i) {
+        cout << "Enter name and age for passenger #" << i + 1 << ": ";
+        cin >> passengers[i];
+        usedPassengers[i] = false;
+    }
 
     for (int i = 0; i < size; i++) {
         cout << "\nIs this a special transport? (1 - Yes, 0 - No): ";
         int isSpecial;
         cin >> isSpecial;
 
-        if (isSpecial == 1) {
-            transports[i] = new SpecialTransport<T>();
-        }
-        else {
-            transports[i] = new Transport<T>();
+        int passengerIndex;
+        cout << "Place passenger by number (1 to " << numPassengers << "): ";
+        cin >> passengerIndex;
+        while (passengerIndex < 1 || passengerIndex > numPassengers || usedPassengers[passengerIndex - 1]) {
+            cout << "Invalid or already placed passenger. Try again: ";
+            cin >> passengerIndex;
         }
 
-        cout << "Enter info for transport #" << i + 1 << " (cargo type, cost, destination, maxLoad): ";
-        cin >> *transports[i];
+        T assignedPassenger = passengers[passengerIndex - 1];
+        usedPassengers[passengerIndex - 1] = true;
+
+        double cost;
+        string destination;
+        double maxLoad;
+        cout << "Enter delivery cost, destination, and max load: ";
+        cin >> cost >> destination >> maxLoad;
+
+        if (isSpecial == 1) {
+            transports[i] = new SpecialTransport<T>(assignedPassenger, cost, destination, maxLoad);
+        }
+        else {
+            transports[i] = new Transport<T>(assignedPassenger, cost, destination, maxLoad);
+        }
     }
 
     int choice;
     do {
         cout << "\nMenu:\n";
-        cout << "1. Update Transport Info\n";
+        cout << "1. Update Passenger Info\n";
         cout << "2. Apply Special Condition (Expedited Delivery)\n";
-        cout << "3. Distribute Cargo\n";
-        cout << "4. Show Transport Info\n";
+        cout << "3. Show Transport Info\n";
+        cout << "4. Distribute weight\n";
         cout << "5. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
@@ -102,32 +83,41 @@ void createMenu() {
         switch (choice) {
         case 1: {
             int index;
-            cout << "Enter the transport number to update (1 to " << size << "): ";
+            cout << "Enter transport number to update (1 to " << size << "): ";
             cin >> index;
             if (index < 1 || index > size) {
-                cout << "Invalid transport number!" << endl;
+                cout << "Invalid number!" << endl;
                 break;
             }
-            T newCargoType;
+            string newName;
+            int newAge;
+            cout << "Enter new name and age for passenger: ";
+            cin >> newName >> newAge;
+            transports[index - 1]->updatePassengerInfo(newName, newAge);
+
             double newCost;
-            cout << "Enter new cargo type: ";
-            cin >> newCargoType;
             cout << "Enter new delivery cost: ";
             cin >> newCost;
-            transports[index - 1]->updateCargoInfo(newCargoType, newCost);
-            cout << "Transport #" << index << " info updated!" << endl;
+            transports[index - 1]->updateCost(newCost);
+
+            cout << "Transport #" << index << " updated" << endl;
             break;
         }
         case 2:
             for (int i = 0; i < size; i++) {
                 SpecialTransport<T>* special = dynamic_cast<SpecialTransport<T>*>(transports[i]);
-                if (special != nullptr) {
+                if (special) {
                     cout << "\nFor transport #" << i + 1 << ":\n";
                     applySpecialCondition(*special);
                 }
             }
             break;
-        case 3: {
+        case 3:
+            for (int i = 0; i < size; i++) {
+                transports[i]->printInfo();
+            }
+            break;
+        case 4: {
             double cargoWeight;
             cout << "\nEnter total cargo weight to distribute: ";
             cin >> cargoWeight;
@@ -147,25 +137,19 @@ void createMenu() {
             }
             break;
         }
-        case 4:
-            cout << "\nDisplaying transport info:\n";
-            for (int i = 0; i < size; i++) {
-                transports[i]->printInfo();
-            }
-            break;
         case 5:
             cout << "Exiting...\n";
             break;
         default:
-            cout << "Invalid choice, try again.\n";
-            break;
+            cout << "Invalid choice.\n";
         }
-    } while (choice != 5);
+    } while (choice != 4);
 
-   
     for (int i = 0; i < size; i++) {
         delete transports[i];
     }
     delete[] transports;
+    delete[] passengers;
+    delete[] usedPassengers;
 }
 
