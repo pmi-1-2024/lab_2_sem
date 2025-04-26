@@ -2,23 +2,17 @@
 #define SPECIALTRANSPORT_H
 #include "Transport.h"
 
+
 template <typename T>
 class SpecialTransport: public Transport<T> {
 private:
-	string type;
 	int discountVal;
 public:
-	SpecialTransport() : Transport<T>(), type(" "), discountVal(0) {}
-	SpecialTransport(T l, string d, double p, string t, int dis) : Transport<T>(l, d, p), type(t), discountVal(dis) {}
+	SpecialTransport() : Transport<T>(), discountVal(0) {}
+	SpecialTransport(T l, string d, double p, int dis) : Transport<T>(l, d, p), discountVal(dis) {}
 
-	string getType() { return type; }
 	int getDiscount() const override { return discountVal; }
-	void setType(string t) { type = t; }
 	void setDiscount(int d) { discountVal = d; }
-
-	char getTypeChar() const override {
-		return 's';
-	}
 
 	double discount(int dis) override {
 		return this->getPrice() - this->getPrice() * discountVal / 100.0;
@@ -26,16 +20,16 @@ public:
 
 	void read(istream& is) override {
 		Transport<T>::read(is);
-		is >> type >> discountVal;
+		is >> discountVal;
 	}
 	friend istream& operator>>(istream& is, SpecialTransport& t) {
 		t.read(is);
 		return is;
 	}
 
-	void print(ostream& os) override {
+	void print(ostream& os) const override {
 		Transport<T>::print(os);
-		os << ", type: " << type << ", discount: " << discountVal;
+		os << ", discount: " << discountVal;
 	}
 	friend ostream& operator<<(ostream& os, SpecialTransport& t) {
 		t.print(os);
@@ -43,9 +37,11 @@ public:
 	}
 
 	void saveToFile(ostream& os) const override {
-		os << getTypeChar() << " " << this->getLoad() << " " << this->getDestination()
-			<< " " << this->getPrice() << " " << type << " " << discountVal;
+		os << "s " << this->getLoadType() << " ";
+		this->load.saveRaw(os);
+		os << " " << this->getDestination() << " " << this->getPrice() << " " << discountVal;
 	}
+
 };
 
 #endif

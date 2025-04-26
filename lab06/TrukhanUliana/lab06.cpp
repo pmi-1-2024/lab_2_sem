@@ -2,7 +2,7 @@
 
 int main() {
 	const int MAX_TRANSPORTS = 100;
-	Transport<string>* transports[MAX_TRANSPORTS];
+	AllTransport* transports[MAX_TRANSPORTS];
 	int count = 0;
 
 	ifstream file("Data.txt");

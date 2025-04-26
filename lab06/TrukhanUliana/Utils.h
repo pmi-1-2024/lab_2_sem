@@ -2,15 +2,16 @@
 #define UTILS_H
 #include <fstream>
 #include "SpecialTransport.h"
+#include "AllTransport.h"
 
 void startmenu();
-void readFromFile(ifstream& file, Transport<string>** transports, int& count);
+void readFromFile(ifstream& file, AllTransport** transports, int& count);
 
-void filter(Transport<string>** transports, int& count, int& type);
-void theMostExp(Transport<string>** tranports, int& count);
-void update(Transport<string>** transports, int& count);
-void setDiscount(Transport<string>** transports, int& count);
-void totalCost(Transport<string>** transports, int& count);
-void writeToFile(const string& filename, Transport<string>** transports, int count);
+void filter(AllTransport** transports, int& count, int& type);
+void theMostExp(AllTransport** transports, int& count);
+void update(AllTransport** transports, int& count);
+void setDiscount(AllTransport** transports, int& count);
+void totalCost(AllTransport** transports, int& count);
+void writeToFile(const string& filename, AllTransport** transports, int count);
 
 #endif

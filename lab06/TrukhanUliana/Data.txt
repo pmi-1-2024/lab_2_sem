@@ -1,9 +1,9 @@
 8
-t Banana Ivano-Frankivsk 1600
-s People Kyiv 867 Passenger 15
-s Medicine Dnipro 1500 Medical 20
-t Electronics Kharkiv 2000
-s People Odesa 850 Passenger 10
-s Vaccine Lviv 3000 Medical 25
-t Bananas Vinnytsia 600
-s People Lviv 950 Passenger 5
+t Goods 195 Apples Ternopil 2000
+s People 0 16 Kyiv 867 50
+s Goods 150 Medical Dnipro 1500 20
+t Goods 300 Electronics Kharkiv 2000
+t People 1 25 Odesa 850
+s Goods 50 Medical Lviv 3000 25
+t Goods 250 Bananas Vinnytsia 600
+s People 0 16 Lviv 950 50

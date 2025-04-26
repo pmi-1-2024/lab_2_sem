@@ -11,7 +11,7 @@ void startmenu() {
 	cout << "0. Exit." << endl;
 }
 
-void readFromFile(ifstream& file, Transport<string>** transports, int& count) {
+void readFromFile(ifstream& file, AllTransport** transports, int& count) {
 	if (!file.is_open()) {
 		cout << "Error: file didn`t open!" << endl;
 		return;
@@ -22,15 +22,23 @@ void readFromFile(ifstream& file, Transport<string>** transports, int& count) {
 		cout << "Error: count of transportation is less than 0!" << endl;
 		return;
 	}
+
 	for (size_t i = 0; i < count; i++) {
 		file >> type;
+		string loadType;
+		file >> loadType;
+		
 		switch (type) {
-		case 't':
-			transports[i] = new Transport<string>();
+		case 't': {
+			if (loadType == "People") transports[i] = new Transport<People>();
+			else if (loadType == "Goods") transports[i] = new Transport<Goods>();
 			break;
-		case 's':
-			transports[i] = new SpecialTransport<string>();
+		}
+		case 's': {
+			if (loadType == "People") transports[i] = new SpecialTransport<People>();
+			else if (loadType == "Goods") transports[i] = new SpecialTransport<Goods>();
 			break;
+		}
 		default:
 			cout << "Error: wrong type of transportation!" << endl;
 			file.clear();
@@ -48,7 +56,7 @@ void readFromFile(ifstream& file, Transport<string>** transports, int& count) {
 	}
 }
 
-void filter(Transport<string>** transports, int& count, int& type) {
+void filter(AllTransport** transports, int& count, int& type) {
 	if (count <= 0) {
 		cout << "No transportations loaded." << endl;
 		return;
@@ -61,22 +69,22 @@ void filter(Transport<string>** transports, int& count, int& type) {
 	}
 }
 
-void theMostExp(Transport<string>** tranports, int& count) {
+void theMostExp(AllTransport** transports, int& count) {
 	if (count <= 0) {
 		cout << "Error: count of transportation is less than 0!" << endl;
 	}
 	int index = 0;
-	double maxPrice = tranports[0]->getPrice();
+	double maxPrice = transports[0]->getPrice();
 	for (size_t i = 1; i < count; i++) {
-		if (tranports[i]->getPrice() > maxPrice) {
-			maxPrice = tranports[i]->getPrice();
+		if (transports[i]->getPrice() > maxPrice) {
+			maxPrice = transports[i]->getPrice();
 			index = i;
 		}
 	}
-	cout << "The most expensive transportation is: " << *tranports[index] << endl;
+	cout << "The most expensive transportation is: " << *transports[index] << endl;
 }
 
-void update(Transport<string>** transports, int& count) {
+void update(AllTransport** transports, int& count) {
 	if (count <= 0) {
 		cout << "Error: count of transportation is less than 0!" << endl;
 	}
@@ -93,7 +101,7 @@ void update(Transport<string>** transports, int& count) {
 	writeToFile("Data.txt", transports, count);
 }
 
-void setDiscount(Transport<string>** transports, int& count) {
+void setDiscount(AllTransport** transports, int& count) {
 	if (count <= 0) {
 		cout << "Error: count of transportation is less than 0!" << endl;
 		return;
@@ -122,7 +130,7 @@ void setDiscount(Transport<string>** transports, int& count) {
 
 }
 
-void totalCost(Transport<string>** transports, int& count) {
+void totalCost(AllTransport** transports, int& count) {
 	if (count <= 0) {
 		cout << "Error: count of transportation is less than 0!" << endl;
 	}
@@ -133,7 +141,7 @@ void totalCost(Transport<string>** transports, int& count) {
 	cout << "The total cost of all transportation is: " << total << endl;
 }
 
-void writeToFile(const string& filename, Transport<string>** transports, int count) {
+void writeToFile(const string& filename, AllTransport** transports, int count) {
 	ofstream file(filename);
 	if (!file.is_open()) {
 		cout << "Error: cannot open file for writing." << endl;
