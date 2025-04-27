@@ -147,4 +147,5 @@ int main()
 	}
 	delete[] t;
 	in.close();
+
 }
