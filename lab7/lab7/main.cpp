@@ -5,10 +5,10 @@
 #include "Realization.h"
 #include "Transport.h"
 #include "SpecialTransport.h"
-
+#include "Passenger.h"
 int main()
 {
-	createMenu<string>();
+	createMenu<Person>();
 }
 
 

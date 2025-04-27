@@ -1,5 +1,5 @@
-#include "Transport.h"
 #pragma once
+#include "Transport.h"
 
 template <typename T>
 class SpecialTransport : public Transport<T> {
