@@ -1,48 +1,34 @@
 #pragma once
-#include <iostream>
-#include "Transport.h"
-using namespace std;
-template <typename T>
+#include "BaseTransport.h"
+#include "Cargo.h"
 
-class SpecialTransport :public Transport<T>
+template <typename T>
+class SpecialTransport : public BaseTransport
 {
-	string specialDelivery;
+private:
+    string destination;
+    double price;
+    T cargo;
+    string specialDelivery;
+
 public:
-	SpecialTransport(string destination, double price, T cargo, string specialDelivery) : Transport<T>(destination, price, cargo), specialDelivery(specialDelivery) {
-		if (specialDelivery == "medical") {
-			Transport<T>::discount(10);
-		}
-		else if (specialDelivery == "fragile") {
-			Transport<T>::discount(5);
-		}
-		else if (specialDelivery == "dangerous") {
-			Transport<T>::discount(15);
-		}
-		else {
-			Transport<T>::discount(0);
-		}
-	}
-		void print() {
-			Transport<T>::print();
-			cout << "Special delivery: " << specialDelivery;
-			if (specialDelivery == "medical") {
-				cout << " (10% discount)" << endl;
-			}
-			else if (specialDelivery == "fragile") {
-				cout << " (5% discount)" << endl;
-			}
-			else if (specialDelivery == "dangerous") {
-				cout << " (15% discount)" << endl;
-			}
-			else {
-				cout << " (0% discount)" << endl;
-			}
-		}
-		string getSpecialDelivery() {
-			return specialDelivery;
-		}
-		void setSpecialDelivery(string specialDelivery) {
-			this->specialDelivery = specialDelivery;
-		}
-		SpecialTransport() {}
-	};
+    SpecialTransport(string destination, double price, T cargo, string specialDelivery)
+        : destination(destination), price(price), cargo(cargo), specialDelivery(specialDelivery) {
+    }
+
+    void print() override
+    {
+        cout << "Special Transport to " << destination << " with price " << price
+            << ", cargo: " << cargo << " and special delivery: " << specialDelivery << endl;
+    }
+
+    double getPrice() override
+    {
+        return price;
+    }
+
+    void setDestination(const string& destination) override 
+    {
+        this->destination = destination;
+    }
+};
