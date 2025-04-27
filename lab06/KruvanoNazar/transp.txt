@@ -1,12 +1,20 @@
-1 Passenger Ukrane 1200
-1 Medicine USA 1400
-2 Passenger Lviv 1000 
+1 p 
+p Nazar 17 Leo Ukrane 2000 1
+1 c
+c Medicine 500 China USA 3000 1
+2 p
+p Arsen 21 Leo Lviv 2100 0
 VIP
-1 Fruits Kyiv 900
-2 Medicine Ukrane 1500
+1 c
+c Fruits 450 Africa Kyiv 2900 1
+2 c
+c Medicine 800 German Ukrane 3500 0
 Premium
-2 Fish France 1200 
+2 c
+c Fish 650 China France 2800 0
 Premium
-1 Water Africa 700 
-2 Passenger Poland 1500
+1 p
+p Uliana 20 Virgo  Italy  2000 1 
+2 p
+p Daryna 19 Gemini Poland 2000 1
 Premium

@@ -1,28 +1,46 @@
 #include "Features.h"
+#include "Passenger.h"
+#include "Cargo.h"
 
-void ReadFromFile(ifstream& file, Transport<string>** transports, int& count)
+void ReadFromFile(ifstream& file, TransportsABS** transports, int& count)
 {
 	if (!file.is_open()) {
 		cout << "\nCan`t open this file";
 		return;
 	}
 	int type;
+	string trtype;
 	for (int i = 0; i < 8; i++) {
-		Transport<string>* e1 = nullptr;
-		file >> type;
+		Transport<Passenger> tp;
+		Transport<Cargo>  tc;
+		SpecialTransport<Passenger> sp;
+		SpecialTransport<Cargo> sc;
+		file >> type >> trtype;
 		switch (type) {
 		case 1:
-			e1 = new Transport<string>();
+			if (trtype == "p") {
+				file >> tp;
+				transports[count++] = new Transport<Passenger>(tp);
+			}
+			else if (trtype == "c") {
+				file >> tc;
+				transports[count++] = new Transport<Cargo>(tc);
+			}
 			break;
 		case 2:
-			e1 = new SpecialTransport<string>();
+			if (trtype == "p") {
+				file >> sp;
+				transports[count++] = new SpecialTransport<Passenger>(sp);
+			}
+			else if (trtype == "c") {
+				file >> sc;
+				transports[count++] = new SpecialTransport<Cargo>(sc);
+			}
 			break;
 		}
-		file >> *e1;
-		transports[count++] = e1;
 	}
 }
-int TheMostExpTr(Transport<string>** transports, int& count) {
+int TheMostExpTr(TransportsABS** transports, int& count) {
 	double maxcost = transports[0]->GetCost();
 	int ind = 0;
 	for (int i = 0; i < count; i++) {
@@ -33,12 +51,12 @@ int TheMostExpTr(Transport<string>** transports, int& count) {
 	}
 	return ind;
 }
-void SetDiscount(Transport<string>** transports, int& count) {
+void SetDiscount(TransportsABS** transports, int& count) {
 	for (int i = 0; i < count; i++) {
 		transports[i]->SetCost(transports[i]->FinalCost());
 	}
 }
-double FInalTRScost(Transport<string>** transports, int& count) {
+double FInalTRScost(TransportsABS** transports, int& count) {
 	double final = 0;
 	for (int i = 0; i < count; i++) {
 		final += transports[i]->GetCost();
@@ -61,7 +79,7 @@ void startmenu()
 	cout << "\n Enter your choice:";
 }
 
-void transportmenu(Transport<string>** transports, int& count, int choice, int& d)
+void transportmenu(TransportsABS** transports, int& count, int choice, int& d)
 {
 	switch (choice) {
 	case 0:
@@ -89,7 +107,7 @@ void transportmenu(Transport<string>** transports, int& count, int choice, int& 
 	case 4:
 		cout << "\nOnly passenger transportations:";
 		for (int i = 0; i < count; i++) {
-			if (transports[i]->Getvantag() == "Passenger") {
+			if (transports[i]->GetType() == "p") {
 				cout << *transports[i];
 			}
 		}
@@ -97,7 +115,7 @@ void transportmenu(Transport<string>** transports, int& count, int choice, int& 
 	case 5:
 		cout << "\nOnly cargo transportations:";
 		for (int i = 0; i < count; i++) {
-			if (transports[i]->Getvantag() != "Passenger") {
+			if (transports[i]->GetType() != "p") {
 				cout << *transports[i];
 			}
 		}
@@ -126,10 +144,8 @@ void transportmenu(Transport<string>** transports, int& count, int choice, int& 
 		cin >> trnum;
 		cout << "\nThis transportation info:";
 		cout << *transports[trnum];
-		string c;
 		cout << "\nEnter a new transportation cargo:";
-		cin >> c;
-		transports[trnum]->SetVantag(c);
+		transports[trnum]->SetVantag();
 		cout << "\nCargo changed successfully";
 		cout << *transports[trnum];
 	}

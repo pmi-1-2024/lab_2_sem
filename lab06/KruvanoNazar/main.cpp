@@ -5,7 +5,7 @@ int main() {
 	ifstream file("transp.txt");
 	int count = 0;
 	int d = 0;
-	Transport<string>* transports[8];
+	TransportsABS * transports[8];
 	ReadFromFile(file, transports, count);
 	int choice;
 	do {
@@ -13,4 +13,8 @@ int main() {
 		cin >> choice;
 		transportmenu(transports, count, choice,d);
 	} while (choice != 0);
+
+	for (int i = 0; i < count; ++i) {
+		delete transports[i];
+	}
 };
