@@ -1,7 +1,7 @@
 #ifndef FEATURES_H
 #define FEATURES_H
 #include <iostream>
-#include <string>
+#include <string>	
 #include <fstream>
 using namespace std;
 
