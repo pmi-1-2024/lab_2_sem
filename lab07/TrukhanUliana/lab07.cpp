@@ -13,28 +13,14 @@ int main() {
 	ifstream file("Data.txt");
 	try {
 		readFromFile(file, transports, count);
-	}
-	catch (const CustomException& e) {
-		cerr << e.what() << endl;
-		return 1;
-	}
-	catch (const runtime_error& e) {
-		cerr << e.what() << endl;
-		return 1;
-	}
-	catch (...) {
-		cerr << "Unknown error occurred." << endl;
-		return 1;
-	}
-	file.close();
+		file.close();
 
-	int choice;
-	do {
-		startmenu();
-		cout << "Enter your choice: ";
-		cin >> choice;
+		int choice;
+		do {
+			startmenu();
+			cout << "Enter your choice: ";
+			cin >> choice;
 
-		try {
 			switch (choice) {
 			case 1:
 				for (int i = 0; i < count; ++i) {
@@ -70,20 +56,20 @@ int main() {
 				break;
 			}
 			cout << endl;
-		}
-		catch (const CustomException& e) {
-			cerr << e.what() << endl;
-		}
-		catch (const runtime_error& e) {
-			cerr << e.what() << endl;
-		}
-		catch (...) {
-			cerr << "Unknown error occurred." << endl;
-		}
-	} while (choice != 0);
+		} while (choice != 0);
 
-	for (int i = 0; i < count; ++i) {
-		delete transports[i];
+		for (int i = 0; i < count; ++i) {
+			delete transports[i];
+		}
+	}
+	catch (const CustomException& e) {
+		cerr << e.what() << endl;
+	}
+	catch (const runtime_error& e) {
+		cerr << e.what() << endl;
+	}
+	catch (...) {
+		cerr << "Unknown error occurred." << endl;
 	}
 
 	return 0;
