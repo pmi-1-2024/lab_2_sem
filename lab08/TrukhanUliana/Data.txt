@@ -1,0 +1,7 @@
+g Yaremko 2 500
+w Yaremko 5 5 475
+w Shevchenko 12 4 380
+g Kovalenko 1 150
+w Tkachenko 8 6 510
+g Tkachenko 4 700
+g Petrenko 3 620
