@@ -1,0 +1,5 @@
+Brigade #3, Foreman: Fedorovuch - Total Cost: 800.00
+Brigade #2, Foreman: Ivanov - Total Cost: 1800.00
+Brigade #1, Foreman: Petriv - Total Cost: 82500.50
+
+Загальна сума витрат по всіх бригадах: 85100.5
