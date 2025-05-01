@@ -3,38 +3,35 @@
 
 #include <iostream>
 #include <string>
+#include "transport.h"
 using namespace std;
 
 template <typename T>
 class SpecialTransport : public Transport<T> {
 private:
-    string specialConditions;
-    double discount;  
+    string specialConditions;  
 public:
-    SpecialTransport(T c, string d, double co, string cond, double disc = 0.0)
-        : Transport<T>(c, d, co), specialConditions(cond), discount(disc) {}
+    SpecialTransport() : Transport<T>("", "", 0.0), specialConditions(" ") {}
+    SpecialTransport(T cargo, string destination, double cost, double weight, string cond)
+        : Transport<T>(cargo, destination, cost, weight), specialConditions(cond) {}
 
-    SpecialTransport() : Transport<T>("", "", 0.0), specialConditions(" "), discount(0.0) {}
-
-    void updateConditions(string cond) { specialConditions = cond; }
-
-    double countDiscount(double percent) override {
-        double ordinaryDiscount = Transport<T>::countDiscount(percent);
-        return ordinaryDiscount - (ordinaryDiscount * 0.10);  
+    double countDiscount(double) override {
+        return Transport<T>::cost * 0.95;
     }
 
-    void displayInformation(ofstream& os) override {
-        this->Transport<T>::displayInformation(os);
+
+    void displayInformation(ostream& os) override {
+        Transport<T>::displayInformation(os);
         os << "Special Conditions: " << specialConditions << endl;
     }
 
     friend istream& operator>> (istream& is, SpecialTransport<T>& t) {
-        is >> t.cargo >> t.destination >> t.cost >> t.specialConditions;
+        is >> t.cargo >> t.destination >> t.cost >> t.weight>> t.specialConditions;
         return is;
     }
 
     friend ostream& operator<<(ostream& os, const SpecialTransport<T>& t) {
-        os << "Cargo: " << t.cargo << "\nDestination: " << t.destination << "\nCost: " << t.cost << "\nSpecial conditions: " << t.specialConditions;
+        os << "Cargo: " << t.cargo << "\nDestination: " << t.destination << "\nCost: " << t.cost<<"\nWeight:"<< t.weight << "\nSpecial conditions: " << t.specialConditions;
         return os;
     }
 };

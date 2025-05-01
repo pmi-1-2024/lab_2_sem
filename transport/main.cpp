@@ -4,6 +4,7 @@
 #include "transport.h"
 #include "specialtransport.h"
 #include "Cargo.h"
+#include "cargoitem.h"
 using namespace std;
 
 int main() {
@@ -21,55 +22,65 @@ int main() {
 
     fin >> totalCargos;
 
+    double totalCargoWeight = 0.0;
     for (int i = 0; i < totalCargos; ++i) {
-        int type;
-        string cargo, destination, condition;
-        double cost;
-        fin >> cargo >> destination >> cost;
+        CargoItem item;
+        item.readFromFile(fin);
 
-        if (i == 1 || i == 3) {
-            fin >> condition;  
-        }
+        if (item.type == 's') {
+            cargos[i] = new SpecialTransport<string>(
+                item.name, item.destination, item.cost, item.weight, item.condition);
 
-        if (i == 1 || i == 3) {
-            cargos[i] = new SpecialTransport<string>(cargo, destination, cost, condition);
         }
         else {
-            cargos[i] = new Transport<string>(cargo, destination, cost);
+            cargos[i] = new Transport<string>(
+                item.name, item.destination, item.cost, item.weight);
+
         }
-        double discountedCost = cargos[i]->countDiscount(10); 
-        fout << "Discounted Cost for " << cargo << ": " << discountedCost << endl;
+        totalCargoWeight += item.weight;
+        double discountedCost = cargos[i]->countDiscount(10);
+
+        fout << "Discounted price for " << item.name << ": " << discountedCost;
         cargos[i]->displayInformation(fout);
-        fout << "Weight: 100 kg" << endl;  
         fout << endl;
+
+        cout << "Discounted price for " << item.name << ": " << discountedCost;
+        cargos[i]->displayInformation(cout);
+        cout << endl;
     }
+        CargoDistr distributor;
+        int numTransports;
+        fin >> numTransports;
+        for (int i = 0; i < numTransports; ++i) {
+            double cap;
+            fin >> cap;
+            distributor.addTransport(cap);
+        }
 
-    CargoDistr distributor;
-    int numTransports;
-    fin >> numTransports;
+        int leftover = distributor.distributeCargo(totalCargoWeight);
+        if (leftover <= 0) {
+            fout << "Cargo distributed successfully.";
+            cout << "Cargo distributed successfully.";
+        }
+        else {
+            fout << "Not enough capacity to distribute all cargo." ;
+            fout << "Undelivered cargo: " << leftover << " kg" ;
+            cout << "Not enough capacity to distribute all cargo." ;
+            cout << "Undelivered cargo: " << leftover << " kg" ;
+        }
+        distributor.printReport(fout);
+        distributor.printReport(cout);
+        fout << "Total cargo weight: " << totalCargoWeight << " kg";
+        cout << "Total cargo weight: " << totalCargoWeight << " kg";
 
-    for (int i = 0; i < numTransports; ++i) {
-        double cap;
-        fin >> cap;
-        distributor.addTransport(cap);
-    }
 
-    double totalCargoWeight = 400.0;
 
-    if (distributor.distributeCargo(totalCargoWeight)) {
-        fout << "Cargo distributed successfully." << endl;
-    }
-    else {
-        fout << "Not enough capacity to distribute all cargo." << endl;
-    }
+        for (int i = 0; i < totalCargos; ++i) {
+            delete cargos[i];
+        }
 
-    distributor.printReport(fout);
-
-    for (int i = 0; i < totalCargos; ++i) {
-        delete cargos[i];
-    }
-
-    fin.close();
-    fout.close();
-    return 0;
+        fin.close();
+        fout.close();
+        return 0;
+    
 }

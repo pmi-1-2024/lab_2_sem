@@ -39,7 +39,6 @@ public:
                 }
             }
         }
-
         for (int i = 0; i < count; ++i) {
             double canTake = capacities[i] - used[i];
             double toAssign = (totalCargo < canTake) ? totalCargo : canTake;
@@ -48,13 +47,12 @@ public:
             if (totalCargo <= 0.0) break;
         }
 
-        return totalCargo <= 0.0;  
+        return totalCargo;  
     }
-
-    void printReport(ofstream& os) const {
+    void printReport(ostream& os) const {
         os << "\nCargo distribution report:\n";
         for (int i = 0; i < count; ++i) {
-            os << "Transport " << i + 1 << ": " << used[i] << " out of " << capacities[i] << endl;
+            os << "Transport " << (i + 1) << " cargo: " << used[i] << "/" << capacities[i] << " kg is used" << endl;
         }
     }
 };

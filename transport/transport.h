@@ -12,35 +12,33 @@ protected:
     T cargo;
     string destination;
     double cost;
+    double weight;
 
 public:
     Transport() : cargo(T()), destination(""), cost(0.0) {}
-
-    Transport(T cargo, string destination, double cost)
-        : cargo(cargo), destination(destination), cost(cost) {
+    Transport(T c, string destination, double cost, double weight)
+        : cargo(cargo), destination(destination), cost(cost), weight(weight) {
     }
 
-    void updateCargo(T newCargo) { cargo = newCargo; }
-    void updateDestination(string newDestination) { destination = newDestination; }
-    void updateCost(double newCost) { cost = newCost; }
+    virtual double countDiscount(double percent) { return cost - (cost * percent / 100.0);  }
 
-    virtual double countDiscount(double percent) {
-        return cost - (cost * percent / 100.0);  
-    }
-
-    virtual void displayInformation(ofstream& os) {
-        os << "Cargo: " << cargo << "\nDestination: " << destination << "\nCost: " << cost << endl;
+    virtual void displayInformation(ostream& os) {
+        os << "Cargo: " << cargo
+            << "\nDestination: " << destination
+            << "\nCost: " << cost
+            << "\nWeight: " << weight << " kg" << endl;
     }
 
     double getCost() const { return cost; }
+    double getWeight() const { return weight; }
 
     friend istream& operator>>(istream& is, Transport<T>& t) {
-        is >> t.cargo >> t.destination >> t.cost;
+        is >> t.cargo >> t.destination >> t.cost >> t.weight ;
         return is;
     }
 
     friend ostream& operator<<(ostream& os, const Transport<T>& t) {
-        os << "Cargo: " << t.cargo << "\nDestination: " << t.destination << "\nCost: " << t.cost;
+        os << "Cargo: " << t.cargo << "\nDestination: " << t.destination << "\nCost: " << t.cost << "\nWeight:" << t.getWeight() << "kg";
         return os;
     }
 };
