@@ -1,0 +1,9 @@
+8
+1 Kruvano 5 1500.50
+2 Trukhan 78 6 450.90
+1 Yaremko 4 1342
+1 Litvunchuk 6 980.30
+2 Stetsiv 219 14 900
+1 Duda 5 1450.50
+2 Mandzuvata 65 10 750.10
+2 Malchevska 110 20 1600.90
