@@ -3,13 +3,13 @@
 using namespace std;
 
 int main() {
-    ifstream file("transp.txt");
-    int count = 0;
-    int d = 0;
-    Transport<string>* transports[8];
-    int choice;
-
     try {
+        ifstream file("transp.txt");
+        int count = 0;
+        int d = 0;
+        Transport<string>* transports[8];
+        int choice;
+
         ReadFromFile(file, transports, count);
         do {
             startmenu();
@@ -25,7 +25,7 @@ int main() {
         cerr << "Invalid input: " << iaex.what() << endl;
     }
     catch (const exception& ex) {
-        cerr << "General error: " << ex.what() << endl;
+        cerr << "Genera error: " << ex.what() << endl;
     }
 
     return 0;
