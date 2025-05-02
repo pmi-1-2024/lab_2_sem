@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <numeric>
 #include <stdexcept>
+
 using namespace std;
 
 void readFromFile(const string& filename, list<Brigade>& brigades) {
@@ -20,20 +21,23 @@ void readFromFile(const string& filename, list<Brigade>& brigades) {
         Expense e{ date, material, volume, cost };
 
         auto it = find_if(brigades.begin(), brigades.end(),
-            [&](const Brigade& b) { return b.number == number && b.foreman == foreman; });
+            [&](Brigade& b) {
+                return b.getNumber() == number && b.getForeman() == foreman;
+            });
 
         if (it != brigades.end()) {
-            it->expenses.push_back(e);
+            it->addExpense(e);
         }
         else {
-            Brigade b{ number, foreman, {e} };
+            Brigade b(number, foreman);
+            b.addExpense(e);
             brigades.push_back(b);
         }
     }
 }
 
 void sortBrigades(list<Brigade>& brigades) {
-    brigades.sort();
+    brigades.sort(); 
 }
 
 void printBrigades(const list<Brigade>& brigades, const string& outFile) {
@@ -55,7 +59,7 @@ double printTotalCosts(const list<Brigade>& brigades, const string& outFile) {
     for (const auto& b : brigades) {
         double brigadeTotal = b.totalCost();
         total += brigadeTotal;
-        out << "Brigade #" << b.number << ", Foreman: " << b.foreman
+        out << "Brigade #" << b.getNumber() << ", Foreman: " << b.getForeman()
             << " - Total Cost: " << fixed << setprecision(2) << brigadeTotal << endl;
     }
 
