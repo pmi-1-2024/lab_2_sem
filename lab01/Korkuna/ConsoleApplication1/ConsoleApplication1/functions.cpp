@@ -1,11 +1,11 @@
 #include <conio.h>
 #include "functions.h"
-#include "constants.h"
+
 
 
 void get(string field, string quiry, Group* list) {
     if (field == "Group") { cout << list[stoi(quiry) - 1]; }
-    else for (int j = 0; j < groups_n; j++) for (int i = 0; i < list[j].get_size(); i++) {
+    else for (int j = 0; j < 4; j++) for (int i = 0; i < list[j].get_size(); i++) {
         Student s = list[j].get_list()[i];
         if (field == "Name") { if (s.get_name() == quiry) cout << s; }
         else if (field == "Zip") { if (s.get_zip() == quiry) cout << s; }
@@ -25,7 +25,7 @@ void search(Group* list) {
         if (f == "End") break;
         if (f == "All") {
             system("cls");
-            for (int i = 0; i < groups_n; i++) cout << list[i];
+            for (int i = 0; i < 4; i++) cout << list[i];
             _getch();
             continue;
         }
