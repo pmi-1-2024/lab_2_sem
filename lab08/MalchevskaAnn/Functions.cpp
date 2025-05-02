@@ -49,23 +49,42 @@ bool operator==(const Foreman& a, const Foreman& b) {
     return a.name == b.name && a.age == b.age;
 }
 
-
 ostream& operator<<(ostream& os, const BrigadeExpense& exp) {
-    os << "Brigade #" << exp.brigadeNumber
-        << " | Foreman: " << exp.foreman
-        << " | Material: " << exp.material;
+    os << "Brigade #" << exp.getBrigadeNumber()
+        << " | Foreman: " << exp.getForeman() << "\n";
+
+    for (const auto& mat : exp.getMaterials()) {
+        os << mat << '\n';
+    }
     return os;
 }
 
 istream& operator>>(istream& is, BrigadeExpense& exp) {
-    is >> exp.brigadeNumber >> exp.foreman >> exp.material;
+    int brigadeNum;
+    Foreman foreman;
+    int materialCount;
+
+    if (!(is >> brigadeNum >> foreman >> materialCount)) {
+        return is;
+    }
+
+    exp.setBrigadeNumber(brigadeNum);
+    exp.setForeman(foreman);
+
+    for (int i = 0; i < materialCount; ++i) {
+        Material m;
+        if (is >> m) {
+            exp.addMaterial(m);
+        }
+    }
+
     return is;
 }
 
 bool operator==(const BrigadeExpense& a, const BrigadeExpense& b) {
-    return a.brigadeNumber == b.brigadeNumber &&
-        a.foreman == b.foreman &&
-        a.material == b.material;
+    return a.getBrigadeNumber() == b.getBrigadeNumber() &&
+        a.getForeman() == b.getForeman() &&
+        a.getMaterials() == b.getMaterials();
 }
 
 void readFromFile(const string& filename, deque<BrigadeExpense>& records) {
@@ -75,11 +94,8 @@ void readFromFile(const string& filename, deque<BrigadeExpense>& records) {
     }
 
     BrigadeExpense exp;
-    int lineNumber = 1;
-
     while (file >> exp) {
         records.push_back(exp);
-        ++lineNumber;
     }
 
     if (records.empty()) {
@@ -95,8 +111,13 @@ void groupByBrigadeAndWrite(const deque<BrigadeExpense>& records, const string& 
     map<int, pair<Foreman, vector<Material>>> grouped;
 
     for (const auto& record : records) {
-        grouped[record.brigadeNumber].first = record.foreman;
-        grouped[record.brigadeNumber].second.push_back(record.material);
+        int b = record.getBrigadeNumber();
+        if (grouped.find(b) == grouped.end()) {
+            grouped[b].first = record.getForeman();
+        }
+        for (const auto& mat : record.getMaterials()) {
+            grouped[b].second.push_back(mat);
+        }
     }
 
     ofstream out(filename);
@@ -145,11 +166,11 @@ void summarizeMaterials(const deque<BrigadeExpense>& records, const string& file
     map<string, pair<double, double>> summary;
 
     for (const auto& record : records) {
-        const Material& mat = record.material;
-        summary[mat.name].first += mat.volume;
-        summary[mat.name].second += mat.cost;
+        for (const auto& mat : record.getMaterials()) {
+            summary[mat.name].first += mat.volume;
+            summary[mat.name].second += mat.cost;
+        }
     }
-
     ofstream out(filename);
     if (!out.is_open()) {
         throw DataException("Failed to open file for material summary: " + filename);

@@ -21,10 +21,20 @@ struct Foreman {
     friend bool operator==(const Foreman& a, const Foreman& b);
 };
 
-struct BrigadeExpense {
+class BrigadeExpense {
+private:
     int brigadeNumber;
     Foreman foreman;
-    Material material;
+    vector<Material> materials;
+
+public:
+    BrigadeExpense() = default;
+    void setBrigadeNumber(int number) { brigadeNumber = number; }
+    int getBrigadeNumber() const { return brigadeNumber; }
+    void setForeman(const Foreman& f) { foreman = f; }
+    Foreman getForeman() const { return foreman; }
+    void addMaterial(const Material& m) { materials.push_back(m); }
+    vector<Material> getMaterials() const { return materials; }
     friend ostream& operator<<(ostream& os, const BrigadeExpense& exp);
     friend istream& operator>>(istream& is, BrigadeExpense& exp);
     friend bool operator==(const BrigadeExpense& a, const BrigadeExpense& b);
