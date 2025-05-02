@@ -52,4 +52,3 @@ void ToFile(ostream& file, deque<Bill*>& bills)
 		file << *bill << "\n";
 	}
 }
-void
