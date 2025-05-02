@@ -1,0 +1,7 @@
+Gas, Surname: Kovalenko, People count: 1, Paid: 150
+Gas, Surname: Petrenko, People count: 3, Paid: 620
+Water, Surname: Shevchenko, Last counter: 12, Paid volume: 4, Paid: 380
+Water, Surname: Tkachenko, Last counter: 8, Paid volume: 6, Paid: 510
+Gas, Surname: Tkachenko, People count: 4, Paid: 700
+Gas, Surname: Yaremko, People count: 2, Paid: 500
+Water, Surname: Yaremko, Last counter: 5, Paid volume: 5, Paid: 475

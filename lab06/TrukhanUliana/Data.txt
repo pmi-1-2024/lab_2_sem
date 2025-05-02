@@ -1,0 +1,9 @@
+8
+t Goods 195 Apples Ternopil 2000
+s People 0 16 Kyiv 867 50
+s Goods 150 Medical Dnipro 1500 20
+t Goods 300 Electronics Kharkiv 2000
+t People 1 25 Odesa 850
+s Goods 50 Medical Lviv 3000 25
+t Goods 250 Bananas Vinnytsia 600
+s People 0 16 Lviv 950 50

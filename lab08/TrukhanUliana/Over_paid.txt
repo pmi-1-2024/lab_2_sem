@@ -1,0 +1,3 @@
+Bills with paid amount greater than 600:
+Gas bill, Surname: Petrenko, People count: 3, Paid: 620
+Gas bill, Surname: Tkachenko, People count: 4, Paid: 700
