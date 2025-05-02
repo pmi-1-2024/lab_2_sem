@@ -11,33 +11,26 @@ void ReadFromFile(ifstream& file, TransportsABS** transports, int& count)
 	int type;
 	string trtype;
 	for (int i = 0; i < 8; i++) {
-		Transport<Passenger> tp;
-		Transport<Cargo>  tc;
-		SpecialTransport<Passenger> sp;
-		SpecialTransport<Cargo> sc;
 		file >> type >> trtype;
 		switch (type) {
 		case 1:
 			if (trtype == "p") {
-				file >> tp;
-				transports[count++] = new Transport<Passenger>(tp);
+				transports[count++] = new Transport<Passenger>();
 			}
 			else if (trtype == "c") {
-				file >> tc;
-				transports[count++] = new Transport<Cargo>(tc);
+				transports[count++] = new Transport<Cargo>();
 			}
 			break;
 		case 2:
 			if (trtype == "p") {
-				file >> sp;
-				transports[count++] = new SpecialTransport<Passenger>(sp);
+				transports[count++] = new SpecialTransport<Passenger>();
 			}
 			else if (trtype == "c") {
-				file >> sc;
-				transports[count++] = new SpecialTransport<Cargo>(sc);
+				transports[count++] = new SpecialTransport<Cargo>();
 			}
 			break;
 		}
+		file >> *transports[count-1];
 	}
 }
 int TheMostExpTr(TransportsABS** transports, int& count) {
