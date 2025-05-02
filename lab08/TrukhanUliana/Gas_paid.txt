@@ -1,0 +1,4 @@
+Surname: Kovalenko, People count: 1, Paid: 150
+Surname: Petrenko, People count: 3, Paid: 620
+Surname: Tkachenko, People count: 4, Paid: 700
+Surname: Yaremko, People count: 2, Paid: 500
