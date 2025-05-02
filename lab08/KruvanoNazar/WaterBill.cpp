@@ -1,18 +1,8 @@
 #include "WaterBill.h"
 
-double WaterBill::GetAmPaid() const
-{
-	return amountpaid;
-}
-
-string WaterBill::GetSurname() const
-{
-	return surname;
-}
-
 void WaterBill::read(istream& is)
 {
-	is >> surname >> lastdisplay >> paidvolume >> amountpaid;
+	is >> surname >> amountpaid >> lastdisplay >> paidvolume;
 }
 
 void WaterBill::print(ostream& os) const

@@ -12,29 +12,21 @@ int main()
     try {
         ReadFile(file1, bills, Gbills);
         cout << "\nBills before sorting: " << "\n";
-        for (Bill* bill : bills) {
-            cout << *bill << "\n";
-        }
+        PrintBills(bills);
+
         sort(bills.begin(), bills.end(), CompareBills);
         cout << "\nBills after sorting: " << "\n";
-        for (Bill* bill : bills) {
-            cout << *bill << "\n";
-        }
-        for (Bill* bill : bills) {
-            file2 << *bill << "\n";
-        }
+        PrintBills(bills);
+        ToFile(file2, bills);
+
         cout << "\nOnly gas bills:" << "\n";
-        for (Bill* bill : Gbills) {
-            cout << *bill << "\n";
-        }
+        PrintBills(Gbills);
+
         sort(Gbills.begin(), Gbills.end(), CompareBills);
         cout << "\nOnly gas bills after sorting:" << "\n";
-        for (Bill* bill : Gbills) {
-            cout << *bill << "\n";
-        }
-        for (Bill* bill : Gbills) {
-            file3 << *bill << "\n";
-        }
+        PrintBills(Gbills);
+        ToFile(file3, Gbills);
+
         double n;
         cout << "\nEnter a number to find bill greater than this number: ";
         cin >> n;

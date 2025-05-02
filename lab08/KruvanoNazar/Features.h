@@ -19,4 +19,6 @@ public:
 
 void ReadFile(ifstream& file, deque<Bill*>& bills, deque<Bill*>& Gbills);
 bool CompareBills(const Bill* a, const Bill* b);
+void PrintBills(deque<Bill*>& bills);
+void ToFile(ostream& file, deque <Bill*>& bills);
 #endif

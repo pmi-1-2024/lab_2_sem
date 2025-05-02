@@ -39,3 +39,17 @@ void ReadFile(ifstream& file, deque<Bill*>& bills, deque<Bill*>& Gbills)
 bool CompareBills(const Bill* a, const Bill* b) {
 	return a->GetSurname() < b->GetSurname();
 }
+
+void PrintBills(deque<Bill*>& bills)
+{
+	for (Bill* bill : bills) {
+		cout << *bill << "\n";
+	}
+}
+void ToFile(ostream& file, deque<Bill*>& bills)
+{
+	for (Bill* bill : bills) {
+		file << *bill << "\n";
+	}
+}
+void

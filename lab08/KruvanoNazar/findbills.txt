@@ -1,6 +1,3 @@
-Surname: Kruvano
-Persons: 5
-Amount paid: 1500.5
 Surname: Malchevska
 Last counter display: 110
 Paid volume: 20
