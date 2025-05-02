@@ -1,0 +1,10 @@
+5
+0 Kyiv 1000 500
+1 Lviv 1200 700 Temp Control
+0 Odessa 900 300
+0 Lviv 1100 400
+0 Kyiv 950 600
+3
+Lviv 1000
+Kyiv 900
+Odessa 200
