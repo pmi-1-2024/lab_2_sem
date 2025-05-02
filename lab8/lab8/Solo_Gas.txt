@@ -1,0 +1,2 @@
+Total sum paid for gas: 220
+Number of accounts with 1 person: 1

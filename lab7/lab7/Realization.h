@@ -33,7 +33,7 @@ void createMenu() {
         cin >> size;
 
         if (cin.fail()) throw invalid_argument("Invalid input for number of transports");
-        if (size <= 0) throw invalid_argument("Number of transports must be positive");
+        if (size <= 0)  throw invalid_argument("Number of transports must be positive"); 
 
         int numPassengers;
         cout << "Enter info for " << size << " passengers: ";

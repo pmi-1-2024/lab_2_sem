@@ -1,0 +1,4 @@
+g Johnson 3 120.5
+g Brown 1 220.0
+w Taylor 4 45.7 300
+w Smith 2 35.0 220
