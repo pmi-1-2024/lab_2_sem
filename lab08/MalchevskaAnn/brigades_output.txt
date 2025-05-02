@@ -1,0 +1,14 @@
+Brigade #101 | Foreman: Kovalenko (Age: 45)
+Date        Material       Volume    Cost      
+-----------------------------------------------
+2024-03-01  Cement         5.50      250.00    
+2024-03-02  Sand           10.00     150.00    
+2024-03-04  Gravel         7.00      210.00    
+Total brigade cost: 610.00
+
+Brigade #102 | Foreman: Petrov (Age: 38)
+Date        Material       Volume    Cost      
+-----------------------------------------------
+2024-03-03  Cement         3.00      140.00    
+Total brigade cost: 140.00
+
