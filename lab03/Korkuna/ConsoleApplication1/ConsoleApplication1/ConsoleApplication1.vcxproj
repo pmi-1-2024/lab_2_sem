@@ -128,6 +128,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication1.cpp" />
+    <ClCompile Include="c_phone.cpp" />
+    <ClCompile Include="functions.cpp" />
+    <ClCompile Include="m_phone.cpp" />
+    <ClCompile Include="phone.cpp" />
+    <ClCompile Include="r_phone.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="c_phone.h" />
+    <ClInclude Include="functions.h" />
+    <ClInclude Include="m_phone.h" />
+    <ClInclude Include="phone.h" />
+    <ClInclude Include="r_phone.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
