@@ -1,0 +1,4 @@
+3 brigades with the lowest costs:
+Brigade N 4 (Murov) - 45
+Brigade N 1 (Klimov) - 155
+Brigade N 3 (Alexev) - 200

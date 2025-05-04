@@ -1,0 +1,7 @@
+﻿1 Klimov 2025-05-01 Cement 10 105
+1 Klimov 2025-05-02 Paint 5 50
+2 Rumov 2025-05-01 Bricks 100 300
+3 Alexev 2025-05-03 Cement 20 200
+2 Rumov 2025-05-04 Paint 10 80
+4 Murov 2025-05-05 Cement 4 45
+5 Kuzov 2025-05-03 Bricks 240 760

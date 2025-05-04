@@ -1,0 +1,17 @@
+Brigade N 5 (Kuzov) - total costs: 760
+  2025-05-03 Bricks 240 760.000000
+
+Brigade N 4 (Murov) - total costs: 45
+  2025-05-05 Cement 4 45.000000
+
+Brigade N 3 (Alexev) - total costs: 200
+  2025-05-03 Cement 20 200.000000
+
+Brigade N 2 (Rumov) - total costs: 380
+  2025-05-01 Bricks 100 300.000000
+  2025-05-04 Paint 10 80.000000
+
+Brigade N 1 (Klimov) - total costs: 155
+  2025-05-01 Cement 10 105.000000
+  2025-05-02 Paint 5 50.000000
+
