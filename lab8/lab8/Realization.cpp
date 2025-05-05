@@ -12,6 +12,10 @@ bool compareByPaidAmount(GasRah* a, GasRah* b) {
     return a->getPaidAmount() < b->getPaidAmount();
 }
 
+bool compareWaterByPaidVolume(WaterRah* a, WaterRah* b) {
+    return a->getPaidVolume() > b->getPaidVolume();
+}
+
 void readFromFile(deque<Rahunok*>& rahunoki) {
     ifstream file("AllData.txt");
     if (!file.is_open()) {
@@ -105,13 +109,9 @@ void saveToFiles(const deque<Rahunok*>& rahunoki) {
         throw runtime_error("No bills to save!");
     }
 
-    sort(gasList.begin(), gasList.end(), [](GasRah* a, GasRah* b) {
-        return a->getPaidAmount() < b->getPaidAmount();
-        });
+    sort(gasList.begin(), gasList.end(), compareByPaidAmount);
 
-    sort(waterList.begin(), waterList.end(), [](WaterRah* a, WaterRah* b) {
-        return a->getPaidVolume() > b->getPaidVolume(); 
-        });
+    sort(waterList.begin(), waterList.end(), compareWaterByPaidVolume);
 
     for (auto gas : gasList) {
         gasFile << *gas << endl;
