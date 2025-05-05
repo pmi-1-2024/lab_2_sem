@@ -8,6 +8,10 @@
 
 using namespace std;
 
+bool compareByPaidAmount(GasRah* a, GasRah* b) {
+    return a->getPaidAmount() < b->getPaidAmount();
+}
+
 void readFromFile(deque<Rahunok*>& rahunoki) {
     ifstream file("AllData.txt");
     if (!file.is_open()) {
@@ -69,10 +73,8 @@ void showGasBills(const deque<Rahunok*>& rahunoki) {
     if (gasList.empty()) {
         throw runtime_error("No gas bills available to display!");
     }
-
-    sort(gasList.begin(), gasList.end(), [](GasRah* a, GasRah* b) {
-        return a->getPaidAmount() < b->getPaidAmount();
-        });
+    
+    sort(gasList.begin(), gasList.end(), compareByPaidAmount);
 
     for (auto gas : gasList) {
         cout << *gas << endl;
