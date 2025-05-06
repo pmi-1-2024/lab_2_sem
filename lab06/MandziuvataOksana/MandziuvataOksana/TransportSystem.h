@@ -4,6 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "Cargo.h"
+#include "Person.h"
 
 using namespace std;
 
@@ -27,8 +29,8 @@ public:
     void setCost(double cost) { baseCost = cost; }
 
     virtual double getDiscount() const {
-        if (cargo == "Medical") return baseCost * 0.3;
-        if (cargo == "Passenger") return baseCost * 0.2;
+        if (cargo.getType() == "Medical") return baseCost * 0.3;
+        if (cargo.getType() == "Passenger") return baseCost * 0.2;
         return 0.0;
     }
 
@@ -86,11 +88,11 @@ public:
     }
 };
 
-void loadTransports(ifstream& input, Transport<string>** arr, int& size);
-int findMostExpensive(Transport<string>** arr, int size);
-double totalCost(Transport<string>** arr, int size);
-void applyDiscounts(Transport<string>** arr, int size);
+void loadTransports(ifstream& input, Transport<Cargo>** arr, int& size);
+int findMostExpensive(Transport<Cargo>** arr, int size);
+double totalCost(Transport<Cargo>** arr, int size);
+void applyDiscounts(Transport<Cargo>** arr, int size);
 void showMenu();
-void handleChoice(int choice, Transport<string>** arr, int size);
+void handleChoice(int choice, Transport<Cargo>** arr, int size);
 
 #endif

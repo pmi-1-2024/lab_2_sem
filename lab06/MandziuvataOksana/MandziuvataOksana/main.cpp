@@ -1,8 +1,10 @@
 ﻿#include "TransportSystem.h"
+#include "Cargo.h"
+#include "Person.h"
 
 int main() {
     ifstream input("transp.txt");
-    Transport<string>* transports[8];
+    Transport<Cargo>* transports[8];
     int count = 0;
 
     loadTransports(input, transports, count);

@@ -1,6 +1,6 @@
 #include "TransportSystem.h"
 
-void loadTransports(ifstream& input, Transport<string>** arr, int& size) {
+void loadTransports(ifstream& input, Transport<Cargo>** arr, int& size) {
     if (!input) {
         cerr << "Error: File cannot be opened!" << endl;
         return;
@@ -9,13 +9,13 @@ void loadTransports(ifstream& input, Transport<string>** arr, int& size) {
     int type;
     size = 0;
     while (input >> type) {
-        if (size >= 8) break; 
+        if (size >= 8) break;
 
         if (type == 1) {
-            arr[size] = new Transport<string>();
+            arr[size] = new Transport<Cargo>();
         }
         else if (type == 2) {
-            arr[size] = new SpecialTransport<string>();
+            arr[size] = new SpecialTransport<Cargo>();
         }
 
         input >> *arr[size];
@@ -23,7 +23,7 @@ void loadTransports(ifstream& input, Transport<string>** arr, int& size) {
     }
 }
 
-int findMostExpensive(Transport<string>** arr, int size) {
+int findMostExpensive(Transport<Cargo>** arr, int size) {
     int maxIdx = 0;
     double maxCost = arr[0]->getCost();
     for (int i = 1; i < size; ++i) {
@@ -35,13 +35,13 @@ int findMostExpensive(Transport<string>** arr, int size) {
     return maxIdx;
 }
 
-void applyDiscounts(Transport<string>** arr, int size) {
+void applyDiscounts(Transport<Cargo>** arr, int size) {
     for (int i = 0; i < size; ++i) {
         arr[i]->setCost(arr[i]->calculateFinalCost());
     }
 }
 
-double totalCost(Transport<string>** arr, int size) {
+double totalCost(Transport<Cargo>** arr, int size) {
     double total = 0.0;
     for (int i = 0; i < size; ++i) {
         total += arr[i]->getCost();
@@ -61,7 +61,7 @@ void showMenu() {
     cout << "Choose an option: ";
 }
 
-void handleChoice(int choice, Transport<string>** arr, int size) {
+void handleChoice(int choice, Transport<Cargo>** arr, int size) {
     switch (choice) {
     case 1:
         for (int i = 0; i < size; ++i) {
@@ -81,7 +81,7 @@ void handleChoice(int choice, Transport<string>** arr, int size) {
         cout << "Enter cargo type to filter (e.g. Passenger, Medical): ";
         cin >> type;
         for (int i = 0; i < size; ++i) {
-            if (arr[i]->getCargo() == type) {
+            if (arr[i]->getCargo().getType() == type) {
                 cout << *arr[i];
             }
         }
@@ -95,7 +95,8 @@ void handleChoice(int choice, Transport<string>** arr, int size) {
             cout << "Invalid index!\n";
             break;
         }
-        string newCargo, newDest;
+        Cargo newCargo;
+        string newDest;
         cout << "New cargo: ";
         cin >> newCargo;
         cout << "New destination: ";
