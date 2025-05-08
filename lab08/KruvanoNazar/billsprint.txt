@@ -1,0 +1,28 @@
+Surname: Duda
+Persons: 5
+Amount paid: 1450.5
+Surname: Kruvano
+Persons: 5
+Amount paid: 1500.5
+Surname: Litvunchuk
+Persons: 6
+Amount paid: 980.3
+Surname: Malchevska
+Last counter display: 110
+Paid volume: 20
+Amount paid: 1600.9
+Surname: Mandzuvata
+Last counter display: 65
+Paid volume: 10
+Amount paid: 750.1
+Surname: Stetsiv
+Last counter display: 219
+Paid volume: 14
+Amount paid: 900
+Surname: Trukhan
+Last counter display: 78
+Paid volume: 6
+Amount paid: 450.9
+Surname: Yaremko
+Persons: 4
+Amount paid: 1342

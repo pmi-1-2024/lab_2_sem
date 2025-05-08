@@ -1,0 +1,4 @@
+Surname: Malchevska
+Last counter display: 110
+Paid volume: 20
+Amount paid: 1600.9

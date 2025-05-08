@@ -1,0 +1,12 @@
+Surname: Duda
+Persons: 5
+Amount paid: 1450.5
+Surname: Kruvano
+Persons: 5
+Amount paid: 1500.5
+Surname: Litvunchuk
+Persons: 6
+Amount paid: 980.3
+Surname: Yaremko
+Persons: 4
+Amount paid: 1342
