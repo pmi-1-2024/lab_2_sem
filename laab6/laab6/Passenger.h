@@ -19,6 +19,11 @@ struct Person {
         in >> name >> age;
     }
 
+    void update(string newName, int newAge) {
+        name = newName;
+        age = newAge;
+    }
+
     friend ostream& operator<<(ostream& out, const Person& p) {
         p.print(out);
         return out;
