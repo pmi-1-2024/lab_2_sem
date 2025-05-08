@@ -1,0 +1,7 @@
+6
+t passenger 19 1 Kyiv 700
+s package 100 medical Lviv 800 15
+t package 200 books Odesa 500
+s passenger 25 0 Ternopil 900 20
+t passenger 40 1 Dnipro 600
+s package 50 food Lviv 750 10

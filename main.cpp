@@ -1,31 +1,27 @@
-#include "PhoneManager.h"
-#include <fstream>
+#include "Funcs.h"
 
 int main() {
-    PhoneManager manager;
-    ifstream in("input.txt");
+	const int MAX = 100;
+	TripBase* arr[MAX];
+	int n = 0;
 
-    int type;
-    while (in >> type) {
-        Phone* p = nullptr;
-        if (type == 1) p = new MobilePhone();
-        else if (type == 2) p = new RadioPhone();
-        else continue;
+	loadTrips(arr, n);
 
-        in >> *p;
-        manager.add(p);
-    }
+	int ch;
+	do {
+		cout << "1. all\n2. filter passenger\n3. filter package\n4. max\n5. change\n6. sale\n7. total\n0. exit\n";
+		cin >> ch;
+		switch (ch) {
+		case 1: printAll(arr, n); break;
+		case 2: filterTrips(arr, n, "passenger"); break;
+		case 3: filterTrips(arr, n, "package"); break;
+		case 4: maxTrip(arr, n); break;
+		case 5: changeTrip(arr, n); break;
+		case 6: saleTrip(arr, n); break;
+		case 7: total(arr, n); break;
+		}
+	} while (ch != 0);
 
-    manager.printAll(cout);
-
-    cout << "\nSearching for 'Galaxy':" << endl;
-    manager.search("Galaxy", cout);
-
-    cout << "\nRemoving 'Galaxy'..." << endl;
-    manager.removeByName("Galaxy");
-
-    cout << "\nAll after deletion:" << endl;
-    manager.printAll(cout);
-
-    return 0;
+	for (int i = 0; i < n; i++) delete arr[i];
+	return 0;
 }
