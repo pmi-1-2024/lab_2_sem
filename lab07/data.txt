@@ -1,0 +1,8 @@
+4
+t Electronics Kharkiv 900 100
+s Furniture Lviv 1500 200 Fragile
+t Food Poltava 700 150
+s Chemicals Zaporizhzhia 1300 250 RequiresVentilation
+2
+350
+350
