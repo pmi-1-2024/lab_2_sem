@@ -1,0 +1,7 @@
+1 Petriv 2024-01-01 bricks 100.0 500.50
+2 Ivanov 2024-01-02 cement 50.0 1000.0
+1 Petriv 2024-01-03 wood 200.0 1500.0
+2 Ivanov 2024-01-04 paint 20.0 800.0
+3 Fedorovuch 2025-04-02 concrete 30.0 600.0
+3 Fedorovuch 2025-04-08 concrete 10.0 200.0
+1 Petriv 2025-04-03 doors 6.0 80500.0
