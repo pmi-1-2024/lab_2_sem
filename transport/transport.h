@@ -17,7 +17,7 @@ protected:
 public:
     Transport() : cargo(T()), destination(""), cost(0.0) {}
     Transport(T c, string destination, double cost, double weight)
-        : cargo(cargo), destination(destination), cost(cost), weight(weight) {
+        : cargo(c), destination(destination), cost(cost), weight(weight) {
     }
 
     virtual double countDiscount(double percent) { return cost - (cost * percent / 100.0);  }

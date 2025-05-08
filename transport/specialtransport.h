@@ -11,7 +11,7 @@ class SpecialTransport : public Transport<T> {
 private:
     string specialConditions;  
 public:
-    SpecialTransport() : Transport<T>("", "", 0.0), specialConditions(" ") {}
+    SpecialTransport() : Transport<T>(T(), "", 0.0, 0.0), specialConditions(" ") {}
     SpecialTransport(T cargo, string destination, double cost, double weight, string cond)
         : Transport<T>(cargo, destination, cost, weight), specialConditions(cond) {}
 

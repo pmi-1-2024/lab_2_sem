@@ -17,7 +17,7 @@ int main() {
     }
 
     const int MAX_CARGO = 10;
-    Transport<string>* cargos[MAX_CARGO];
+    Transport<CargoItem>* cargos[MAX_CARGO];
     int totalCargos;
 
     fin >> totalCargos;
@@ -28,13 +28,13 @@ int main() {
         item.readFromFile(fin);
 
         if (item.type == 's') {
-            cargos[i] = new SpecialTransport<string>(
-                item.name, item.destination, item.cost, item.weight, item.condition);
+            cargos[i] = new SpecialTransport<CargoItem>(
+                item, item.destination, item.cost, item.weight, item.condition);
 
         }
         else {
-            cargos[i] = new Transport<string>(
-                item.name, item.destination, item.cost, item.weight);
+            cargos[i] = new Transport<CargoItem>(
+                item, item.destination, item.cost, item.weight);
 
         }
         totalCargoWeight += item.weight;

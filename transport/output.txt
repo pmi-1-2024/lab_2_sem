@@ -1,20 +1,20 @@
-Discounted price for Electronics: 810Cargo: 
+Discounted price for Electronics: 810Cargo: Name:Electronics, Destination:Kharkiv, Cost:900, Weight:100, Condition:-
 Destination: Kharkiv
 Cost: 900
 Weight: 100 kg
 
-Discounted price for Furniture: 1425Cargo: 
+Discounted price for Furniture: 1425Cargo: Name:Furniture, Destination:Lviv, Cost:1500, Weight:200, Condition:Fragile
 Destination: Lviv
 Cost: 1500
 Weight: 200 kg
 Special Conditions: Fragile
 
-Discounted price for Food: 630Cargo: 
+Discounted price for Food: 630Cargo: Name:Food, Destination:Poltava, Cost:700, Weight:150, Condition:-
 Destination: Poltava
 Cost: 700
 Weight: 150 kg
 
-Discounted price for Chemicals: 1235Cargo: 
+Discounted price for Chemicals: 1235Cargo: Name:Chemicals, Destination:Zaporizhzhia, Cost:1300, Weight:250, Condition:RequiresVentilation
 Destination: Zaporizhzhia
 Cost: 1300
 Weight: 250 kg

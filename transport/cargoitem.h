@@ -19,6 +19,14 @@ public:
 		if (type == 's') { is >> condition; }
 		else { condition = "-"; }
 	}
+	friend ostream& operator << (ostream& os, const CargoItem& item) {
+		os << "Name:" << item.name
+			<< ", Destination:" << item.destination
+			<< ", Cost:" << item.cost
+			<< ", Weight:" << item.weight
+			<< ", Condition:" << item.condition;
+		return os;
+	}
 };
 #endif
 
