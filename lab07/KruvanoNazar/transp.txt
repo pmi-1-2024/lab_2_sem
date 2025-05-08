@@ -1,0 +1,12 @@
+1 Passenger Ukrane 1200
+1 Medicine USA 1400
+2 Passenger Lviv 1000 
+VIP
+1 Fruits Kyiv 900
+2 Medicine Ukrane 1500
+Premium
+2 Fish France 1200 
+Premium
+1 Water Africa 700 
+2 Passenger Poland 1500
+Premium
