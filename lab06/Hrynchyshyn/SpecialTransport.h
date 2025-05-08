@@ -1,65 +1,76 @@
 #pragma once
-
-#include "Transport.h"
 #include <iostream>
 #include <string>
+#include <type_traits>
+#include <fstream>
+#include "Person.h"
+#include "Cargo.h"
+
 using namespace std;
 
 template <typename T>
-class SpecialTransport : public Transport<T> {
-private:
-	string specialConditions;
+class Transport {
+protected:
+    T cargo;
+    string destination;
+    double cost;
 
 public:
-	SpecialTransport() : specialConditions("") {}
-	SpecialTransport(const SpecialTransport& other) : Transport<T>(other), specialConditions(other.specialConditions) {}
-	SpecialTransport(const T& cargo, const string& destination, double cost, const string& conditions)
-		: Transport<T>(), specialConditions(conditions) {
-		this->cargo = cargo;
-		this->destination = destination;
-		this->cost = cost;
-	}
-	SpecialTransport& operator=(const SpecialTransport& other) {
-		if (this == &other) {
-			return *this;
-		}
-		Transport<T>::operator=(other);
-		specialConditions = other.specialConditions;
-		return *this;
-	}
-	~SpecialTransport() {}
+    Transport() : cargo(), destination(""), cost(0.0) {}
+    Transport(T c, string d, double co) : cargo(c), destination(d), cost(co) {}
+    virtual ~Transport() {}
 
-	void setSpecialConditions(const string& conditions) { specialConditions = conditions; }
+    T getCargo() const { return cargo; }
+    string getDestination() const { return destination; }
+    double getCost() const { return cost; }
 
-	const string& getSpecialConditions() const { return specialConditions; }
+    void setCargo(const T& c) { cargo = c; }
+    void setDestination(const string& d) { destination = d; }
+    void setCost(double c) { cost = c; }
 
-	double calculateDiscount() const override {
-		if (specialConditions == "medical" || specialConditions == "special") {
-			return this->cost * 0.1;
-		}
-		return 0.0;
-	}
+    virtual double calculateDiscount() const {
+        if constexpr (is_same<T, Person>::value) {
+            if (cargo.getAge() < 15)
+                return cost * 0.3;
+        }
+        else if constexpr (is_same<T, Cargo>::value) {
+            string cond = cargo.getSpecialCondition();
+            if (cond == "medicine" || cond == "volunteer") return cost * 0.4;
+        }
+        return 0.0;
+    }
 
-	void displayInfo() const override {
-		Transport<T>::displayInfo();
-		cout << "Special conditions: " << specialConditions << endl;
-	}
+    virtual void displayInfo() const {
+        cout << "Standard Transport:\n";
+        cout << "Cargo/Person Info:\n" << cargo;
+        cout << "Destination: " << destination << "\nCost: " << cost << "\n";
+    }
 
-	friend ostream& operator<<(ostream& os, const SpecialTransport& transport) {
-		transport.displayInfo();
-		return os;
-	}
+    virtual void save(ostream& out) const {
+        cargo.save(out);
+        out << destination << "\n";
+        out << cost << "\n";
+    }
 
-	friend istream& operator>>(istream& is, SpecialTransport& transport) {
-		cout << "Enter cargo: ";
-		is >> transport.cargo;
-		cout << "Enter destination: ";
-		is >> transport.destination;
-		cout << "Enter transportation cost: ";
-		is >> transport.cost;
-		cout << "Enter special conditions: ";
-		is >> transport.specialConditions;
-		return is;
-	}
+    virtual void load(istream& in) {
+        cargo.load(in);
+        getline(in, destination);
+        in >> cost;
+    }
+
+    friend istream& operator>>(istream& in, Transport<T>& t) {
+        in >> t.cargo;
+        cout << "Enter destination: ";
+        getline(in, t.destination);
+        cout << "Enter cost: ";
+        in >> t.cost;
+        return in;
+    }
+
+    friend ostream& operator<<(ostream& out, const Transport<T>& t) {
+        out << t.cargo;
+        out << t.destination << "\n";
+        out << t.cost << "\n";
+        return out;
+    }
 };
-

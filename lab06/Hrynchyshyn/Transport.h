@@ -1,72 +1,76 @@
 ﻿#pragma once
-
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <type_traits>
+#include <fstream>
+#include "Person.h"
+#include "Cargo.h"
+
 using namespace std;
 
 template <typename T>
 class Transport {
 protected:
-	T cargo;
-	string destination;
-	double cost;
+    T cargo;
+    string destination;
+    double cost;
 
 public:
-	Transport() : cost(0.0) {}
-	Transport(const Transport& other) : cargo(other.cargo), destination(other.destination), cost(other.cost) {}
+    Transport() : cargo(), destination(""), cost(0.0) {}
+    Transport(T c, string d, double co) : cargo(c), destination(d), cost(co) {}
+    virtual ~Transport() {}
 
-	Transport& operator=(const Transport& other) {
-		if (this == &other) {
-			return *this;
-		}
-		cargo = other.cargo;
-		destination = other.destination;
-		cost = other.cost;
-		return *this;
-	}
-	virtual ~Transport() {}
+    T getCargo() const { return cargo; }
+    string getDestination() const { return destination; }
+    double getCost() const { return cost; }
 
+    void setCargo(const T& c) { cargo = c; }
+    void setDestination(const string& d) { destination = d; }
+    void setCost(double c) { cost = c; }
 
-	void setCargo(const T& newCargo) { cargo = newCargo; }
+    virtual double calculateDiscount() const {
+        if constexpr (is_same<T, Person>::value) {
+            if (cargo.getAge() < 15)
+                return cost * 0.3;
+        }
+        else if constexpr (is_same<T, Cargo>::value) {
+            string cond = cargo.getSpecialCondition();
+            if (cond == "medicine" || cond == "volunteer") return cost * 0.4;
+        }
+        return 0.0;
+    }
 
-	const T& getCargo() const {return cargo;}
+    virtual void displayInfo() const {
+        cout << "Standard Transport:\n";
+        cout << "Cargo/Person Info:\n" << cargo;
+        cout << "Destination: " << destination << "\nCost: " << cost << "\n";
+    }
 
-	void setDestination(const string& newDestination) {destination = newDestination;}
+    virtual void save(ostream& out) const {
+        cargo.save(out);
+        out << destination << "\n";
+        out << cost << "\n";
+    }
 
-	const string& getDestination() const {return destination;}
+    virtual void load(istream& in) {
+        cargo.load(in);
+        getline(in, destination);
+        in >> cost;
+    }
 
-	void setCost(double newCost) {cost = newCost;}
+    friend istream& operator>>(istream& in, Transport<T>& t) {
+        in >> t.cargo;
+        cout << "Enter destination: ";
+        getline(in, t.destination);
+        cout << "Enter cost: ";
+        in >> t.cost;
+        return in;
+    }
 
-	double getCost() const {return cost;}
-
-	virtual double calculateDiscount() const {return 0.0;}
-
-	virtual void displayInfo() const {
-		cout << "Cargo: " << cargo << endl;
-		cout << "Destination: " << destination << endl;
-		cout << "Cost: " << fixed << cost << endl;
-	}
-
-	friend ostream& operator<<(ostream& os, const Transport& transport) {transport.displayInfo();
-		return os;
-	}
-
-	friend istream& operator>>(istream& is, Transport& transport) {
-		cout << "Enter cargo: ";
-		is >> transport.cargo;
-		cout << "Enter destination: ";
-		is >> transport.destination;
-		cout << "Enter transportation cost: ";
-		is >> transport.cost;
-		return is;
-	}
-
-protected:
-	string formatDouble(double value) const {
-    stringstream ss;
-		ss << fixed << value;
-		return ss.str();
-	}
+    friend ostream& operator<<(ostream& out, const Transport<T>& t) {
+        out << t.cargo;
+        out << t.destination << "\n";
+        out << t.cost << "\n";
+        return out;
+    }
 };
-

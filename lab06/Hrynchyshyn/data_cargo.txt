@@ -1,0 +1,16 @@
+3
+1
+Books
+fragile
+Lviv
+190
+0
+Something 
+none
+Kalush
+350
+1
+Special
+fragile
+Stryi
+380
