@@ -1,0 +1,27 @@
+Discounted price for Electronics: 810Cargo: 
+Destination: Kharkiv
+Cost: 900
+Weight: 100 kg
+
+Discounted price for Furniture: 1425Cargo: 
+Destination: Lviv
+Cost: 1500
+Weight: 200 kg
+Special Conditions: Fragile
+
+Discounted price for Food: 630Cargo: 
+Destination: Poltava
+Cost: 700
+Weight: 150 kg
+
+Discounted price for Chemicals: 1235Cargo: 
+Destination: Zaporizhzhia
+Cost: 1300
+Weight: 250 kg
+Special Conditions: RequiresVentilation
+
+Cargo distributed successfully.
+Cargo distribution report:
+Transport 1 cargo: 350/350 kg is used
+Transport 2 cargo: 350/350 kg is used
+Total cargo weight: 700 kg
