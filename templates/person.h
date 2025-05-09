@@ -7,5 +7,6 @@ struct Person {
     string name;
     int age;
     bool operator<(const Person& other) const { return age < other.age;}
+    string getName() const { return name; }
 };
 

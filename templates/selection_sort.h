@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "utils.h"
 
 using namespace std;
 template <typename T>
@@ -14,12 +15,12 @@ void selectionSort(T arr[], int size) {
         swap(arr[i], arr[minIndex]);
     }
 }
-template <typename T, typename Comp>
-void selectionSort(T arr[], int size, Comp comp) {
+template <typename T>
+void selectionSort1(T arr[], int size, bool (*Comp)(T&, T&)) {
     for (int i = 0; i < size - 1; ++i) {
         int selectedIndex = i;
         for (int j = i + 1; j < size; ++j) {
-            if (comp(arr[j], arr[selectedIndex])) {
+            if (Comp(arr[j], arr[selectedIndex])) {
                 selectedIndex = j;
             }
         }

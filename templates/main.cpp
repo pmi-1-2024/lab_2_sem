@@ -66,9 +66,7 @@ int main() {
                 selectionSort(arr, size);
                 break;
             case 2:
-                selectionSort(arr, size, [](const Person& a, const Person& b) {
-                    return a.name < b.name;
-                    });
+                selectionSort1(arr, size, personComp);
                 break;
             default:
                 cout << "Try again.\n";

@@ -3,6 +3,10 @@
 #include <string>
 #include "person.h"
 
+bool personComp(Person& first, Person& second) {
+    return first.getName().length() < second.getName().length();
+}
+
 using namespace std;
 template <typename T>
 void inputArray(T arr[], int size) {
