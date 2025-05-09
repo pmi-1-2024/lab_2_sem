@@ -1,0 +1,7 @@
+gas Ivanov 3 600.50
+water Ivanov 1223 25.0 300.00
+gas Petrenko 2 450.00
+gas Shevchenko 4 700.00
+water Shevchenko 988 30.0 310.00
+gas Svyatoslav 2 150.0
+water Iwan 1200 34.0 100.0

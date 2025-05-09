@@ -1,0 +1,4 @@
+Ivanov 3 600.5
+Petrenko 2 450
+Shevchenko 4 700
+Svyatoslav 2 150
