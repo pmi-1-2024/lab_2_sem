@@ -1,5 +1,0 @@
-1 Xiaomi12 Xiaomi 650 Blue 256
-1 OnePlus9 OnePlus 780 Green 128
-2 MotorolaT200 Motorola 110 40 1
-2 SiemensGigaset Siemens 95 35 0
-1 Xperia5 Sony 920 Red 128
