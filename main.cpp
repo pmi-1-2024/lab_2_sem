@@ -1,31 +1,23 @@
-#include "PhoneManager.h"
 #include <fstream>
+#include "MobilePhone.h"
+#include "sort.h"
 
 int main() {
-    PhoneManager manager;
-    ifstream in("input.txt");
+	ifstream in("input.txt");
 
-    int type;
-    while (in >> type) {
-        Phone* p = nullptr;
-        if (type == 1) p = new MobilePhone();
-        else if (type == 2) p = new RadioPhone();
-        else continue;
+	const int MAX = 100;
+	MobilePhone phones[MAX];
+	int count = 0;
 
-        in >> *p;
-        manager.add(p);
-    }
+	while (in && count < MAX) {
+		in >> phones[count];
+		if (in) count++;
+	}
 
-    manager.printAll(cout);
+	insertionSort(phones, count);
 
-    cout << "\nSearching for 'Galaxy':" << endl;
-    manager.search("Galaxy", cout);
+	for (int i = 0; i < count; i++)
+		cout << phones[i];
 
-    cout << "\nRemoving 'Galaxy'..." << endl;
-    manager.removeByName("Galaxy");
-
-    cout << "\nAll after deletion:" << endl;
-    manager.printAll(cout);
-
-    return 0;
+	return 0;
 }
