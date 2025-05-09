@@ -14,6 +14,7 @@ class DefaultTransport{
         }
     
         DefaultTransport(double pr, string dest){
+            if(pr < 0) throw "Price cannot be a negative number";
             price = pr;
             destination = dest;
         }
@@ -35,6 +36,7 @@ class DefaultTransport{
         }
         virtual void input(istream& inp){
             inp >> price >> destination;
+            if(price < 0) throw "Price cannot be a negative number";
         }
         friend ostream& operator <<(ostream& out, DefaultTransport& t){
             out << endl;

@@ -7,6 +7,8 @@ struct Goods{
     bool fragile, medical;
 
     Goods(string n, int a, int pr, bool fr = false, bool md = false){
+        if(pr < 0) throw "Price cannot be a negative number";
+        if(a < 0) throw "Amount cannot be a negative number";
         name = n;
         amount = a;
         price = pr;
@@ -42,6 +44,8 @@ struct Goods{
 
     friend istream& operator >>(istream& inp, Goods& g){
         inp >> g.name >> g.amount >> g.price >> g.fragile >> g.medical;
+        if(g.price < 0) throw "Price cannot be a negative number";
+        if(g.amount < 0) throw "Amount cannot be a negative number";
         return inp;
     }
 };

@@ -1,6 +1,6 @@
 
 (SpecialTransport){
-	<price>980</price>
+	<price>-980</price>
 	<destination>sam_ne_znau_kuda</destination>
 	<object>
 	(Goods){

@@ -4,6 +4,7 @@ using namespace std;
 
 void read(string src, DefaultTransport ** list){
     ifstream file(src);
+    if(!file.is_open()) throw "File cannot be opened";
     string types, val, type, container;
     int i = 0;
     string object;

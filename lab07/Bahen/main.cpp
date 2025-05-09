@@ -3,7 +3,12 @@
 using namespace std;
 
 int main(){
-    DefaultTransport ** list = new DefaultTransport*[1];
-    read("data.txt",list);
-    return 0;
+    try{
+        DefaultTransport ** list = new DefaultTransport*[1];
+        read("data.txt",list);
+        return 0;
+    }
+    catch(const char* exception){
+        cerr << "Error: " << exception << endl;
+    }
 }

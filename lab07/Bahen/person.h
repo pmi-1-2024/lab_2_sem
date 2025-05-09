@@ -7,6 +7,7 @@ struct Person{
 
     Person(string n, int a){
         name = n;
+        if(a < 0) throw "Age cannot be a negative number";
         age = a;
     }
     Person(){
@@ -27,6 +28,7 @@ struct Person{
     }
     friend istream& operator >>(istream& inp, Person& p){
         inp >> p.name >> p.age;
+        if(p.age < 0) throw "Age cannot be a negative number";
         return inp;
     }
 };
