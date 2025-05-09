@@ -1,0 +1,4 @@
+0 Aahen 5 13000
+0 Bahen 3 12000
+0 Cahen 2 15000
+0 Dahen 1 19000

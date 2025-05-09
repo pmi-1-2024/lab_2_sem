@@ -1,0 +1,4 @@
+1 Bahen 12 8000
+1 Aahen 9 7000
+1 Cahen 15 3000
+1 Dahen 11 1000
