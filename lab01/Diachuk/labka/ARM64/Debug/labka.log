@@ -1,0 +1,10 @@
+﻿  main.cpp
+C:\Users\Ігор\source\repos\labka\labka\main.cpp(41,13): error C3861: 'searchByName': identifier not found
+C:\Users\Ігор\source\repos\labka\labka\main.cpp(46,13): error C3861: 'searchByGroup': identifier not found
+C:\Users\Ігор\source\repos\labka\labka\main.cpp(51,13): error C3861: 'searchBySubject': identifier not found
+C:\Users\Ігор\source\repos\labka\labka\main.cpp(56,13): error C3861: 'searchByResidence': identifier not found
+C:\Users\Ігор\source\repos\labka\labka\main.cpp(61,13): error C3861: 'searchByGrade': identifier not found
+C:\Users\Ігор\source\repos\labka\labka\main.cpp(66,13): error C3861: 'searchByPostalCode': identifier not found
+  name.cpp
+  zalikovka.cpp
+  Generating Code...
