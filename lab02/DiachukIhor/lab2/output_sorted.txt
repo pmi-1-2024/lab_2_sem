@@ -1,0 +1,6 @@
+Horse: Blacky, Year: 2008, Color: black, Breed: Mustang
+Horse: Spirit, Year: 2010, Color: white, Breed: Arabian
+Donkey: Don, Year: 2011, Species: Nubian, Height: 1.6m
+Donkey: Eeyore, Year: 2012, Species: African, Height: 1.4m
+Mule: Rocky, Year: 2013, Nickname: Brave
+Mule: Max, Year: 2015, Nickname: Strong
