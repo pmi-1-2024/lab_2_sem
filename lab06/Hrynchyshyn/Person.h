@@ -19,15 +19,12 @@ public:
     void setAge(int a) { age = a; }
 
     friend istream& operator>>(istream& in, Person& p) {
-        cout << "Enter person name: ";
-        getline(in, p.name);
-        cout << "Enter age: ";
-        in >> p.age;
+        p.load(in);
         return in;
     }
 
     friend ostream& operator<<(ostream& out, const Person& p) {
-        out << p.name << "\n" << p.age << "\n";
+        p.save(out);
         return out;
     }
 
@@ -40,6 +37,7 @@ public:
     }
 
     void load(istream& in) {
+        in.ignore();
         getline(in, name);
         in >> age;
     }

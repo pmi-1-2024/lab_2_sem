@@ -1,76 +1,41 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <type_traits>
-#include <fstream>
-#include "Person.h"
+#include "Transport.h"
 #include "Cargo.h"
 
-using namespace std;
-
-template <typename T>
-class Transport {
-protected:
-    T cargo;
-    string destination;
-    double cost;
-
+class SpecialTransport : public Transport<Cargo> {
 public:
-    Transport() : cargo(), destination(""), cost(0.0) {}
-    Transport(T c, string d, double co) : cargo(c), destination(d), cost(co) {}
-    virtual ~Transport() {}
+    SpecialTransport() : Transport() {}
+    SpecialTransport(Cargo c, string d, double co) : Transport(c, d, co) {}
 
-    T getCargo() const { return cargo; }
-    string getDestination() const { return destination; }
-    double getCost() const { return cost; }
-
-    void setCargo(const T& c) { cargo = c; }
-    void setDestination(const string& d) { destination = d; }
-    void setCost(double c) { cost = c; }
-
-    virtual double calculateDiscount() const {
-        if constexpr (is_same<T, Person>::value) {
-            if (cargo.getAge() < 15)
-                return cost * 0.3;
-        }
-        else if constexpr (is_same<T, Cargo>::value) {
-            string cond = cargo.getSpecialCondition();
-            if (cond == "medicine" || cond == "volunteer") return cost * 0.4;
-        }
+    double calculateDiscount() const override {
+        string sc = this->cargo.getSpecialCondition();
+        if (sc == "medicine") return cost * 0.4;
+        if (sc == "urgent") return cost * 0.1;
+        if (sc == "fragile") return cost * 0.05;
         return 0.0;
     }
 
-    virtual void displayInfo() const {
-        cout << "Standard Transport:\n";
-        cout << "Cargo/Person Info:\n" << cargo;
+    void displayInfo() const override {
+        cout << "Special Cargo Transport:\n";
+        cout << "Cargo: " << cargo.getName() << " [" << cargo.getSpecialCondition() << "]\n";
         cout << "Destination: " << destination << "\nCost: " << cost << "\n";
     }
 
-    virtual void save(ostream& out) const {
-        cargo.save(out);
-        out << destination << "\n";
-        out << cost << "\n";
+    void save(ostream& out) const override {
+        Transport<Cargo>::save(out);
     }
 
-    virtual void load(istream& in) {
-        cargo.load(in);
-        getline(in, destination);
-        in >> cost;
+    void load(istream& in) override {
+        Transport<Cargo>::load(in);
     }
 
-    friend istream& operator>>(istream& in, Transport<T>& t) {
-        in >> t.cargo;
-        cout << "Enter destination: ";
-        getline(in, t.destination);
-        cout << "Enter cost: ";
-        in >> t.cost;
+    friend istream& operator>>(istream& in, SpecialTransport& t) {
+        t.load(in);
         return in;
     }
 
-    friend ostream& operator<<(ostream& out, const Transport<T>& t) {
-        out << t.cargo;
-        out << t.destination << "\n";
-        out << t.cost << "\n";
+    friend ostream& operator<<(ostream& out, const SpecialTransport& t) {
+        t.save(out);
         return out;
     }
 };

@@ -54,23 +54,19 @@ public:
 
     virtual void load(istream& in) {
         cargo.load(in);
+        in.ignore();
         getline(in, destination);
         in >> cost;
+        in.ignore();
     }
 
     friend istream& operator>>(istream& in, Transport<T>& t) {
-        in >> t.cargo;
-        cout << "Enter destination: ";
-        getline(in, t.destination);
-        cout << "Enter cost: ";
-        in >> t.cost;
+        t.load(in);
         return in;
     }
 
     friend ostream& operator<<(ostream& out, const Transport<T>& t) {
-        out << t.cargo;
-        out << t.destination << "\n";
-        out << t.cost << "\n";
+        t.save(out);
         return out;
     }
 };

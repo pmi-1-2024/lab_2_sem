@@ -18,19 +18,16 @@ public:
     void setName(const string& n) { name = n; }
     void setSpecialCondition(const string& sc) { specialCondition = sc; }
 
-    friend istream& operator>>(istream& in, Cargo& c) {
-        cout << "Enter cargo name: ";
-        getline(in, c.name);
-        cout << "Enter special condition (medicine/urgent/fragile/none): ";
-        getline(in, c.specialCondition);
+friend istream& operator>>(istream& in, Cargo& c) {
+        c.load(in);
         return in;
     }
 
     friend ostream& operator<<(ostream& out, const Cargo& c) {
-        out << c.name << "\n" << c.specialCondition << "\n";
+        c.save(out);
         return out;
     }
-
+    
     bool operator==(const Cargo& other) const {
         return name == other.name && specialCondition == other.specialCondition;
     }
@@ -40,6 +37,7 @@ public:
     }
 
     void load(istream& in) {
+        in.ignore();
         getline(in, name);
         getline(in, specialCondition);
     }
