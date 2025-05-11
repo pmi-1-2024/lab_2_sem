@@ -1,31 +1,25 @@
-#include "PhoneManager.h"
+#include <iostream>
 #include <fstream>
+#include "utils.h"
+using namespace std;
 
 int main() {
-    PhoneManager manager;
-    ifstream in("input.txt");
+    ifstream file("logistics_data.txt");
+    int count = 0;
+    int discount_applied = 0;
+    ILogistics* logistics_array[8];
 
-    int type;
-    while (in >> type) {
-        Phone* p = nullptr;
-        if (type == 1) p = new MobilePhone();
-        else if (type == 2) p = new RadioPhone();
-        else continue;
+    LoadFromFile(file, logistics_array, count);
 
-        in >> *p;
-        manager.add(p);
-    }
+    int choice;
+    do {
+        ShowMenu();
+        cin >> choice;
+        HandleMenuChoice(logistics_array, count, choice, discount_applied);
+    } while (choice != 0);
 
-    manager.printAll(cout);
-
-    cout << "\nSearching for 'Galaxy':" << endl;
-    manager.search("Galaxy", cout);
-
-    cout << "\nRemoving 'Galaxy'..." << endl;
-    manager.removeByName("Galaxy");
-
-    cout << "\nAll after deletion:" << endl;
-    manager.printAll(cout);
+    for (int i = 0; i < count; ++i)
+        delete logistics_array[i];
 
     return 0;
 }
