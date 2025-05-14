@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 using namespace std;
 
 template<typename T>
@@ -13,6 +14,16 @@ void insertionSort(T arr[], int size) {
         }
         arr[j + 1] = key;
     }
+}
+
+template<typename T>
+bool descComp(const T& a, const T& b) {
+    return a > b;
+}
+
+template<>
+bool descComp<string>(const string& a, const string& b) {
+    return a > b;
 }
 
 template<typename T, typename C>

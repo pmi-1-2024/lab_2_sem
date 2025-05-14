@@ -38,22 +38,10 @@ int main() {
     cout << "Sorted cable: ";
     printArray(cableArr, cableSize);
 
-    insertionSort(intArr, intSize, [](const int& a, const int& b) {
-        return a > b;
-        });
-
-    insertionSort(doubleArr, doubleSize, [](const double& a, const double& b) {
-        return a > b;
-        });
-
-    insertionSort(strArr, strSize, [](const string& a, const string& b) {
-        return a > b;
-        });
-
-    insertionSort(cableArr, cableSize, [](const Cable& a, const Cable& b) {
-        return a > b;
-        });
-
+    insertionSort(intArr, intSize, descComp<int>);
+    insertionSort(doubleArr, doubleSize, descComp<double>);
+    insertionSort(strArr, strSize, descComp<string>);
+    insertionSort(cableArr, cableSize, descComp<Cable>);
 
     cout << "Sorted int(descending): ";
     printArray(intArr, intSize);
