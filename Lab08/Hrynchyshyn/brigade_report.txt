@@ -1,0 +1,4 @@
+Expenses for brigade #123 by date:
+2020-05-10 Paint 50 900
+2025-08-10 Cement 100 500
+Total expenses: 1400 UAH
