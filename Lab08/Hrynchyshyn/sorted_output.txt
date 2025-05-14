@@ -1,0 +1,12 @@
+Brigade #123  foreman: Andriyiv
+2025-08-10 Cement 100 500
+2020-05-10 Paint 50 900
+
+Brigade #789  foreman: Malchevska
+2025-08-15 Brick 50 300
+2022-05-12 Tiles 80 250
+
+Brigade #456  foreman: Yuzkiv
+2021-05-12 Sand 30 90
+2025-05-12 Sand 60 180
+
