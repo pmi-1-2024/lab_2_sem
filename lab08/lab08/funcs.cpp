@@ -1,4 +1,4 @@
-#include "expenses_processing.h"
+#include "funcs.h"
 #include <fstream>
 #include <algorithm>
 

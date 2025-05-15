@@ -1,11 +1,11 @@
-#include "expenses_processing.h"
+#include "funcs.h"
 #include <iostream>
 #include <deque>
 #include <algorithm>
 
 int main() {
-    string inFile = "expenses_data.txt";
-    string outFile = "sorted_expenses.txt";
+    string inFile = "data.txt";
+    string outFile = "sorted_data.txt";
 
     deque<Brigade> brigades;
 

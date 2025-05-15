@@ -1,5 +1,5 @@
-#ifndef EXPENSES_PROCESSING_H
-#define EXPENSES_PROCESSING_H
+#ifndef FUNCS_H
+#define FUNCS_H
 
 #include <string>
 #include <deque>
