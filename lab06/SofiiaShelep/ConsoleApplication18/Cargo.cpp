@@ -2,7 +2,9 @@
 
 istream& operator>>(istream& in, Cargo& c)
 {
-    in >> c.type >> c.weight;
+    getline(in, c.type);
+    in >> c.weight;
+    in.ignore();
     return in;
 }
 

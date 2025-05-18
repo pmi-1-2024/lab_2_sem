@@ -1,4 +1,4 @@
-﻿using namespace std;
+﻿﻿using namespace std;
 #include <iostream>
 #include <fstream>
 #include "Transport.h"
@@ -17,7 +17,7 @@ int main()
 
         int n;
         in >> n;
-        in.ignore(); 
+        in.ignore();
         if (n <= 0)
             throw invalid_argument("Invalid number of transports");
 
@@ -30,39 +30,15 @@ int main()
 
             if (type == "transport")
             {
-                string destination;
-                double price;
-                string passenger_name;
-                int passenger_age;
-
-                getline(in, destination);
-                in >> price;
-                in.ignore();
-                getline(in, passenger_name);
-                in >> passenger_age;
-                in.ignore();
-
-                Person person(passenger_name, passenger_age);
-                t[i] = new Transport<Person>(destination, price, person);
+                auto* temp = new Transport<Person>();
+                in >> *temp;
+                t[i] = temp;
             }
             else if (type == "special")
             {
-                string destination;
-                double price;
-                string cargo_name;
-                double cargo_weight;
-                string specialDelivery;
-
-                getline(in, destination);
-                in >> price;
-                in.ignore();
-                getline(in, cargo_name);
-                in >> cargo_weight;
-                in.ignore();
-                getline(in, specialDelivery);
-
-                Cargo cargo(cargo_name, cargo_weight);
-                t[i] = new SpecialTransport<Cargo>(destination, price, cargo, specialDelivery);
+                auto* temp = new SpecialTransport<Cargo>();
+                in >> *temp;
+                t[i] = temp;
             }
             else
             {
@@ -98,7 +74,7 @@ int main()
         {
             string destination;
             cout << "Enter new destination: ";
-            cin.ignore(); 
+            cin.ignore();
             getline(cin, destination);
             t[numberOfTransport - 1]->setDestination(destination);
         }
