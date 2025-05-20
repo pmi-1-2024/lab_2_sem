@@ -1,0 +1,2 @@
+Maximum number of consecutive spaces: 3
+There are no 5 (e) letters in a row.
