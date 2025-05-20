@@ -1,0 +1,3 @@
+(g) Is there a pair "on" or "no"? Yes
+(d) Are there adjacent identical characters? Yes
+(e) Do there exist i, j such that s[j] == s[i+1] and s[i] == s[j+1]? No
