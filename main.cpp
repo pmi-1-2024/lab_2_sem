@@ -1,31 +1,28 @@
-#include "PhoneManager.h"
-#include <fstream>
+﻿#include <iostream>
+#include "FileUtils.h"
+#include "SummaryUtils.h"
+
+using namespace std;
 
 int main() {
-    PhoneManager manager;
-    ifstream in("input.txt");
+    try {
+        vector<TeamData> rawData = readFromFile("materials.txt");
 
-    int type;
-    while (in >> type) {
-        Phone* p = nullptr;
-        if (type == 1) p = new MobilePhone();
-        else if (type == 2) p = new RadioPhone();
-        else continue;
+        map<int, TeamData> merged;
+        mergeTeams(rawData, merged);
 
-        in >> *p;
-        manager.add(p);
+        saveTeamsToFile(merged, "teams_output.txt");
+
+        map<string, MaterialSummary> summary;
+        summarizeMaterials(merged, summary);
+
+        saveSummaryToFile(summary, "summary_output.txt");
+
+        cout << " Processing complete. Data saved to files." << endl;
     }
-
-    manager.printAll(cout);
-
-    cout << "\nSearching for 'Galaxy':" << endl;
-    manager.search("Galaxy", cout);
-
-    cout << "\nRemoving 'Galaxy'..." << endl;
-    manager.removeByName("Galaxy");
-
-    cout << "\nAll after deletion:" << endl;
-    manager.printAll(cout);
+    catch (const exception& ex) {
+        cerr << "❌ Error: " << ex.what() << endl;
+    }
 
     return 0;
 }

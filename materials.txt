@@ -1,0 +1,13 @@
+1
+Petrenko Andriy
+2024-05-01 cement 10 1500
+2024-05-02 sand 20 500
+
+2
+Koval Oleg
+2024-05-01 cement 15 2200
+2024-05-03 wood 5 900
+
+1
+Petrenko Andriy
+2024-05-04 sand 10 250
