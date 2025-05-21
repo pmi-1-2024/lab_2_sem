@@ -1,31 +1,26 @@
-#include "PhoneManager.h"
-#include <fstream>
+#include <iostream>
+#include <vector>
+#include <windows.h>
+#include "utils.h"
+using namespace std;
 
 int main() {
-    PhoneManager manager;
-    ifstream in("input.txt");
+    SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);
 
-    int type;
-    while (in >> type) {
-        Phone* p = nullptr;
-        if (type == 1) p = new MobilePhone();
-        else if (type == 2) p = new RadioPhone();
-        else continue;
 
-        in >> *p;
-        manager.add(p);
+    vector<char> symbols;
+    cout << "Введіть послідовність символів (до першого '!'): ";
+
+    char ch;
+    while (cin.get(ch)) {
+        if (ch == '!') break;
+        symbols.push_back(ch);
     }
 
-    manager.printAll(cout);
-
-    cout << "\nSearching for 'Galaxy':" << endl;
-    manager.search("Galaxy", cout);
-
-    cout << "\nRemoving 'Galaxy'..." << endl;
-    manager.removeByName("Galaxy");
-
-    cout << "\nAll after deletion:" << endl;
-    manager.printAll(cout);
+    cout << "а) Кількість пропусків: " << countSpaces(symbols) << endl;
+    cout << "б) Містить 'ю': " << (containsChar(symbols, 'ю') ? "так" : "ні") << endl;
+    cout << "в) Усі символи зі слова 'dino': " << (onlyFromWord(symbols, "dino") ? "так" : "ні") << endl;
 
     return 0;
 }
