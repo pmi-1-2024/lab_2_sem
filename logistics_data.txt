@@ -1,0 +1,12 @@
+Freight Item1 200.5 Ukraine 500.0 1
+Traveler John 25 USA Destination1 300.0 1 high
+Freight Item3 300.0 China 600.0 0
+Traveler Mike 40 UK Destination3 250.0 1 low
+Freight Item4 120.0 USA 300.0 0
+Traveler Laura 22 France Destination4 280.0 0 high
+Freight Item5 400.0 Italy 700.0 1
+Traveler David 0 Germany Destination5 400.0 0 medium
+Freight Item7 180.0 Brazil 450.0 1
+Traveler James 33 Mexico Destination7 375.0 0 high
+Freight Item8 220.0 Russia 500.0 0
+Traveler Olivia 26 Italy Destination8 390.0 0 high
