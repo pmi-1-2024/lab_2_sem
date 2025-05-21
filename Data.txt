@@ -1,0 +1,7 @@
+6
+s people Kyiv 800 Passenger 10
+s vaccine Lviv 3000 Medical 25
+t bananas Odesa 1200
+t electronics Kharkiv 2100
+s people Dnipro 900 Passenger 5
+t sugar Uzhhorod 700
