@@ -1,31 +1,42 @@
-#include "PhoneManager.h"
-#include <fstream>
+#include "Utils.h"
 
 int main() {
-    PhoneManager manager;
-    ifstream in("input.txt");
+    vector<Delivery<string>*> deliveries;
 
-    int type;
-    while (in >> type) {
-        Phone* p = nullptr;
-        if (type == 1) p = new MobilePhone();
-        else if (type == 2) p = new RadioPhone();
-        else continue;
+    try {
+        ifstream fin("Data.txt");
+        readFile(fin, deliveries);
+        fin.close();
 
-        in >> *p;
-        manager.add(p);
+        int opt;
+        do {
+            menu();
+            cout << "Option: ";
+            cin >> opt;
+
+            switch (opt) {
+            case 1: showAll(deliveries); break;
+            case 2: {
+                string type;
+                cout << "Type: "; cin >> type;
+                filter(deliveries, type);
+                break;
+            }
+            case 3: maxCost(deliveries); break;
+            case 4: applySale(deliveries); break;
+            case 5: update(deliveries); break;
+            case 6: sum(deliveries); break;
+            case 0: break;
+            default: cout << "Wrong option\n";
+            }
+        } while (opt != 0);
+
+        for (auto d : deliveries)
+            delete d;
     }
-
-    manager.printAll(cout);
-
-    cout << "\nSearching for 'Galaxy':" << endl;
-    manager.search("Galaxy", cout);
-
-    cout << "\nRemoving 'Galaxy'..." << endl;
-    manager.removeByName("Galaxy");
-
-    cout << "\nAll after deletion:" << endl;
-    manager.printAll(cout);
+    catch (const exception& e) {
+        cerr << "Error: " << e.what() << endl;
+    }
 
     return 0;
 }
