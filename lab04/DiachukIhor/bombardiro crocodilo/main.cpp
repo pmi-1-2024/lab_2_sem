@@ -6,22 +6,22 @@ using namespace std;
 
 void menu() {
     cout << "\nМеню:" << endl;
-    cout << "1)Добавити студента" << endl;
-    cout << "2)Видалити студента" << endl;
-    cout << "3)Знайти студента" << endl;
-    cout << "4)Оновити інформацію" << endl;
-    cout << "5)Показати всіх студентів" << endl;
-    cout << "0)Вийти" << endl;
+    cout << "1) Добавити студента" << endl;
+    cout << "2) Видалити студента" << endl;
+    cout << "3) Знайти студента" << endl;
+    cout << "4) Оновити інформацію" << endl;
+    cout << "5) Показати всіх студентів" << endl;
+    cout << "0) Вийти" << endl;
     cout << "Ваш вибір: ";
 }
 
 int main() {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
 
     cout << "Лабораторна робота 4" << endl;
     cout << "Виконав студент групи ПМІ11 Дячук Ігор" << endl << endl;
-    cout << "інформація по коду:" << endl;
+    cout << "Інформація по коду:" << endl;
     cout << "Цей код реалізує систему для управління студентами за допомогою динамічних структур даних." << endl;
 
     Student_Manager manager;
@@ -34,49 +34,31 @@ int main() {
 
         switch (choice) {
         case 1: {
-            string name;
-            int id;
-            cout << "Введіть Ім'я студента: ";
-            getline(cin, name);
-            cout << "Введіть ID студента: ";
-            cin >> id;
-            manager.addStudent(Student(name, id));
+            Student student;
+            cin >> student;
+            manager.addStudent(student);
             cout << "Студента добавлено.\n";
             break;
         }
         case 2: {
-            string name;
-            int id;
-            cout << "Введіть Ім'я вже добавленого студента: ";
-            getline(cin, name);
-            cout << "Введіть ID студента: ";
-            cin >> id;
-            manager.removeStudent(Student(name, id));
+            Student student;
+            cin >> student;
+            manager.removeStudent(student);
             break;
         }
         case 3: {
-            string name;
-            int id;
-            cout << "Введіть Ім'я студента: ";
-            getline(cin, name);
-            cout << "Введіть ID студента: ";
-            cin >> id;
-            manager.findStudent(Student(name, id));
+            Student student;
+            cin >> student;
+            manager.findStudent(student);
             break;
         }
         case 4: {
-            string oldName, newName;
-            int oldId, newId;
-            cout << "Введіть Ім'я студента: ";
-            getline(cin, oldName);
-            cout << "Введіть ID студента: ";
-            cin >> oldId;
-            cin.ignore();
-            cout << "Введіть нове Ім'я студента: ";
-            getline(cin, newName);
-            cout << "Введіть новий ID студента: ";
-            cin >> newId;
-            manager.updateStudent(Student(oldName, oldId), Student(newName, newId));
+            Student oldStudent, newStudent;
+            cout << "Введіть старі дані студента:\n";
+            cin >> oldStudent;
+            cout << "Введіть нові дані студента:\n";
+            cin >> newStudent;
+            manager.updateStudent(oldStudent, newStudent);
             break;
         }
         case 5:

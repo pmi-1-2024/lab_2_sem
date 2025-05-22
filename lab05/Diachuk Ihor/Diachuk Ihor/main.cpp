@@ -1,13 +1,13 @@
 #include <iostream>
-#include "bubble_sort.h"
+#include "radix_sort.h"
 #include "student.h"
 #include "windows.h"
 
 using namespace std;
 
 int main() {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     int choice;
     cout << "Виберіть тип даних для сортування:\n";
     cout << "1. Цілі числа(int)\n2. Дробові числа(double)\n3. Cлова(string)\n4. Cтуденти(Custom struct)\n";
@@ -22,7 +22,7 @@ int main() {
         cout << "Введіть цілі числа: ";
         for (int i = 0; i < size; i++) cin >> arr[i];
 
-        bubbleSort(arr, size, less<int>());
+        radixSort(arr, size);
         cout << "Відсортовані числа: ";
         for (int i = 0; i < size; i++) cout << arr[i] << " ";
         cout << "\n";
@@ -38,11 +38,7 @@ int main() {
         cout << "Введіть дробові числа: ";
         for (int i = 0; i < size; i++) cin >> arr[i];
 
-        bubbleSort(arr, size, greater<double>());
-        cout << "Відсортовані числа: ";
-        for (int i = 0; i < size; i++) cout << arr[i] << " ";
-        cout << "\n";
-
+        cout << "Поцифрове сортування не підтримує дробові числа.\n";
         delete[] arr;
         break;
     }
@@ -54,7 +50,7 @@ int main() {
         cout << "Введіть слова: ";
         for (int i = 0; i < size; i++) cin >> arr[i];
 
-        bubbleSort(arr, size, less<string>());
+        radixSortString(arr, size);
         cout << "Відсортовані слова: ";
         for (int i = 0; i < size; i++) cout << arr[i] << " ";
         cout << "\n";
@@ -72,15 +68,15 @@ int main() {
             cin >> students[i].name >> students[i].age >> students[i].grade;
         }
 
-        bubbleSort(students, size, [](const Student& a, const Student& b) { return a.grade > b.grade; });
-        cout << "Відсортовані студенти за оцінкою: \n";
+        radixSortStudent(students, size);
+        cout << "Відсортовані студенти за іменем: \n";
         for (int i = 0; i < size; i++) cout << students[i] << "\n";
 
         delete[] students;
         break;
     }
     default:
-        cout << "БОМБОКЛААДдддддд\n";
+        cout << "Некоректний вибір!\n";
     }
 
     return 0;
