@@ -67,17 +67,17 @@ struct CargoDistribution {
 
     void printReport(double totalCargo) {
         double sum = 0;
-        cout << "\nÐîçïîä³ë âàíòàæó:\n";
+        cout << "\nÃÃ®Ã§Ã¯Ã®Ã¤Â³Ã« Ã¢Ã Ã­Ã²Ã Ã¦Ã³:\n";
         for (int i = 0; i < size; ++i) {
-            cout << "Transport #" << i + 1 << ": " << allocated[i] << " êã\n";
+            cout << "Transport #" << i + 1 << ": " << allocated[i] << " ÃªÃ£\n";
             sum += allocated[i];
         }
         double remainder = totalCargo - sum;
         if (remainder > 0) {
-            cout << "Íåðîçïîä³ëåíèé çàëèøîê: " << remainder << " êã\n";
+            cout << "ÃÃ¥Ã°Ã®Ã§Ã¯Ã®Ã¤Â³Ã«Ã¥Ã­Ã¨Ã© Ã§Ã Ã«Ã¨Ã¸Ã®Ãª: " << remainder << " ÃªÃ£\n";
         }
         else {
-            cout << "Âåñü âàíòàæ ðîçïîä³ëåíî.\n";
+            cout << "Ã‚Ã¥Ã±Ã¼ Ã¢Ã Ã­Ã²Ã Ã¦ Ã°Ã®Ã§Ã¯Ã®Ã¤Â³Ã«Ã¥Ã­Ã®.\n";
         }
     }
 };
@@ -99,7 +99,7 @@ bool distributeCargo(
     }
 
     if (filteredCount == 0) {
-        cout << "Íåìàº òðàíñïîðòó â ì³ñòî " << targetCity << " äëÿ ðîçïîä³ëó âàíòàæó.\n";
+        cout << "ÃÃ¥Ã¬Ã Âº Ã²Ã°Ã Ã­Ã±Ã¯Ã®Ã°Ã²Ã³ Ã¢ Ã¬Â³Ã±Ã²Ã® " << targetCity << " Ã¤Ã«Ã¿ Ã°Ã®Ã§Ã¯Ã®Ã¤Â³Ã«Ã³ Ã¢Ã Ã­Ã²Ã Ã¦Ã³.\n";
         delete[] filtered;
         return false;
     }
@@ -142,13 +142,13 @@ int main() {
 	SetConsoleOutputCP(1251);
     ifstream fin("input.txt");
     if (!fin) {
-        cerr << "Íå âäàëîñÿ â³äêðèòè ôàéë input.txt\n";
+        cerr << "ÃÃ¥ Ã¢Ã¤Ã Ã«Ã®Ã±Ã¿ Ã¢Â³Ã¤ÃªÃ°Ã¨Ã²Ã¨ Ã´Ã Ã©Ã« input.txt\n";
         return 1;
     }
 
     int transportCount;
     fin >> transportCount;
-    Transport<double>** transports = new Transport<double>*[transportCount];
+    Transport<int>** transports = new Transport<double>*[transportCount];
 
     for (int i = 0; i < transportCount; ++i) {
         int type;
@@ -180,21 +180,21 @@ int main() {
 
     fin.close();
 
-    cout << "\n--- ²íôîðìàö³ÿ ïðî òðàíñïîðò ---\n";
+    cout << "\n--- Â²Ã­Ã´Ã®Ã°Ã¬Ã Ã¶Â³Ã¿ Ã¯Ã°Ã® Ã²Ã°Ã Ã­Ã±Ã¯Ã®Ã°Ã² ---\n";
     for (int i = 0; i < transportCount; ++i) {
         transports[i]->printInfo();
     }
 
     for (int t = 0; t < numTasks; ++t) {
-        cout << "\n===== Ðîçïîä³ë âàíòàæó äëÿ ì³ñòà: " << tasks[t].city << " =====\n";
+        cout << "\n===== ÃÃ®Ã§Ã¯Ã®Ã¤Â³Ã« Ã¢Ã Ã­Ã²Ã Ã¦Ã³ Ã¤Ã«Ã¿ Ã¬Â³Ã±Ã²Ã : " << tasks[t].city << " =====\n";
         CargoDistribution distribution(transportCount);
         bool success = distributeCargo(tasks[t].cargoAmount, transports, transportCount, tasks[t].city, distribution);
         distribution.printReport(tasks[t].cargoAmount);
         if (success) {
-            cout << "Óâåñü âàíòàæ äëÿ ì³ñòà " << tasks[t].city << " ðîçïîä³ëåíèé óñï³øíî.\n";
+            cout << "Ã“Ã¢Ã¥Ã±Ã¼ Ã¢Ã Ã­Ã²Ã Ã¦ Ã¤Ã«Ã¿ Ã¬Â³Ã±Ã²Ã  " << tasks[t].city << " Ã°Ã®Ã§Ã¯Ã®Ã¤Â³Ã«Ã¥Ã­Ã¨Ã© Ã³Ã±Ã¯Â³Ã¸Ã­Ã®.\n";
         }
         else {
-            cout << "Íåäîñòàòíüî ì³ñòêîñò³ äëÿ âñüîãî âàíòàæó â ì³ñòî " << tasks[t].city << ".\n";
+            cout << "ÃÃ¥Ã¤Ã®Ã±Ã²Ã Ã²Ã­Ã¼Ã® Ã¬Â³Ã±Ã²ÃªÃ®Ã±Ã²Â³ Ã¤Ã«Ã¿ Ã¢Ã±Ã¼Ã®Ã£Ã® Ã¢Ã Ã­Ã²Ã Ã¦Ã³ Ã¢ Ã¬Â³Ã±Ã²Ã® " << tasks[t].city << ".\n";
         }
     }
 
