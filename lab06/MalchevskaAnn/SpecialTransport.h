@@ -1,14 +1,15 @@
 #pragma once
 #include "Transport.h"
 
-template <typename T>
+template <typename T = Cargo*>
 class SpecialTransport : public Transport<T> {
 private:
     string specialCondition;
     int discountPercent;
 public:
     SpecialTransport() : Transport<T>(), specialCondition("None"), discountPercent(0) {}
-    SpecialTransport(T l, string dest, double p, double cap, string cond, int dis) : Transport<T>(l, dest, p, cap), specialCondition(cond), discountPercent(dis) {}
+    SpecialTransport(T l, string dest, double p, double cap, string cond, int dis)
+        : Transport<T>(l, dest, p, cap), specialCondition(cond), discountPercent(dis) {}
 
     string getSpecialCondition() const { return specialCondition; }
     int getDiscountPercent() const { return discountPercent; }
@@ -43,7 +44,8 @@ public:
     }
 
     void saveToFile(ostream& os) const override {
-        os << getTypeChar() << " " << this->getLoad() << " " << this->getDestination() << " " << this->getPrice() << " " << this->getMaxCapacity() << " " << specialCondition << " " << discountPercent;
+        Transport<T>::saveToFile(os);
+        os << " " << specialCondition << " " << discountPercent;
     }
 };
 

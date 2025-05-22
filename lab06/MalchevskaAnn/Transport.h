@@ -1,19 +1,21 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Cargo.h"
 using namespace std;
 
-template <typename T>
+template <typename T = Cargo*>  
 class Transport {
 private:
-    T load;
+    T load;  
     string destination;
     double price;
     double maxCapacity;
     double currentLoad;
 public:
-    Transport() : load(T()), destination(""), price(0.0), maxCapacity(0.0), currentLoad(0.0) {}
+    Transport() : load(nullptr), destination(""), price(0.0), maxCapacity(0.0), currentLoad(0.0) {}
     Transport(T l, string dest, double p, double cap) : load(l), destination(dest), price(p), maxCapacity(cap), currentLoad(0.0) {}
+    ~Transport() { delete load; }  
 
     T getLoad() const { return load; }
     string getDestination() const { return destination; }
@@ -21,7 +23,10 @@ public:
     double getMaxCapacity() const { return maxCapacity; }
     double getCurrentLoad() const { return currentLoad; }
 
-    void setLoad(T l) { load = l; }
+    void setLoad(T l) {
+        delete load;  
+        load = l;
+    }
     void setDestination(string d) { destination = d; }
     void setPrice(double p) { price = p; }
     void setMaxCapacity(double cap) { maxCapacity = cap; }
@@ -40,7 +45,20 @@ public:
     }
 
     virtual void read(istream& is) {
-        is >> load >> destination >> price >> maxCapacity;
+        char cargoType;
+        is >> cargoType;
+        if (cargoType == 'P') {
+            string name;
+            is >> name;
+            load = new Person(name);
+        }
+        else {
+            string type;
+            double weight;
+            is >> type >> weight;
+            load = new Goods(type, weight);
+        }
+        is >> destination >> price >> maxCapacity;
     }
     friend istream& operator>>(istream& is, Transport& t) {
         t.read(is);
@@ -48,7 +66,9 @@ public:
     }
 
     virtual void print(ostream& os) {
-        os << "Load type: " << load << ", Destination: " << destination << ", Price: " << price << ", Max capacity: " << maxCapacity << ", Current load: " << currentLoad;
+        os << "Load: " << *load << ", Destination: " << destination
+            << ", Price: " << price << ", Max capacity: " << maxCapacity
+            << ", Current load: " << currentLoad;
     }
     friend ostream& operator<<(ostream& os, Transport& t) {
         t.print(os);
@@ -56,9 +76,14 @@ public:
     }
 
     virtual void saveToFile(ostream& os) const {
-        os << getTypeChar() << " " << load << " " << destination << " " << price << " " << maxCapacity;
+        os << getTypeChar() << " ";
+        if (dynamic_cast<Person*>(load)) {
+            os << "P " << dynamic_cast<Person*>(load)->getName();
+        }
+        else {
+            os << "G " << dynamic_cast<Goods*>(load)->getType() << " " << dynamic_cast<Goods*>(load)->getWeight();
+        }
+        os << " " << destination << " " << price << " " << maxCapacity;
     }
-
-    virtual ~Transport() {}
 };
 
