@@ -1,0 +1,7 @@
+6
+t Apple 500 Kyiv 2000 5000        
+s Person John Lviv 1500 3000 Passenger 10 
+t Electronics 100 Kharkiv 2500 4500
+s Person Mary Dnipro 1800 2800 Medical 15
+t Bananas 200 Odesa 1200 3500
+s Person Alex Kherson 2200 3700 Medical 20
