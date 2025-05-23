@@ -1,0 +1,6 @@
+1 Shevchenko 2023-01-01 Brick 100 5000
+1 Shevchenko 2023-01-05 Cement 50 2500
+2 Melnyk 2023-01-02 Wood 200 4000
+3 Kovalevych 2023-01-03 Paint 30 1500
+2 Melnyk 2023-01-04 Nails 500 250
+4 Kovalevych 2023-01-06 Sand 1000 800
