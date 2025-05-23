@@ -1,0 +1,5 @@
+Food Kyiv 100
+Goods Lviv 250
+Medical Odesa 300
+Special Kharkiv 400 urgent
+Passenger Odesa 150
