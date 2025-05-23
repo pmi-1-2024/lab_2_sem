@@ -1,3 +1,4 @@
-1 iPhone Apple 999 Silver 256
-1 Galaxy Samsung 799 Black 128
-2 VTech V123 59.99 45 1
+iPhone Apple 999 Silver 256
+Galaxy Samsung 799 Black 128
+Xiaomi Redmi 599 Blue 128
+Nokia Classic 399 Grey 64
