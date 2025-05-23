@@ -27,10 +27,10 @@ int main() {
         ofstream output("output.txt");
 
         if (!input.is_open()) {
-            throw runtime_error("Помилка відкриття input.txt");
+            throw runtime_error("Opening error input.txt");
         }
         if (!output.is_open()) {
-            throw runtime_error("Помилка відкриття output.txt");
+            throw runtime_error("Opening error output.txt");
         }
 
         istream_iterator<char> in_it(input), eof;
