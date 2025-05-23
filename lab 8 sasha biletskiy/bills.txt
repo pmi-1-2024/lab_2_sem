@@ -1,0 +1,7 @@
+G Petrenko 3 1500.50
+W Ivanenko 1200 15.5 520.00
+G Shevchenko 5 2300.00
+W Bondarenko 800 25.0 875.00
+W Melnyk 1300 17.5 600.00
+G Kravchuk 2 1000.00
+W Petrenko 1100 30.0 1050.00
