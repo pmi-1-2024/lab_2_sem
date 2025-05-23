@@ -10,7 +10,7 @@ int main() {
 
 
     vector<char> symbols;
-    cout << "Ââåä³òü ïîñë³äîâí³ñòü ñèìâîë³â (äî ïåðøîãî '!'): ";
+    cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð¿Ð¾ÑÐ»Ñ–Ð´Ð¾Ð²Ð½Ñ–ÑÑ‚ÑŒ ÑÐ¸Ð¼Ð²Ð¾Ð»Ñ–Ð² (Ð´Ð¾ Ð¿ÐµÑ€ÑˆÐ¾Ð³Ð¾ '!'): ";
 
     char ch;
     while (cin.get(ch)) {
@@ -18,9 +18,9 @@ int main() {
         symbols.push_back(ch);
     }
 
-    cout << "à) Ê³ëüê³ñòü ïðîïóñê³â: " << countSpaces(symbols) << endl;
-    cout << "á) Ì³ñòèòü 'þ': " << (containsChar(symbols, 'þ') ? "òàê" : "í³") << endl;
-    cout << "â) Óñ³ ñèìâîëè ç³ ñëîâà 'dino': " << (onlyFromWord(symbols, "dino") ? "òàê" : "í³") << endl;
+    cout << "Ð°) ÐšÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ Ð¿Ñ€Ð¾Ð¿ÑƒÑÐºÑ–Ð²: " << countSpaces(symbols) << endl;
+    cout << "Ð±) ÐœÑ–ÑÑ‚Ð¸Ñ‚ÑŒ 'ÑŽ': " << (containsChar(symbols, 'ÑŽ') ? "Ñ‚Ð°Ðº" : "Ð½Ñ–") << endl;
+    cout << "Ð²) Ð£ÑÑ– ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¸ Ð·Ñ– ÑÐ»Ð¾Ð²Ð° 'dino': " << (containsAllLetters(symbols, "dino") ? "Ñ‚Ð°Ðº" : "Ð½Ñ–") << endl;
 
     return 0;
 }
