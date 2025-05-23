@@ -1,0 +1,20 @@
+All transports:
+Cargo: Food, Destination: Kyiv, Price: 100
+Cargo: Goods, Destination: Lviv, Price: 250
+Cargo: Medical, Destination: Odesa, Price: 300
+Cargo: Special, Destination: Kharkiv, Price: 400
+Cargo: Passenger, Destination: Odesa, Price: 150
+
+Max price transport:
+Cargo: Special, Destination: Kharkiv, Price: 400
+
+Updating max transport:
+Cargo: UpdatedCargo, Destination: NewLocation, Price: 400
+
+After discount:
+Cargo: UpdatedCargo, Destination: NewLocation, Price: 400
+
+Passenger transports:
+Cargo: Passenger, Destination: Odesa, Price: 150
+
+Total cost: 1200

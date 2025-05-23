@@ -1,0 +1,15 @@
+Brigade ID: 3, : Anna
+  Date: 2025-04-02, Material: Cement, Volume: 15, Cost: 150
+Total Cost: 150
+
+Brigade ID: 1, : Arsen
+  Date: 2025-04-01, Material: Cement, Volume: 50, Cost: 500
+  Date: 2025-04-02, Material: Sand, Volume: 20, Cost: 200
+  Date: 2025-04-03, Material: Glass, Volume: 5, Cost: 200
+Total Cost: 900
+
+Brigade ID: 2, : Oleks
+  Date: 2025-04-01, Material: Bricks, Volume: 100, Cost: 1000
+  Date: 2025-04-03, Material: Paint, Volume: 10, Cost: 150
+Total Cost: 1150
+
