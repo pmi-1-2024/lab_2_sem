@@ -37,6 +37,12 @@ int main() {
         copy(inputIt, eof, back_inserter(data));
         inputFile.close();
 
+        for (char c : data) {
+            if (!(c >= 'a' && c <= 'z')) {
+                throw runtime_error("Only letters allowed");
+            }
+        }
+
         if (data.size() < 3) {
             throw runtime_error("Not enough characters in input");
         }
