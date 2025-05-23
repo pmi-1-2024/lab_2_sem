@@ -12,25 +12,18 @@
 
 using namespace std;
 
-class GroupLet {
-private:
-    string group;
-public:
-    GroupLet(const string& g) : group(g) {}
-
-    int operator()(const vector<char>& data) const {
-        int count = 0;
-        auto it = data.begin();
-        while (it != data.end()) {
-            it = search(it, data.end(), group.begin(), group.end());
-            if (it != data.end()) {
-                ++count;
-                ++it; 
-            }
+int countOccurrences(const vector<char>& data, const string& pattern) {
+    int count = 0;
+    auto it = data.begin();
+    while (it != data.end()) {
+        it = search(it, data.end(), pattern.begin(), pattern.end());
+        if (it != data.end()) {
+            ++count;
+            ++it;
         }
-        return count;
     }
-};
+    return count;
+}
 
 int main() {
     try {
@@ -48,22 +41,19 @@ int main() {
             throw runtime_error("Not enough characters in input");
         }
 
-        GroupLet findABC("abc");
-        GroupLet findABA("aba");
-
-        int countABC = findABC(data);
-        int countABA = findABA(data);
+        int countABC = countOccurrences(data, "abc");
+        int countABA = countOccurrences(data, "aba");
 
         ofstream outputFile("output.txt");
         if (!outputFile) {
             throw runtime_error("Cannot open output.txt");
         }
 
-        ostream_iterator<string> outIt(outputFile, "\n");
-        *outIt++ = "abc found: " + to_string(countABC);
-        *outIt++ = "aba found: " + to_string(countABA);
-        outputFile.close();
+        string result = "abc found: " + to_string(countABC) + "\n" + "aba found: " + to_string(countABA) + "\n";          
+        ostream_iterator<char> outputIt(outputFile);
+        copy(result.begin(), result.end(), outputIt);
 
+        outputFile.close();
         cout << "Result on txt";
     }
     catch (const exception& ex) {
