@@ -6,29 +6,29 @@
 using namespace std;
 
 int main() {
-    vector<char> chars;
     try {
-        if (!read("input.txt", chars)) {
-            cerr << "Reading error!" << endl;
-            return 1;
-        }
+        vector<char> chars;
+        read("input.txt", chars);
+
+        vector<char> result = replace(chars);
+
+        write("output.txt", result);
+    }
+    catch (const DataError& e) {
+        cerr << "Data error: " << e.what() << endl;
+        return 0;
+    }
+    catch (const FileError& e) {
+        cerr << "File error: " << e.what() << endl;
+        return 0;
     }
     catch (const exception& e) {
-        cerr << "Read error: " << e.what() << endl;
-        return 1;
+        cerr << "Other error: " << e.what() << endl;
+        return 0;
     }
-
-    vector<char> result = replace(chars);
-
-    try {
-        if (!write("output.txt", result)) {
-            cerr << "Writing error!" << endl;
-            return 2;
-        }
-    }
-    catch (const exception& e) {
-        cerr << "Write error: " << e.what() << endl;
-        return 2;
+    catch (...) {
+        cerr << "Unknown error" << endl;
+        return 0;
     }
 
     return 0;
