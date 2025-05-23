@@ -1,4 +1,4 @@
-Pavlenko 1 300
-Shevchenko 1 450
-Melnyk 2 800
-Ivanchenko 3 1200.5
+Pavlenko 1 300.000000
+Shevchenko 1 450.000000
+Melnyk 2 800.000000
+Ivanchenko 3 1200.500000

@@ -22,14 +22,14 @@ int main() {
         while (inFile >> type) {
             if (type == 'G') {
                 GasBill gb;
-                if (!(inFile >> gb.name >> gb.people >> gb.amount)) {
+                if (!(inFile >> gb)) {
                     throw runtime_error("Invalid data in gas bill entry.");
                 }
                 gasBills.push_back(gb);
             }
             else if (type == 'W') {
                 WaterBill wb;
-                if (!(inFile >> wb.name >> wb.lastMeter >> wb.volume >> wb.amount)) {
+                if (!(inFile >> wb)) {
                     throw runtime_error("Invalid data in water bill entry.");
                 }
                 waterBills.push_back(wb);
@@ -47,17 +47,16 @@ int main() {
         ofstream gasOut("gas_output.txt");
         cout << "=== Gas Bills (sorted by amount ascending) ===" << endl;
         for (const auto& g : gasBills) {
-            cout << g.name << " | People: " << g.people << " | Amount: " << fixed << setprecision(2) << g.amount << endl;
-            gasOut << g.name << " " << g.people << " " << g.amount << endl;
+            cout << g << endl;
+            gasOut << g.toFileString() << endl;
         }
         gasOut.close();
 
         ofstream waterOut("water_output.txt");
         cout << "\n=== Water Bills (sorted by volume descending) ===" << endl;
         for (const auto& w : waterBills) {
-            cout << w.name << " | Meter: " << w.lastMeter << " | Volume: " << w.volume
-                << " | Amount: " << fixed << setprecision(2) << w.amount << endl;
-            waterOut << w.name << " " << w.lastMeter << " " << w.volume << " " << w.amount << endl;
+            cout << w << endl;
+            waterOut << w.toFileString() << endl;
         }
         waterOut.close();
 
