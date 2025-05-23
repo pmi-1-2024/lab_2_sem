@@ -7,11 +7,12 @@
 using namespace std;
 int main()
 {
-
+    try{
     vector<char> v;
     int counter=0;
 
     ifstream inp("inp.txt");
+    if(! inp.is_open()) throw "Cannot open file";
     ofstream out("out.txt");
 
     istream_iterator<char> cin_it(inp);
@@ -30,4 +31,6 @@ int main()
     inp.close();
     out.close();
     return 0;
+    }
+    catch(const char* e){cout << e;}
 }
