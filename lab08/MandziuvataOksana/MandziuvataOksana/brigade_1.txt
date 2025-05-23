@@ -1,0 +1,4 @@
+Brigade #1 (Petrenko):
+2024-05-01 | Cement | 10 | 250
+2024-05-02 | Paint | 2 | 80
+Total cost: 330
