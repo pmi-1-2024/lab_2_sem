@@ -1,24 +1,29 @@
 #include "utils.h"
+#include <algorithm>
 #include <set>
+#include <iterator>
 
-int countSpaces(const std::vector<char>& data) {
-    int count = 0;
-    for (char c : data)
-        if (c == ' ') ++count;
-    return count;
+using namespace std;
+
+int countSpaces(const  vector<char>& data) {
+    return  count_if(data.begin(), data.end(), [](char c) { return c == ' '; });
 }
 
-bool containsChar(const std::vector<char>& data, char target) {
-    for (char c : data)
-        if (c == target) return true;
-    return false;
+bool containsChar(const  vector<char>& data, char target) {
+    return  any_of(data.begin(), data.end(), [target](char c) { return c == target; });
 }
 
-bool onlyFromWord(const std::vector<char>& data, const std::string& word) {
-    std::set<char> allowed(word.begin(), word.end());
-    for (char c : data) {
-        if (c != ' ' && !allowed.count(c))
-            return false;
-    }
-    return true;
+bool containsAllLetters(const  vector<char>& data, const  string& word) {
+     set<char> required(word.begin(), word.end());
+     set<char> found;
+
+     insert_iterator< set<char>> inserter(found, found.begin());
+
+     for_each(data.begin(), data.end(), [&](char c) {
+        if (required.count(c)) {
+            *inserter++ = c;
+        }
+        });
+
+    return found == required;
 }
