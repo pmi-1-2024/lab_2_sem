@@ -1,5 +1,0 @@
-1 iPhone13 Apple 999 Silver 128
-1 GalaxyS21 Samsung 850 Black 256
-2 PanasonicKX Panasonic 120 50 1
-2 GigasetC530 Gigaset 90 30 0
-1 Pixel7 Google 700 White 128

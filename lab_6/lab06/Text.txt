@@ -1,4 +1,0 @@
-CARGO Apples 50 Kyiv 1000 0
-CARGO Chemicals 100 Kharkiv 3000 1
-PASSENGER Ivan 25 Lviv 500 1
-PASSENGER Anna 30 Odesa 400 0
