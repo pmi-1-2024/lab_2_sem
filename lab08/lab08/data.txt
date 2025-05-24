@@ -1,0 +1,6 @@
+1	Arsen	2025-04-01	Cement	50	500
+1	Arsen	2025-04-02	Sand	20	200
+2	Oleks	2025-04-01	Bricks	100	1000
+2	Oleks	2025-04-03	Paint	10	150
+3	Anna	2025-04-02	Cement	15	150
+1	Arsen	2025-04-03	Glass	5	200

@@ -1,0 +1,7 @@
+Materials summary:
+Brick Total volume: 100, Total cost: 5000
+Cement Total volume: 50, Total cost: 2500
+Wood Total volume: 200, Total cost: 4000
+Nails Total volume: 500, Total cost: 250
+Paint Total volume: 30, Total cost: 1500
+Sand Total volume: 1000, Total cost: 800
