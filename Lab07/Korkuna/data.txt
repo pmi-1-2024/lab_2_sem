@@ -1,0 +1,14 @@
+
+(SpecialTransport){
+	<price>-980</price>
+	<destination>sam_ne_znau_kuda</destination>
+	<object>
+	(Goods){
+		<name>potato</name>
+		<amount>100</amount>
+		<price>3</price>
+		<fragile>0</fragile>
+		<medical>0</medical>
+	}</object>
+	<super_conditions>1</super_conditions>
+};
