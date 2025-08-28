@@ -1,0 +1,5 @@
+Liam 20045 Denver Colfax 3 74839 3 Physics 3 91 Chemistry 2 74 Math 1 88
+Ella 83012 Portland Stark 1 58327 5 History 2 81 English 1 77 Physics 3 89 Chemistry 2 83 Math 1 86
+Aiden 54321 Detroit Woodward 2 69238 4 Biology 2 87 Chemistry 3 81 Math 1 85 English 1 82
+Chloe 76032 SanDiego Harbor 4 37451 2 Math 1 79 English 1 78
+Lucas 11001 Nashville Music 2 40398 6 Geography 2 80 Biology 3 79 Chemistry 2 88 History 2 87 Physics 3 85 Math 1 89
