@@ -1,0 +1,6 @@
+Kravets 1600 12 360
+Petrenko 1200 10 300.75
+Shevchenko 1500 8 250.5
+Ivanov 1300 0 0
+Bondarenko 1550 0 0
+Hnatyuk 1400 0 0

@@ -1,0 +1,6 @@
+Bondarenko 1 500
+Hnatyuk 2 850
+Ivanov 3 1500.5
+Kravets 5 3000
+Petrenko 4 2000
+Shevchenko 2 1000
