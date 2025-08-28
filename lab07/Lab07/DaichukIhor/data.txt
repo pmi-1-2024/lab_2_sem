@@ -1,0 +1,4 @@
+passenger Ivanov Kyiv 100.0 normal
+cargo TV Lviv 200.0 fragile
+passenger Petrenko Odesa 120.0 medical
+cargo Laptop Kharkiv 300.0 normal
